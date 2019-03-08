@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform,StyleSheet,ScrollView, Text,TextInput, View, Image } from 'react-native';
+import { Platform,StyleSheet,ScrollView,TouchableOpacity,Text,TextInput, View, Image } from 'react-native';
 import BicardView from './../components/bicardview'
 
 const util = require("util");
@@ -72,8 +72,8 @@ constructor(props) {
   render() {
     return (
     <View style={{  marginHorizontal:16 }} >
-    <ScrollView  showsVertical ScrollIndicator={false}>
-         <View style={{    marginVertical:15,
+    <ScrollView  showsVerticalScrollIndicator={false}>
+         <View style={{    marginVertical:15,borderWidth:1,borderColor:'grey',
                                 width:Platform.OS === 'ios' ? 339:328,
                                 height:300}} >
           <Image source={require('../assets/mixto/calendar.png')} 
@@ -81,8 +81,11 @@ constructor(props) {
                    />  
 
           </View>
-        <View>
-        <BicardView
+        <View style={{marginTop:10}}>
+        <TouchableOpacity   
+           onPress={() => this.props.navigation.navigate("liveEventDetail")}
+        > 
+        <BicardView 
           fotoGrande={this.state.fotoGrande}
           fotoUser={this.state.fotoUser}
           usuario={this.state.usuario}
@@ -94,7 +97,9 @@ constructor(props) {
            texto2={this.state.texto2}
            direccion={this.state.direccion}
        />
+       </TouchableOpacity>
 
+       <View style={{marginTop:10}}>
        <BicardView
           fotoGrande={this.state.fotoGrande2}
           fotoUser={this.state.fotoUser2}
@@ -107,6 +112,7 @@ constructor(props) {
            texto2={this.state.texto2_2}
            direccion={this.state.direccion2}
        />
+       </View>
 
         </View>
         </ScrollView>

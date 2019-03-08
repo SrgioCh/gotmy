@@ -118,7 +118,7 @@ Try to use a 16:9 aspect ratio.
           onPress={() => this.props.navigation.navigate("publishPri7")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? 8:null,
         }}
         />     
 

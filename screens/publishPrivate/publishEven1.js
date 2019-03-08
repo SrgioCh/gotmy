@@ -50,7 +50,7 @@ export default class PublishEven1 extends Component {
 
 
   render() {
-     alert(this.state.textoLive)
+     //alert(this.state.textoLive)
     return (
 
       <View style={{flex: 1}}>
@@ -195,8 +195,8 @@ export default class PublishEven1 extends Component {
           onPress={() => this.props.navigation.navigate("publishEven2")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-             left: Platform.OS === 'ios' ? 15:null,
-             top: Platform.OS === 'ios' ? 15:'3%',
+             left: Platform.OS === 'ios' ? null:null,
+             top: Platform.OS === 'ios' ? '7%':'3%',
         }}
         />     
 

@@ -138,7 +138,9 @@ seleccion1=() =>{
                     
  <ScrollView>
 
-{/* -----------------BICARDVIEW--------------*/}       
+{/* -----------------BICARDVIEW--------------*/}  
+  <TouchableOpacity 
+            onPress = {() => this.props.navigation.navigate("liveEventDetail") } >     
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -233,12 +235,18 @@ seleccion1=() =>{
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
                         fontWeight:'bold',color:'#677183'}} >Fashion</Text>
-                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                      <View style={{flexDirection:'row'}}>
+                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
+                                style={{ width:11,height:11,marginLeft:2,marginTop:6}}
+                            />
+                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
                       fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
+                              paddingVertical:4,marginLeft:5}}>Live from New York, at 18:30 pm</Text>
+                       </View>
                      </View>
-   </View>  
+        </View>  
 </View>  
+</TouchableOpacity>
  {/* -------------------------------------------------------------------*/}
 
 

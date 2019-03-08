@@ -118,7 +118,7 @@ export default class PublishPri10 extends Component {
            <View style={{flexDirection:'row'}}>
              <View style={{ width:10,height:10,marginTop:5}}>
                      <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                      style={{borderRadius:Platform.OS === 'ios' ? 5:10  ,width:'100%',height:'100%'}}
                       />
                  </View>
               <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.paisInflu}</Text>

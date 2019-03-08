@@ -62,6 +62,7 @@ export default class CreateGroup extends Component {
 
   render() {
      
+    //mostrare en imagen a los elegidos :
     const elegidos = this.props.navigation.getParam('datos');
    
     var imagenes=elegidos.map((item,i)=> 
@@ -93,14 +94,16 @@ export default class CreateGroup extends Component {
                <View style={{flex:3,flexDirection:'row', padding:2}}>
                              <View style={{width:80,height:80}}>
                               <Image source={require('../../assets/mixto/chatgrouppaisaje.png')} 
-                                    style={{ width:'100%',height:'100%',borderRadius:100 }}
+                                    style={{ width:'100%',height:'100%',
+                                     borderRadius: Platform.OS === 'ios' ? 40:100 }}
                                 /> 
                              </View> 
                              <View style={{width:50,height:50,marginTop:'30%',
-                                          marginLeft:'-35%' 
+                                          marginLeft:Platform.OS === 'ios' ? '-35%':'-35%' 
                                     }}>
                               <Image source={require('../../assets/icons_genGMI/foto.png')} 
-                                    style={{ width:'100%',height:'100%',borderRadius:100 }}
+                                    style={{ width:'100%',height:'100%',
+                                      borderRadius:Platform.OS === 'ios' ? 25:100 }}
                                 /> 
                              </View> 
                </View>

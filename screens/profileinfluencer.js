@@ -5,6 +5,7 @@ import { Platform, Alert,TouchableOpacity,
   Image} from 'react-native';
 
 import Button from 'react-native-button'; 
+import {Ionicons}  from "@expo/vector-icons"
 
 export default class Profileinfluencer extends Component {
    static navigationOptions = {
@@ -23,6 +24,10 @@ export default class Profileinfluencer extends Component {
     <ScrollView  >
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
+
+<TouchableOpacity
+             onPress={() => this.props.navigation.navigate("requesPendin")}
+             >
      <Image
               source={require('../assets/influencers/MandyJTV/many1.jpg')}
                style={{
@@ -32,6 +37,8 @@ export default class Profileinfluencer extends Component {
                }}
             />
 
+
+    </TouchableOpacity> 
 
     <View style={{marginHorizontal:16,
           position:'absolute',top:210}}>
@@ -54,15 +61,36 @@ export default class Profileinfluencer extends Component {
   </View>
     </View>
     
+    <TouchableOpacity
+      style={{
+      
+        position:'absolute',right:10,top:35,
+        }}
+            
+            onPress={() => this.props.navigation.navigate("viewerChat")}
+             >
     <Image
-              source={require('../assets/icons_genGMI/LogOut.png')}
+              source={require('../assets/icons_genGMI/mensajex.png')}
                style={{
                width:40,
                height:40,
-               position:'absolute',right:10,top:25,
+               borderRadius:20,
+              
                }}
             />
 
+</TouchableOpacity>
+        
+         <View style={{position:'absolute',left:'4%',top:'2.3%', zIndex:6}}>
+         
+          <TouchableOpacity 
+              onPress={() => this.props.navigation.pop()}
+            >
+         <Ionicons name="md-arrow-round-back" size={38} color="white" />
+         </TouchableOpacity>
+        </View> 
+        
+ 
     {/* numero grande de estadistica*/}
    <View style={{flexDirection:'row',marginHorizontal:15}}>
        <View style={{flex:2,alignItems:'center'}} >
@@ -313,6 +341,9 @@ export default class Profileinfluencer extends Component {
 
              
 {/* -----------------BICARDVIEW--------------*/}       
+ <TouchableOpacity
+             onPress={() => this.props.navigation.navigate("liveEventDetail2")}
+             >
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -326,6 +357,7 @@ export default class Profileinfluencer extends Component {
 
 
 <View>
+
 <View style={{flexDirection:'row',
             marginHorizontal:16,marginVertical:14,
              position:'absolute',bottom:0,zIndex:4}}>
@@ -342,7 +374,8 @@ export default class Profileinfluencer extends Component {
       <View style={{flex:3,flexDirection:'column'}}>
      
           <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>Mabel Spencer</Text>
+          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>
+          Mandy JTV</Text>
          </View>
       
      
@@ -413,6 +446,7 @@ export default class Profileinfluencer extends Component {
                      </View>
    </View>  
 </View>  
+</TouchableOpacity>
  {/* -------------------------------------------------------------------*/}
 
 
@@ -595,11 +629,16 @@ export default class Profileinfluencer extends Component {
 
 {/*-------------------------------------------------------------------------------- */}
 
+
 <View style={{backgroundColor:'#ff5a60',padding:13,
   
       alignItems:'center',justifyContent:'center'}}>
+      <TouchableOpacity
+             onPress={() => this.props.navigation.navigate("requestPri1")}
+             >
    <Text style={{flex:1 , color:'white', 
      fontSize:17,letterSpacing:0.41 }}>Request Private Meeting</Text>
+     </TouchableOpacity>
 </View>
 
 

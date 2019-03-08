@@ -129,7 +129,10 @@ export default class SearchEvents extends Component {
   <ScrollView style={{marginTop:-35}}>
 
          
-{/* -----------------BICARDVIEW--------------*/}       
+{/* -----------------BICARDVIEW--------------*/}    
+ <TouchableOpacity
+             onPress={() => this.props.navigation.navigate("liveEventDetail")}
+             >
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -230,6 +233,7 @@ export default class SearchEvents extends Component {
                      </View>
    </View>  
 </View>  
+</TouchableOpacity>
  {/* -------------------------------------------------------------------*/}
 
       {/* -----------------BICARDVIEW--------------*/}       

@@ -173,12 +173,12 @@ export default class AddParticip1 extends Component {
               
 
      
-       <View style={{marginHorizontal:'4%',paddingVertical:15,flexDirection:'row' }}>
+       <View style={{marginHorizontal:'4%',paddingVertical:20,flexDirection:'row' }}>
              <View style={{flexDirection:'row',flex:1,backgroundColor:'#f6f6f6',
                       alignItems:'center',marginRight:5,borderRadius:10}}>
                      
                      <Image source={require('../../assets/icons_genGMI/lupa.jpg')} 
-                          style={{borderRadius:10 ,width:'10%',height:'40%'}}
+                          style={{borderRadius:10 ,width:'10%',height:'50%'}}
                    />
                     
                   <TextInput
@@ -261,7 +261,7 @@ export default class AddParticip1 extends Component {
                               
                               {/* creamos lass cajas y metemos los valores */}
                               <View style={{flex:1,flexDirection: 'row',marginBottom:10,
-                                 marginHorizontal:'4%' }}>
+                                 marginHorizontal:'5%' }}>
         
                            <View style={{flex:1.5}}>
                                  <Image source={item.foto} 
@@ -290,8 +290,8 @@ export default class AddParticip1 extends Component {
                      
                    </View>
 
-                      <View style={{flex:0.8,backgroundColor:'white',paddingTop:10,paddingBottom: 10,
-                             borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
+                      <View style={{flex:0.6,backgroundColor:'white',paddingTop:10,paddingBottom: 10,
+                              borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
                          <Checkbox
                     
 

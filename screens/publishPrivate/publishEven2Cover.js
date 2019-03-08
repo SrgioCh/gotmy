@@ -86,7 +86,7 @@ export default class PublisEven2Cover extends Component {
       top:'50%',
       left:'40%',
       position:'absolute',
-      borderRadius:30 
+      borderRadius: Platform.OS === 'ios' ? 25:30 
     }}
   source={require('../../assets/icons_genGMI/foto.png')}
 />
@@ -118,7 +118,7 @@ Try to use a 16:9 aspect ratio.
           onPress={() => this.props.navigation.navigate("publishEven4message")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? 8:null,
         }}
         />     
 

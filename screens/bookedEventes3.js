@@ -145,7 +145,9 @@ seleccion1=() =>{
  <ScrollView >
 
             
-{/* -----------------BICARDVIEW--------------*/}       
+{/* -----------------BICARDVIEW--------------*/}  
+<TouchableOpacity 
+            onPress = {() => this.props.navigation.navigate("liveEventDetail2") } >     
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -246,6 +248,7 @@ seleccion1=() =>{
                      </View>
    </View>  
 </View>  
+</TouchableOpacity>
  {/* -------------------------------------------------------------------*/}
  </ScrollView>
 
@@ -254,8 +257,7 @@ seleccion1=() =>{
     <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#312f3d'}}>
               <View style={{flex:1,padding:2}}>
               <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("discover")}
+              onPress={() => this.props.navigation.navigate("discover")}
              >
                    <View style={{flexDirection:'column',alignItems:'center'}} >
                       <View style={{ width:30,height:30,marginLeft:'15%'}}>

@@ -111,7 +111,8 @@ export default class PublishEven4message extends Component {
           onPress={() => this.props.navigation.navigate("previewLiveEvent")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? 8:null,
+          
         }}
         />     
 
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     textAreaContainer: {
         borderColor: '#f6f6f6',
         borderWidth: 2,
-        padding: 5,
+        padding: Platform.OS === 'ios' ? 40: 5,
         borderRadius:10,
         marginHorizontal:16,
         marginTop:20,

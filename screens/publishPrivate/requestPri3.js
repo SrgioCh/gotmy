@@ -266,14 +266,14 @@ $ 2,200</Text>
 </View>
 
 
-<View style={{ backgroundColor:'#ff5a60',marginTop:20,
+<View style={{ backgroundColor:'#ff5a60',marginTop:20,paddingVertical:8,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Send private request"
-          onPress={() => this.props.navigation.navigate("addParticip1")}
+          onPress={() => this.props.navigation.navigate("requestPri4")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          
         }}
         />     
 

@@ -241,6 +241,9 @@ export default class Search extends Component {
                 marginLeft : Platform.OS === 'ios' ? 10:0}}>
            
            <View style={{ paddingVertical:22,paddingHorizontal:10}}>
+           <TouchableOpacity
+                           onPress={() => this.props.navigation.navigate("profile1")}
+                          > 
                <Image source={require('../assets/influencers/uno.png')} 
                   style={styles.imagentrending}
                  />
@@ -262,6 +265,7 @@ export default class Search extends Component {
                    style={{ width:11,height:11,marginLeft:2}}
                    />
              </View>
+             </TouchableOpacity>
          </View>
 
          <View style={{ paddingVertical:22,paddingHorizontal:10}}>

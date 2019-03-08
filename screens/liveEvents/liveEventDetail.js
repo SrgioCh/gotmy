@@ -38,12 +38,16 @@ export default class LiveEventDetail extends Component {
 
 
       <View style={{flex: 1 }}>
-     
+         
           <View style={{flex:9,
               marginTop:24}}>
+               <TouchableOpacity
+             onPress={() => this.props.navigation.navigate("liveEventDetail2")}
+             > 
+            
               <ImageBackground source={require('../../assets/influencers/MandyJTV/liveeventDetail.png')}
               style={{width: '100%', height: '100%'}}>
-              
+           
                 
                 <View style={{flex:7,flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
@@ -66,7 +70,7 @@ export default class LiveEventDetail extends Component {
                     <View style={{flexDirection:'row'}}>
                            <View style={{ width:12,height:12,marginTop:5}}>
                               <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
-                              style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                              style={{borderRadius:Platform.OS === 'ios' ? 5:10 ,width:'100%',height:'100%'}}
                                />
                            </View>
                           <Text style={{fontSize:13,color:'white',marginLeft:4}}>{this.state.ciudaInflu}</Text>
@@ -107,15 +111,15 @@ export default class LiveEventDetail extends Component {
             </View>
 
    </ImageBackground>
- 
+   </TouchableOpacity>
         </View>
-   
+     
         <View style={{flex:1}}>
         <View style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
   
   alignItems:'center',justifyContent:'center'}}>
    <TouchableOpacity 
-     onPress = {() => this.props.navigation.navigate("liveEventDetail2") } >
+     onPress = {() => this.props.navigation.navigate("liveEventDetail3") } >
      <Text style={{flex:1 , color:'white', 
          fontSize:17,letterSpacing:0.41 }}>
           Buy ticket for $ {this.state.precioTicket}</Text>

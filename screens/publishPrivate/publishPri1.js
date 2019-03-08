@@ -110,7 +110,7 @@ export default class PublishPri1 extends Component {
 
 <View style={{marginHorizontal:15,borderRadius:27 ,borderWidth:1,borderColor:'#e2e7ee'}}>
    
-   <View style={{flexDirection:'row',paddingVertical:10}}>
+   <View style={{flexDirection:'row',paddingVertical:10,paddingLeft:10}}>
    <Image
               source={require('../../assets/banderasLenguaje/eeuu.png')}
                style={{
@@ -129,10 +129,24 @@ export default class PublishPri1 extends Component {
 </View>
     
 
-<View style={styles.text}>
+       <View style={styles.text}>
         <Text style={{color:'#697181',
                  fontSize:13}} >Private meeting description</Text>
        </View>
+       <View style={styles.textAreaContainer}>
+         
+           <TextInput
+              
+               underlineColorAndroid="transparent"
+                placeholder="Type something"
+              placeholderTextColor="grey"
+             numberOfLines={4}
+              multiline={true}
+              onChangeText={(text) => this.setState({text})}
+                value={this.state.text}
+                textAlignVertical='top'
+         />
+         </View>
 
    </View>
    
@@ -143,7 +157,7 @@ export default class PublishPri1 extends Component {
           onPress={() => this.props.navigation.navigate("publishPri2")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? 8:null,
         }}
         />     
 
@@ -170,7 +184,8 @@ const styles = StyleSheet.create({
   text:{
        color:"gray",
       marginHorizontal:16,
-      paddingVertical: 10,
+      paddingTop:5,
+      paddingBottom: 10,
      }, 
     input:{
       width:'91%',
@@ -182,6 +197,15 @@ const styles = StyleSheet.create({
       marginTop:5,
       marginBottom:8,
       marginLeft:15,
+    },
+    textAreaContainer: {
+      borderColor: '#f6f6f6',
+      borderWidth: 2,
+      padding: Platform.OS === 'ios' ? 40: 5,
+      borderRadius:10,
+      marginHorizontal:16,
+     
+
     },
 
 });

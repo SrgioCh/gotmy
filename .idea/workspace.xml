@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f2043da2-84fd-4ea0-a6fc-659d15b956cc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/mixto/calendar.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mixto/calendar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/SinUp_inicio.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SinUp_inicio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/bookedEventes1.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/bookedEventes1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/bookedEventes3.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/bookedEventes3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/discover.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/discover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/discoverCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/discoverCalendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/influencer/requestAcepted2.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/influencer/requestAcepted2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/influencer/requestDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/influencer/requestDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail2.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail3.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail4.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/liveEvents/liveEventDetail4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/mensaje1.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/mensaje1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/myWallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/myWallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/profileinfluencer.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/profileinfluencer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/AddParticip1.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/AddParticip1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/AddParticip1COPIA.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/createGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/createGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/previewLiveEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/previewLiveEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishEven1.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishEven1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishEven2.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishEven2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishEven2Cover.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishEven2Cover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishEven2Pricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishEven2Pricing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishEven4message.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishEven4message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishPri1.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishPri1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishPri10.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishPri10.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishPri2.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishPri2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishPri3.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishPri3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishPri4.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishPri4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/publishPri7.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/publishPri7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/requestPri1.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/requestPri1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/requestPri2.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/requestPri2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/requestPri3.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/requestPri3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/publishPrivate/requestPri4.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/publishPrivate/requestPri4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/searchCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/searchCategories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/searchevents.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/searchevents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/transferTomyAcount.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/transferTomyAcount.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="877503111">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="apk" value="2" />
+          <entry key="js" value="4" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="APK" value="2" />
+          <entry key="JavaScript" value="4" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="C:\Users\sergi\Desktop\keyGotmy.jks" />
+    <option name="KEY_ALIAS" value="gotmy" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-58" />
+    <option name="y" value="45" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="gotmyBarce" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="gotmyBarce" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="gotmyBarce" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="AndroidProguardConfigPaths" value="C:\Users\sergi\AppData\Local\Android\Sdk\tools\proguard\proguard-android.txt" />
+    <property name="AndroidRunProguardForReleaseBuild" value="false" />
+    <property name="ExportedApkPath" value="C:\Users\sergi\Desktop\gotmyBarce\node_modules\react-native\local-cli\core\__fixtures__\files\files.apk" />
+    <property name="ExportedModule" value="files" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2043da2-84fd-4ea0-a6fc-659d15b956cc" name="Default Changelist" comment="" />
+      <created>1552041807354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552041807354</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-58" y="45" width="1346" height="688" extended-state="0" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.22743683" visible="true" weight="0.17729394" />
+      <window_info id="Structure" order="2" sideWeight="0.77256316" side_tool="true" weight="0.17729394" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Messages" weight="0.32851985" />
+      <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Logcat" order="1" />
+      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Android Profiler" order="5" show_stripe_button="false" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Assistant" order="4" weight="0.32970452" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/screens/Attendees.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native/RNTester/android/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/lottie-react-native/src/android/build/intermediates/manifests/aapt/release/release.apk">
+      <provider selected="true" editor-type-id="apk-viewer" />
+    </entry>
+  </component>
+</project>

@@ -56,7 +56,7 @@ export default class LiveEventDetail2 extends Component {
          usu3:false,
          caja3: styles.socialBotone,
           marca3:styles.Textsinmarcar,
-         texto3:'Follow',
+         texto3:'Invite',
         
         //PAGAR
         precioTicket:20,
@@ -77,7 +77,7 @@ export default class LiveEventDetail2 extends Component {
                  <View style={{backgroundColor:'#f6f6f6',paddingBottom:7}}>
 
                        <View style={{borderRadius:10,
-                                width:Platform.OS === 'ios' ? 339:'100%',
+                                width:Platform.OS === 'ios' ? '100%':'100%',
                                 height:200}} >
                              <Image source={this.state.fotoGrande} 
                             style={{ zIndex:1,width:'100%',height:'100%'}}
@@ -106,7 +106,7 @@ export default class LiveEventDetail2 extends Component {
              </View>
 
         {/* cajita fecha*/}
-        <View style={{borderRadius:10,marginTop:-9,
+        <View style={{borderRadius:10,marginTop:  Platform.OS === 'ios' ? null:-9,
                         marginLeft:  Platform.OS === 'ios' ? 6:8,
                     marginRight:  Platform.OS === 'ios' ? 11:8,
                     flexDirection:'row',
@@ -161,7 +161,7 @@ export default class LiveEventDetail2 extends Component {
            <View style={{flexDirection:'row'}}>
              <View style={{ width:10,height:10,marginTop:5}}>
                      <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                      style={{borderRadius: Platform.OS === 'ios' ? 5:10 ,width:'100%',height:'100%'}}
                       />
                  </View>
               <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.paisInflu}</Text>
@@ -332,7 +332,7 @@ export default class LiveEventDetail2 extends Component {
          </View>
          <View style={{flexDirection:'row'}} >
          <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("liveEventDetail3")}
+             onPress={() => this.props.navigation.navigate("atends")}
              >
          <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
          </TouchableOpacity>

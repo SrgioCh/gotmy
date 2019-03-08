@@ -51,6 +51,7 @@ import LiveEventDetail from "./screens/liveEvents/liveEventDetail"
 import LiveEventDetail2 from "./screens/liveEvents/liveEventDetail2"
 import LiveEventDetail3 from "./screens/liveEvents/liveEventDetail3"
 import LiveEventDetail4 from "./screens/liveEvents/liveEventDetail4"
+import LiveEventStreaming from  "./screens/liveEvents/liveEventStreaming"
 
 import Mensaje1 from "./screens/mensaje1"
 import Mensaje2 from "./screens/influencer/mensaje2"
@@ -96,6 +97,7 @@ import PublisEven2Cover from "./screens/publishPrivate/publishEven2Cover"
 import PublishEven4message from "./screens/publishPrivate/publishEven4message"
 import PreviewLiveEvent  from "./screens/publishPrivate/previewLiveEvent"
 
+import RequestPri4B from "./screens/publishPrivate/requestPri4B"
 import RequestPri4 from "./screens/publishPrivate/requestPri4"
 import RequestPri1 from "./screens/publishPrivate/requestPri1"
 import RequestPri2 from "./screens/publishPrivate/requestPri2"
@@ -114,6 +116,7 @@ import ViewerChat from "./screens/viewerChat"
 import MyWallet from "./screens/myWallet"
 import Transactions from "./screens/transactions"
 import TransferTomyAcount from "./screens/transferTomyAcount"
+import TransferDetail from "./screens/transferDetail"
 
  
 
@@ -196,7 +199,10 @@ const RootStack = createStackNavigator(
     screen:LiveEventDetail3,
  },
  liveEventDetail4:{
-  screen:LiveEventDetail4,
+  screen:LiveEventDetail4,    
+},
+liveEventStreaming:{
+  screen:LiveEventStreaming,      
 },
 publishEven1:{
   screen:PublishEven1,
@@ -237,6 +243,9 @@ publishPri10:{
 requestPri4:{
   screen:RequestPri4,
 },
+requestPri4B:{
+  screen:RequestPri4B,
+},
 requestPri1:{
   screen:RequestPri1,
 },
@@ -276,8 +285,8 @@ requestPri3:{
     SearchCateg:{
       screen:SearchCategories,
     },
-
-    boked1:{
+  //Live events
+    boked1:{ 
       screen:BookedEvUno,
     },
     boked2:{
@@ -367,12 +376,16 @@ requestPri3:{
     } ,
     transferTomyAcount :{
        screen: TransferTomyAcount
+    } ,
+    transferDetail:{
+       screen: TransferDetail
     }
 
      
   },
+
   {
-    initialRouteName: 'myWallet',
+    initialRouteName: 'singUpInicio',
   }
 );
 

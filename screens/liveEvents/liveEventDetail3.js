@@ -65,7 +65,7 @@ export default class LiveEventDetail3 extends Component {
 
       <View style={{flex: 1}}>
         
-         
+    <View style={{flex:9}}>
       {/* CAJA DE FECHA */}
       <View style={{borderRadius:10,marginTop:5,
                         marginLeft:  Platform.OS === 'ios' ? 6:16,
@@ -262,16 +262,16 @@ export default class LiveEventDetail3 extends Component {
 </View>
 
 
-
+</View>
 
 
 
      {/* pie de pagina*/}
-      <View style={{flex:1,backgroundColor:'#ff5a60',paddingVertical: '2.5%',
+      <View style={{ flex:1,backgroundColor:'#ff5a60',
          alignItems:'center',justifyContent:'center'}}>
           <TouchableOpacity 
           onPress = {() => this.props.navigation.navigate("liveEventDetail4") } >
-           <Text style={{flex:1 , color:'white', 
+           <Text style={{flex:1 , color:'white', marginTop:'5%',
            fontSize:17,letterSpacing:0.41 }}>
            Pay $ {this.state.precioTicket}</Text>
         </TouchableOpacity>

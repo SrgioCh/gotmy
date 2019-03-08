@@ -612,16 +612,7 @@ export default class SearchCategories  extends Component {
             </View>
 </View>
 
-
-
-
-
-
-     <View style={styles.containerBoton}>
-             <Text  style={styles.textboton}> 
-             Continue
-           </Text>
-        </View> 
+ 
       
  </ScrollView>
 

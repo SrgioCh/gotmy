@@ -159,7 +159,7 @@ export default class RequestDetail extends Component {
           </View>
 
 
-         <Text style={{fontSize:16,color:'#312f3d',marginTop:15,marginBottom: 15,
+         <Text style={{fontSize:16,color:'#312f3d',marginTop:15,marginBottom:Platform.OS === 'ios' ? null: 15,
                  fontWeight: '500',marginHorizontal:16}}>Request description</Text>
 
          <Text style={{fontSize:14,color:'#312f3d',marginHorizontal:16,paddingBottom: 20}}>

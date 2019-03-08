@@ -147,7 +147,7 @@ presiona=()=>{
        <View style={{flex:0.8,backgroundColor:'white',paddingTop:10}}>
        <Checkbox
         
-  
+        label=' '
    onChange={() => {
      if(this.state.isChecked==true){
        this.setState({
@@ -188,7 +188,7 @@ presiona=()=>{
   <View style={{flex:0.9,backgroundColor:'white',paddingVertical:5}}>
        <Checkbox
         
-  
+        label=' '
    onChange={() => {
      if(this.state.isChecked2==true){
        this.setState({
@@ -233,7 +233,7 @@ presiona=()=>{
   <View style={{flex:0.9,backgroundColor:'white',paddingVertical:5}}>
        <Checkbox
         
-  
+        label=' '
    onChange={() => {
      if(this.state.isChecked3==true){
        this.setState({
@@ -278,7 +278,7 @@ presiona=()=>{
   <View style={{flex:0.9,backgroundColor:'white',paddingVertical:5}}>
        <Checkbox
         
-  
+        label=' '
    onChange={() => {
      if(this.state.isChecked4==true){
        this.setState({
@@ -322,10 +322,9 @@ presiona=()=>{
 <View style={{flexDirection: 'row',marginHorizontal:16}}>
   <View style={{flex:0.9,backgroundColor:'white',paddingVertical:5}}>
        <Checkbox
-        
-  
-   onChange={() => {
-     if(this.state.isChecked5==true){
+       label=' '
+       onChange={() => {
+        if(this.state.isChecked5==true){
        this.setState({
          isChecked5:false,
          
@@ -409,7 +408,7 @@ presiona=()=>{
        <View style={{flex:0.8,backgroundColor:'white',paddingTop:10}}>
        <Checkbox
         
-  
+        label=' '
    onChange={() => {
      if(this.state.isCheckedA==true){
        this.setState({
@@ -457,7 +456,7 @@ presiona=()=>{
 
        <View style={{flex:0.8,backgroundColor:'white',paddingTop:10}}>
        <Checkbox
-        
+        label=' '
   
    onChange={() => {
      if(this.state.isCheckedB==true){
@@ -510,7 +509,7 @@ presiona=()=>{
        <View style={{flex:0.8,backgroundColor:'white',paddingTop:10}}>
        <Checkbox
         
-  
+        label=' '
    onChange={() => {
      if(this.state.isCheckedC==true){
        this.setState({
@@ -547,27 +546,19 @@ presiona=()=>{
 
 {/* FIN */}
 
-<View style={{ backgroundColor:'#ff5a60',marginTop:20,
+<View style={{ backgroundColor:'#ff5a60',marginTop:20,paddingVertical:8,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Continue"
           onPress={() => this.props.navigation.navigate("requestPri2")}
+        
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+         
         }}
         />     
 
       </View>
-
-
-
-
-
-
-
-
-
 
 
 

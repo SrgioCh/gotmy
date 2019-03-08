@@ -1,13 +1,20 @@
 {
   "expo": {
-    "name": " gotmayBarce",
-    "slug": "gotmyBarce",
+    "name": " gotmayBarcelo",
+    "slug": "gotmybarcelo",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
       "ios",
       "android"
     ],
+    "ios": {
+      "bundleIdentifier": "com.climbsmedia.gotmyapp",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.climbsmedia.gotmyapp"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,8 +29,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    }
+    "description": ""
   }
 }

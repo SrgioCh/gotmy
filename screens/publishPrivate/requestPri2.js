@@ -155,14 +155,14 @@ presiona=()=>{
        />
        </View>
 
-       <View style={{ backgroundColor:'#ff5a60',marginTop:20,
+       <View style={{ backgroundColor:'#ff5a60',marginTop:120,paddingVertical:8,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Continue"
           onPress={() => this.props.navigation.navigate("requestPri3")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          
         }}
         />     
 
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
     textAreaContainer: {
         borderColor: '#f6f6f6',
         borderWidth: 2,
-        padding: 5,
+        padding: Platform.OS === 'ios' ? 55: 5,
         borderRadius:10,
         marginHorizontal:16,
         marginTop:20,

@@ -215,7 +215,7 @@ Choose a discount %
           onPress={() => this.props.navigation.navigate("publisEven2Cover")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? 8:null,
         }}
         />     
 

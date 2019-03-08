@@ -209,7 +209,7 @@ export default class PublishEven2 extends Component {
                           {/* meteremos el toogle aqui*/}
                           <SwitchToggle
                               backgroundColorOn='white'
-                              backgroundColorOff='red'
+                              backgroundColorOff='#ff5a60'
                               containerStyle={{
                                 width: 40,
                                 height: 24,
@@ -226,7 +226,7 @@ export default class PublishEven2 extends Component {
                               switchOn={this.state.switchOn2}
                               onPress={this.onPress2} // funcion 
                               circleColorOff='white'
-                              circleColorOn='red'
+                              circleColorOn='#ff5a60'
                               duration={500}
                             />
                           
@@ -243,7 +243,7 @@ export default class PublishEven2 extends Component {
           onPress={() => this.props.navigation.navigate("publishEven2Pricing")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? '5%':null,
         }}
         />     
 

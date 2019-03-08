@@ -211,10 +211,16 @@ ventana=()=>{
                  <Text style={{color:"#312f3d",fontSize:17
                      ,fontWeight:'500'}}>Trending Influencers</Text>
                   </View>
+                  <TouchableOpacity   
+                onPress={() => this.props.navigation.navigate("searchuser")}
+                > 
                    <View style={{flexDirection:'row'}} >
+                 
                  <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
+               
                  </View>
+                 </TouchableOpacity>
                 </View>
    
 {/* ---------------- SECCION IMAGEN DESPLAZABLE-----------*/}
@@ -224,6 +230,9 @@ ventana=()=>{
               marginLeft : Platform.OS === 'ios' ? 10:0}}>
            
                 <View style={{ paddingVertical:22,paddingHorizontal:10}}>
+                <TouchableOpacity   
+                onPress={() => this.props.navigation.navigate("profile1")}
+                > 
                <Image source={require('../assets/influencers/uno.png')} 
                   style={styles.imagentrending}
                  />
@@ -245,6 +254,7 @@ ventana=()=>{
                    style={{ width:11,height:11,marginLeft:2}}
                    />
                    </View>
+                   </TouchableOpacity>
                  </View>
 
                  <View style={{ paddingVertical:22,paddingHorizontal:10}}>

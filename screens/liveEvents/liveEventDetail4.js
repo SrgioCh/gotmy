@@ -41,6 +41,8 @@ export default class LiveEventDetail4 extends Component {
      
           <View style={{flex:9,
               marginTop:24}}>
+              <TouchableOpacity 
+            onPress = {() => this.props.navigation.navigate("boked1") } >
               <ImageBackground source={require('../../assets/influencers/MandyJTV/mandylive2.png')}
               style={{width: '100%', height: '100%'}}>
               
@@ -116,7 +118,7 @@ export default class LiveEventDetail4 extends Component {
             </View>
 
    </ImageBackground>
- 
+   </TouchableOpacity>
         </View>
    
         <View style={{flex:1}}>
@@ -124,10 +126,10 @@ export default class LiveEventDetail4 extends Component {
   
   alignItems:'center',justifyContent:'center'}}>
    <TouchableOpacity 
-     onPress = {() => this.props.navigation.navigate("publishPri1") } >
+     onPress = {() => this.props.navigation.navigate("liveEventStreaming") } >
      <Text style={{flex:1 , color:'white', 
          fontSize:17,letterSpacing:0.41 }}>
-          Buy ticket for $ {this.state.precioTicket}</Text>
+          a live event streaming</Text>
        </TouchableOpacity>
        </View>
           </View >

@@ -5,6 +5,8 @@ import { Platform,AppRegistry, Alert,
   Image,TouchableOpacity} from 'react-native';
   import  {Button}  from "react-native-elements";
 
+  import SwitchToggle from 'react-native-switch-toggle';
+
 export default class PublishPri2 extends Component {
 
 
@@ -36,14 +38,27 @@ export default class PublishPri2 extends Component {
         super(props);
       
          this.state={
-         
-            nombreInflu:'Sophia Lindsey',
-            ciudaInflu:'Luxembourg',
+       //para toggle
+             switchOn2: false,
 
            
       }
       
       }// fin de consttructor
+
+      
+      onPress2 = () => {
+   
+        if(this.state.switchOn2){
+          this.setState({ switchOn2:false,
+               elegido:'No elegido'  })
+        }else{
+          this.setState({ switchOn2: true,
+                     elegido:'elegido'  })
+    
+        }
+       
+      }
 
 
   render() {
@@ -189,7 +204,29 @@ export default class PublishPri2 extends Component {
 
                   </View>
                        <View style={{flex:1,justifyContent:'center', borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}} >
-                      <Text>radius</Text>
+                       <SwitchToggle
+                              backgroundColorOn='white'
+                              backgroundColorOff='#ff5a60'
+                              containerStyle={{
+                                width: 40,
+                                height: 24,
+                                borderRadius: 25,
+                                borderWidth:1,
+                                padding: 5,
+                             }}
+                              circleStyle={{
+                                width: 18,
+                                height: 18,
+                                borderRadius: 19,
+                                backgroundColor: 'yellow', // rgb(102,134,205)
+                              }}
+                              switchOn={this.state.switchOn2}
+                              onPress={this.onPress2} // funcion 
+                              circleColorOff='white'
+                              circleColorOn='#ff5a60'
+                              duration={500}
+                            />
+                          
                   </View>
             </View>
 
@@ -203,7 +240,7 @@ export default class PublishPri2 extends Component {
           onPress={() => this.props.navigation.navigate("publishPri3")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          top: Platform.OS === 'ios' ? 8:null,
         }}
         />     
 

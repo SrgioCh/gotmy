@@ -11,7 +11,7 @@ export default class PreviewLiveEvent extends Component {
 
 
     static navigationOptions = {
-        headerTitle:'aqui ',
+        headerTitle:'',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -133,7 +133,8 @@ setModalVisible(visible) {
            <View style={{flexDirection:'row'}}>
              <View style={{ width:10,height:10,marginTop:5}}>
                      <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                      style={{borderRadius:Platform.OS === 'ios' ? 5:10 ,
+                      width:'100%',height:'100%'}}
                       />
                  </View>
               <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.paisInflu}</Text>
@@ -170,9 +171,9 @@ setModalVisible(visible) {
                    <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
                    fontWeight:'bold',color:'#ff5a60'}} >{this.state.texto2}</Text>
                    
-                   <View style={{flexDirection:'row'}}>
+                   <View style={{flexDirection:'row',padding:5}}>
                      <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
-                     style={{ width:15,height:15,marginTop:4,marginRight:5}}
+                     style={{ width:15,height:15, marginRight:5}}
                      />  
 
                    <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
@@ -396,7 +397,7 @@ $ {this.state.earn}</Text>
                 titleStyle={{ color: "#ffffff",
                 position: "absolute",
                 top: -5,
-                left: Platform.OS === 'ios' ? -45:null,
+                right: Platform.OS === 'ios' ? '25%':null,
                 }}
                 >
               </Button>

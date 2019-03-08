@@ -130,10 +130,14 @@ export default class Discover extends Component {
                  <Text style={{color:"#312f3d",fontSize:17
                      ,fontWeight:'500'}}>Trending Influencers</Text>
                   </View>
+                  <TouchableOpacity   
+                onPress={() => this.props.navigation.navigate("searchuser")}
+                > 
                    <View style={{flexDirection:'row'}} >
                  <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
                  </View>
+                 </TouchableOpacity>
                 </View>
    
 
@@ -147,6 +151,9 @@ export default class Discover extends Component {
               marginLeft : Platform.OS === 'ios' ? 10:0}}>
            
                 <View style={{ paddingVertical:22,paddingHorizontal:10}}>
+                <TouchableOpacity   
+                onPress={() => this.props.navigation.navigate("profile1")}
+                > 
                <Image source={require('../assets/influencers/uno.png')} 
                   style={styles.imagentrending}
                  />
@@ -168,6 +175,7 @@ export default class Discover extends Component {
                    style={{ width:11,height:11,marginLeft:2}}
                    />
                    </View>
+                   </TouchableOpacity>
                  </View>
 
                  <View style={{ paddingVertical:22,paddingHorizontal:10}}>
@@ -306,7 +314,7 @@ export default class Discover extends Component {
                </View>
               <View style={{flexDirection:'row'}} >
                  <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("upcoevent")}
+                     onPress={() => this.props.navigation.navigate("searchEvent")}
                      >
                       <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                       </TouchableOpacity>
@@ -315,7 +323,10 @@ export default class Discover extends Component {
             </View>
 
              
-{/* -----------------BICARDVIEW--------------*/}       
+{/* -----------------BICARDVIEW--------------*/}   
+<TouchableOpacity
+                     onPress={() => this.props.navigation.navigate("liveEventDetail")}
+                     >    
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -410,13 +421,18 @@ export default class Discover extends Component {
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
                         fontWeight:'bold',color:'#677183'}} >Fashion</Text>
-                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                      <View style={{flexDirection:'row'}}>
+                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
+                                style={{ width:11,height:11,marginLeft:2,marginTop:6}}
+                            />
+                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
                       fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
+                              paddingVertical:4,marginLeft:5}}>Live from New York, at 18:30 pm</Text>
+                       </View>
                      </View>
    </View>  
 </View>  
-      
+   </TouchableOpacity>   
          {/*  seccion trending media */}
     
           <View style={{flexDirection:'row',
@@ -428,7 +444,7 @@ export default class Discover extends Component {
 
                <View style={{flexDirection:'row'}} >
                <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("mediacontenInflu")}
+                     onPress={() => this.props.navigation.navigate("searchContent")}
                      >
                   <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                </TouchableOpacity>

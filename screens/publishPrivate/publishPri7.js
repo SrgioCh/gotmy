@@ -111,7 +111,7 @@ return (
       onPress={() => this.props.navigation.navigate("publishPri10")}
       type="clear"
       titleStyle={{ color: "#ffffff",
-      left: Platform.OS === 'ios' ? 15:null,
+      top: Platform.OS === 'ios' ? 8:null,
     }}
     />     
 
@@ -133,10 +133,10 @@ return (
 
 
 const styles = StyleSheet.create({
-textAreaContainer: {
+  textAreaContainer: {
     borderColor: '#f6f6f6',
     borderWidth: 2,
-    padding: 5,
+    padding: Platform.OS === 'ios' ? 40: 5,
     borderRadius:10,
     marginHorizontal:16,
     marginTop:20,

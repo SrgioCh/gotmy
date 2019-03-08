@@ -6,6 +6,7 @@ import { AppRegistry, Alert,
 
 import Button from 'react-native-button'; 
 
+
 export default class Mensaje1 extends Component {
 
 
@@ -48,11 +49,14 @@ export default class Mensaje1 extends Component {
 
   render() {
 
+  
    /*     const  mensaje1={
                 foto:'uno.png'
                }
 
   alert(mensaje1.foto);*/
+
+ 
 
     return (
 
@@ -157,6 +161,9 @@ export default class Mensaje1 extends Component {
 
 <ScrollView  >
 {/* --------------- BLOQUE MENSAJE -3 PARTES-------------------- */}
+  <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("requestPri4B")}
+                               >
 <View style={{flex:1,marginHorizontal:16,flexDirection:'row',marginBottom:10,
               }}>
 
@@ -220,13 +227,14 @@ export default class Mensaje1 extends Component {
        </View>
 
  </View>
-
-
 </View>
+</TouchableOpacity>
 {/* ----------------------------------------------------------- */}
+
 
 <View style={{flex:1,marginHorizontal:16,flexDirection:'row',marginBottom:10,
                }}>
+
 
   <View style={{flex:2,alignItems:'center'}}>
         <Image source={require(`../assets/influencers/influencer.png`)} 
@@ -266,7 +274,7 @@ export default class Mensaje1 extends Component {
            <Text style={{flex:7,fontSize:14,
                       color:'#312f3d'}}>{this.state.Use2mensa}</Text>
           
-          <View style={{alignItems:'flex-end',backgroundColor:'yellow'}}>
+          <View style={{alignItems:'flex-end'}}>
            <Image
               source={require('../assets/icons_genGMI/ArrowGrey.png')}
               style={{
@@ -289,8 +297,8 @@ export default class Mensaje1 extends Component {
 
  </View>
 
-
 </View>
+
 {/* ----------------------------------------------------------- */}
 
 
@@ -318,10 +326,10 @@ export default class Mensaje1 extends Component {
 
 
       
-          <View style={{backgroundColor:'yellow' ,marginTop:10}}>
+          <View style={{marginTop:10}}>
           
           <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("viewerChat")}
+              onPress={() => this.props.navigation.navigate("viewerChat")}
                                >
        
            <Image
@@ -480,8 +488,7 @@ export default class Mensaje1 extends Component {
   <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#312f3d'}}>
          <View style={{flex:1,padding:2}}>
               <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("discover")}
+             onPress={() => this.props.navigation.navigate("discover")}
              >
                    <View style={{flexDirection:'column',alignItems:'center'}} >
                       <View style={{ width:30,height:30,marginLeft:'15%'}}>
@@ -516,8 +523,7 @@ export default class Mensaje1 extends Component {
         
         <View style={{flex:1,alignItems:'center',padding:2}}>
         <TouchableOpacity
-              
-              onPress={() => this.props.navigation.navigate("boked1")}
+               onPress={() => this.props.navigation.navigate("boked1")}
                >
                 <View  style={{flexDirection:'column'}}>
                      

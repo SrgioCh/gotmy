@@ -4,6 +4,7 @@ import { Platform,AppRegistry, Alert,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
+  import  Modal  from "react-native-modal";
   import { Button } from "react-native-elements";
 
 export default class RequestPri4 extends Component {
@@ -44,16 +45,22 @@ export default class RequestPri4 extends Component {
          this.state={
          
              nombreInflu:'MandyJTv',
- 
-
+       
              attendes:'23 attendees',
              dates:'12 Jan, 2019',
              timess:'12:00 - 14:00 (2 hours)',
-             budgess:'1,200'
+             budgess:'1,200',
+
+             modalVisible: true,
+             fondoPrincipal:styles.transparentePrincipal
           }
       
       }// fin de consttructor
 
+      setModalVisible(visible) {
+        this.setState({modalVisible: visible,
+                           fondoPrincipal:''});
+      };
 
        guardar(){
            alert('create Private metting');
@@ -64,7 +71,7 @@ export default class RequestPri4 extends Component {
     return (
 
 
-          <View style={{flexDirection:'column',paddingBottom :20}}>
+          <View style={[{flexDirection:'column',paddingBottom :20 },this.state.fondoPrincipal]}>
            
            <ScrollView>
 
@@ -183,19 +190,93 @@ export default class RequestPri4 extends Component {
                    for something {'\n'}different to happen.
                  </Text>
 
-                 <View style={{ backgroundColor:'#e2e7ee',
+                 <View style={{ backgroundColor:'#e2e7ee',paddingVertical:8,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Cancel Request"
           onPress={() => this.props.navigation.navigate("requestPri1")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? 15:null,
+          left: Platform.OS === 'ios' ? null:null,
         }}
         />     
 
       </View>
       </ScrollView>
+
+
+        {/*   GENERACION DEL MODAL*/}
+       
+        
+        <Modal
+        style={{backgroundColor:"transparent",
+        opacity:0.99,
+                 justifyContent: 'center',
+                alignItems: 'center',
+                margin: 0,
+                borderRadius:20,
+      
+               }}
+          animationType="fade"
+        
+          transparent={true}
+          visible={this.state.modalVisible}
+          onBackdropPress={() => {
+            this.setModalVisible(!this.state.modalVisible);
+            this.setState({
+              fondoPrincipal:''
+            })
+          }}
+           
+           >
+
+          <View style={{backgroundColor:'white',borderRadius:20,
+                       marginHorizontal:'5%'}}>
+            <View>
+              <View style={{alignItems:'center',marginTop:'5%'}}>
+               <Image  
+              source={require("../../assets/influencers/influencer.png")}
+                />
+                </View>
+              <Text style={styles.modalTitle} >Request accepted!</Text>
+
+              <Text style={{ textAlign:'center',
+                        color:"gray",  fontSize: 14, marginLeft:3,
+                        marginRight:3, fontWeight: "normal",
+                         marginVertical: '3%',}}>
+			              Now you can create a private meeting {'\n'}
+                   folder for this follower</Text>
+               <View style={{
+                  backgroundColor: '#ff5a60',
+                  width:'70%',
+                  padding:15,
+                  color:'white',
+                  borderRadius:27,
+                  textAlign:"center",
+                  marginTop:'3%',
+                  marginHorizontal:'15%'
+               }}>
+               <Button style={styles.textboton}
+                title="Continue"
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                  this.setState({
+                    fondoPrincipal:''
+                  })
+                }}
+                type="clear"
+                titleStyle={{ color: "#ffffff",
+                position: "absolute",
+                top: -5,
+                left: Platform.OS === 'ios' ? -45:null,
+                }}
+                >
+              </Button>
+              </View>
+              
+            </View>
+          </View>
+        </Modal>
  </View>
  
               
@@ -220,4 +301,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
       
       },
+      transparentePrincipal:{
+        backgroundColor:'black',
+        opacity:0.5
+        },
 });

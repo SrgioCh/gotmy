@@ -4,7 +4,8 @@ import { Platform,AppRegistry, Alert,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import {CheckBox } from "react-native-elements";
+import {CheckBox} from "react-native-elements";
+import Checkbox from 'react-native-modest-checkbox';
 import Button from 'react-native-button'; 
 
 export default class  TransferTomyAcount extends Component {
@@ -30,6 +31,11 @@ export default class  TransferTomyAcount extends Component {
 
     state = {
         checked: false,
+
+             isCheckedA:false,
+             valueA:'',
+             isCheckedB:false,
+             valueB:'',
       };
     
       isChecked() {
@@ -104,11 +110,9 @@ export default class  TransferTomyAcount extends Component {
                         }}
                     />
              </View>
-             <View style={{flex:6,flexDirection:'column', paddingBottom:10,
+             <View style={{flex:8,flexDirection:'column', paddingBottom:10,
                            borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-                   <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("myWallet")}
-                      >
+                  
                    <View>
                       <Text style={{
                           color:'#312f3d',fontSize:16,letterSpacing:0.32, 
@@ -120,17 +124,46 @@ export default class  TransferTomyAcount extends Component {
                       }}>**** **** **** 0959</Text>
                        
                    </View>
-                   </TouchableOpacity>
+                 
              </View>
-             <View style={{flex:1,alignItems:'flex-end',justifyContent:'center', paddingBottom:10,
+             <View style={{flex:0.9, paddingBottom:10,
                      borderBottomColor:'#e2e7ee',borderBottomWidth:1}}>
-                  <Image
-                      source={require('../assets/icons_genGMI/ArrowGrey.png')}
-                       style={{ 
-                         
-                        
-                        }}
-                    />
+                        <Checkbox
+                        onChange={() => {
+                         if(this.state.isCheckedA==true){
+                        this.setState({
+                          isCheckedA:false,
+         
+                        })
+       
+       
+                      }else{
+                        this.setState({
+                          isCheckedA:true,
+      
+                        })
+                      }
+                    }}
+                    checked={this.state.isCheckedA}
+                    containerStyle={{
+                      backgroundColor:'white',
+                      marginTop:10,
+                     
+                    }}
+                    checkboxStyle={{
+                     
+                      backgroundColor:'white',
+    
+                    }}
+
+                    value={this.state.valueA}
+                    checkedImage={require('../assets/icons_genGMI/check.png')}
+                    uncheckedImage={require('../assets/icons_genGMI/checkNo.png')}
+
+                              />
+
+
+                     {/* fin de check box*/}
              </View>
         
          </View>
@@ -156,7 +189,7 @@ export default class  TransferTomyAcount extends Component {
                         }}
                     />
              </View>
-             <View style={{flex:6,flexDirection:'column', 
+             <View style={{flex:8,flexDirection:'column', 
              paddingBottom:10,  borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
                    <View>
                       <Text style={{
@@ -170,15 +203,44 @@ export default class  TransferTomyAcount extends Component {
                        
                    </View>
              </View>
-             <View style={{flex:1,alignItems:'flex-end',justifyContent:'center', paddingBottom:10,
+             <View style={{flex:0.9, paddingBottom:10,
                      borderBottomColor:'#e2e7ee',borderBottomWidth:1}}>
-                  <Image
-                      source={require('../assets/icons_genGMI/ArrowGrey.png')}
-                       style={{ 
-                         
-                        
-                        }}
-                    />
+                        <Checkbox
+                        onChange={() => {
+                         if(this.state.isCheckedB==true){
+                        this.setState({
+                          isCheckedB:false,
+         
+                        })
+       
+       
+                      }else{
+                        this.setState({
+                          isCheckedB:true,
+      
+                        })
+                      }
+                    }}
+                    checked={this.state.isCheckedB}
+                    containerStyle={{
+                      backgroundColor:'white',
+                      marginTop:10,
+                     
+                    }}
+                    checkboxStyle={{
+                     
+                      backgroundColor:'white',
+    
+                    }}
+
+                    value={this.state.valueB}
+                    checkedImage={require('../assets/icons_genGMI/check.png')}
+                    uncheckedImage={require('../assets/icons_genGMI/checkNo.png')}
+
+                              />
+
+
+                     {/* fin de check box*/}
              </View>
         
          </View>
@@ -206,7 +268,7 @@ export default class  TransferTomyAcount extends Component {
         
         {/*----------------------------------------------------- */}
         
-        <View style={{marginTop: Platform.OS === 'ios' ? 80 :45, marginHorizontal:16,
+        <View style={{marginTop: Platform.OS === 'ios' ? 80 :20, marginHorizontal:16,
             alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
           <Button
                 style={{

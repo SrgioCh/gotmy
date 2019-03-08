@@ -104,6 +104,9 @@ export default class MyWallet extends Component {
                                  <Text style={styles.textoDatos2}>{item.tipo}</Text>
                                  <Text style={styles.textoDatos1}>{item.trans}</Text>
                              </View>
+                             <TouchableOpacity
+                              onPress={() => this.props.navigation.navigate("transferDetail",{dinerillo:item.dinero})}
+                              > 
                              <View style={{flex:3,alignItems:'flex-end',justifyContent:'center'}}>
                                 <Text style={{
                                     color:'#312f3d',fontSize:20 ,fontWeight:'500' ,
@@ -112,6 +115,7 @@ export default class MyWallet extends Component {
                                    color:'#677183',fontSize:13   
                                 }}> {item.dineroTot}</Text>
                             </View>
+                            </TouchableOpacity>
                      </View>
                   )
           }else{
