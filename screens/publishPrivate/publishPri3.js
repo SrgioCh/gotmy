@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
   import  {Button}  from "react-native-elements";
@@ -67,7 +67,7 @@ alert(valores) */
 return (
 
   <View style={{flex: 1}}>
-    
+     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={{flex:9}}>
       
  <View style={{marginHorizontal:16,alignItems: 'center',
@@ -206,6 +206,7 @@ Choose a discount %
 
 
 </View>
+</TouchableWithoutFeedback>
 {/*  fin de contenedor */}
       <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
          borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
@@ -214,7 +215,7 @@ Choose a discount %
       onPress={() => this.props.navigation.navigate("publishPri4")}
       type="clear"
       titleStyle={{ color: "#ffffff",
-      top: Platform.OS === 'ios' ? 8:null,
+      top: Platform.OS === 'ios' ? 8:5,
     }}
     />     
 

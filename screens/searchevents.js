@@ -226,10 +226,16 @@ export default class SearchEvents extends Component {
                         fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#677183'}} >Fashion</Text>
-                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                      fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
+                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
+                          <View style={{flexDirection:'row'}}>
+                           <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
+                          style={{ width:13,height:13,marginTop:4,marginRight:5}}
+                            />  
+
+                           <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                           fontWeight:'bold',color:'#677183',
+                           paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
+                           </View>
                      </View>
    </View>  
 </View>  
@@ -330,12 +336,18 @@ export default class SearchEvents extends Component {
                         fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#677183'}} >Fashion</Text>
-                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                      fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
+                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
+                        <View style={{flexDirection:'row'}}>
+                           <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
+                          style={{ width:13,height:13,marginTop:4,marginRight:5}}
+                            />  
+
+                           <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                           fontWeight:'bold',color:'#677183',
+                           paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
+                           </View>
                      </View>
-   </View>  
+             </View>  
 </View>  
  {/* -------------------------------------------------------------------*/}
   

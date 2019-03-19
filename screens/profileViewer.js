@@ -7,7 +7,10 @@ import { AppRegistry, Alert,TouchableOpacity,
 import Button from 'react-native-button'; 
 
 export default class Profileviewer extends Component {
-
+   static navigationOptions = {
+      header: null ,
+  };
+  
 
   constructor(props){
 
@@ -69,16 +72,19 @@ seleccion1=() =>{
         <Text style={{fontSize:17,color:'white',paddingTop:20}}>
          12,342 Friends  984 Following</Text>
     </View>
-    
+    <TouchableOpacity
+                     onPress={() => this.props.navigation.navigate("viewerChat")  }
+                     style={{position:'absolute',right:10,top:25}}
+                 >
     <Image
-              source={require('../assets/icons_genGMI/LogOut.png')}
+              source={require('../assets/icons_genGMI/mensajex.png')}
                style={{
                width:40,
                height:40,
-               position:'absolute',right:10,top:25,
-               }}
+               borderRadius:20,
+                }}
             />
-
+    </TouchableOpacity>
      {/* ----------------------------------------*/} 
 
   {/* ----------biagraphy----------------*/} 
@@ -336,10 +342,16 @@ seleccion1=() =>{
          <View > 
          <Text style={{color:"#312f3d",fontSize:17}}>Past Live Events</Text>
          </View>
+         <TouchableOpacity
+                     onPress={() => this.props.navigation.navigate("mediacontent")  }
+                  >
          <View style={{flexDirection:'row'}} >
+         
          <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
          <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
+        
          </View>
+         </TouchableOpacity>
   </View>
  
 {/* --------------------------- --------------------*/}
@@ -398,16 +410,23 @@ seleccion1=() =>{
 
 {/* rEVIEWS*/}
 
+
+
+
 <View style={{flexDirection:'row',
                 justifyContent: 'space-between',padding:10,marginHorizontal:10
                 ,marginTop:10}}>
          <View > 
          <Text style={{color:"#312f3d",fontSize:17}}>Reviews</Text>
          </View>
+         <TouchableOpacity
+                     onPress={() => this.props.navigation.navigate("reviewTres")  }
+                  >
          <View style={{flexDirection:'row'}} >
          <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
          <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
          </View>
+         </TouchableOpacity>
   </View>
  
 {/* --------------------------- --------------------*/}

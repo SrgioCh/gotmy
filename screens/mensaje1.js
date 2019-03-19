@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
@@ -61,6 +61,7 @@ export default class Mensaje1 extends Component {
     return (
 
    <View style={{flex: 1}}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
           borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
             
@@ -98,19 +99,20 @@ export default class Mensaje1 extends Component {
           </View>
   
       </View>
+      </TouchableWithoutFeedback>
     <View style={{flex: 2}}>
       
    
 
 
 {/* TITULO */}  
-
+<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 <View style={{marginHorizontal:16}}>
     <Text style={{fontSize:34,color:'#312f3d',marginVertical:15,
            fontWeight: 'bold',}}>Messages</Text>
 
 </View>
-
+</TouchableWithoutFeedback>
 {/* BUSCADOR*/}
  <View style={{ marginHorizontal:16,marginBottom:20, paddingVertical:5,flexDirection:'row' }}>
       <View style={{flexDirection:'row',flex:5,backgroundColor:'#f6f6f6',
@@ -157,7 +159,7 @@ export default class Mensaje1 extends Component {
 
 </View>
 
-<View style={{flex:5}}>
+<View style={{flex:6}}>
 
 <ScrollView  >
 {/* --------------- BLOQUE MENSAJE -3 PARTES-------------------- */}
@@ -485,8 +487,8 @@ export default class Mensaje1 extends Component {
     </View>
   
       {/*   penta icon o  tabs */}
-  <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#312f3d'}}>
-         <View style={{flex:1,padding:2}}>
+  <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#312f3d' }}>
+         <View style={{flex:1,paddingTop:6,paddingHorizontal:2}}>
               <TouchableOpacity
              onPress={() => this.props.navigation.navigate("discover")}
              >
@@ -503,7 +505,7 @@ export default class Mensaje1 extends Component {
           </View>
   
       
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:6,paddingHorizontal:2}}>
         <TouchableOpacity
               
                onPress={() => this.props.navigation.navigate("search")}
@@ -521,7 +523,7 @@ export default class Mensaje1 extends Component {
          </View>
           
         
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:6,paddingHorizontal:2}}>
         <TouchableOpacity
                onPress={() => this.props.navigation.navigate("boked1")}
                >
@@ -537,7 +539,7 @@ export default class Mensaje1 extends Component {
               </TouchableOpacity>
        </View>
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:6,paddingHorizontal:2,marginRight:'-4%'}}>
                 <View  style={{flexDirection:'column'}}>
                   
                       <View style={{ width:30,height:30,marginLeft:'20%'}}>
@@ -551,7 +553,7 @@ export default class Mensaje1 extends Component {
    
                        
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:6,paddingHorizontal:2}}>
         <TouchableOpacity
              onPress={() => this.props.navigation.navigate("ActiOne")}
               >
@@ -584,33 +586,6 @@ export default class Mensaje1 extends Component {
 
 const styles = StyleSheet.create({
  
-//en lista influencer
-estrellasTrending:{
-  paddingTop:7,
-  marginLeft:-6,
-  flexDirection:'row',
-
-},
-socialBotonRojo:{
-  backgroundColor: '#ff5a60',
-  alignItems:'center',
-  borderRadius:27,
-  width:'80%',
-  paddingVertical:5,
-  paddingHorizontal:6,
-
-  
-},
-socialBotonBlanco:{
-  backgroundColor: 'white',
-  alignItems:'center',
-  borderRadius:27,
-  width:'80%',
-  paddingVertical:5,
-  paddingHorizontal:5,
-  borderWidth:1,
-  borderColor: '#312f3d',
-},
 pentaIcon:{
   color:'white',
   fontSize:13,

@@ -29,7 +29,7 @@ export default class Paymentmethodsadded extends Component {
 <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
         borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
-        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
+        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 16}}>
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
             <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,
@@ -184,6 +184,9 @@ export default class Paymentmethodsadded extends Component {
 
  </View>
 
+
+
+
 {/*----------------------------------------------------- */}
 
 <View style={{marginTop: Platform.OS === 'ios' ? 80 :45, marginHorizontal:16,
@@ -197,11 +200,9 @@ export default class Paymentmethodsadded extends Component {
          
           width:320,
          }}
-
-        
         styleDisabled={{color: 'red'}}
-        onPress={()=>{this.props.navigation.navigate("vieweredit")}}>
-        Edita tu Perfil  {/* viewer edit*/}
+        onPress={()=>{this.props.navigation.navigate("discover")}}>
+         Continue  {/* viewer edit*/}
       </Button>
 
         </View>

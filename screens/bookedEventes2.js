@@ -51,7 +51,7 @@ seleccion1=() =>{
       <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
           borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
             
-          <View style={{flexDirection:'row',paddingHorizontal:5}}>
+          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
               <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
               <Image source={require('../assets/reviews/kuskal.png')} 
                         style={{ width:40,height:40,
@@ -309,15 +309,14 @@ seleccion1=() =>{
          </View>
           
         
-        <View style={{flex:1,alignItems:'center',paddingBottom:2,
-                       paddingHorizontal:2,paddingTop:5}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:7,paddingHorizontal:2}}>
         <TouchableOpacity
               
               onPress={() => this.props.navigation.navigate("boked1")}
                >
                 <View  style={{flexDirection:'column'}}>
                      
-                     <View style={{ width:25,height:25,marginLeft:'25%'}}>
+                     <View style={{ width:25,height:25,marginLeft:'30%'}}>
                          <Image source={require('../assets/pentaicon/eventsRojo.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
@@ -327,21 +326,23 @@ seleccion1=() =>{
               </TouchableOpacity>
        </View>
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
-        <TouchableOpacity
+       <View style={{flex:1,alignItems:'center',paddingTop:7,paddingHorizontal:2,marginRight:'-4%'}}>
+      <TouchableOpacity
              onPress={() => this.props.navigation.navigate("mensa1")}
               >
-                <View  style={{flexDirection:'column'}}>
-                  
-                      <View style={{ width:30,height:30,marginLeft:'20%'}}>
-                         <Image source={require('../assets/pentaicon/message.jpg')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={styles.pentaIcon}>Messages</Text>
-                </View>
-                </TouchableOpacity>
-        </View>
+              <View  style={{flexDirection:'column'}}>
+                
+                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
+                       <Image source={require('../assets/pentaicon/message.jpg')} 
+                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                      />
+                       </View>
+                   <Text style={styles.pentaIcon}>Messages</Text>
+                   
+              </View>
+              </TouchableOpacity>
+              
+      </View>
    
                        
        

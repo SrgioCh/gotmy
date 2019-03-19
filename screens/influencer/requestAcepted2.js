@@ -185,7 +185,8 @@ export default class RequestAcepted2 extends Component {
   
              alignItems:'center',justifyContent:'center'}}>
               <TouchableOpacity 
-                onPress = { this.guardar.bind(this) } >
+                 onPress={() => this.props.navigation.navigate("publishPri1")} 
+                >
                 <Text style={{flex:1 , color:'white', 
                     fontSize:17,letterSpacing:0.41 }}>
                      Create Private Meeting</Text>

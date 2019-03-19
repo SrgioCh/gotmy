@@ -35,6 +35,7 @@ import DiscoverCategories from "./screens/discoverCategories"
 import DiscoverCalendar from "./screens/discoverCalendar"
 import DiscoverPreferences from "./screens/discoverPreferences"
 
+import Editinfluencerprofile from "./screens/editInfluencerProfile"
 
 import Search from "./screens/search";
 import SearchUsers from "./screens/searchUsers"
@@ -46,6 +47,8 @@ import SearchCategories from "./screens/searchCategories"
 import BookedEvUno  from  "./screens/bookedEventes1"
 import BookedEvDos  from  "./screens/bookedEventes2"
 import BookedEvTres  from  "./screens/bookedEventes3"
+import BookedEventsPresentation from "./screens/bookedEventesPresentation"
+import BookedEventsInformative from "./screens/bookedEventesInformative"
 
 import LiveEventDetail from "./screens/liveEvents/liveEventDetail"
 import LiveEventDetail2 from "./screens/liveEvents/liveEventDetail2"
@@ -76,6 +79,9 @@ import Following from "./screens/Following"
 
 //------------
 import Mediacontentsinfluencer from "./screens/mediaContentsInfluencer"
+import Mediacontentsmy  from "./screens/mediaContentsMy"
+import Mediacontent from "./screens/mediaContents"
+
 import Upcomingevents from "./screens/UpComingEvents"
 
 
@@ -189,7 +195,10 @@ const RootStack = createStackNavigator(
     discoverPreferences:{
        screen : DiscoverPreferences,
     },
-    liveEventDetail:{
+    editinfluencerprofile:{
+      screen :  Editinfluencerprofile,
+   },
+     liveEventDetail:{
        screen:LiveEventDetail,
     },
     liveEventDetail2:{
@@ -295,6 +304,12 @@ requestPri3:{
     boked3:{
       screen:BookedEvTres,
     },
+    boked4:{
+      screen:BookedEventsPresentation,
+    },
+    boked5:{
+      screen:BookedEventsInformative,
+    },
     mensa1:{
      screen:Mensaje1,
     },
@@ -335,10 +350,7 @@ requestPri3:{
     reviewTres:{
       screen:Reviewmy,
     },
-    reviewTres:{
-      screen:Reviewmy,
-    },
-    friends:{
+     friends:{
       screen:Friends,
     },
     atends:{
@@ -348,9 +360,14 @@ requestPri3:{
     followin:{
       screen:Following,
     },
-   
     mediacontenInflu:{
       screen:Mediacontentsinfluencer,
+    },
+    mediacontent:{
+      screen: Mediacontent,
+    },
+    mediacontentsmy:{
+      screen: Mediacontentsmy,
     },
     upcoevent:{
       screen:Upcomingevents,
@@ -379,13 +396,10 @@ requestPri3:{
     } ,
     transferDetail:{
        screen: TransferDetail
-    }
-
-     
+    }   
   },
-
   {
-    initialRouteName: 'singUpInicio',
+    initialRouteName: 'paymetho1',
   }
 );
 

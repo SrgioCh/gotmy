@@ -11,13 +11,13 @@ export default class DiscoverCalendar extends React.Component {
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
-      width: '80%',
+      width: '90%',
         fontWeight:'500',
             letterSpacing:0.41,
             height:120,
             fontSize:16,
             color:'#312f3d',
-            marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+            marginTop:  Platform.OS === 'ios' ? '45%':'40%',
 
        },
      headerRight: ( 
@@ -33,6 +33,7 @@ export default class DiscoverCalendar extends React.Component {
 
        </View>
        ),  
+       headerTintColor: '#ff5a60',
       
 };
 

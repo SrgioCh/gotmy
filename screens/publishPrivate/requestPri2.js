@@ -155,7 +155,7 @@ presiona=()=>{
        />
        </View>
 
-       <View style={{ backgroundColor:'#ff5a60',marginTop:120,paddingVertical:8,
+       <View style={{ backgroundColor:'#ff5a60',marginTop:160,paddingVertical:8,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Continue"

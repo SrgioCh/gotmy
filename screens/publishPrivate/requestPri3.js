@@ -69,11 +69,11 @@ presiona=()=>{
   render() {
 
     return (
-      <View style={{flexDirection:'column',paddingBottom :20}}>
+      <View style={{flexDirection:'column'}}>
            
       <ScrollView>
 
-      <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:8}}>
+      <View style={{flexDirection:'row',marginHorizontal:16,marginTop:8}}>
             <View style={{flex:2}}>
             <Image source={require('../../assets/influencers/uno.png')} 
             style={{ width:50,height:50,borderRadius:30}}
@@ -113,7 +113,7 @@ presiona=()=>{
 
   <View style={{marginHorizontal:16}}>
       
-           <Text style={{fontSize:20,color:'#312f3d',marginBottom: 10,
+           <Text style={{fontSize:20,color:'#312f3d',
             fontWeight: '500'}}>Pick up options to estimation</Text>
  
   </View>
@@ -182,15 +182,15 @@ presiona=()=>{
 </View>
 {/*  fin */}
 <View style={{flexDirection: 'row',marginHorizontal:16,marginVertical:20}}>
-      <View style={{flex:2,flexDirection:'column'}}>
+      <View style={{flex:5,flexDirection:'column'}}>
          <Text style={{
              color:'#697181',
              fontSize:13
         }}>Start time</Text>
           <View style={{marginTop:5,borderRadius:27 ,borderWidth:1,borderColor:'#e2e7ee',
-                      width:'95%'}}>
+                      width:'80%'}}>
    
-            <View style={{flexDirection:'row',paddingVertical:6,paddingLeft: 10}}>
+            <View style={{flexDirection:'row',paddingVertical:6,paddingLeft: '10%'}}>
                 <Image
               source={require('../../assets/icons_genGMI/TimeRed.png')}
                style={{
@@ -202,9 +202,9 @@ presiona=()=>{
   
                }}
             />
-         <Text style={{
-            color:'#677183',  fontSize:16,letterSpacing:0.32
-         }}>12:03 </Text>
+            <Text style={{
+             color:'#677183',  fontSize:16,letterSpacing:0.32,
+            marginLeft:'8%'}}>12:03 </Text>
             </View>
  
             </View>
@@ -215,9 +215,9 @@ presiona=()=>{
              fontSize:13
         }}>End time</Text>
           <View style={{marginTop:5,borderRadius:27 ,borderWidth:1,borderColor:'#e2e7ee',
-                      width:'40%'}}>
+                      width:'80%'}}>
    
-            <View style={{flexDirection:'row',paddingVertical:6,paddingHorizontal: 10}}>
+            <View style={{flexDirection:'row',paddingVertical:6,paddingLeft: '10%'}}>
                 <Image
               source={require('../../assets/icons_genGMI/TimeRed.png')}
                style={{
@@ -230,8 +230,8 @@ presiona=()=>{
                }}
             />
          <Text style={{
-            color:'#677183',  fontSize:16,letterSpacing:0.32
-         }}>14:15 </Text>
+            color:'#677183',  fontSize:16,letterSpacing:0.32,
+            marginLeft:'8%'}}>14:15 </Text>
             </View>
  
     </View>
@@ -266,7 +266,7 @@ $ 2,200</Text>
 </View>
 
 
-<View style={{ backgroundColor:'#ff5a60',marginTop:20,paddingVertical:8,
+<View style={{ backgroundColor:'#ff5a60',marginTop:20,paddingVertical:8,marginBottom:20,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Send private request"
@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
   
   estrellasTrending:{
     paddingTop:7,
-   marginBottom:20,
+   marginBottom:15,
     flexDirection:'row',
   
   },

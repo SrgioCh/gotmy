@@ -128,15 +128,15 @@ export default class PublishPri2 extends Component {
 </View>
 
 <View style={{flexDirection: 'row',marginHorizontal:16,marginVertical:20}}>
-      <View style={{flex:2,flexDirection:'column'}}>
+      <View style={{flex:5,flexDirection:'column'}}>
          <Text style={{
              color:'#697181',
              fontSize:13
         }}>Start time</Text>
           <View style={{marginTop:5,borderRadius:27 ,borderWidth:1,borderColor:'#e2e7ee',
-                      width:'95%'}}>
+                      width:'80%'}}>
    
-            <View style={{flexDirection:'row',paddingVertical:6,paddingLeft: 10}}>
+            <View style={{flexDirection:'row',paddingVertical:6,paddingLeft: '10%'}}>
                 <Image
               source={require('../../assets/icons_genGMI/TimeRed.png')}
                style={{
@@ -149,7 +149,7 @@ export default class PublishPri2 extends Component {
                }}
             />
          <Text style={{
-            color:'#677183',  fontSize:16,letterSpacing:0.32
+            color:'#677183',  fontSize:16,letterSpacing:0.32,marginLeft:'8%'
          }}>12:03 </Text>
             </View>
  
@@ -161,9 +161,9 @@ export default class PublishPri2 extends Component {
              fontSize:13
         }}>End time</Text>
           <View style={{marginTop:5,borderRadius:27 ,borderWidth:1,borderColor:'#e2e7ee',
-                      width:'40%'}}>
+                      width:'80%'}}>
    
-            <View style={{flexDirection:'row',paddingVertical:6,paddingHorizontal: 10}}>
+            <View style={{flexDirection:'row',paddingVertical:6,paddingLeft: '10%'}}>
                 <Image
               source={require('../../assets/icons_genGMI/TimeRed.png')}
                style={{
@@ -176,8 +176,8 @@ export default class PublishPri2 extends Component {
                }}
             />
          <Text style={{
-            color:'#677183',  fontSize:16,letterSpacing:0.32
-         }}>14:15 </Text>
+            color:'#677183',  fontSize:16,letterSpacing:0.32,
+            marginLeft:'8%'}}>14:15 </Text>
             </View>
  
     </View>
@@ -240,7 +240,7 @@ export default class PublishPri2 extends Component {
           onPress={() => this.props.navigation.navigate("publishPri3")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          top: Platform.OS === 'ios' ? 8:null,
+          top: Platform.OS === 'ios' ? 8:5,
         }}
         />     
 

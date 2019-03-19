@@ -6,7 +6,7 @@ import { Platform,AppRegistry, Alert,
 
 import Button from 'react-native-button'; 
 
-export default class LiveEventDetail2 extends Component {
+export default class BookedEventsInformative extends Component {
 
 
     static navigationOptions = {
@@ -38,7 +38,7 @@ export default class LiveEventDetail2 extends Component {
          
            nombreInflu:'MandyJTV',
            paisInflu:'Singapur',
-           fotoGrande:require('../../assets/influencers/MandyJTV/maxresdefault-2.jpg'),
+           fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault-2.jpg'),
           
    
           dia:21,
@@ -52,20 +52,30 @@ export default class LiveEventDetail2 extends Component {
          willatend: 306 ,
          interested: 1264,
 
-       //botones invite
-
-       usu1:false,
-       caja1: styles.socialBotone,
-       marca1:styles.Textsinmarcar,
-       texto1:'Invite',
-       
-       usu2:false,
-       caja2: styles.socialBotone,
-       marca2:styles.Textsinmarcar,
-       texto2:'Invite',
         
         //PAGAR
         precioTicket:20,
+
+        //botones invite
+
+            usu1:false,
+            caja1: styles.socialBotone,
+            marca1:styles.Textsinmarcar,
+            texto1:'Invite',
+            
+            usu2:false,
+            caja2: styles.socialBotone,
+            marca2:styles.Textsinmarcar,
+            texto2:'Invite',
+
+
+        
+            // para barra  del footer
+            time:'10 days, 23 min left',
+            users:34,
+            onlytickets:2,
+
+           
       }
       
       }// fin de consttructor
@@ -106,7 +116,7 @@ export default class LiveEventDetail2 extends Component {
                           justifyContent:'center',
 
                            }}>
-                            <Image source={require('../../assets/icons_genGMI/Like/corazongris.png')} 
+                            <Image source={require('../assets/icons_genGMI/Like/corazongris.png')} 
                             style={{  width:30,height:30,
                               zIndex:10}}
                       />  
@@ -136,7 +146,7 @@ export default class LiveEventDetail2 extends Component {
                    fontWeight:'bold',color:'#ff5a60'}} >{this.state.texto2}</Text>
                    
                    <View style={{flexDirection:'row'}}>
-                     <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
+                     <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
                      style={{ width:15,height:15,marginTop:4,marginRight:5}}
                      />  
 
@@ -152,9 +162,9 @@ export default class LiveEventDetail2 extends Component {
       <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
       <View style={{}}>
     <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("reviewDos")}
+             onPress={() => this.props.navigation.navigate("profile1")}
              >
-                          <Image source={require('../../assets/influencers/uno.png')} 
+                          <Image source={require('../assets/influencers/uno.png')} 
                                style={{ width:50,height:50,borderRadius:10}}
                               />
                         
@@ -168,7 +178,7 @@ export default class LiveEventDetail2 extends Component {
           </View>
            <View style={{flexDirection:'row'}}>
              <View style={{ width:10,height:10,marginTop:5}}>
-                     <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
+                     <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
                       style={{borderRadius: Platform.OS === 'ios' ? 5:10 ,width:'100%',height:'100%'}}
                       />
                  </View>
@@ -180,19 +190,19 @@ export default class LiveEventDetail2 extends Component {
         <View style={{flex:3,alignItems:'flex-end',
             justifyContent:'center'}}>
                     <View  style={styles.estrellasTrending}>
-                                   <Image source={require('../../assets/Red.png')} 
+                                   <Image source={require('../assets/Red.png')} 
                                    style={{ width:11,height:11,}}
                                    />
-                                  <Image source={require('../../assets/Red.png')} 
+                                  <Image source={require('../assets/Red.png')} 
                                  style={{ width:11,height:11,marginLeft:2}}
                                  />
-                                <Image source={require('../../assets/Grey.png')} 
+                                <Image source={require('../assets/Grey.png')} 
                                    style={{ width:11,height:11,marginLeft:2}}
                                   />
-                               <Image source={require('../../assets/Grey.png')} 
+                               <Image source={require('../assets/Grey.png')} 
                                 style={{ width:11,height:11,marginLeft:2}}
                                  />
-                                <Image source={require('../../assets/Grey.png')} 
+                                <Image source={require('../assets/Grey.png')} 
                                     style={{ width:11,height:11,marginLeft:2}}
                                 />
                             </View>
@@ -228,7 +238,7 @@ export default class LiveEventDetail2 extends Component {
    }}>Language</Text>
    <View style={{flexDirection:'row',paddingVertical:15}}>
    <Image
-              source={require('../../assets/banderasLenguaje/eeuu.png')}
+              source={require('../assets/banderasLenguaje/eeuu.png')}
                style={{
                width:17,
                height:17,
@@ -274,7 +284,7 @@ export default class LiveEventDetail2 extends Component {
    }}>Share Live Event</Text>
    <View style={{flexDirection:'row',paddingVertical:15}}>
    <Image
-              source={require('../../assets/icons_genGMI/Social/Linkedin.png')}
+              source={require('../assets/icons_genGMI/Social/Linkedin.png')}
                style={{
                width:40,
                height:40,
@@ -284,7 +294,7 @@ export default class LiveEventDetail2 extends Component {
                }}
             />
        <Image
-              source={require('../../assets/icons_genGMI/Social/Twitch.png')}
+              source={require('../assets/icons_genGMI/Social/Twitch.png')}
                style={{
                width:40,
                height:40,
@@ -294,7 +304,7 @@ export default class LiveEventDetail2 extends Component {
                }}
             />
              <Image
-              source={require('../../assets/icons_genGMI/Social/Twitter.png')}
+              source={require('../assets/icons_genGMI/Social/Twitter.png')}
                style={{
                width:40,
                height:40,
@@ -304,7 +314,7 @@ export default class LiveEventDetail2 extends Component {
                }}
             />
              <Image
-              source={require('../../assets/icons_genGMI/Social/Youtube.png')}
+              source={require('../assets/icons_genGMI/Social/Youtube.png')}
                style={{
                width:40,
                height:40,
@@ -315,7 +325,7 @@ export default class LiveEventDetail2 extends Component {
             />
             
             <Image
-              source={require('../../assets/icons_genGMI/Social/insta.png')}
+              source={require('../assets/icons_genGMI/Social/insta.png')}
                style={{
                width:50,
                height:50,
@@ -356,7 +366,7 @@ export default class LiveEventDetail2 extends Component {
 
 <View style={{flex:2}}>
 
-                 <Image source={require('../../assets/influencers/dos.png')} 
+                 <Image source={require('../assets/influencers/dos.png')} 
                       style={{ width:50,height:50,borderRadius:10}}
                      />
                
@@ -369,7 +379,7 @@ export default class LiveEventDetail2 extends Component {
     </View>
     <View style={{flexDirection:'row'}}>
         <View style={{ width:10,height:10,marginTop:5}}>
-            <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
+            <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
              style={{borderRadius:10 ,width:'100%',height:'100%'}}
              />
         </View>
@@ -380,7 +390,6 @@ export default class LiveEventDetail2 extends Component {
 
 <View style={{flex:3,alignItems:'flex-end',
    justifyContent:'center', paddingBottom: 10, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
- 
  <TouchableOpacity 
                  onPress = { () => {
                   if (this.state.usu1!==false)
@@ -423,7 +432,7 @@ export default class LiveEventDetail2 extends Component {
 
 <View style={{flex:2}}>
 
-                 <Image source={require('../../assets/influencers/spffiele.png')} 
+                 <Image source={require('../assets/influencers/spffiele.png')} 
                       style={{ width:50,height:50,borderRadius:20}}
                      />
                
@@ -436,7 +445,7 @@ export default class LiveEventDetail2 extends Component {
     </View>
     <View style={{flexDirection:'row'}}>
         <View style={{ width:10,height:10,marginTop:5}}>
-            <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
+            <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
              style={{borderRadius:10 ,width:'100%',height:'100%'}}
              />
         </View>
@@ -487,21 +496,43 @@ export default class LiveEventDetail2 extends Component {
 </ScrollView>
 
 
+  </View> 
+  <View style={{flex:1,backgroundColor:'#ff5a60' ,flexDirection:'row'
+                     }}>
+               
+                    <View style={{flex:1, alignItems:'center',justifyContent: 'center',
+                                  marginLeft:'4%'}}>
+                           <Image source={require('../assets/icons_genGMI/tiempo.png')} 
+                               style={{ width:30,height:30}}
+                           />
 
-          </View> 
-          <View style={{flex:1}}>
-          <TouchableOpacity  style={{flex:1}}
-              onPress = {() => this.props.navigation.navigate("liveEventDetail3") } >
-            <View style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
-             alignItems:'center',justifyContent:'center'}}>
-       
-               <Text style={{flex:1 , color:'white', 
-              fontSize:17,letterSpacing:0.41 }}>
-                  Buys ticket for $ {this.state.precioTicket}</Text>
-     
-             </View>
-            </TouchableOpacity>    
-          </View> 
+                    </View>
+                     <View style={{flex:5 ,justifyContent: 'center'}}>
+                          <Text style={{
+                              color:'#fff',fontSize:13,marginLeft:'4%'
+                          }}>{this.state.time}</Text>
+                     </View>
+                     <View style={{flex:4,marginRight:'4%',marginTop:'4%'}}>
+                         <View style={{flexDirection:'row',
+                            justifyContent:'flex-end'}}>
+                         <Image source={require('../assets/icons_genGMI/iconUs.png')} 
+                             style={{ width:15,height:15}}
+                         />
+                         <Text style={{
+                             color:'#fff',fontSize:13,
+                         }}>{this.state.users}</Text>
+                         </View>
+                        <View style={{alignItems:'flex-end'}}>
+                        <Text style={{
+                              color:'#fff',fontSize:13,
+                          }}>Only {this.state.onlytickets} tickets left</Text>
+                        
+
+                        </View>
+                      
+                        
+                        </View>
+            </View >
       
      </View>
    
@@ -560,5 +591,6 @@ socialBotonBlanco:{
   borderWidth:1,
   borderColor: '#312f3d',
 }
+
 
 });

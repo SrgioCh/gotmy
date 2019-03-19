@@ -125,7 +125,7 @@ export default class BicardView extends React.Component {
                   fontWeight:'bold',color:'#312f3d'}}>
                       {this.props.texto1}</Text>
                    <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                   fontWeight:'bold',color:'#677183'}} >{this.props.texto2}</Text>
+                   fontWeight:'bold',color:'#ff5a60'}} >{this.props.texto2}</Text>
                    
                    <View style={{flexDirection:'row'}}>
                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 

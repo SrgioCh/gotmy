@@ -3,6 +3,32 @@ import { StyleSheet,View, Text,TextInput, ScrollView, Button,Image } from 'react
 
 
 export default class Editinfluencerprofile extends React.Component {
+
+  static navigationOptions = {
+      
+    headerTitle: "Edit Influencer Profile",
+    headerTitleStyle: {
+      alignSelf: 'center',
+      textAlign: 'center',
+      width: '80%',
+        fontWeight:'500',
+            letterSpacing:0.41,
+            height:120,
+            fontSize:16,
+            color:'#312f3d',
+            marginTop:'43%',
+
+    },
+    headerRight: (<View>
+      <Text style={{
+          color:'#ff5a60',marginRight:16,fontSize:16
+      }}>Cancel</Text>
+      </View>),  
+      headerTintColor: '#ff5a60',
+  };
+
+
+
   render() {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>

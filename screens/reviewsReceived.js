@@ -8,6 +8,10 @@ import Button from 'react-native-button';
 
 export default class Reviewsreceived extends Component {
 
+  static navigationOptions = {
+    headerTitle:'',
+    headerTintColor: '#ff5a60',
+};
 
   render() {
     return (

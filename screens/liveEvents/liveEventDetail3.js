@@ -5,6 +5,7 @@ import { Platform,AppRegistry, Alert,
   Image,TouchableOpacity} from 'react-native';
 
 import Button from 'react-native-button'; 
+import Checkbox from 'react-native-modest-checkbox';
 
 export default class LiveEventDetail3 extends Component {
 
@@ -23,7 +24,9 @@ export default class LiveEventDetail3 extends Component {
                 marginTop:  Platform.OS === 'ios' ? '45%':'43%',
     
         },
-        headerRight: (<View>
+        headerRight: (<View style={{
+          marginRight:15
+        }}>
           <Text style={{
               color:'red'
           }}>Cancel</Text>
@@ -54,6 +57,13 @@ export default class LiveEventDetail3 extends Component {
          resultado:1.59,
         //PAGAR
         precioTicket:21.08,
+
+
+        // CHECKBOX
+        isCheckedA:false,
+        valueA:'',
+        isCheckedB:false,
+        valueB:'',
       }
       
       }// fin de consttructor
@@ -159,7 +169,7 @@ export default class LiveEventDetail3 extends Component {
                 }}
             />
      </View>
-     <View style={{flex:6,flexDirection:'column', paddingBottom:10,
+     <View style={{flex:7,flexDirection:'column', paddingBottom:10,
                    borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
            <View>
               <Text style={{
@@ -173,15 +183,42 @@ export default class LiveEventDetail3 extends Component {
                
            </View>
      </View>
-     <View style={{flex:1,alignItems:'flex-end',justifyContent:'center', paddingBottom:10,
-             borderBottomColor:'#e2e7ee',borderBottomWidth:1}}>
-          <Image
-              source={require('../../assets/icons_genGMI/ArrowGrey.png')}
-               style={{ 
-                 
-                
-                }}
-            />
+     <View style={{flex:0.8,borderBottomColor:'#e2e7ee',  paddingBottom:10,
+                  borderBottomWidth:1}}>
+          <Checkbox
+                        onChange={() => {
+                         if(this.state.isCheckedA==true){
+                        this.setState({
+                          isCheckedA:false,
+         
+                        })
+       
+       
+                      }else{
+                        this.setState({
+                          isCheckedA:true,
+      
+                        })
+                      }
+                    }}
+                    checked={this.state.isCheckedA}
+                    containerStyle={{
+                      backgroundColor:'white',
+                      marginTop:10,
+                     
+                    }}
+                    checkboxStyle={{
+                     
+                      backgroundColor:'white',
+    
+                    }}
+                    label=' '
+                    value={this.state.valueA}
+                    checkedImage={require('../../assets/icons_genGMI/check.png')}
+                    uncheckedImage={require('../../assets/icons_genGMI/checkNo.png')}
+
+                              />
+                  {/* fin de check box*/}
      </View>
 
  </View>
@@ -207,7 +244,7 @@ export default class LiveEventDetail3 extends Component {
                 }}
             />
      </View>
-     <View style={{flex:6,flexDirection:'column', 
+     <View style={{flex:7,flexDirection:'column', 
      paddingBottom:10,  borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
            <View>
               <Text style={{
@@ -221,16 +258,45 @@ export default class LiveEventDetail3 extends Component {
                
            </View>
      </View>
-     <View style={{flex:1,alignItems:'flex-end',justifyContent:'center', paddingBottom:10,
-             borderBottomColor:'#e2e7ee',borderBottomWidth:1}}>
-          <Image
-              source={require('../../assets/icons_genGMI/ArrowGrey.png')}
-               style={{ 
-                 
-                
-                }}
-            />
+     <View style={{flex:0.8,borderBottomColor:'#e2e7ee',  paddingBottom:10,
+                  borderBottomWidth:1}}>
+          <Checkbox
+                        onChange={() => {
+                         if(this.state.isCheckedB==true){
+                        this.setState({
+                          isCheckedB:false,
+         
+                        })
+       
+       
+                      }else{
+                        this.setState({
+                          isCheckedB:true,
+      
+                        })
+                      }
+                    }}
+                    checked={this.state.isCheckedB}
+                    containerStyle={{
+                      backgroundColor:'white',
+                      marginTop:10,
+                     
+                    }}
+                    checkboxStyle={{
+                     
+                      backgroundColor:'white',
+    
+                    }}
+                    label=' '
+                    value={this.state.valueB}
+                    checkedImage={require('../../assets/icons_genGMI/check.png')}
+                    uncheckedImage={require('../../assets/icons_genGMI/checkNo.png')}
+
+                              />
+                  {/* fin de check box*/}
      </View>
+
+
 
  </View>
 

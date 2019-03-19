@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Platform,
-  View,Text ,TextInput,TouchableOpacity,
+import { Platform,Keyboard,
+  View,Text ,TextInput,TouchableOpacity,TouchableWithoutFeedback,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
@@ -18,10 +18,11 @@ export default class Search extends Component {
     return (
      
 <View style={{flex: 1}}>
+<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
             borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
-               <View style={{flexDirection:'row',paddingHorizontal:5}}>
+               <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
                     <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
                   <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,
@@ -55,17 +56,19 @@ export default class Search extends Component {
                  </View>
 
           </View>
+          </TouchableWithoutFeedback>
             <View style={{flex: 9}}>
     
-           <ScrollView style={{paddingTop:2}} >
+           
                        
                      {/*  TITULOOO */}
+                     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
                        <View style={{ marginHorizontal:16,marginTop:10}}>
                          <Text style={{fontSize:34,fontWeight:"700"}}>
                          Search</Text>
                       </View>
-
-
+                      </TouchableWithoutFeedback>
+      
                          {/* BUSCADOR*/}
                    <View style={{ marginHorizontal:16,paddingVertical:9 }}>
 
@@ -93,8 +96,9 @@ export default class Search extends Component {
                 }//fin de onchange
                />
             </View>
-            {/*-----------------------------------------/}
+            {/*-----------------------------------------*/}
 
+           <ScrollView>
              {/* MOSTRAR EL TEXTO DEL INPUT -esta oculto 
               <Text style={{display:'none'}}>en input : {this.state.tytexto}</Text>
               */}
@@ -443,20 +447,22 @@ export default class Search extends Component {
               </TouchableOpacity>
      </View>
      
-      <View style={{flex:1,alignItems:'center',padding:2}}>
+     <View style={{flex:1,alignItems:'center',paddingTop:'2%',marginRight:'-4%'}}>
       <TouchableOpacity
              onPress={() => this.props.navigation.navigate("mensa1")}
               >
               <View  style={{flexDirection:'column'}}>
                 
-                    <View style={{ width:30,height:30,marginLeft:'20%'}}>
+                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
                        <Image source={require('../assets/pentaicon/message.jpg')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />
                        </View>
                    <Text style={styles.pentaIcon}>Messages</Text>
+                   
               </View>
               </TouchableOpacity>
+              
       </View>
  
                      

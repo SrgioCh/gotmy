@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,Dimensions,
-  StyleSheet,ScrollView,
+  StyleSheet,ScrollView,TouchableWithoutFeedback,Keyboard,
   Image,TouchableOpacity} from 'react-native';
   import  {Button}  from "react-native-elements";
 
@@ -64,8 +64,9 @@ alert(valorInput);*/
 return (
 
   <View style={{flex: 1}}>
-  
+  <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={{flex:9}}>
+    
       <View style={{marginTop:20,
                 marginHorizontal:60}}>
         
@@ -86,6 +87,7 @@ return (
             color:'#677181',fontSize:12 }}>
        Your text message
       </Text>
+     
        
        <View style={styles.textAreaContainer}>
      
@@ -94,15 +96,17 @@ return (
            underlineColorAndroid="transparent"
             placeholder="Type something"
           placeholderTextColor="grey"
-         numberOfLines={6}
+         numberOfLines={8}
           multiline={true}
           onChangeText={(text) => this.setState({text})}
             value={this.state.text}
             textAlignVertical='top'
      />
      </View>
-
+  
    </View>
+   </TouchableWithoutFeedback>
+ 
 {/*  fin de contenedor */}
       <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
          borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
@@ -111,7 +115,7 @@ return (
       onPress={() => this.props.navigation.navigate("publishPri10")}
       type="clear"
       titleStyle={{ color: "#ffffff",
-      top: Platform.OS === 'ios' ? 8:null,
+      top: Platform.OS === 'ios' ? 8:5,
     }}
     />     
 

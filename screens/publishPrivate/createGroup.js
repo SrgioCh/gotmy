@@ -85,9 +85,10 @@ export default class CreateGroup extends Component {
 
 //*************************************************************************** */
     return (
-     <View style={{}}>
+     <View style={{flex:1}}>
+      <View style={{flex:9}}>
 
-         <View style={{flexDirection:'row',marginTop:20,
+      <View style={{flexDirection:'row',marginTop:20,
                          marginHorizontal: '4%',}}>
 
 
@@ -109,27 +110,16 @@ export default class CreateGroup extends Component {
                </View>
                <View style={{flex:7}}>
                    
-                   <View style={{flexDirection:'row'}}>
-                         <Text style={{flex:5,
+                   
+                         <Text style={{ 
                            color:'#697181' ,
                            fontSize:13,
                           letterSpacing:-0.1,
 
                          }}>Group name</Text>
-                         <View style={{flex:2 ,width:40,height:40,
-                                       marginTop:'-5%'}}>
-                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("chatGroup",{
-                                                                          datos:elegidos,
-                                                                          nombreChat:this.state.textoenInput})}
-                               >
-                             <Image source={require('../../assets/icons_genGMI/botoncrea.png')} 
-                               style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                              />
-                              </TouchableOpacity>
-                         </View>
+                      
 
-                  </View>
+                 
 
 
                 <View style={{paddingVertical:15,flexDirection:'row' }}>
@@ -175,6 +165,7 @@ export default class CreateGroup extends Component {
                marginHorizontal:'4%',
               color:'#312f3d',
               fontSize:17 ,
+              fontWeight:'bold'
               }}>Participants</Text>
 
            
@@ -183,6 +174,29 @@ export default class CreateGroup extends Component {
                       {imagenes}
           </View>
               
+
+
+
+
+
+
+
+
+
+
+      </View>
+      <View style={{flex:1,backgroundColor:'#ff5a60',
+ alignItems:'center',justifyContent:'center'}}>
+    <TouchableOpacity 
+   onPress={() => this.props.navigation.navigate("chatGroup",{
+    datos:elegidos,
+    nombreChat:this.state.textoenInput})}>
+<Text style={{flex:1 , color:'white',marginTop:'5%',
+    fontSize:17,letterSpacing:0.41 }}>
+     Create Chat Group</Text>
+     </TouchableOpacity>   
+</View>
+
         
      </View>
 

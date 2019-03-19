@@ -14,6 +14,9 @@ export default class Discover extends Component {
 
 
 
+
+
+
   render() {
     return (
 <View style={{flex: 1}}>
@@ -21,12 +24,16 @@ export default class Discover extends Component {
         borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
         <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
+        <TouchableOpacity
+                     onPress={() => this.props.navigation.navigate("Become1")}
+                     >
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
             <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,
                                 borderRadius:10}}
                       />
             </View>
+            </TouchableOpacity>
            <View style={{flex:4,flexDirection:'column',marginLeft:10,
                       marginRight:10}}>
                 <Text style={{
@@ -744,13 +751,13 @@ export default class Discover extends Component {
             </TouchableOpacity>
      </View>
      
-      <View style={{flex:1,alignItems:'center',padding:2}}>
+      <View style={{flex:1,alignItems:'center',paddingTop:'2%',marginRight:'-4%'}}>
       <TouchableOpacity
              onPress={() => this.props.navigation.navigate("mensa1")}
               >
               <View  style={{flexDirection:'column'}}>
                 
-                    <View style={{ width:30,height:30,marginLeft:'20%'}}>
+                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
                        <Image source={require('../assets/pentaicon/message.jpg')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />

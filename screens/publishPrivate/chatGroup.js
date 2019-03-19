@@ -31,7 +31,9 @@ export default class ChatGroup extends Component {
                   color:'#312f3d',
                   marginTop:  Platform.OS === 'ios' ? '45%':'43%',
           }, headerRight: (<View>
-            <Text >{' '}</Text>
+            <Text style={{
+              color:'#ff5a60',marginLeft:'4%'
+            }}>Delete</Text>
             </View>),  
         };
       };
@@ -189,7 +191,7 @@ var imagenes=users.map((item,i)=>
 
                   
        <View style={{flex:1,alignItems:'center',marginTop:10}}>
-       <View style={{ width:45,height:45}}>
+       <View style={{ width:35,height:35}}>
                        <Image source={require('../../assets/icons_genGMI/foto.png')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />
@@ -240,7 +242,7 @@ var imagenes=users.map((item,i)=>
         
       
          <View style={{flex:1,alignItems:'center',marginTop:10}}>
-              <View style={{ width:40,height:40}}>
+              <View style={{ width:35,height:35}}>
                        <Image source={require('../../assets/icons_genGMI/iconosChat.png')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />

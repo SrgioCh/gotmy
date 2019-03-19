@@ -52,10 +52,15 @@ export default class Activity1 extends Component {
     return (
 
       <View style={{flex: 1}}>
+     
       <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
           borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
+              <TouchableOpacity
             
-          <View style={{flexDirection:'row',paddingHorizontal:5}}>
+            onPress={() => this.props.navigation.navigate("profile3")}
+             >
+          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
+        
               <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
               <Image source={require('../assets/reviews/kuskal.png')} 
                         style={{ width:40,height:40,
@@ -79,10 +84,12 @@ export default class Activity1 extends Component {
                  
               </View>
           </View>
+          </TouchableOpacity>
   
       </View>
+      
       <View style={{flex: 9}}>
-      <ScrollView style={{marginTop:30}} >
+     
 
 
 {/* TITULO */}  
@@ -93,7 +100,7 @@ export default class Activity1 extends Component {
 
 </View>
 
-
+<ScrollView style={{marginTop:10}} >
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14,marginBottom: 5,}}>
 
@@ -239,28 +246,32 @@ export default class Activity1 extends Component {
                 </View>
               </TouchableOpacity>
        </View>
+
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
-        <TouchableOpacity
+       
+       <View style={{flex:1,  alignItems:'center',paddingTop:'2%',marginRight:'-4%'}}>
+      <TouchableOpacity
              onPress={() => this.props.navigation.navigate("mensa1")}
               >
-                <View  style={{flexDirection:'column'}}>
-                  
-                      <View style={{ width:30,height:30,marginLeft:'20%'}}>
-                         <Image source={require('../assets/pentaicon/message.jpg')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={styles.pentaIcon}>Messages</Text>
-                </View>
-                </TouchableOpacity>
-        </View>
+              <View  style={{flexDirection:'column'}}>
+                
+                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
+                       <Image source={require('../assets/pentaicon/message.jpg')} 
+                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                      />
+                       </View>
+                   <Text style={styles.pentaIcon}>Messages</Text>
+                   
+              </View>
+              </TouchableOpacity>
+              
+      </View>
    
                        
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',padding:'2%'}}>
                  <View style={{flexDirection:'column'}}>
-                 <View style={{ width:30,height:30,marginLeft:'11%'}}>
+                 <View style={{ width:25,height:25,marginLeft:'11%'}}>
                          <Image source={require('../assets/pentaicon/activityRed.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />

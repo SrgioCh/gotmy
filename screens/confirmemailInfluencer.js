@@ -60,7 +60,7 @@ export default class  ConfirMailInfluencer extends React.Component {
            padding: Platform.OS === 'ios' ? 18:15,
           width:320,
          }}
-         onPress={() => this.props.navigation.navigate("discover")}
+         onPress={() => this.props.navigation.navigate("requesPendin")}
          type="clear"
          >
         Continue

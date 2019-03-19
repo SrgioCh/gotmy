@@ -42,29 +42,31 @@ export default class LiveEventDetail4 extends Component {
           <View style={{flex:9,
               marginTop:24}}>
               <TouchableOpacity 
-            onPress = {() => this.props.navigation.navigate("boked1") } >
-              <ImageBackground source={require('../../assets/influencers/MandyJTV/mandylive2.png')}
-              style={{width: '100%', height: '100%'}}>
+              onPress = {() => this.props.navigation.navigate("boked1") } >
+                  <ImageBackground source={require('../../assets/influencers/MandyJTV/mandylive2.png')}
+                   style={{width: '100%', height: '100%'}}>
               
                 
-                <View style={{flex:7,flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-                           <View style={{flex:1}}>
-                                <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("profile1")}
-                              >
-                            <Image source={require('../../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
+                <View style={{flex:7,marginHorizontal:16,marginVertical:14,flexDirection:'row'}}>
+
+                           <View style={{flex:1.5}}>
+
+                                   <TouchableOpacity
+                                  onPress={() => this.props.navigation.navigate("profile1")}
+                                 >
+                                 <Image source={require('../../assets/influencers/influencer.png')} 
+                                  style={{ width:50,height:50,borderRadius:10}}
+                                  />
                     
-                          </TouchableOpacity>
-                          </View>
+                                  </TouchableOpacity>
+                         </View>
 
-                    <View style={{flex:2,flexDirection:'column',paddingLeft:10 
-                    ,marginTop:3,marginLeft:5}}>
-                     <View>
+                          <View style={{flex:3,flexDirection:'column',paddingLeft:10 
+                                                              ,marginTop:3,marginLeft:5}}>
+                                         
                          <Text style={{fontSize:17,color:'white'}}>{this.state.nombreInflu}</Text>
-                     </View>
+                     
                     <View style={{flexDirection:'row'}}>
                            <View style={{ width:12,height:12,marginTop:5}}>
                               <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
@@ -75,7 +77,7 @@ export default class LiveEventDetail4 extends Component {
                      </View>
              </View>
 
-              <View style={{flex:2,marginRight:1}}>
+              <View style={{flex:2.5,marginRight:1}}>
                     <View  style={styles.estrellasTrending}>
                                <Image source={require('../../assets/Red.png')} 
                                style={{ width:11,height:11,}}
@@ -95,16 +97,19 @@ export default class LiveEventDetail4 extends Component {
                         </View>
                        
             </View>
-            <View style={{flex:2,alignItems:'flex-end',
-                   }}>
-            <TouchableOpacity 
-              onPress = {() => this.props.navigation.navigate("publishEven1") } >
-               <Text style={{color:'white',fontSize:16,
-                borderRadius:10,backgroundColor:'#e2e7ee',padding:5}}>
-              Publish Live Event
-               </Text>
-               </TouchableOpacity>
-             </View>
+
+
+             <View style={{flex:3 , flexDirection:'row',marginLeft:'5%'}} >
+                   
+                   <Image source={require('../../assets/icons_genGMI/compartir.png')} 
+                                style={{ width:30,height:30 }}
+                            />
+                  <Image source={require('../../assets/icons_genGMI/calen_detail4.png')} 
+                                style={{ width:30,height:30,marginLeft:'25%'}}
+                  />
+           
+              </View>
+         
            </View>
            <View style={{flex:3,marginHorizontal:16}}>
                <Text style={{color:'white',fontSize:28,fontWeight:'bold'}}>
@@ -124,7 +129,7 @@ export default class LiveEventDetail4 extends Component {
         <View style={{flex:1}}>
         <View style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
   
-  alignItems:'center',justifyContent:'center'}}>
+      alignItems:'center',justifyContent:'center'}}>
    <TouchableOpacity 
      onPress = {() => this.props.navigation.navigate("liveEventStreaming") } >
      <Text style={{flex:1 , color:'white', 

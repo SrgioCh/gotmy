@@ -68,7 +68,7 @@ export default class Become2 extends React.Component {
        
        <View style={styles.container2}>
        <Button  style={styles.textboton}
-          title="Create an influencer profile"
+          title="Next Information"
           onPress={() => this.props.navigation.navigate("Become3")}
           type="clear"
           titleStyle={{ color: "#ffffff",
@@ -76,10 +76,9 @@ export default class Become2 extends React.Component {
           top: -5
         }}
         />    
+      </View> 
+
       
-        
-        
-        </View> 
       </View>
     );
   }

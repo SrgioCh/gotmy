@@ -13,6 +13,9 @@ export default class Profileinfluencer extends Component {
   };
   
 
+
+
+
   render() {
 
     let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
@@ -20,16 +23,18 @@ export default class Profileinfluencer extends Component {
 
 
     return (
-     
+  
+            <View style={{flex:1}}>
+
+              <View  style={{flex:9}}>
+                    
     <ScrollView  >
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
 
-<TouchableOpacity
-             onPress={() => this.props.navigation.navigate("requesPendin")}
-             >
+
      <Image
-              source={require('../assets/influencers/MandyJTV/many1.jpg')}
+              source={require('../assets/influencers/MandyJTV/manycopia.jpg')}
                style={{
                width:screenWidth, //para imagen grande a la pantalla
                height:348,
@@ -37,8 +42,6 @@ export default class Profileinfluencer extends Component {
                }}
             />
 
-
-    </TouchableOpacity> 
 
     <View style={{marginHorizontal:16,
           position:'absolute',top:210}}>
@@ -70,7 +73,7 @@ export default class Profileinfluencer extends Component {
             onPress={() => this.props.navigation.navigate("viewerChat")}
              >
     <Image
-              source={require('../assets/icons_genGMI/mensajex.png')}
+              source={require('../assets/icons_genGMI/mensaje2.png')}
                style={{
                width:40,
                height:40,
@@ -90,8 +93,13 @@ export default class Profileinfluencer extends Component {
          </TouchableOpacity>
         </View> 
         
- 
+      
     {/* numero grande de estadistica*/}
+
+    <TouchableOpacity
+             onPress={() => this.props.navigation.navigate("reviewUno")}
+             > 
+
    <View style={{flexDirection:'row',marginHorizontal:15}}>
        <View style={{flex:2,alignItems:'center'}} >
           <Text style={{
@@ -187,11 +195,7 @@ export default class Profileinfluencer extends Component {
 
 </View>
 
-
-
-
-
-
+</TouchableOpacity>
   {/* ----------biagraphy----------------*/} 
 
  <View style={{ marginHorizontal:16,paddingBottom:10,paddingVertical:15 }}>
@@ -629,23 +633,27 @@ export default class Profileinfluencer extends Component {
 
 {/*-------------------------------------------------------------------------------- */}
 
-
-<View style={{backgroundColor:'#ff5a60',padding:13,
-  
-      alignItems:'center',justifyContent:'center'}}>
-      <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("requestPri1")}
-             >
-   <Text style={{flex:1 , color:'white', 
-     fontSize:17,letterSpacing:0.41 }}>Request Private Meeting</Text>
-     </TouchableOpacity>
-</View>
-
-
-
-
     </ScrollView>
 
+
+              </View>
+              <View  style={{flex:1}}>
+              <View style={{backgroundColor:'#ff5a60',padding:13,
+  
+                          alignItems:'center',justifyContent:'center'}}>
+                          <TouchableOpacity
+                          style={{marginTop:'4%'}}
+                                 onPress={() => this.props.navigation.navigate("requestPri1")}
+                                 >
+                       <Text style={{flex:1 , color:'white', 
+                         fontSize:17,letterSpacing:0.41 }}>Request Private Meeting</Text>
+                         </TouchableOpacity>
+                    </View>
+
+                                  </View>
+
+
+              </View>
 
      
     );

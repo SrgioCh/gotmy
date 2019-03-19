@@ -182,7 +182,7 @@ export default class RequestDetail extends Component {
             <View style={[styles.containerbutton,{backgroundColor: '#ff5a60',
                   marginRight:16}]}>
                 <Button 
-                onPress={() => Alert.alert('Acept....')}
+                 onPress={() => this.props.navigation.navigate("requestAcepted2")}
                 style={{color:'white',fontSize:17}}
                >Acept</Button>      
            </View> 

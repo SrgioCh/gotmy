@@ -51,7 +51,7 @@ export default class  TransferTomyAcount extends Component {
  
     const dinero = this.props.navigation.getParam('diner');
 
-    alert(dinero);
+   
     return (
 
         <View  style={{flex:1}}>
@@ -238,9 +238,7 @@ export default class  TransferTomyAcount extends Component {
                     uncheckedImage={require('../assets/icons_genGMI/checkNo.png')}
 
                               />
-
-
-                     {/* fin de check box*/}
+                  {/* fin de check box*/}
              </View>
         
          </View>

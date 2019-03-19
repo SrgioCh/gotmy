@@ -8,6 +8,9 @@ import Button from 'react-native-button';
 
 export default class Profilemiviewer extends Component {
 
+   static navigationOptions = {
+      header: null ,
+  };
 
   constructor(props){
 
@@ -69,16 +72,21 @@ seleccion1=() =>{
         <Text style={{fontSize:17,color:'white',paddingTop:20}}>
          12,342 Friends  984 Following</Text>
     </View>
-    
+    <TouchableOpacity
+         onPress={() => this.props.navigation.navigate("vieweredit")}
+          style={{
+            position:'absolute',right:10,top:25,
+          }}                     
+          >
     <Image
               source={require('../assets/icons_genGMI/LogOut.png')}
                style={{
                width:40,
                height:40,
-               position:'absolute',right:10,top:25,
+               borderRadius:20,
                }}
             />
-
+    </TouchableOpacity>
      {/* ----------------------------------------*/} 
 
   {/* ----------biagraphy----------------*/} 

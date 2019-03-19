@@ -69,13 +69,17 @@ export default class Activity2 extends Component {
       <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
           borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
             
-          <View style={{flexDirection:'row',paddingHorizontal:5}}>
+          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
+              <TouchableOpacity
+               onPress={() => this.props.navigation.navigate("profile2")}
+               >
               <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
               <Image source={require('../../assets/influencers/influencer.png')} 
                         style={{ width:40,height:40,
                                   borderRadius:10}}
                         />
               </View>
+              </TouchableOpacity>
              <View style={{flex:2,flexDirection:'column',marginLeft:10,
                         marginRight:15}}>
                   <Text style={{
@@ -99,7 +103,7 @@ export default class Activity2 extends Component {
   
       </View>
       <View style={{flex: 9}}>
-      <ScrollView style={{marginTop:10}} >
+      
 
 
 {/* TITULO */}  
@@ -110,7 +114,7 @@ export default class Activity2 extends Component {
 
 </View>
 
-
+<ScrollView style={{marginTop:10}} >
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14,marginBottom: 5,}}>
 
@@ -204,89 +208,89 @@ export default class Activity2 extends Component {
   
       {/*   penta icon o  tabs */}
   <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#ff5a60'}}>
-         <View style={{flex:1,padding:2}}>
+         <View style={{flex:1,paddingTop:'3%'}}>
               <TouchableOpacity
             
             onPress={() => this.props.navigation.navigate("liveEventDetail")}
              >
                    <View style={{flexDirection:'column',alignItems:'center'}} >
-                      <View style={{ width:30,height:30,marginLeft:'15%'}}>
+                      <View style={{ width:25,height:25,marginLeft:'15%'}}>
                        <Image source={require('../../assets/pentaicon/influe/events.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
                       </View>
                      <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciSi}]}>My Events</Text>
+                           {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>My Events</Text>
                      
                 </View>
                 </TouchableOpacity>
           </View>
   
       
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:'3%'}}>
         <TouchableOpacity
               
                onPress={() => this.props.navigation.navigate("search")}
                 >
                  <View  style={{flexDirection:'column'}}>
                        
-                         <View style={{ width:30,height:30,marginLeft:'10%'}}>
+                         <View style={{ width:25,height:25,marginLeft:'25%'}}>
                          <Image source={require('../../assets/pentaicon/influe/stats.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
                          </View>
                      <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciSi}]}>My Stats</Text>
+                           {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>My Stats</Text>
                 </View>
             </TouchableOpacity>
          </View>
           
         
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:'3%'}}>
         <TouchableOpacity
                onPress={() => this.props.navigation.navigate("requesPendin")}
                >
                 <View  style={{flexDirection:'column'}}>
                      
-                     <View style={{ width:30,height:30,marginLeft:'25%'}}>
+                     <View style={{ width:25,height:25,marginLeft:'25%'}}>
                          <Image source={require('../../assets/pentaicon/influe/request.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
                          </View>
                      <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciSi}]}>Requests</Text>
+                           {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>Requests</Text>
                 </View>
               </TouchableOpacity>
        </View>
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:'3%'}}>
         <TouchableOpacity
                onPress={() => this.props.navigation.navigate("mensa2")}
                >
                 <View  style={{flexDirection:'column'}}>
                   
-                      <View style={{ width:30,height:30,marginLeft:'20%'}}>
+                      <View style={{ width:25,height:25,marginLeft:'30%'}}>
                          <Image source={require('../../assets/pentaicon/influe/messages.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
                          </View>
                      <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciSi}]}>Messages</Text>
+                           {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>Messages</Text>
                 </View>
                 </TouchableOpacity>
         </View>
    
                        
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:'4%'}}>
                  <View style={{flexDirection:'column'}}>
-                 <View style={{ width:30,height:30,marginLeft:'11%'}}>
+                 <View style={{ width:20,height:20,marginLeft:'15%'}}>
                          <Image source={require('../../assets/pentaicon/influe/activityselec.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
                          </View>
                      <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciNo}]}>Activity</Text>
+                           {opacity:this.state.opaciNo,marginTop:'3.5%'}]}>Activity</Text>
                 </View>
           </View >
       

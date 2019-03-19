@@ -12,7 +12,7 @@ export default class AddParticip1 extends Component {
 
 
   static navigationOptions = {
-    headerTitle:'Participantes',
+    headerTitle:' ',
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -152,28 +152,15 @@ export default class AddParticip1 extends Component {
 
 //*************************************************************************** */
     return (
-     <View style={{height:'100%'}}>
- 
+     <View style={{flex:1}}>
+      
+      <View style={{ flex:2 }}>
+           <View style={{ marginHorizontal:'4%'}}>
+             <Text style={{fontSize:28,fontWeight:"700"}}>
+              Create Chat Group</Text>
+           </View>
 
-            <View style={{flexDirection:'row', marginHorizontal:'4%',
-                           marginTop:10}}>
-                         <Text style={{flex:8,fontSize:28,fontWeight:"700"}}>
-                         Create Chat Group</Text>
-                         <View style={{flex:2 ,width:40,height:40}}>
-                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("createGroup",{datos:lista2})}
-                               >
-                             <Image source={require('../../assets/icons_genGMI/botoncrea.png')} 
-                               style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                              />
-                              </TouchableOpacity>
-                         </View>
-
-              </View>
-              
-
-     
-       <View style={{marginHorizontal:'4%',paddingVertical:20,flexDirection:'row' }}>
+           <View style={{marginHorizontal:'4%',paddingVertical:20,flexDirection:'row' }}>
              <View style={{flexDirection:'row',flex:1,backgroundColor:'#f6f6f6',
                       alignItems:'center',marginRight:5,borderRadius:10}}>
                      
@@ -234,8 +221,11 @@ export default class AddParticip1 extends Component {
  
           
         </View>
-       
-         {/* CAJA D EUSUARIOS SELECCIONADOS */}
+      {/*   fin del buscador*/}
+
+      </View>
+      <View style={{ flex:7}}>
+{/* CAJA D EUSUARIOS SELECCIONADOS */}
          <View style={{}}>
          <ScrollView horizontal showsHorizontalScrollIndicator={false} 
                       >
@@ -246,10 +236,7 @@ export default class AddParticip1 extends Component {
         </ScrollView>
 
          </View>
-       
-
-
-        <ScrollView>
+         <ScrollView>
   
        {/* DATOS INICIALES  */}
        <View style={{display:'flex'}}>
@@ -342,7 +329,20 @@ export default class AddParticip1 extends Component {
     
 
         </ScrollView>
- </View>
+ 
+      </View>
+      <View style={{flex:1,backgroundColor:'#ff5a60',
+ alignItems:'center',justifyContent:'center'}}>
+    <TouchableOpacity 
+  onPress={() => this.props.navigation.navigate("createGroup",{datos:lista2})}>
+<Text style={{flex:1 , color:'white',marginTop:'5%',
+    fontSize:17,letterSpacing:0.41 }}>
+     Continue</Text>
+     </TouchableOpacity>   
+</View>
+
+           
+     </View>
 
     );
   }

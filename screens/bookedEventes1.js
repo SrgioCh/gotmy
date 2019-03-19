@@ -140,7 +140,7 @@ seleccion1=() =>{
 
 {/* -----------------BICARDVIEW--------------*/}  
   <TouchableOpacity 
-            onPress = {() => this.props.navigation.navigate("liveEventDetail") } >     
+            onPress = {() => this.props.navigation.navigate("boked4") } >     
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -234,7 +234,7 @@ seleccion1=() =>{
                         fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#677183'}} >Fashion</Text>
+                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
                       <View style={{flexDirection:'row'}}>
                       <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
                                 style={{ width:11,height:11,marginLeft:2,marginTop:6}}
@@ -293,15 +293,15 @@ seleccion1=() =>{
          </View>
           
         
-        <View style={{flex:1,alignItems:'center',paddingBottom:2,
-                       paddingHorizontal:2,paddingTop:5}}>
+        <View style={{flex:1,alignItems:'center',paddingTop:7,paddingHorizontal:2,
+                       paddingHorizontal:2}}>
         <TouchableOpacity
               
               onPress={() => this.props.navigation.navigate("boked1")}
                >
                 <View  style={{flexDirection:'column'}}>
                      
-                     <View style={{ width:25,height:25,marginBottom:2, marginLeft:'25%'}}>
+                     <View style={{ width:25,height:25, marginLeft:'30%'}}>
                          <Image source={require('../assets/pentaicon/eventsRojo.png')} 
                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
                         />
@@ -311,21 +311,23 @@ seleccion1=() =>{
               </TouchableOpacity>
        </View>
        
-        <View style={{flex:1,alignItems:'center',padding:2}}>
-        <TouchableOpacity
+       <View style={{flex:1,alignItems:'center',paddingTop:7,paddingHorizontal:2,marginRight:'-4%'}}>
+      <TouchableOpacity
              onPress={() => this.props.navigation.navigate("mensa1")}
               >
-                <View  style={{flexDirection:'column'}}>
-                  
-                      <View style={{ width:30,height:30,marginLeft:'20%'}}>
-                         <Image source={require('../assets/pentaicon/message.jpg')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={styles.pentaIcon}>Messages</Text>
-                </View>
-                </TouchableOpacity>
-        </View>
+              <View  style={{flexDirection:'column'}}>
+                
+                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
+                       <Image source={require('../assets/pentaicon/message.jpg')} 
+                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
+                      />
+                       </View>
+                   <Text style={styles.pentaIcon}>Messages</Text>
+                   
+              </View>
+              </TouchableOpacity>
+              
+      </View>
    
                        
        

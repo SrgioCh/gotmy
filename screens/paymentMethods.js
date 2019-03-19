@@ -23,7 +23,7 @@ export default class Paymentmethod extends Component {
          <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
         borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
-        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
+        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 16}}>
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
             <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,

@@ -69,7 +69,7 @@ export default class Login extends React.Component {
                     left: Platform.OS === 'ios' ? 15:null,
                    
                     }}
-                    onPress={() => this.props.navigation.navigate("createViewerProfile")}
+                    onPress={() => this.props.navigation.navigate("discover")}
                     type="clear"
                   
                    /> 

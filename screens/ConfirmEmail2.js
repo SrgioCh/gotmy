@@ -7,7 +7,7 @@ const util = require("util");
 export default class ConfirmEmail2 extends React.Component {
 
   static navigationOptions = {
-    headerTitle: "Email Confirmation",
+    headerTitle: "Confirm your email",
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -55,7 +55,7 @@ export default class ConfirmEmail2 extends React.Component {
        <View style={styles.container2}>
        <Button  style={styles.textboton}
           title="Continue"
-          onPress={() => this.props.navigation.navigate("discover")}
+          onPress={() => this.props.navigation.navigate("paymetho1")}
           type="clear"
           titleStyle={{ color: "#ffffff",
           position: "absolute",

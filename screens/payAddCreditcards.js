@@ -107,7 +107,7 @@ export default class Payaddcreditcards extends Component {
  </View>
 {/* -----------------------BOTONES ------------------*/}
 
- <View style={{marginTop: Platform.OS === 'ios' ? 180 :150, marginHorizontal:16,
+ <View style={{marginTop: Platform.OS === 'ios' ? 180 :240, marginHorizontal:16,
     alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
   <Button
         style={{

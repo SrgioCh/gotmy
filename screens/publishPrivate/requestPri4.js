@@ -62,26 +62,26 @@ export default class RequestPri4 extends Component {
                            fondoPrincipal:''});
       };
 
-       guardar(){
-           alert('create Private metting');
-       }
-
+      
   render() {
 
     return (
 
 
-          <View style={[{flexDirection:'column',paddingBottom :20 },this.state.fondoPrincipal]}>
+          <View style={[{flexDirection:'column' },this.state.fondoPrincipal]}>
            
            <ScrollView>
 
-               <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:8}}>
+               <View style={{flexDirection:'row',marginHorizontal:16,marginTop:8,marginBottom:2}}>
+               <TouchableOpacity
+                     onPress={() => this.props.navigation.navigate("profile1")}
+                     >
                  <View style={{flex:2}}>
                  <Image source={require('../../assets/influencers/uno.png')} 
                  style={{ width:50,height:50,borderRadius:30}}
                  />   
                  </View>
-
+                </TouchableOpacity>
                <View style={{flex:8,flexDirection:'column',paddingLeft:2 ,
                      }}>
                     <View>
@@ -112,11 +112,11 @@ export default class RequestPri4 extends Component {
           
           {/* TITULO */}  
         <View style={{marginHorizontal:16}}>
-               <Text style={{fontSize:28,color:'#312f3d',marginBottom:8,
+               <Text style={{fontSize:28,color:'#312f3d',
                  fontWeight: 'bold',}}>Birthday surprise</Text>
          </View>
 
-         <Text style={{fontSize:16,color:'#312f3d',marginTop:5,marginBottom: 19,
+         <Text style={{fontSize:16,color:'#312f3d',marginTop:2,marginBottom: 20,
                  fontWeight: '500',marginHorizontal:16}}>Private meeting details</Text>
        
          
@@ -190,7 +190,7 @@ export default class RequestPri4 extends Component {
                    for something {'\n'}different to happen.
                  </Text>
 
-                 <View style={{ backgroundColor:'#e2e7ee',paddingVertical:8,
+                 <View style={{ backgroundColor:'#e2e7ee',paddingVertical:8,marginBottom:20,
                 borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
                   <Button   
           title="Cancel Request"
@@ -231,21 +231,22 @@ export default class RequestPri4 extends Component {
            >
 
           <View style={{backgroundColor:'white',borderRadius:20,
-                       marginHorizontal:'5%'}}>
-            <View>
+                       marginHorizontal:'5%',paddingHorizontal:'10%',
+                       paddingVertical:'5%'}}>
+            <View style={{alignItems:'center'}}>
               <View style={{alignItems:'center',marginTop:'5%'}}>
                <Image  
               source={require("../../assets/influencers/influencer.png")}
                 />
                 </View>
-              <Text style={styles.modalTitle} >Request accepted!</Text>
+              <Text style={styles.modalTitle} >Request received!</Text>
 
               <Text style={{ textAlign:'center',
                         color:"gray",  fontSize: 14, marginLeft:3,
                         marginRight:3, fontWeight: "normal",
                          marginVertical: '3%',}}>
-			              Now you can create a private meeting {'\n'}
-                   folder for this follower</Text>
+			              I will response you as soon as{'\n'}
+                         possible</Text>
                <View style={{
                   backgroundColor: '#ff5a60',
                   width:'70%',

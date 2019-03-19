@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
   import  {Button}  from "react-native-elements";
@@ -51,7 +51,7 @@ export default class PublishPri1 extends Component {
     return (
 
       <View style={{flex: 1}}>
-        
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={{flex:9}}>
         
         <View style={{flexDirection:'row',marginHorizontal:16,
@@ -140,7 +140,7 @@ export default class PublishPri1 extends Component {
                underlineColorAndroid="transparent"
                 placeholder="Type something"
               placeholderTextColor="grey"
-             numberOfLines={4}
+             numberOfLines={7}
               multiline={true}
               onChangeText={(text) => this.setState({text})}
                 value={this.state.text}
@@ -149,6 +149,7 @@ export default class PublishPri1 extends Component {
          </View>
 
    </View>
+   </TouchableWithoutFeedback>
    
           <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
              borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
@@ -157,7 +158,7 @@ export default class PublishPri1 extends Component {
           onPress={() => this.props.navigation.navigate("publishPri2")}
           type="clear"
           titleStyle={{ color: "#ffffff",
-          top: Platform.OS === 'ios' ? 8:null,
+          top: Platform.OS === 'ios' ? 8:5,
         }}
         />     
 

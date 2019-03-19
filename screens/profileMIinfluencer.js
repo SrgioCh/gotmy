@@ -4,10 +4,14 @@ import { AppRegistry, Alert,TouchableOpacity,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+ 
+import {Ionicons}  from "@expo/vector-icons"
 
 export default class Profilemiinfluencer extends Component {
 
+   static navigationOptions = {
+      header: null ,
+  };
 
   constructor(props){
 
@@ -23,20 +27,6 @@ export default class Profilemiinfluencer extends Component {
   
   }// fin de consttructor
 
-  
- //  *** DECLARACION DE FUNCIONES **************
-
-seleccion1=() =>{
-   
-  if(this.state.menu1!==styles.menuelegido){
-      
-     }
-      
-   } //  fin dela funcion
-
- 
- 
-
 
 
   render() {
@@ -50,6 +40,9 @@ seleccion1=() =>{
     <ScrollView style={{marginTop:20 }} >
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
+<TouchableOpacity 
+             onPress={() => this.props.navigation.navigate("myWallet")}
+             >
      <Image
               source={require('../assets/influencers/KalaTempo/dos.jpg')}
                style={{
@@ -59,7 +52,7 @@ seleccion1=() =>{
                }}
             />
 
-
+</TouchableOpacity>
 
 
     <View style={{marginHorizontal:16,
@@ -69,17 +62,36 @@ seleccion1=() =>{
         <Text style={{fontSize:17,color:'white',paddingTop:20}}>
          12,342 Friends  984 Following</Text>
     </View>
-    
+    <TouchableOpacity 
+             onPress={() => this.props.navigation.navigate("editinfluencerprofile")}
+             style={{
+               position:'absolute',right:10,top:25,
+             }}
+         
+           >
     <Image
-              source={require('../assets/icons_genGMI/LogOut.png')}
+              source={require('../assets/icons_genGMI/lapizPublish.png')}
                style={{
                width:40,
                height:40,
-               position:'absolute',right:10,top:25,
+               borderRadius:20,
+              
                }}
             />
+   </TouchableOpacity>
+    <View style={{position:'absolute',left:'4%',top:'1.5%', zIndex:6}}>
+         
+         <TouchableOpacity 
+             onPress={() => this.props.navigation.pop()}
+           >
+        <Ionicons name="md-arrow-round-back" size={38} color="white" />
+        </TouchableOpacity>
+       </View> 
 
     {/* numero grande de estadistica*/}
+    <TouchableOpacity 
+             onPress={() => this.props.navigation.navigate("reviewDos")}
+             >
    <View style={{flexDirection:'row',marginHorizontal:15}}>
        <View style={{flex:2,alignItems:'center'}} >
           <Text style={{
@@ -133,6 +145,7 @@ seleccion1=() =>{
          </View>
    </View>
 
+
 {/*========================================================================= */}
 
 
@@ -165,6 +178,7 @@ seleccion1=() =>{
 
 </View>
 
+</TouchableOpacity>
   {/* ----------biagraphy----------------*/} 
 
  <View style={{ marginHorizontal:16,paddingBottom:10,paddingVertical:15 }}>
@@ -413,7 +427,9 @@ seleccion1=() =>{
  {/* -------------------------------------------------------------------*/}
 
 {/* Past Live events*/}
-
+ <TouchableOpacity 
+             onPress={() => this.props.navigation.navigate("mediacontentsmy")}
+             >
 <View style={{flexDirection:'row',
                 justifyContent: 'space-between',padding:10,marginHorizontal:10
                 ,marginTop:10}}>
@@ -425,7 +441,7 @@ seleccion1=() =>{
          <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
          </View>
   </View>
- 
+  </TouchableOpacity>
 {/* --------------------------- --------------------*/}
 
  {/* ------------- LISTA VIDEO ----------------------------*/}

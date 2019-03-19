@@ -29,8 +29,8 @@ export default class ViewerChat extends Component {
          <Image
                  source={require('../assets/icons_genGMI/viewerchat.png')}
                   style={{
-                  width:40,
-                  height:40,
+                  width:30,
+                  height:30,
                   marginRight:16,
                  }}
                />
@@ -151,7 +151,7 @@ export default class ViewerChat extends Component {
        
        
        <View style={{flex:1,alignItems:'center',marginLeft:16,marginTop:10}}>
-       <View style={{ width:45,height:45}}>
+       <View style={{ width:35,height:35}}>
                        <Image source={require('../assets/icons_genGMI/foto.png')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />
@@ -201,7 +201,7 @@ export default class ViewerChat extends Component {
        </View>
         
        <View style={{flex:1,alignItems:'center',marginTop:10,marginRight:16}}>
-              <View style={{ width:40,height:40}}>
+              <View style={{ width:35,height:35}}>
                        <Image source={require('../assets/icons_genGMI/iconosChat.png')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />

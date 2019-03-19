@@ -21,7 +21,7 @@ export default class Vieweredit  extends React.Component {
     },
     headerRight: (<View>
       <Text style={{
-          color:'#ff5a60',marginRight:15,fontSize:16
+          color:'#ff5a60',marginRight:16,fontSize:16
       }}>Cancel</Text>
       </View>),  
       headerTintColor: '#ff5a60',

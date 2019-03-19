@@ -7,7 +7,10 @@ import { AppRegistry, Alert,
 import Button from 'react-native-button'; 
 
 export default class Mediacontent extends Component {
-
+  static navigationOptions = {
+    headerTitle:'',
+    headerTintColor: '#ff5a60',
+};
 
   constructor(props){
 

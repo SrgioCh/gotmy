@@ -140,8 +140,7 @@ constructor(props) {
 
              <View style={[this.state.menu3,{flex:1,alignItems:'center',justifyContent:'center'}]}>
               <TouchableOpacity
-            
-                onPress={() => this.props.navigation.navigate("searchContent")}
+              onPress={() => this.props.navigation.navigate("searchContent")}
              >
         
                <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14 }}>
@@ -243,10 +242,12 @@ constructor(props) {
 
      {/*  -----------------------------------------------------------------  */}
 
-{/*---------------------------------------------- */}
+{/*---------------------------------------------- */} 
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
-
+     <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("profile4")}
+             >
      <View style={{flex:2}}>
 
                       <Image source={require('../assets/influencers/dos.png')} 
@@ -254,6 +255,7 @@ constructor(props) {
                           />
                     
    </View>
+   </TouchableOpacity>
 
    <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,
          borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>

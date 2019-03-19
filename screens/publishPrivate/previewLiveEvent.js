@@ -24,11 +24,13 @@ export default class PreviewLiveEvent extends Component {
                 marginTop:  Platform.OS === 'ios' ? '45%':'43%',
     
         },
-        headerRight: (<View style={{
+        headerRight: (
+         
+                  <View style={{
                 flexDirection: 'row',
                   }}>
-   
-            <Image
+                
+                  <Image
                     source={require('../../assets/icons_genGMI/lapizPublish.png')}
                      style={{
                      width:40,
@@ -36,6 +38,7 @@ export default class PreviewLiveEvent extends Component {
                      marginRight:16,
                     }}
                   />
+                 
                     <Image
                     source={require('../../assets/icons_genGMI/basuraPublish.png')}
                      style={{
@@ -44,7 +47,8 @@ export default class PreviewLiveEvent extends Component {
                      marginRight:16,
                     }}
                   />
-             </View>),  
+             </View>
+            ),  
           headerTintColor: '#ff5a60',
     };
 
@@ -91,7 +95,9 @@ setModalVisible(visible) {
     return (
 
         <View style={[{flex:1},this.state.fondoPrincipal]}>
-        <ScrollView>     
+        
+         <View style={{flex:9}}>
+         <ScrollView>     
          <View style={{flex:8,flexDirection:'column',
                  paddingBottom:20}}>
            
@@ -113,44 +119,11 @@ setModalVisible(visible) {
 
       </View>  
       {/*   final de bicardview */}
-      <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
-      <View style={{}}>
-    <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("reviewDos")}
-             >
-                          <Image source={require('../../assets/influencers/dos.png')} 
-                               style={{ width:50,height:50,borderRadius:10}}
-                              />
-                        
- </TouchableOpacity>
-    </View>
-  
-    <View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
-           <View>
-              <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
-               ,marginTop:3}}>{this.state.nombreInflu}</Text>
-          </View>
-           <View style={{flexDirection:'row'}}>
-             <View style={{ width:10,height:10,marginTop:5}}>
-                     <Image source={require('../../assets/icons_genGMI/ubicacion.png')} 
-                      style={{borderRadius:Platform.OS === 'ios' ? 5:10 ,
-                      width:'100%',height:'100%'}}
-                      />
-                 </View>
-              <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.paisInflu}</Text>
-          </View>
-      
-     </View>
-
-        <View style={{flex:3,alignItems:'flex-end',
-            justifyContent:'center'}}>
-        </View>
-
-       </View>
+       
        
        
         {/* cajita fecha*/}
-        <View style={{borderRadius:10,marginTop:-9,
+        <View style={{borderRadius:10,marginTop:-6,
                         marginLeft:  Platform.OS === 'ios' ? 6:8,
                     marginRight:  Platform.OS === 'ios' ? 11:8,
                     flexDirection:'row',
@@ -226,7 +199,26 @@ setModalVisible(visible) {
      
   </View> 
 
-     {/* TRENDING TAGS */}
+  {/*    caja de los tags */}
+
+    <Text  style={{
+                   color:'#312f3d',
+                       fontSize:16,
+                       fontWeight:'500',
+                      marginHorizontal:16,
+                    paddingVertical:20,
+                     }}>Related tags</Text>
+
+  <View style={{
+                              marginHorizontal:16,flexDirection:'row',
+                            flexWrap:'wrap',paddingVertical:10}}>
+             
+                     <Text style={styles.tagsTrending}>#pokemon</Text>
+                      <Text style={styles.tagsTrending}>#streaming</Text>
+                      <Text style={styles.tagsTrending}>#community</Text>
+                     
+        </View>
+  
      <Text style={{
                          color:'#312f3d',
                        fontSize:16,
@@ -299,6 +291,22 @@ $ {this.state.earn}</Text>
 </View>
 </View>
 
+
+<View style={{marginTop:15,marginHorizontal:16,flexDirection:'row'}}>
+
+<View style={{flex:1}}>
+    <Image source={require('../../assets/icons_genGMI/folDisco.png')} 
+  style={{ width:30,height:30}}
+   />   
+</View>
+<View style={{flex:8,flexDirection:'column',marginLeft:20,
+   borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
+<Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Followers discount</Text>
+<Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+-10% Off</Text>
+</View>
+</View>
+
   {/*  fin */}
   <View style={{
         alignItems: 'center',justifyContent:'center',marginTop:30
@@ -310,7 +318,19 @@ $ {this.state.earn}</Text>
 
  
 </View>
-<TouchableOpacity 
+
+ 
+     </ScrollView>
+
+
+         </View>
+
+       
+
+      
+  <View style={{flex:1,backgroundColor:'#ff5a60',
+      alignItems:'center',justifyContent:'center'}}>
+         <TouchableOpacity 
        onPress = {() => {
         this.setModalVisible(true);
         this.setState({
@@ -318,100 +338,98 @@ $ {this.state.earn}</Text>
         })
         }   
        } >
-  <View style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
-      alignItems:'center',justifyContent:'center'}}>
        
-     <Text style={{flex:1 , color:'white', 
+     <Text style={{flex:1 , color:'white',marginTop:'5%', 
          fontSize:17,letterSpacing:0.41 }}>
-          Send Private Meeting</Text>
-     
+          Publish Live Event</Text>
+          </TouchableOpacity>
     </View>
-    </TouchableOpacity>    
-    
-  
-    
-     </ScrollView>
+      
 
+
+     
 
       {/*   GENERACION DEL MODAL*/}
-       
-        
       <Modal
-        style={{backgroundColor:"transparent",
-        opacity:1,
-                 justifyContent: 'center',
-                alignItems: 'center',
-                margin: 0,
-                borderRadius:20,
+      style={{backgroundColor:"transparent",
+      opacity:1,
+               justifyContent: 'center',
+              alignItems: 'center',
+              margin: 0,
+              borderRadius:20,
+    
+             }}
+        animationType="fade"
       
-               }}
-          animationType="fade"
-        
-          transparent={true}
-          visible={this.state.modalVisible}
-          onBackdropPress={() => {
-            this.setModalVisible(!this.state.modalVisible);
-            this.setState({
-              fondoPrincipal:''
-            })
-          }}
+        transparent={true}
+        visible={this.state.modalVisible}
+        onBackdropPress={() => {
+          this.setModalVisible(!this.state.modalVisible);
+          this.setState({
+            fondoPrincipal:''
+          })
+        }}
+         
+         >
+
+        <View style={{backgroundColor:'white',borderRadius:20,
+                     marginHorizontal:'5%'}}>
+          <View>
+            <View style={{alignItems:'center',marginTop:'5%'}}>
+             <Image  
+            source={require("../../assets/influencers/influencer.png")}
+              />
+              </View>
+            <Text style={styles.modalTitle} >Live Event published!</Text>
+
+            <Text style={{ textAlign:'center',
+                      color:"gray",  fontSize: 14, marginLeft:3,
+                      marginRight:3, fontWeight: "normal",
+                       marginVertical: '3%',}}>
+               Your event is already available to{'\n'}
+               the community</Text>
+          
+               <View style={{
+                backgroundColor: '#ff5a60',
+                width:'70%',
+                padding:15,
+                color:'white',
+                borderRadius:27,
+                textAlign:"center",
+                marginTop:'3%',
+                marginHorizontal:'15%'
+             }}>
+             <Button style={styles.textboton}
+              title="View Live Event"
+              onPress={() => {
            
-           >
-
-          <View style={{backgroundColor:'white',borderRadius:20,
-                       marginHorizontal:'5%'}}>
-            <View>
-              <View style={{alignItems:'center',marginTop:'5%'}}>
-               <Image  
-              source={require("../../assets/influencers/influencer.png")}
-                />
-                </View>
-              <Text style={styles.modalTitle} >Live Event published!</Text>
-
-              <Text style={{ textAlign:'center',
-                        color:"gray",  fontSize: 14, marginLeft:3,
-                        marginRight:3, fontWeight: "normal",
-                         marginVertical: '3%',}}>
-			     Your event is already available to{'\n'}
-                 the community</Text>
-            
-                 <View style={{
-                  backgroundColor: '#ff5a60',
-                  width:'70%',
-                  padding:15,
-                  color:'white',
-                  borderRadius:27,
-                  textAlign:"center",
-                  marginTop:'3%',
-                  marginHorizontal:'15%'
-               }}>
-               <Button style={styles.textboton}
-                title="View Live Event"
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                  this.setState({
-                    fondoPrincipal:''
-                  })
-                }}
-                type="clear"
-                titleStyle={{ color: "#ffffff",
-                position: "absolute",
-                top: -5,
-                right: Platform.OS === 'ios' ? '25%':null,
-                }}
-                >
-              </Button>
-              </View>
-              <View style={{alignItems:'center',marginVertical:15}}>
-              <Text style={{
-               color:'#ff5a60',
-               fontSize:15
-              }}>It’s ok, continue</Text>
-              </View>
+               this.props.navigation.navigate("requesPendin");
+          
+                this.setModalVisible(!this.state.modalVisible);
+                this.setState({
+                  fondoPrincipal:''
+                })
+              }}
+              type="clear"
+              titleStyle={{ color: "#ffffff",
+              position: "absolute",
+              top: -5,
+              right: Platform.OS === 'ios' ? '25%':null,
+              }}
+              >
+            </Button>
+            </View>
+            <View style={{alignItems:'center',marginVertical:15}}>
+            <Text style={{
+             color:'#ff5a60',
+             fontSize:15
+            }}>It’s ok, continue</Text>
             </View>
           </View>
-        </Modal>
- 
+        </View>
+      </Modal>
+
+    
   
    </View>
    
@@ -434,42 +452,7 @@ estrellasTrending:{
   flexDirection:'row',
 
 },
-//*** TAGS DE TRENDING */
-tagsTrending:{
-  paddingVertical:8,
-  borderColor:'#312f3d' ,
-  borderWidth: 1,
-  fontSize:13,
-  borderRadius:20,
-  paddingHorizontal:10,
-  marginBottom: 5,
-  marginLeft: 3,
-},
 
-//SEGUIDORES
-socialBotone:{
-  backgroundColor: '#ff5a60',
-  alignItems:'center',
-  borderRadius:27,
-  width:'80%',
-  paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 18:17,
-
-  
-},
-Textsinmarcar:{
-  color:'white',
-},
-socialBotonBlanco:{
-  backgroundColor: 'white',
-  alignItems:'center',
-  borderRadius:27,
-  width:'80%',
-  paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 3:4,
-  borderWidth:1,
-  borderColor: '#312f3d',
-},
 
 //VENTANA MODAL
 transparentePrincipal:{ //cuando se active el modal
@@ -494,6 +477,16 @@ transparentePrincipal:{ //cuando se active el modal
         fontSize:17,
        },
 
-
+  //*** TAGS DE TRENDING */
+tagsTrending:{
+  paddingVertical:8,
+  borderColor:'#312f3d' ,
+  borderWidth: 1,
+  fontSize:13,
+  borderRadius:20,
+  paddingHorizontal:10,
+  marginBottom: 5,
+  marginLeft: 3,
+},
 
 });

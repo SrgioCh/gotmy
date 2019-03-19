@@ -4,7 +4,7 @@ import { Platform,TouchableOpacity,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import { Button } from "react-native-elements";
 
 
 
@@ -181,17 +181,21 @@ export default class AddPaymentMethod extends Component {
 
 {/* -----------------------BOTONES ------------------*/}
 
- <View style={{marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
-             borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-  <Button
-        
-         onPress={() => this.props.navigation.navigate("confirMailInflu")}
-        
-         >
-        continue
-      </Button>
+ 
 
-        </View>
+
+      <View style={styles.container2}>
+       <Button  style={styles.textboton}
+          title="Continue"
+          onPress={() => this.props.navigation.navigate("confirMailInflu")}
+          type="clear"
+          titleStyle={{ color: "#ffffff",
+          position: "absolute",
+          top: -5
+        }}
+        />    
+      </View> 
+  
 
     </ScrollView>
 
@@ -226,4 +230,25 @@ const styles = StyleSheet.create({
      fontSize:13,
     
   },
+  container2:{
+    backgroundColor: '#ff5a60',
+     width:'90%',
+     padding:15,
+     color:'white',
+     borderRadius:27,
+     textAlign:"center",
+     marginTop:Platform.OS === 'ios' ? '16%':'7%',
+     marginLeft:20,
+     marginBottom:40
+     
+  },
+  textboton:{
+ 
+
+    textAlign:'center',
+    color:"white", 
+    marginTop:1,
+    fontSize:17,
+  
+  }
 });

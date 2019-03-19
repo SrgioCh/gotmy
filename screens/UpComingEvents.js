@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Alert,TouchableOpacity,
+import { AppRegistry, Alert,TouchableOpacity,Platform,
   View,Text ,TextInput,
   StyleSheet,ScrollView,
   Image} from 'react-native';
@@ -7,7 +7,10 @@ import { AppRegistry, Alert,TouchableOpacity,
 import Button from 'react-native-button'; 
 
 export default class Upcomingevents extends Component {
-
+  static navigationOptions = {
+    headerTitle:'',
+    headerTintColor: '#ff5a60',
+};
 
   constructor(props){
 
@@ -15,24 +18,12 @@ export default class Upcomingevents extends Component {
   
      this.state={
           tytexto:'',
-          menu1:styles.menuelegido,
-          menu2:styles.menunormal,
-          menu3:styles.menunormal,
+         
      
       }
   
   }// fin de consttructor
 
-  
- //  *** DECLARACION DE FUNCIONES **************
-
-seleccion1=() =>{
-   
-  if(this.state.menu1!==styles.menuelegido){
-      
-     }
-      
-   } //  fin dela funcion
 
  
  
@@ -194,8 +185,15 @@ seleccion1=() =>{
                       <Text style={{ fontSize:17,fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:16,fontWeight:'bold',color:'#ff5a60'}} >Games</Text>
-                      <Text style={{ fontSize:13,fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
+                       <View style={{flexDirection:'row'}}>
+                       <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
+                         style={{ width:15,height:15,marginTop:4,marginRight:5}}
+                          />  
+
+                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                   fontWeight:'bold',color:'#677183',
+                    paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
+                   </View>
                      </View>
    </View>  
 </View>  
@@ -299,8 +297,17 @@ seleccion1=() =>{
                       <Text style={{ fontSize:17,fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:16,fontWeight:'bold',color:'#ff5a60'}} >Games</Text>
-                      <Text style={{ fontSize:13,fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
+
+                       <View style={{flexDirection:'row'}}>
+                       <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
+                         style={{ width:15,height:15,marginTop:4,marginRight:5}}
+                          />  
+
+                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                   fontWeight:'bold',color:'#677183',
+                    paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
+                   </View>
+ 
                      </View>
    </View>  
 </View>  
