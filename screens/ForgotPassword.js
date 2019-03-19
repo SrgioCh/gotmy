@@ -88,7 +88,7 @@ export default class ForgotPassword extends React.Component {
            color:'white',
            borderRadius:27,
            textAlign:"center",
-           marginTop:10,
+           marginTop:'55%',
            marginLeft:15,
            
         },

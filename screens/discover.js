@@ -447,7 +447,7 @@ export default class Discover extends Component {
                 ,marginTop:5}}>
               <View > 
                  <Text style={{color:"#312f3d",fontSize:17
-                  ,fontWeight:'500'}}>Trending Media Contents</Text></View>
+                  ,fontWeight:'500'}}>Trending Videos</Text></View>
 
                <View style={{flexDirection:'row'}} >
                <TouchableOpacity

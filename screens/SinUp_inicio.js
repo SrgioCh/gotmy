@@ -67,10 +67,15 @@ ventana=()=>{
         <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
        
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+           
+             <TouchableOpacity
+                     onPress={this.ventana.bind(this)}
+                     >
             <Image source={require('../assets/icons_genGMI/LogOut.png')} 
                       style={{ width:40,height:40,
                                 borderRadius:10}}
                       />
+                      </TouchableOpacity>
             </View>
             
            <View style={{flex:4,flexDirection:'column',marginLeft:10,
@@ -82,12 +87,14 @@ ventana=()=>{
               <Text style={{
                      color:'#ff5a60',
                      fontSize:17 ,letterSpacing:0.41,marginTop:10
-                }}>Sing Up</Text> 
+                }}>Sign Up</Text> 
 
               </View>
                </TouchableOpacity>
            </View>
          
+
+
            <TouchableOpacity
                      onPress={() => this.props.navigation.navigate("discoverCalendar")}
                      >
@@ -511,7 +518,7 @@ ventana=()=>{
                 ,marginTop:5}}>
               <View > 
                  <Text style={{color:"#312f3d",fontSize:17
-                  ,fontWeight:'500'}}>Trending Media Contents</Text></View>
+                  ,fontWeight:'500'}}>Trending Videos</Text></View>
 
                <View style={{flexDirection:'row'}} >
                <TouchableOpacity

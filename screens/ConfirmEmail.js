@@ -193,7 +193,7 @@ container2:{
    color:'white',
    borderRadius:27,
    textAlign:"center",
-   marginTop:'50%',
+   marginTop:'75%',
    marginLeft:15,
    
 },

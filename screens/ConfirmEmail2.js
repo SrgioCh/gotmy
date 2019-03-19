@@ -88,7 +88,7 @@ container2:{
    color:'white',
    borderRadius:27,
    textAlign:"center",
-   marginTop:'45%',
+   marginTop:'75%',
    marginLeft:20,
    
 },

@@ -134,7 +134,7 @@ container2:{
    color:'white',
    borderRadius:27,
    textAlign:"center",
-   marginTop:58,
+   marginTop:'50%',
    marginLeft:16,
    
 

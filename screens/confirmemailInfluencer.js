@@ -51,7 +51,7 @@ export default class  ConfirMailInfluencer extends React.Component {
   
        {/* -----------------------BOTONES ------------------*/}
 
- <View style={{marginTop:120,marginBottom:20, marginHorizontal:16,  borderRadius: 50,
+ <View style={{marginTop:'70%',marginBottom:20, marginHorizontal:16,  borderRadius: 50,
                backgroundColor:'#ff5a60', alignItems:'center'}}>
   <Button
         style={{

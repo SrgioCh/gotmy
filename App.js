@@ -399,7 +399,7 @@ requestPri3:{
     }   
   },
   {
-    initialRouteName: 'paymetho1',
+    initialRouteName: 'singUpInicio',
   }
 );
 

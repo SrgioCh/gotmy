@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         color:'white',
         borderRadius:27,
         textAlign:"center",
-        marginTop:140,
+        marginTop:'55%',
         marginHorizontal:16,
       },
      input:{
