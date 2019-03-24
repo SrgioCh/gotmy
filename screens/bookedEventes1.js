@@ -6,138 +6,17 @@ import {Platform,Alert,TouchableOpacity,
 
 import Button from 'react-native-button'; 
 
+import BookedEvDos from "./bookedEventes2"
+import BookedEvTres from "./bookedEventes3"
+
 export default class BookedEvUno extends Component {
 
   static navigationOptions = {
     header: null ,
 };
 
-
-  constructor(props){
-
-    super(props);
-  
-     this.state={
-          tytexto:'',
-          menu1:styles.menuelegido,
-          menu2:styles.menunormal,
-          menu3:styles.menunormal,
-     
-      }
-  
-  }// fin de consttructor
-
-  
- //  *** DECLARACION DE FUNCIONES **************
-
-seleccion1=() =>{
-   
-  if(this.state.menu1!==styles.menuelegido){
-      
-     }
-      
-   } //  fin dela funcion
-
- 
- 
-  render() {
-    return (
-      <View style={{flex: 1}}>
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
-           marginHorizontal:'4%'}}>
-            
-          <View style={{flexDirection:'row'}}>
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-              <Image source={require('../assets/reviews/kuskal.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-             <View style={{flex:4,flexDirection:'column',marginLeft:10,
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>Kurtis 'Kala' Lloyd</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>@kurtiskala</Text>
-             </View>
-             <View style={{flex:1,marginRight:5}}>
-               
-              </View>
-              <View style={{flex:1}}>
-                 <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-                    <Image source={require('../assets/icons_genGMI/calendarRojo.png')} 
-                        style={{ width:30,height:30,
-                                  borderRadius:10}}
-                        />
-                  </View>
-              </View>
-          </View>
-  
-      </View>
-      <View style={{flex: 9}}>
-        
-                
-            {/* ----------- TITULO ----------------*/} 
-
-              <View style={{ marginHorizontal:16,paddingBottom:2  }}>
-     
-                  <Text style={{
-                     color:'#312f3d',
-                        fontSize:34,
-                        fontWeight:'bold',
-                        letterSpacing:0.41,
-                }}>Live Events</Text>         
-           </View>
-
-        
-  
- 
-          {/* ----------------MENU ----------------*/}
- 
-            <View style={{flexDirection:'row' ,alignItems:'center',justifyContent:'center'
-              ,marginHorizontal:16,marginVertical:10}}>
-
-                 <View style={[{flex:1,alignItems:'center',justifyContent:'center'}, this.state.menu1]}>
-                 <Text  style={{ color:'#312f3d', fontSize:17,paddingVertical:14  }}>
-               Upcoming
-                 </Text>
-
-               </View>
-
-
-
-           <View style={[this.state.menu2,{flex:1,alignItems:'center',justifyContent:'center'}]}>
-           <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("boked2")}
-             >
-            <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14  }}>
-            Past Eventes
-          </Text>
-          </TouchableOpacity>
-         </View>
-
-
-        <View style={[this.state.menu3,{flex:1,alignItems:'center',justifyContent:'center'}]}>
-            <TouchableOpacity
-                 onPress={() => this.props.navigation.navigate("boked3")}
-             >
-            <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14 }}>
-             Favorites
-              </Text>
-         </TouchableOpacity>
-      </View>
-
-     </View>
-
- {/* ------------------------*/} 
-                    
- <ScrollView>
-
+BookedEvUno=(<ScrollView>
+          
 {/* -----------------BICARDVIEW--------------*/}  
   <TouchableOpacity 
             onPress = {() => this.props.navigation.navigate("boked4") } >     
@@ -248,106 +127,190 @@ seleccion1=() =>{
 </View>  
 </TouchableOpacity>
  {/* -------------------------------------------------------------------*/}
+</ScrollView>);
 
+  constructor(props){
 
-
-
-    </ScrollView>
-    
-  </View>
+    super(props);
   
-      {/*   penta icon o  tabs */}
-  <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#312f3d'}}>
-              <View style={{flex:1,padding:2}}>
-              <TouchableOpacity
+     this.state={
+          tytexto:'',
+          menu1:styles.menuelegido,
+          textoUno:styles.textoElegido,
+
+          menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+
+          menu3:styles.menunormal,
+          textoTres:styles.textoNormal,
+
+           mostramos:this.BookedEvUno,               
+          
+              
+      }
+  
+  }// fin de consttructor
+
+  
+  cambiarVista=(num)=>{
+
+    if(num==1){
+       
+        this.setState({
+            mostramos:this.BookedEvUno, 
+            menu1:styles.menuelegido,
+            textoUno:styles.textoElegido,
+  
+            menu2:styles.menunormal,
+            textoDos:styles.textoNormal,
+  
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+        })
+    }else if(num==2){
+       
+        this.setState({
+            mostramos:<BookedEvDos/>,
+            menu1:styles.menunormal,
+            textoUno:styles.textoNormal,
+
+            menu2:styles.menuelegido,
+            textoDos:styles.textoElegido,
+
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+        })
+    }else if(num==3){
+       
+        this.setState({
+            mostramos:<BookedEvTres enviaAPadre={this.recogeDeHijo.bind(this)}/>,
+            menu1:styles.menunormal,
+            textoUno:styles.textoNormal,
+
+            menu2:styles.menunormal,
+            textoDos:styles.textoNormal,
+
+            menu3:styles.menuelegido,
+            textoTres:styles.textoElegido,
+        })
+    }
+
+}
+
+recogeDeHijo(dato){
+    
+  this.props.navigation.navigate(dato)
+ 
+  }
+ 
+
+ 
+ 
+  render() {
+    return (
+      <View style={{flex: 1}}>
+      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
+          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
+           marginHorizontal:'4%'}}>
             
-            onPress={() => this.props.navigation.navigate("discover")}
-             >
-                   <View style={{flexDirection:'column',alignItems:'center'}} >
-                      <View style={{ width:30,height:30,marginLeft:'15%'}}>
-                       <Image source={require('../assets/pentaicon/discoverNormal.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
+          <View style={{flexDirection:'row'}}>
+              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+              <Image source={require('../assets/reviews/kuskal.png')} 
+                        style={{ width:40,height:40,
+                                  borderRadius:10}}
                         />
-                      </View>
-                     <Text style={styles.pentaIcon}>Discover</Text>
-                   </View>
-                </TouchableOpacity>
+              </View>
+             <View style={{flex:4,flexDirection:'column',marginLeft:10,
+                        marginRight:15}}>
+                  <Text style={{
+                       color:'#312f3d',
+                       fontSize:17 ,letterSpacing:0.41
+                  }}>Kurtis 'Kala' Lloyd</Text>
+                  <Text style={{
+                         color:'#677183',
+                         fontSize:13 ,letterSpacing:0.08
+                  }}>@kurtiskala</Text>
+             </View>
+             <View style={{flex:1,marginRight:5}}>
+               
+              </View>
+              <View style={{flex:1}}>
+                 <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+                    <Image source={require('../assets/icons_genGMI/calendarRojo.png')} 
+                        style={{ width:30,height:30,
+                                  borderRadius:10}}
+                        />
+                  </View>
+              </View>
           </View>
   
-      
-        <View style={{flex:1,alignItems:'center',padding:2}}>
-        <TouchableOpacity
-              
-               onPress={() => this.props.navigation.navigate("search")}
-                >
-                 <View  style={{flexDirection:'column'}}>
-                       
-                         <View style={{ width:30,height:30,marginLeft:'10%'}}>
-                         <Image source={require('../assets/pentaicon/search.jpg')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={styles.pentaIcon}>Search</Text>
-                </View>
-            </TouchableOpacity>
-         </View>
-          
-        
-        <View style={{flex:1,alignItems:'center',paddingTop:7,paddingHorizontal:2,
-                       paddingHorizontal:2}}>
-        <TouchableOpacity
-              
-              onPress={() => this.props.navigation.navigate("boked1")}
-               >
-                <View  style={{flexDirection:'column'}}>
-                     
-                     <View style={{ width:25,height:25, marginLeft:'30%'}}>
-                         <Image source={require('../assets/pentaicon/eventsRojo.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={styles.pentaIcon}>Live Events</Text>
-                </View>
-              </TouchableOpacity>
-       </View>
-       
-       <View style={{flex:1,alignItems:'center',paddingTop:7,paddingHorizontal:2,marginRight:'-4%'}}>
-      <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("mensa1")}
-              >
-              <View  style={{flexDirection:'column'}}>
-                
-                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
-                       <Image source={require('../assets/pentaicon/message.jpg')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                       </View>
-                   <Text style={styles.pentaIcon}>Messages</Text>
-                   
-              </View>
-              </TouchableOpacity>
-              
       </View>
-   
-                       
-       
-        <View style={{flex:1,alignItems:'center',padding:2}}>
-            <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("ActiOne")}
-               >
-                 <View style={{flexDirection:'column'}}>
-                 <View style={{ width:30,height:30,marginLeft:'11%'}}>
-                         <Image source={require('../assets/pentaicon/activity.jpg')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={styles.pentaIcon}>Activity</Text>
-                </View>
-                </TouchableOpacity>
-          </View >
-      
-       
+      <View style={{flex: 9}}>
+        
+                
+            {/* ----------- TITULO ----------------*/} 
+
+              <View style={{ marginHorizontal:16,paddingBottom:2  }}>
+     
+                  <Text style={{
+                     color:'#312f3d',
+                        fontSize:34,
+                        fontWeight:'bold',
+                        letterSpacing:0.41,
+                }}>Live Events</Text>         
+           </View>
+
+        
+  
+ 
+          {/* ----------------MENU ----------------*/}
+ 
+            <View style={{flexDirection:'row' ,alignItems:'center',justifyContent:'center'
+              ,marginHorizontal:16,marginVertical:10}}>
+
+                 <View style={[{flex:1,alignItems:'center',justifyContent:'center'}, this.state.menu1]}>
+                 <TouchableOpacity
+               onPress={() => this.cambiarVista(1)}
+             >
+                 <Text  style={this.state.textoUno}>
+                 Upcoming
+                 </Text>
+                 </TouchableOpacity>
+               </View>
+
+
+
+           <View style={[this.state.menu2,{flex:1,alignItems:'center',justifyContent:'center'}]}>
+           <TouchableOpacity
+               onPress={() => this.cambiarVista(2)}
+             >
+            <Text  style={[this.state.textoDos,{marginLeft:10}]}>
+            Past Eventes
+          </Text>
+          </TouchableOpacity>
          </View>
+
+
+        <View style={[this.state.menu3,{flex:1,alignItems:'center',justifyContent:'center'}]}>
+            <TouchableOpacity
+                 onPress={() => this.cambiarVista(3)}
+             >
+            <Text  style={[this.state.textoTres,{marginLeft:10}]}>
+             Favorites
+              </Text>
+         </TouchableOpacity>
+      </View>
+
+     </View>
+
+ {/* ------------------------*/} 
+     {this.state.mostramos}
+
+
+
+
+  </View>
+  
   
        </View>
 
@@ -394,6 +357,12 @@ transparente:{
  menunormal:{
    borderBottomWidth:1,
    borderBottomColor:'#e1e3e6',
+ },
+ textoElegido:{
+  color:'#312f3d', fontSize:17,paddingVertical:14  
+ },
+ textoNormal:{
+  color:'#697181',fontSize:17,paddingVertical:14  
  },
  
  //TABS PENTA ICON

@@ -47,7 +47,9 @@ export default class Become2 extends React.Component {
     </Text>
     <Text style={styles.subtitulo}>
         <Text >
-        Hosting your live event is super simple with our integrated scheduling system, payment processing, and live video chat technology
+        Hosting your live event is super simple with
+        our integrated scheduling system, payment
+        processing, and live video chat technology
         </Text>
     </Text>
     <View style={{ flexDirection: 'row',

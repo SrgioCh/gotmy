@@ -19,46 +19,160 @@ constructor(props) {
   
     this.state = { 
   
-      modal:'none',
-      flexModal:1,
-      modalOscuro:null,
-      modalOpacity:null,
-      modalIndex:-1,
-      cabezera :'flex',
+        //PARA VENTANA MODAL
+        modalVisible: false,
     }
 }
 
-ventana=()=>{
-
-    if(this.state.modal==='none'){
-        this.setState({
-            modal:'flex',
-            flexModal:8,
-            modalOscuro:'#312f3d',
-            modalOpacity:0.9,
-            modalIndex:11,
-            cabezera:'none'
-          })
-    }else{
-        this.setState({
-            modal:'none',
-            flexModal:1,
-            modalOscuro:null,
-            modalOpacity:null,
-            modalIndex:11,
-            cabezera:'flex'
-          })
-    }
-   
-    
+//PARA VENTANA MODAL
+toggleModal(visible) {
+  this.setState({ modalVisible: visible });
 }
 
+ 
   render() {
   
     return (
-<View style={{flex: 1 ,}}>
+<View style={{flex: 1}}>
 
-    <View  style={{flex: 1,display:this.state.cabezera ,marginTop:22,justifyContent:'center',
+<Modal
+          transparent = {true}
+          animationType="fade"
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => { console.log("Modal has been closed.") } }
+              >
+          
+                  <View style = {styles.modal}>
+             
+                 <Text style = {styles.text}>Modal is open!</Text>
+                 
+                 <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible)}}>
+                    
+                    <Text style = {styles.text}>Close Modal</Text>
+                 </TouchableOpacity>   
+
+                 
+                 </View> 
+
+
+
+                 <View style={{backgroundColor:'white',
+                          position:'absolute',width:'100%',height:'50%',
+                          bottom:'0.1%'}}> 
+                       
+                      <View style={{marginHorizontal:40,
+                             alignItems:'center',justifyContent:'center'}}>
+                      <Text style={{
+                            fontSize:28 ,
+                            letterSpacing:0.36 ,
+                            color:'#312f3d',
+                            fontWeight:'500',
+                            marginVertical:10,
+                        }}>Sign up</Text>
+
+                      <Text
+                         style={{
+                            fontSize:13 ,
+                            letterSpacing:0.32 ,
+                            color:'#312f3d',
+                            marginVertical:5,
+                        }}>You must have an account to continue</Text>
+                         <TouchableOpacity
+                       onPress={() => {
+                        this.toggleModal(!this.state.modalVisible);
+                         this.props.navigation.navigate("createAcu")}}
+                       >
+                        <View style={{backgroundColor:'#ff5a60',
+                                    borderRadius:20 ,paddingVertical:10,
+                                    paddingHorizontal:'23%',
+                                    marginVertical:5,}}>
+                        <Text style={{
+                           color:'white'
+                        } }>Sign Up with your email</Text>
+                      
+                        </View>
+                        </TouchableOpacity>
+                    
+                        <View style={{backgroundColor:'#13389B',
+                                    borderRadius:20 ,paddingVertical:10,
+                                    paddingHorizontal:'23%',flexDirection:'row',
+                                    marginVertical:5,}}>
+                        <FontAwesome name="facebook" size={20} color="white" 
+                           style={{position:'absolute',left:20,top:7
+                           }}/>
+                         <Text style={{
+                           color:'white'
+                        } }>Connect with Facebook</Text>
+                       </View>
+                         
+                       <View style={{backgroundColor:'#4371EC',
+                                    borderRadius:20 ,paddingVertical:10,
+                                    paddingHorizontal:'23%',flexDirection:'row',
+                                    marginVertical:5,}}>
+                        <FontAwesome name="linkedin" size={20} color="white" 
+                           style={{position:'absolute',left:20,top:7
+                           }}/>
+                         <Text style={{
+                           color:'white'
+                        } }>Connect with LinkedIn</Text>
+                       </View>
+                    
+                       <View style={{
+                           flexDirection:'row'
+                       }}>
+                       <Text style={{
+                             fontSize:12 ,
+                             letterSpacing:0.08 ,
+                             color:'#312f3d',
+                             marginTop:5,
+                       }}>Already have an account? </Text>
+                       
+                       <TouchableOpacity
+                       onPress={() => {
+                        this.toggleModal(!this.state.modalVisible),
+                         this.props.navigation.navigate("Log")}}
+                       >
+                        <View >
+                            <Text
+                             style={{
+                                fontSize:12 ,
+                                letterSpacing:0.08 ,
+                                color:'#ff5a60',
+                                marginTop:5,
+                               }}>  Log In </Text>
+                        </View>
+                    </TouchableOpacity>
+                        </View>
+                           
+                          
+                  </View>
+                
+                  <View style={{
+                             position:'absolute',
+                             right:20,
+                             top:10
+                           }}>
+                  <TouchableOpacity
+                      onPress = {() => {
+                        this.toggleModal(!this.state.modalVisible)}}
+                       >
+                         <FontAwesome name="close" size={20} color="#ff5a60"  /> 
+                            
+                  </TouchableOpacity> 
+
+ 
+                    
+                    </View> 
+                        
+                  </View>
+         
+           </Modal>
+
+      
+
+
+    <View  style={{flex: 1,marginTop:22,justifyContent:'center',
         borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
          backgroundColor:this.state.modalOscuro,
          opacity:this.state.modalOpacity,
@@ -69,7 +183,7 @@ ventana=()=>{
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
            
              <TouchableOpacity
-                     onPress={this.ventana.bind(this)}
+                      onPress = { () => this.toggleModal(true)}
                      >
             <Image source={require('../assets/icons_genGMI/LogOut.png')} 
                       style={{ width:40,height:40,
@@ -81,7 +195,7 @@ ventana=()=>{
            <View style={{flex:4,flexDirection:'column',marginLeft:10,
                       marginRight:10}}>
                       <TouchableOpacity
-                     onPress={this.ventana.bind(this)}
+                       onPress = { () => this.toggleModal(true)}
                      >
               <View>
               <Text style={{
@@ -503,7 +617,7 @@ ventana=()=>{
                         fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#677183'}} >Fashion</Text>
+                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
                       fontWeight:'bold',color:'#677183',
                               paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
@@ -769,109 +883,8 @@ ventana=()=>{
           </View>
  {/* ********************fin de los trendign********************************* */}
  </ScrollView>
-
-</View>
-            <View  display={this.state.modal} 
-            style={{flex:this.state.flexModal}}>
-
-                  <View style={{backgroundColor:'white',marginHorizontal:40,
-                             alignItems:'center',justifyContent:'center'}}>
-                        <Text style={{
-                            fontSize:28 ,
-                            letterSpacing:0.36 ,
-                            color:'#312f3d',
-                            fontWeight:'500',
-                            marginVertical:10,
-                        }}>Sign up</Text>
-                        <Text
-                         style={{
-                            fontSize:13 ,
-                            letterSpacing:0.32 ,
-                            color:'#312f3d',
-                            marginVertical:5,
-                        }}>You must have an account to continue</Text>
-                         <TouchableOpacity
-                       onPress={() => this.props.navigation.navigate("createAcu")}
-                       >
-                        <View style={{backgroundColor:'#ff5a60',
-                                    borderRadius:20 ,paddingVertical:10,
-                                    paddingHorizontal:'23%',
-                                    marginVertical:5,}}>
-                        <Text style={{
-                           color:'white'
-                        } }>Sign Up with your email</Text>
-                      
-                        </View>
-                        </TouchableOpacity>
-
-                        
-                        <View style={{backgroundColor:'#13389B',
-                                    borderRadius:20 ,paddingVertical:10,
-                                    paddingHorizontal:'23%',flexDirection:'row',
-                                    marginVertical:5,}}>
-                        <FontAwesome name="facebook" size={20} color="white" 
-                           style={{position:'absolute',left:20,top:7
-                           }}/>
-                         <Text style={{
-                           color:'white'
-                        } }>Connect with Facebook</Text>
-                       </View>
-                         
-                       <View style={{backgroundColor:'#4371EC',
-                                    borderRadius:20 ,paddingVertical:10,
-                                    paddingHorizontal:'23%',flexDirection:'row',
-                                    marginVertical:5,}}>
-                        <FontAwesome name="linkedin" size={20} color="white" 
-                           style={{position:'absolute',left:20,top:7
-                           }}/>
-                         <Text style={{
-                           color:'white'
-                        } }>Connect with LinkedIn</Text>
-                       </View>
-
-                       <View style={{
-                           flexDirection:'row'
-                       }}>
-                       <Text style={{
-                             fontSize:12 ,
-                             letterSpacing:0.08 ,
-                             color:'#312f3d',
-                             marginTop:5,
-                       }}>Already have an account? </Text>
-                       
-                       <TouchableOpacity
-                       onPress={() => this.props.navigation.navigate("Log")}
-                       >
-                        <View >
-                            <Text
-                             style={{
-                                fontSize:12 ,
-                                letterSpacing:0.08 ,
-                                color:'#ff5a60',
-                                marginTop:5,
-                               }}>  Log In </Text>
-                        </View>
-                    </TouchableOpacity>
-                        </View>
-                           
-                          
-                  </View>
-                
-                  <View style={{
-                             position:'absolute',
-                             right:20,
-                             top:10
-                           }}>
-                  <TouchableOpacity
-                       onPress={this.ventana.bind(this)}
-                       >
-                         <FontAwesome name="close" size={20} color="#ff5a60"  /> 
-                            
-                  </TouchableOpacity> 
-             </View> 
-                  
-    </View>
-
+ 
+ </View>
 
      </View>
  
@@ -1052,6 +1065,14 @@ const styles = StyleSheet.create({
       bottom:6,
      
     },
+    // ventana modal
+modal: {
+  flex: 1,
+  alignItems: 'center',
+  backgroundColor: 'black',
+  opacity:0.5,
+  padding: 100
+},
    
 
 

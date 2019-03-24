@@ -48,7 +48,9 @@ export default class Become3 extends React.Component {
     </Text>
     <Text style={styles.subtitulo}>
         <Text >
-        Manage and track your sales in real time, and manage your community through private messages and chat moderation
+          Manage and track your sales in real time, and
+         manage your community through private 
+         messages and chat moderation
         </Text>
     </Text>
     <View style={{ flexDirection: 'row',

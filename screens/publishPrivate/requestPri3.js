@@ -5,13 +5,13 @@ import { Platform,AppRegistry, Alert,
   Image,TouchableOpacity} from 'react-native';
 
   import Checkbox from 'react-native-modest-checkbox';
-  import { Button } from "react-native-elements";
+  import Button from 'react-native-button'; 
 
 export default class RequestPri3 extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Request Private Meeting',
+  static navigationOptions = ({ navigation }) => {
+    return {
+        title:'Request Private Meeting',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -25,12 +25,14 @@ export default class RequestPri3 extends Component {
     
         },
         headerRight: (<View style={{marginRight: 16}}>
+        <TouchableOpacity onPress={() => navigation.navigate("profile1")} >
            <Text style={{color:'red'}}>Cancel</Text>
+           </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
 
-
+  }
     constructor(props){
 
         super(props);
@@ -265,19 +267,12 @@ $ 2,200</Text>
 </View>
 </View>
 
-
-<View style={{ backgroundColor:'#ff5a60',marginTop:20,paddingVertical:8,marginBottom:20,
-                borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button   
-          title="Send private request"
-          onPress={() => this.props.navigation.navigate("requestPri4")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          
-        }}
-        />     
-
-      </View>
+      <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("requestPri4")}
+                         style={{color:'white',fontSize:17}}
+                       >Send private request</Button>      
+                   </View> 
    </ScrollView>
  </View>
 
@@ -308,6 +303,17 @@ const styles = StyleSheet.create({
         marginHorizontal:16,
         marginTop:20,
 
+      },
+      containerbutton:{
+        backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        textAlign:"center",
+        marginTop:25,
+     marginBottom:10,
+        marginHorizontal:'4%'
+    
       },
 
 

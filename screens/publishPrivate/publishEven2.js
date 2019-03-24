@@ -3,16 +3,17 @@ import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
-  import  {Button}  from "react-native-elements";
+  import Button from 'react-native-button'; 
 
 import SwitchToggle from 'react-native-switch-toggle';
 
 
 export default class PublishEven2 extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Date and time',
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'Date and time',
+     
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -26,13 +27,15 @@ export default class PublishEven2 extends Component {
     
         },
         headerRight: (<View>
+           <TouchableOpacity onPress={() => navigation.navigate("requesPendin")} >
           <Text style={{
               color:'red',marginRight: 16,
           }}>Cancel</Text>
+          </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
-
+  }
 
     constructor(props){
 
@@ -236,18 +239,14 @@ export default class PublishEven2 extends Component {
     {/*  abajo el final de flex 9 */}
           </View>
    
-          <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
-             borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("publishEven2Pricing")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          top: Platform.OS === 'ios' ? '5%':null,
-        }}
-        />     
 
-         </View>
+         <View style={styles.containerbutton }>
+                <Button 
+                 onPress={() => this.props.navigation.navigate("publishEven2Pricing")}
+                style={{color:'white',fontSize:17}}
+               >Continue</Button>      
+           </View> 
+
    
  
     
@@ -279,6 +278,17 @@ const styles = StyleSheet.create({
       marginTop:5,
       marginBottom:8,
       marginLeft:15,
+    },
+    containerbutton:{
+      backgroundColor: '#ff5a60',
+      width:'90%',
+      paddingVertical:13,
+      borderRadius:27,
+      textAlign:"center",
+      marginTop:20,
+   marginBottom:40,
+      marginHorizontal:'4%'
+  
     },
 
 });

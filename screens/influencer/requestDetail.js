@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,
-  StyleSheet,ScrollView,
+  StyleSheet,ScrollView,Modal,
   Image,TouchableOpacity} from 'react-native';
 
 import Button from 'react-native-button'; 
+
 
 export default class RequestDetail extends Component {
 
@@ -37,12 +38,17 @@ export default class RequestDetail extends Component {
           headerTintColor: '#ff5a60',
     };
 
+ 
 
     constructor(props){
 
         super(props);
+
+
       
          this.state={
+
+          modalVisible: false,
          
              nombreInflu:'Sophia Lindsey',
              ciudaInflu:'Luxembourg',
@@ -55,20 +61,82 @@ export default class RequestDetail extends Component {
       
       }// fin de consttructor
 
-
-       guardar(){
-           alert('create Private metting');
-       }
+      toggleModal(visible) {
+        this.setState({ modalVisible: visible });
+     }
+    
 
   render() {
 
     return (
 
 
-      <ScrollView>
-           <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+      <View style={{flex:1}}>
+          {/* ---------------  modal ---------------- */}
+
+          <Modal transparent = {true}
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => { console.log("Modal has been closed.") } }>
+          
+             <View style = {styles.modal}>
+             {/* 
+                 <Text style = {styles.text}>Modal is open!</Text>
+                 
+                 <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible)}}>
+                    
+                    <Text style = {styles.text}>Close Modal</Text>
+                 </TouchableOpacity>  */}
+                 </View> 
+
+
+                {/* ventana blanca del modal*/}
+                <View style={{backgroundColor:'white',borderRadius:20,
+                          position:'absolute',left:'8%',
+                          top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
+                       paddingVertical:'5%'}}> 
+                       <View style={{alignItems:'center',marginTop:10}}>
+                     <Image  
+                     source={require("../../assets/influencers/spffiele.png")}
+                     style={{ width:60,height:60,borderRadius:30}}
+                      />
+                     <Text style={{
+                        fontSize:20,fontWeight:'bold'
+                     }} >Request accepted!</Text>
+                      <Text style={{ textAlign:'center',
+                        color:"gray",  fontSize: 14, marginLeft:3,
+                        marginRight:3, fontWeight: "normal",
+                         marginVertical: '3%',}}>
+			                Now your can create a private{'\n'}
+                      meeting for this follower</Text>
+
+                 
+
+              <View style={ styles.containerbuttonModal }>
+                <Button 
+                 onPress = { () =>  {
+                  this.toggleModal(!this.state.modalVisible);
+                  this.props.navigation.navigate("requestAcepted2")
+                  this.setState({
+                    fondoPrincipal:''
+                  })
+                }}
+                style={{color:'white',fontSize:17}}
+               >Continue</Button>      
+              </View> 
+
+
+
+                </View>
+              </View>
+           </Modal>
+
+       {/*  ---------------------------------------- */}
+
+
+           <View style={{flexDirection:'row',marginHorizontal:16,marginTop:'4%'}}>
                <View style={{flex:2}}>
-                 <Image source={require('../../assets/influencers/dos.png')} 
+                 <Image source={require('../../assets/influencers/spffiele.png')} 
                  style={{ width:50,height:50,borderRadius:30}}
                  />   
                  </View>
@@ -92,11 +160,11 @@ export default class RequestDetail extends Component {
           </View> 
           {/* TITULO */}  
           <View style={{marginHorizontal:16}}>
-               <Text style={{fontSize:28,color:'#312f3d',marginVertical:8,
+               <Text style={{fontSize:28,color:'#312f3d',marginTop:'2%',
                  fontWeight: 'bold',}}>Just For Fun</Text>
          </View>
 
-         <Text style={{fontSize:16,color:'#312f3d',marginTop:15,marginBottom: 19,
+         <Text style={{fontSize:16,color:'#312f3d',marginTop:'2%',marginBottom: '4%',
                  fontWeight: '500',marginHorizontal:16}}>Susprise for a friend</Text>
        
          
@@ -171,7 +239,7 @@ export default class RequestDetail extends Component {
         
 
        <View style={{flexDirection:'row'}}>
-             <View style={[styles.containerbutton,{backgroundColor: '#e2e7ee',
+             <View style={[styles.containerbutton,{backgroundColor: '#B3B8C1',
                         marginHorizontal:16}]}>
              <Button 
                onPress={() =>Alert.alert('Reject.....')}
@@ -182,7 +250,7 @@ export default class RequestDetail extends Component {
             <View style={[styles.containerbutton,{backgroundColor: '#ff5a60',
                   marginRight:16}]}>
                 <Button 
-                 onPress={() => this.props.navigation.navigate("requestAcepted2")}
+                 onPress = { () => this.toggleModal(true)}
                 style={{color:'white',fontSize:17}}
                >Acept</Button>      
            </View> 
@@ -190,8 +258,7 @@ export default class RequestDetail extends Component {
     
      
     
-  </ScrollView>
-   
+  </View>
 
 
      
@@ -206,15 +273,38 @@ export default class RequestDetail extends Component {
 
 const styles = StyleSheet.create({
   
-
   containerbutton:{
-    
+  
      width:'43%',
      paddingVertical:13,
      borderRadius:27,
      textAlign:"center",
-     marginTop:20,
+     marginTop:10,
      marginBottom: 30,
  
    },
+
+   // ventana modal
+   modal: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: 'black',
+    opacity:0.5,
+    padding: 100
+ },
+ text: {
+    color: '#3f2949',
+    marginTop: 10
+ },
+ 
+ containerbuttonModal:{
+  backgroundColor: '#ff5a60',
+  width:'80%',
+  paddingVertical:13,
+  borderRadius:27,
+  textAlign:"center",
+  marginTop:20,
+  marginBottom: 10,
+
+},
 });

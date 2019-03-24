@@ -3,8 +3,9 @@ import { AppRegistry, View,Text ,StyleSheet,ScrollView,Image,ImageBackground,url
 
 export default class DiscoverCategories  extends Component {
 
-    static navigationOptions = {
-        headerTitle: "Choose favorite Categories",
+    static navigationOptions = ({ navigation }) => {
+        return {
+        title: "Choose favorite Categories",
         headerTitleStyle: {
             alignSelf: 'center',
             textAlign: 'center',
@@ -18,15 +19,19 @@ export default class DiscoverCategories  extends Component {
                   marginLeft:-2,
     
           },
+
           headerRight: (<View>
+               <TouchableOpacity onPress={() => navigation.navigate("discover")} >
             <Text style={{
                 color:'#ff5a60',marginRight:15,fontSize:16
             }}>Cancel</Text>
+            </TouchableOpacity>
             </View>),  
             headerTintColor: '#ff5a60',
     };
     
-    
+    }
+
   constructor(props) {
     super(props)
     this.state = { 

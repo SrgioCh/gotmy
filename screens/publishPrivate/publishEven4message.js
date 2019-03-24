@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,Dimensions,
+  View,Text ,TextInput,Dimensions,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
-  import  {Button}  from "react-native-elements";
+  import Button from 'react-native-button'; 
 
 export default class PublishEven4message extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Thank you message',
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'Thank you message',
+     
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -23,14 +24,16 @@ export default class PublishEven4message extends Component {
     
         },
         headerRight: (<View>
+           <TouchableOpacity onPress={() => navigation.navigate("requesPendin")} >
           <Text style={{
               color:'red',marginRight: 16,
           }}>Cancel</Text>
+          </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
 
-
+  }
     constructor(props){
 
         super(props);
@@ -64,7 +67,7 @@ export default class PublishEven4message extends Component {
     return (
 
       <View style={{flex: 1}}>
-      
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={{flex:9}}>
           <View style={{marginTop:20,
                     marginHorizontal:60}}>
@@ -103,23 +106,20 @@ export default class PublishEven4message extends Component {
          </View>
 
        </View>
+       </TouchableWithoutFeedback>
    {/*  fin de contenedor */}
-          <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
-             borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("previewLiveEvent")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          top: Platform.OS === 'ios' ? 8:null,
+   <TouchableWithoutFeedback>
           
-        }}
-        />     
+         <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("previewLiveEvent")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
 
-         </View>
    
  
-    
+         </TouchableWithoutFeedback>
     </View>
    
 
@@ -142,6 +142,17 @@ const styles = StyleSheet.create({
         marginHorizontal:16,
         marginTop:20,
 
+      },
+      containerbutton:{
+        backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        textAlign:"center",
+        marginTop:10,
+     marginBottom:30,
+        marginHorizontal:'4%'
+    
       },
     
 

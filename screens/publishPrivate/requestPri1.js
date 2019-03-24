@@ -5,13 +5,13 @@ import { Platform,AppRegistry, Alert,
   Image,TouchableOpacity} from 'react-native';
 
   import Checkbox from 'react-native-modest-checkbox';
-  import { Button } from "react-native-elements";
+  import Button from 'react-native-button'; 
 
 export default class RequestPri1 extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Request Private Meeting',
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'Request Private Meeting',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -25,11 +25,13 @@ export default class RequestPri1 extends Component {
     
         },
         headerRight: (<View style={{marginRight: 16}}>
+        <TouchableOpacity onPress={() => navigation.navigate("profile1")} >
            <Text style={{color:'red'}}>Cancel</Text>
+           </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
-
+  }
 
     constructor(props){
 
@@ -87,7 +89,7 @@ presiona=()=>{
   render() {
 
     return (
-      <View style={{flexDirection:'column',paddingBottom :20}}>
+      <View style={{flexDirection:'column'}}>
            
       <ScrollView>
 
@@ -546,19 +548,13 @@ presiona=()=>{
 
 {/* FIN */}
 
-<View style={{ backgroundColor:'#ff5a60',marginTop:20,paddingVertical:8,
-                borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button   
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("requestPri2")}
-        
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-         
-        }}
-        />     
 
-      </View>
+     <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("requestPri2")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
 
 
 
@@ -585,6 +581,18 @@ const styles = StyleSheet.create({
     flexDirection:'row',
   
   },
+  containerbutton:{
+    backgroundColor: '#ff5a60',
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    textAlign:"center",
+    marginTop:40,
+ marginBottom:10,
+    marginHorizontal:'4%'
+
+  },
+
 
 
 });

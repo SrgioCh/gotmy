@@ -10,9 +10,10 @@ import Checkbox from 'react-native-modest-checkbox';
 export default class LiveEventDetail3 extends Component {
 
 
-    static navigationOptions = {
-        headerTitle:'Buy Ticket',
-        headerTitleStyle: {
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'Buy Ticket',
+         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
           width: '80%',
@@ -27,13 +28,15 @@ export default class LiveEventDetail3 extends Component {
         headerRight: (<View style={{
           marginRight:15
         }}>
+          <TouchableOpacity onPress={() => navigation.navigate("discover")} >
           <Text style={{
               color:'red'
           }}>Cancel</Text>
+          </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
-
+  }
 
     constructor(props){
 

@@ -3,13 +3,13 @@ import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
-  import  {Button}  from "react-native-elements";
+  import Button from 'react-native-button'; 
 
 export default class PublishPri4 extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Cover image',
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'Cover image',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -23,13 +23,15 @@ export default class PublishPri4 extends Component {
     
         },
         headerRight: (<View>
+           <TouchableOpacity onPress={() => navigation.navigate("requestAcepted")} >
           <Text style={{
               color:'red',marginRight: 16,
           }}>Cancel</Text>
+          </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
-
+  }
 
     constructor(props){
 
@@ -111,20 +113,14 @@ Try to use a 16:9 aspect ratio.
     
    </View>
    {/*  fin de contenedor */}
-          <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
-             borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button  
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("publishPri7")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          top: Platform.OS === 'ios' ? 8:5,
-        }}
-        />     
-
-         </View>
+         
    
- 
+         <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("publishPri7")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
     
     </View>
    
@@ -140,6 +136,16 @@ Try to use a 16:9 aspect ratio.
 
 
 const styles = StyleSheet.create({
-   
+  containerbutton:{
+    backgroundColor: '#ff5a60',
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    textAlign:"center",
+    marginTop:10,
+ marginBottom:30,
+    marginHorizontal:'4%'
+
+  }
 
 });

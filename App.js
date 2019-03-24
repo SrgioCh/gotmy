@@ -1,9 +1,11 @@
 import React from "react";
-import {Platform,Dimensions} from  "react-native"
-import { createStackNavigator, createAppContainer ,
+import {Platform,Dimensions,Image} from  "react-native"
+import { createStackNavigator, createAppContainer ,createBottomTabNavigator,
          createDrawerNavigator} from "react-navigation";
 //npm install react-navigation
 //npm  install react-native-button
+
+import Boorramos  from "./screens/boorramos"
 
 import SingUpInicio from "./screens/SinUp_inicio"
 
@@ -38,11 +40,10 @@ import DiscoverPreferences from "./screens/discoverPreferences"
 import Editinfluencerprofile from "./screens/editInfluencerProfile"
 
 import Search from "./screens/search";
-import SearchUsers from "./screens/searchUsers"
 import SearchEvents from "./screens/searchevents";
 import SearchContent from "./screens/searchcontent";
 import SearchCategories from "./screens/searchCategories"
-
+import SearchOptions from "./screens/searchOptions"
 
 import BookedEvUno  from  "./screens/bookedEventes1"
 import BookedEvDos  from  "./screens/bookedEventes2"
@@ -125,6 +126,256 @@ import TransferTomyAcount from "./screens/transferTomyAcount"
 import TransferDetail from "./screens/transferDetail"
 
  
+//creacion de los tabs
+
+const TabDiscover=createStackNavigator(
+  {   discover:{    screen : Discover, 
+            }
+  })
+
+  const TabSearch=createStackNavigator(
+    {  search:{
+      screen:Search,
+        }
+    })
+
+
+    const TabLiveEvent=createStackNavigator(
+      {  boked1:{ 
+        screen:BookedEvUno,
+      }
+      })
+  
+
+      const TabMensaje=createStackNavigator(
+        {   mensa1:{
+          screen:Mensaje1,
+         }
+        })
+
+        const TabActivi=createStackNavigator(
+          {  ActiOne:{
+            screen:Activity1,
+          }
+          })
+  
+
+          const DashboardTabRoutes = createBottomTabNavigator(
+            {
+               Discover:{  
+                   screen : TabDiscover,
+               
+                  navigationOptions: ({ navigation }) => ({
+                    tabBarIcon: ({ focused}) => {
+                   
+                      let iconName;
+                     iconName = focused ? require('./assets/pentaicon/discoE.jpg'): require('./assets/pentaicon/discoN.jpg');
+                     
+               
+                      return <Image source={iconName} 
+                            style={{width:20,height:20}} />;
+                    }
+                  })
+              
+               
+              },
+               Search:{    screen : TabSearch,
+                navigationOptions: ({ navigation }) => ({
+                  tabBarIcon: ({ focused}) => {
+                 
+                    let iconName;
+                   iconName = focused ? require('./assets/pentaicon/searchE.jpg'): require('./assets/pentaicon/searchN.jpg');
+                   
+             
+                    return <Image source={iconName} 
+                          style={{width:25,height:25}} />;
+                  }
+                })
+               },
+               "Live Events":{    screen : TabLiveEvent,
+                navigationOptions: ({ navigation }) => ({
+                  tabBarIcon: ({ focused}) => {
+                 
+                    let iconName;
+                   iconName = focused ? require('./assets/pentaicon/eventE.jpg'): require('./assets/pentaicon/eventN.jpg');
+                   
+             
+                    return <Image source={iconName} 
+                          style={{width:25,height:25}} />;
+                  }
+                })
+              
+              },
+               Messages:{    screen : TabMensaje,
+                navigationOptions: ({ navigation }) => ({
+                  tabBarIcon: ({ focused}) => {
+                 
+                    let iconName;
+                   iconName = focused ? require('./assets/pentaicon/mesaE.jpg'): require('./assets/pentaicon/mesaN.jpg');
+                   
+             
+                    return <Image source={iconName} 
+                          style={{width:25,height:25}} />;
+                  }
+                }) 
+              
+              
+              },   
+               Activity:{    screen : TabActivi ,
+                navigationOptions: ({ navigation }) => ({
+                  tabBarIcon: ({ focused}) => {
+                 
+                    let iconName;
+                   iconName = focused ? require('./assets/pentaicon/ActyE.jpg'): require('./assets/pentaicon/ActyN.jpg');
+                   
+             
+                    return <Image source={iconName} 
+                          style={{width:25,height:25}} />;
+                  }
+                })
+              },   
+            },
+            {
+             
+              tabBarOptions: {
+                activeTintColor: '#ff5a60',
+                labelStyle: {
+                  fontSize: 12,
+    
+                },
+                style: {
+                  backgroundColor: '#312f3d',
+                },
+         
+          }
+             
+          }
+
+         ) 
+         
+          //para TABS  de influencer
+
+          const TabPending=createStackNavigator(
+            {   requesPendin:{
+             screen:RequestPending,
+             }
+           })
+
+           const TabMessages=createStackNavigator(
+             {  mensa2:{
+               screen:Mensaje2,
+              },
+            })
+
+            const TabActivity=createStackNavigator(
+             {   ActiToo:{
+               screen:Activity2,
+               }
+            }
+           
+         )
+
+
+
+
+
+
+
+         const DashboardTabInfluencer = createBottomTabNavigator(
+          {
+            "My Events":{    screen : TabDiscover,
+              navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused}) => {
+               
+                  let iconName;
+                 iconName = focused ? require('./assets/pentaicon/influe/eventsE.png'): require('./assets/pentaicon/influe/events.png');
+                 
+           
+                  return <Image source={iconName} 
+                        style={{width:25,height:25}} />;
+                }
+              })
+            
+            
+            
+            },
+            "My Stats":{    screen : TabActivity,
+              navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused}) => {
+               
+                  let iconName;
+                 iconName = focused ? require('./assets/pentaicon/influe/statsE.png'): require('./assets/pentaicon/influe/stats.png');
+                 
+           
+                  return <Image source={iconName} 
+                        style={{width:25,height:25}} />;
+                }
+              })
+            
+            },  
+            Request:{    screen : TabPending,
+              navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused}) => {
+               
+                  let iconName;
+                 iconName = focused ? require('./assets/pentaicon/influe/requestSelec.png'): require('./assets/pentaicon/influe/request.png');
+                 
+           
+                  return <Image source={iconName} 
+                        style={{width:25,height:25}} />;
+                }
+              })
+            },
+            Messages:{    screen : TabMessages,
+              navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused}) => {
+               
+                  let iconName;
+                 iconName = focused ? require('./assets/pentaicon/influe/mesageSelec.png'): require('./assets/pentaicon/influe/messages.png');
+                 
+           
+                  return <Image source={iconName} 
+                        style={{width:25,height:25}} />;
+                }
+              })
+            },   
+            Activity:{    screen : TabActivity,
+              navigationOptions: ({ navigation }) => ({
+                tabBarIcon: ({ focused}) => {
+               
+                  let iconName;
+                 iconName = focused ? require('./assets/pentaicon/influe/activityselec.png'): require('./assets/pentaicon/influe/activity.png');
+                 
+           
+                  return <Image source={iconName} 
+                        style={{width:25,height:25}} />;
+                }
+              })
+            },   
+          },
+          {
+
+
+            initialRouteName: 'Request',
+            tabBarOptions: {
+              activeTintColor: '#fff',
+              inactiveTintColor: "#CDCDCD",
+             
+              labelStyle: {
+                fontSize: 12,
+  
+              },
+              style: {
+                backgroundColor: '#ff5a60',
+              },
+       
+           }
+           
+        }
+          
+
+       ) 
+
 
 
 const RootStack = createStackNavigator(
@@ -183,9 +434,12 @@ const RootStack = createStackNavigator(
     },
     discover:{
 
-      screen:Discover,
-   
-    },
+      screen:DashboardTabRoutes,
+      
+      navigationOptions:{
+        header: null,
+      }
+  },
     discoverCategori:{
       screen : DiscoverCategories,
     },
@@ -265,7 +519,10 @@ requestPri3:{
   screen:RequestPri3,
 },
    requesPendin:{
-        screen:RequestPending,
+        screen:DashboardTabInfluencer,
+        navigationOptions: {
+          header: null
+        }
     },
     requestAcepted:{
       screen:RequestAcepted,
@@ -282,17 +539,17 @@ requestPri3:{
     search:{
       screen:Search,
     },
-    searchuser:{
-      screen:SearchUsers,
-    },
-    searchEvent:{
+     searchEvent:{
       screen:SearchEvents,
     },
     searchContent:{
       screen:SearchContent,
     },
-    SearchCateg:{
+    SearchCateg:{ 
       screen:SearchCategories,
+    },
+    searchOptions:{
+      screen:SearchOptions,
     },
   //Live events
     boked1:{ 
@@ -396,10 +653,15 @@ requestPri3:{
     } ,
     transferDetail:{
        screen: TransferDetail
-    }   
+    }  ,
+
+
+    boorramos :{
+       screen: Boorramos
+    }  
   },
   {
-    initialRouteName: 'singUpInicio',
+    initialRouteName: 'editinfluencerprofile',
   }
 );
 
@@ -411,3 +673,5 @@ export default class App extends React.Component {
     return <AppContainer />;
   }
 }
+
+

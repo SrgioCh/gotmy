@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Platform,Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,TouchableOpacity,
   Image} from 'react-native';
 
@@ -13,7 +13,6 @@ export default class SearchUsers extends Component {
 
 constructor(props) {
   super(props)
-
 
   this.state = { 
 
@@ -54,7 +53,7 @@ constructor(props) {
     caja6: styles.socialBotone,
     marca6:styles.Textsinmarcar,
     texto6:'Follow',
-    
+ 
     
   }
 }
@@ -62,106 +61,12 @@ constructor(props) {
 
   render() {
     return (
-       <View style={{flex:1}}>
-          <View style={{flex:3,marginTop:20}}>
-                
-    
-          {/* BUSCADOR*/}
-              <View style={{ marginHorizontal:16,paddingVertical:15,flexDirection:'row' }}>
-                <View style={{flexDirection:'row',flex:5,backgroundColor:'#f6f6f6',
-                      alignItems:'center',marginRight:5,borderRadius:10}}>
-                      <View style={{ width:30,height:30}}>
-                     <Image source={require('../assets/icons_genGMI/lupa.jpg')} 
-                          style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                      </View>
-                    <TextInput
-                        style={{
-                    
-                       height:42,
-                       width:200,
-                     
-                       borderRadius:10,
-                    
-                    } }
-                    placeholder="Search......"
-                    editable={true} // con false , no podremos escribir nada
-                    borderBottomColor = '#e2e7ee'
-                    borderBottomWidth ={1}
-                    paddingHorizontal={5}
-                    onChangeText={
-                      (text3)=>{
-                        this.setState(()=> {
-
-                                          return {
-                                            tytexto:text3,
-                                          }
-                               })
-                      }
-                      
-
-                      }//fin de onchange
-                   />
-
-              </View>
-
-        
-             <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-               <Text  style={{color:'#ff5a60',fontSize:16}}>
-                 Cancel
-              </Text>
-
-              </View>
-          
-            </View>
-             {/*  fin del buscador*/}
-                
- {/* ----------------MENU ----------------*/}
- 
-<View style={{flexDirection:'row' ,alignItems:'center',justifyContent:'center'
-              ,marginHorizontal:16,marginVertical:14}}>
-
-        <View style={[{flex:1,alignItems:'center',justifyContent:'center'}, this.state.menu1]}>
-         <Text  style={{ color:'#312f3d', fontSize:17,paddingVertical:14  }}>
-         Users
-         </Text>
-
-          </View>
-
-         <View style={[this.state.menu2,{flex:1,alignItems:'center',justifyContent:'center'}]}>
-           <TouchableOpacity
-                 onPress={() => this.props.navigation.navigate("searchEvent")}
-                 >
-              <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14  }}>
-               Live Eventes
-              </Text>
-            </TouchableOpacity>
-         </View> 
-
-             <View style={[this.state.menu3,{flex:1,alignItems:'center',justifyContent:'center'}]}>
-              <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("searchContent")}
-             >
-        
-               <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14 }}>
-               Content
-                 </Text>
-              </TouchableOpacity>
-             </View>
-
-      </View>
-
-     </View> 
-     {/*  FIN DE MENU HACIA ARRIBA */}
-          
-          
-          <View style={{flex:8}}>
-               <ScrollView style={{marginTop:-35}}>
-                       <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+             <ScrollView>
+                       <View style={{flexDirection:'row',marginHorizontal:16}}>
 
                            <View style={{flex:2}}>
                                 <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("profile1")}
+                            onPress={() => this.props.enviaAPadre("profile1")}
                               >
                             <Image source={require('../assets/influencers/influencer.png')} 
                            style={{ width:50,height:50,borderRadius:10}}
@@ -246,7 +151,9 @@ constructor(props) {
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
      <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("profile4")}
+             // onPress={() => this.props.navigation.navigate("profile4")} ESTO ESTA MAL PORQUE NO INVOCAMOS A ESTE
+              //  COMPONENTE ATRAVES DE UN NAVIGATE
+              onPress={() => this.props.enviaAPadre("profile4")}
              >
      <View style={{flex:2}}>
 
@@ -620,9 +527,7 @@ texto6:'✔ Friends',
 {/*  -----------------------------------------------------------------  */}
 
    </ScrollView>
-          </View>
-   </View>
-     
+    
     );
   }
  

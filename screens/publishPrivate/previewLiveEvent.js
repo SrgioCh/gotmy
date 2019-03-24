@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
-  StyleSheet,ScrollView,
+  View,Text ,TextInput,Modal,
+  StyleSheet,ScrollView,TouchableHighlight,
   Image,TouchableOpacity} from 'react-native';
   import  {Button}  from "react-native-elements";
 
-  import  Modal  from "react-native-modal";
+ 
 
 export default class PreviewLiveEvent extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'',
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -38,7 +38,9 @@ export default class PreviewLiveEvent extends Component {
                      marginRight:16,
                     }}
                   />
-                 
+                  <TouchableOpacity
+                       onPress={() => navigation.navigate("publishEven2")}
+                     >
                     <Image
                     source={require('../../assets/icons_genGMI/basuraPublish.png')}
                      style={{
@@ -46,13 +48,15 @@ export default class PreviewLiveEvent extends Component {
                      height:40,
                      marginRight:16,
                     }}
+                    
                   />
+                  </TouchableOpacity> 
              </View>
             ),  
           headerTintColor: '#ff5a60',
     };
 
-
+  }
     constructor(props){
 
         super(props);
@@ -61,7 +65,6 @@ export default class PreviewLiveEvent extends Component {
 
             //PARA VENTANA MODAL
             modalVisible: false,
-            fondoPrincipal:'',
          
            nombreInflu:'Sophia Lindsey',
            paisInflu:'Luxembourg',
@@ -87,14 +90,102 @@ export default class PreviewLiveEvent extends Component {
       }// fin de consttructor
 
 //PARA VENTANA MODAL
-setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  };
+toggleModal(visible) {
+  this.setState({ modalVisible: visible });
+}
+
   render() {
 
     return (
 
-        <View style={[{flex:1},this.state.fondoPrincipal]}>
+        <View style={{flex:1}}>
+         <Modal
+          transparent = {true}
+          animationType="fade"
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => { console.log("Modal has been closed.") } }
+              >
+          
+                  <View style = {styles.modal}>
+             
+                {/*  <Text style = {styles.text}>Modal is open!</Text>
+                 
+                 <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible)}}>
+                    
+                    <Text style = {styles.text}>Close Modal</Text>
+                 </TouchableOpacity>  */}
+                 </View> 
+
+                 <View style={{backgroundColor:'white',borderRadius:20,
+                          position:'absolute',left:'5%',
+                          top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
+                       paddingVertical:'10%'}}> 
+
+                       <View style={{alignItems:'center',marginTop:10}}>
+                     <Image  
+                     source={require("../../assets/influencers/influencer.png")}
+                     style={{ width:60,height:60 }}
+                      />
+
+                     <Text style={styles.modalTitle} >Live Event published!</Text>
+
+                     <Text style={{ textAlign:'center',
+                               color:"gray",  fontSize: 14, marginLeft:3,
+                               marginRight:3, fontWeight: "normal",
+                                marginVertical: '3%',}}>
+                        Your event is already available to{'\n'}
+                        the community</Text>
+
+                              {/*   botoness   */}
+
+                              <View style={{
+            backgroundColor: '#ff5a60',
+            width:'70%',
+            padding:15,
+            color:'white',
+            borderRadius:27,
+            textAlign:"center",
+            marginTop:'3%',
+            marginHorizontal:'15%'
+         }}>
+         <Button style={styles.textboton}
+          title="View Live Event"
+          onPress={() => {
+       
+            this.toggleModal(!this.state.modalVisible);
+          this.props.navigation.navigate("liveEventStreaming")
+          
+    
+          }}
+          type="clear"
+          titleStyle={{ color: "#ffffff",
+          position: "absolute",
+          top: -5,
+          right: Platform.OS === 'ios' ? '25%':null,
+          }}
+          >
+        </Button>
+        </View>
+        <View style={{alignItems:'center',marginVertical:15}}>
+        <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible);
+                    this.props.navigation.navigate("requesPendin");
+                    }}>
+        <Text style={{
+         color:'#ff5a60',
+         fontSize:15
+        }}>It’s ok, continue</Text>
+        </TouchableOpacity>
+        </View>
+
+                     </View>
+                 </View>
+
+        
+           </Modal>
+
+      
         
          <View style={{flex:9}}>
          <ScrollView>     
@@ -325,112 +416,24 @@ $ {this.state.earn}</Text>
 
          </View>
 
-       
-
       
-  <View style={{flex:1,backgroundColor:'#ff5a60',
-      alignItems:'center',justifyContent:'center'}}>
-         <TouchableOpacity 
-       onPress = {() => {
-        this.setModalVisible(true);
-        this.setState({
-          fondoPrincipal:styles.transparentePrincipal
-        })
-        }   
-       } >
+  <View style={{flex:1}}>
+         <TouchableHighlight
+         style={{
+          flex:1,backgroundColor:'#ff5a60',
+          alignItems:'center',justifyContent:'center'
+         }}
+        onPress = { () => this.toggleModal(true)}
+      
+      >
        
      <Text style={{flex:1 , color:'white',marginTop:'5%', 
          fontSize:17,letterSpacing:0.41 }}>
           Publish Live Event</Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
     </View>
       
 
-
-     
-
-      {/*   GENERACION DEL MODAL*/}
-      <Modal
-      style={{backgroundColor:"transparent",
-      opacity:1,
-               justifyContent: 'center',
-              alignItems: 'center',
-              margin: 0,
-              borderRadius:20,
-    
-             }}
-        animationType="fade"
-      
-        transparent={true}
-        visible={this.state.modalVisible}
-        onBackdropPress={() => {
-          this.setModalVisible(!this.state.modalVisible);
-          this.setState({
-            fondoPrincipal:''
-          })
-        }}
-         
-         >
-
-        <View style={{backgroundColor:'white',borderRadius:20,
-                     marginHorizontal:'5%'}}>
-          <View>
-            <View style={{alignItems:'center',marginTop:'5%'}}>
-             <Image  
-            source={require("../../assets/influencers/influencer.png")}
-              />
-              </View>
-            <Text style={styles.modalTitle} >Live Event published!</Text>
-
-            <Text style={{ textAlign:'center',
-                      color:"gray",  fontSize: 14, marginLeft:3,
-                      marginRight:3, fontWeight: "normal",
-                       marginVertical: '3%',}}>
-               Your event is already available to{'\n'}
-               the community</Text>
-          
-               <View style={{
-                backgroundColor: '#ff5a60',
-                width:'70%',
-                padding:15,
-                color:'white',
-                borderRadius:27,
-                textAlign:"center",
-                marginTop:'3%',
-                marginHorizontal:'15%'
-             }}>
-             <Button style={styles.textboton}
-              title="View Live Event"
-              onPress={() => {
-           
-               this.props.navigation.navigate("requesPendin");
-          
-                this.setModalVisible(!this.state.modalVisible);
-                this.setState({
-                  fondoPrincipal:''
-                })
-              }}
-              type="clear"
-              titleStyle={{ color: "#ffffff",
-              position: "absolute",
-              top: -5,
-              right: Platform.OS === 'ios' ? '25%':null,
-              }}
-              >
-            </Button>
-            </View>
-            <View style={{alignItems:'center',marginVertical:15}}>
-            <Text style={{
-             color:'#ff5a60',
-             fontSize:15
-            }}>It’s ok, continue</Text>
-            </View>
-          </View>
-        </View>
-      </Modal>
-
-    
-  
    </View>
    
 
@@ -455,27 +458,29 @@ estrellasTrending:{
 
 
 //VENTANA MODAL
-transparentePrincipal:{ //cuando se active el modal
-    backgroundColor:'black',
-    opacity:0.6
-    },
+// ventana modal
+modal: {
+  flex: 1,
+  alignItems: 'center',
+  backgroundColor: 'black',
+  opacity:0.5,
+  padding: 100
+},
+text: {
+  color: '#3f2949',
+  marginTop: 10
+},
 
-    modalTitle: {
-        textAlign:'center',
-        color:"black",
-        fontSize: 28,
-        fontWeight: "bold",
-        fontStyle: "normal",
-        marginTop:'5%',
-      }, 
+containerbuttonModal:{
+backgroundColor: '#ff5a60',
+width:'80%',
+paddingVertical:13,
+borderRadius:27,
+textAlign:"center",
+marginTop:20,
+marginBottom: 10,
 
-      textboton:{
-         textAlign:'left',
-        color:"white",
-         marginTop:1,
-        marginLeft:105,
-        fontSize:17,
-       },
+},
 
   //*** TAGS DE TRENDING */
 tagsTrending:{

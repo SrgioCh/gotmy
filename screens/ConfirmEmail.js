@@ -1,25 +1,19 @@
 import React from 'react';
-import { Platform,StyleSheet, Text, TextInput, View, Image, TouchableHighlight } from 'react-native';
-import  {Button}  from "react-native-elements";
-import  Modal  from "react-native-modal";
+import { Platform,StyleSheet, Text, Modal,
+  TextInput, View, Image, TouchableOpacity  } from 'react-native';
+
+
+  import Button from 'react-native-button'; 
+
 
 
 const util = require("util");
 
 export default class ConfirmEmail extends React.Component {
 
-  state = {
-    modalVisible: false,
-    fondoPrincipal:''
-  };
-
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  };
-
-
-  static navigationOptions = {
-    headerTitle: "Confirm your email", 
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:"Confirm your email", 
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -33,18 +27,92 @@ export default class ConfirmEmail extends React.Component {
 
     },
     headerRight: (<View>
+       <TouchableOpacity onPress={() => navigation.navigate("singUpInicio")} >
       <Text style={{
           color:'#ff5a60',marginRight:15,fontSize:16
       }}>Cancel</Text>
+      </TouchableOpacity>
       </View>),  
       headerTintColor: '#ff5a60',
 
-    
+      }
+
+  }
+
+state = {
+  //PARA VENTANA MODAL
+  modalVisible: false,
 };
+
+//PARA VENTANA MODAL
+toggleModal(visible) {
+  this.setState({ modalVisible: visible });
+}
+
 
   render() {
     return (
-    <View style={[{flex:1},this.state.fondoPrincipal]}>
+    <View style={{flex:1}}>
+ <Modal
+          transparent = {true}
+          animationType="fade"
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => { console.log("Modal has been closed.") } }
+              >
+          
+                  <View style = {styles.modal}>
+                  </View> 
+
+                 <View style={{backgroundColor:'white',borderRadius:20,
+                          position:'absolute',left:'5%',
+                          top:'30%',marginHorizontal:'5%',paddingHorizontal:'5%',
+                       paddingVertical:'10%'}}> 
+
+                       <View style={{alignItems:'center',marginTop:10}}>
+                       
+                       <Image  
+       source={require("../assets/influencers/influencer.png")}
+         />
+       
+       <Text style={{
+         color:'#312f3d',fontSize:20,fontWeight:'500'
+       }} >Request accepted!</Text>
+
+       <Text style={{ textAlign:'center',
+                 color:"gray",  fontSize: 14, marginLeft:3,
+                 marginRight:3, fontWeight: "normal",
+                  marginVertical: '3%',}}>
+             Now you can create a private meeting {'\n'}
+            folder for this follower</Text>
+      
+
+            <View style={{
+               backgroundColor: '#ff5a60',
+               width:'90%',
+               paddingVertical:13,
+               borderRadius:27,
+               textAlign:"center",
+               marginTop:20,
+               marginHorizontal:'4%',
+               
+            }}>
+                         <Button 
+                          onPress={() =>  this.toggleModal(!this.state.modalVisible)}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
+
+
+
+
+
+       </View>
+
+  </View>
+
+              
+</Modal>
+
 
      <View style={{alignItems:'center'
                  ,marginTop:'20%'}}>
@@ -66,103 +134,17 @@ export default class ConfirmEmail extends React.Component {
         
   
        
-       <View style={styles.container2}>
-       <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => {
-            this.setModalVisible(true);
-            this.setState({
-              fondoPrincipal:styles.transparentePrincipal
-            })
-            
-          }
-                         }
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          position: "absolute",
-          top: -5,
-          left: Platform.OS === 'ios' ? 15:null,
-        }}
-        />     
-        
-        
-        </View> 
+        <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() =>  
+                            this.toggleModal(!this.state.modalVisible)
+                           
+                          }
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
 
-       {/*   GENERACION DEL MODAL*/}
-       
-        
-        <Modal
-        style={{backgroundColor:"transparent",
-        opacity:0.99,
-                 justifyContent: 'center',
-                alignItems: 'center',
-                margin: 0,
-                borderRadius:20,
       
-               }}
-          animationType="fade"
-        
-          transparent={true}
-          visible={this.state.modalVisible}
-          onBackdropPress={() => {
-            this.setModalVisible(!this.state.modalVisible);
-            this.setState({
-              fondoPrincipal:''
-            })
-          }}
-           
-           >
-
-          <View style={{backgroundColor:'white',borderRadius:20,
-                       marginHorizontal:'5%'}}>
-            <View>
-              <View style={{alignItems:'center',marginTop:'5%'}}>
-               <Image  
-              source={require("../assets/influencers/influencer.png")}
-                />
-                </View>
-              <Text style={styles.modalTitle} >Request accepted!</Text>
-
-              <Text style={{ textAlign:'center',
-                        color:"gray",  fontSize: 14, marginLeft:3,
-                        marginRight:3, fontWeight: "normal",
-                         marginVertical: '3%',}}>
-			              Now you can create a private meeting {'\n'}
-                   folder for this follower</Text>
-               <View style={{
-                  backgroundColor: '#ff5a60',
-                  width:'70%',
-                  padding:15,
-                  color:'white',
-                  borderRadius:27,
-                  textAlign:"center",
-                  marginTop:'3%',
-                  marginHorizontal:'15%'
-               }}>
-               <Button style={styles.textboton}
-                title="Continue"
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                  this.setState({
-                    fondoPrincipal:''
-                  })
-                }}
-                type="clear"
-                titleStyle={{ color: "#ffffff",
-                position: "absolute",
-                top: -5,
-                left: Platform.OS === 'ios' ? -45:null,
-                }}
-                >
-              </Button>
-              </View>
-              
-            </View>
-          </View>
-        </Modal>
- 
-  
-
       </View>
     );
   }
@@ -179,24 +161,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     
   },
+  containerbutton:{
+    backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        textAlign:"center",
+       position:'absolute',
+        marginHorizontal:'4%',
+        bottom:20,
 
-  transparentePrincipal:{
-  backgroundColor:'black',
-  opacity:0.5
   },
-
-  //el contenedor del boton
-container2:{
-  backgroundColor: '#ff5a60',
-   width:'90%',
-   padding:15,
-   color:'white',
-   borderRadius:27,
-   textAlign:"center",
-   marginTop:'75%',
-   marginLeft:15,
-   
-},
 
 text:{
  
@@ -233,41 +208,29 @@ textboton:{
   fontSize:17,
 
 },
+//VENTANA MODAL
+// ventana modal
 modal: {
-
-  justifyContent: "center",
-  alignItems: "center",
-  marginTop: "20%",
-  marginLeft: "10%",
-  width: "80%",
-  height: "60%",
-  
-
-},
-modalTitle: {
-  textAlign:'center',
-  color:"black",
-  fontSize: 28,
-  fontWeight: "bold",
-  fontStyle: "normal",
-  marginTop:'5%',
-}, 
-modalBackground: {
-  color: "black",
-  opacity: 0.4,
-},
-modalContent2: {
-  backgroundColor: 'skyblue',
-  padding: 22,
-  justifyContent: 'center',
+  flex: 1,
   alignItems: 'center',
-  borderRadius: 4,
-  borderColor: 'black',
-  marginTop: "10%",
-  marginLeft: "10%",
-  width: "80%",
-  height: 200,
- }
+  backgroundColor: 'black',
+  opacity:0.5,
+  padding: 100
+},
+textmod: {
+  color: '#3f2949',
+  marginTop: 10
+},
 
+containerbuttonModal:{
+backgroundColor: '#ff5a60',
+width:'80%',
+paddingVertical:13,
+borderRadius:27,
+textAlign:"center",
+marginTop:20,
+marginBottom: 10,
+
+},
 
 });

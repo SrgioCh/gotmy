@@ -1,27 +1,14 @@
 import React from 'react';
-import { Platform, StyleSheet, Text,TextInput, View  } from 'react-native';
-import { Button, CheckBox } from "react-native-elements";
-
-const util = require("util");
-
+import { Platform, StyleSheet, Text,TextInput, View,
+  TouchableWithoutFeedback,Keyboard ,TouchableOpacity} from 'react-native';
+import {CheckBox} from "react-native-elements";
+import Button from 'react-native-button'; 
 
 export default class CreateAcount extends React.Component {
 
-   state = {
-    checked: false,
-  };
-
-  isChecked() {
-    if(this.state.checked==true){
-    this.setState({checked: false})
-  }else{
-    this.setState({checked: true})
-  }
-
-  }
-
-  static navigationOptions = {
-    headerTitle: "Create Acount",
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:"Create Acount",
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -35,16 +22,36 @@ export default class CreateAcount extends React.Component {
 
     },
     headerRight: (<View>
+       <TouchableOpacity onPress={() => navigation.navigate("singUpInicio")} >
+
       <Text style={{
           color:'#ff5a60',marginRight:15,fontSize:16
       }}>Cancel</Text>
+             </TouchableOpacity>
       </View>),  
       headerTintColor: '#ff5a60',
+  }
+  }
+
+
+
+state = {
+  checked: false,
 };
+
+isChecked() {
+  if(this.state.checked==true){
+  this.setState({checked: false})
+}else{
+  this.setState({checked: true})
+}
+
+}
 
   render() {
     return (
-    <View style={styles.StyleSheet}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+    <View style={{flex:1}}>
     <Text style={styles.text}>
         <Text >Email address</Text>
     </Text>
@@ -92,23 +99,17 @@ export default class CreateAcount extends React.Component {
     
     </View>
 
+ 
+        <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("createViewerProfile")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
 
 
-
-       <View style={styles.container2}>
-        <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("createViewerProfile")}
-          type="clear"
-          
-          titleStyle={{ color: "#ffffff",
-          position: "absolute",
-          top: -5,
-          left: Platform.OS === 'ios' ? 15:null,
-        }}
-        />         
-        </View> 
       </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -125,21 +126,17 @@ const styles = StyleSheet.create({
     
   },
 
-  
+  containerbutton:{
+    backgroundColor: '#ff5a60',
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    textAlign:"center",
+    position:'absolute',
+   bottom:20,
+    marginHorizontal:'4%'
 
-container2:{
-  backgroundColor: '#ff5a60',
-   width:'92%',
-   padding:15,
-   color:'white',
-   borderRadius:27,
-   textAlign:"center",
-   marginTop:'50%',
-   marginLeft:16,
-   
-
-
-},
+  },
 input:{
   width:'92%',
   borderWidth:1,

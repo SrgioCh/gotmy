@@ -5,13 +5,14 @@ import { Platform,AppRegistry, Alert,
   Image,TouchableOpacity} from 'react-native';
 
   import Checkbox from 'react-native-modest-checkbox';
-  import { Button } from "react-native-elements";
+  import Button from 'react-native-button'; 
+
 
 export default class RequestPri2 extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Request Private Meeting',
+  static navigationOptions = ({ navigation }) => {
+    return {
+        title:'Request Private Meeting',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -25,11 +26,13 @@ export default class RequestPri2 extends Component {
     
         },
         headerRight: (<View style={{marginRight: 16}}>
+        <TouchableOpacity onPress={() => navigation.navigate("profile1")} >
            <Text style={{color:'red'}}>Cancel</Text>
+           </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
-
+  }
 
     constructor(props){
 
@@ -147,7 +150,7 @@ presiona=()=>{
              underlineColorAndroid="transparent"
            
             placeholderTextColor="grey"
-           numberOfLines={11}
+           numberOfLines={8}
             multiline={true}
             onChangeText={(text) => this.setState({text})}
               value={this.state.text}
@@ -155,21 +158,16 @@ presiona=()=>{
        />
        </View>
 
-       <View style={{ backgroundColor:'#ff5a60',marginTop:160,paddingVertical:8,
-                borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button   
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("requestPri3")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          
-        }}
-        />     
-
-      </View>
+      
+      <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("requestPri3")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+      </View> 
 
 
-     </ScrollView>
+   </ScrollView>
  </View>
 
          
@@ -203,6 +201,16 @@ const styles = StyleSheet.create({
         marginTop:20,
 
       },
-
+      containerbutton:{
+        backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        textAlign:"center",
+        marginTop:220,
+  
+        marginHorizontal:'4%'
+    
+      },
 
 });

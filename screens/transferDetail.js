@@ -14,7 +14,7 @@ export default class  TransferDetail extends Component {
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
-          width: '80%',
+          width: '90%',
             fontWeight:'500',
                 letterSpacing:0.41,
                 height:120,

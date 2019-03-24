@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Platform, Alert,TouchableOpacity,
-  View,Text ,TextInput,
+  View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
@@ -31,108 +31,14 @@ export default class SearchContent extends Component {
   render() {
     return (
      
-
-<View style={{flex:1}}>
-  <View style={{flex:3,marginTop:20}}>
-    
-   {/* BUSCADOR*/}
-    <View style={{ marginHorizontal:16,paddingVertical:15,flexDirection:'row' }}>
-         <View style={{flexDirection:'row',flex:5,backgroundColor:'#f6f6f6',
-              alignItems:'center',marginRight:5,borderRadius:10}}>
-                 <View style={{ width:30,height:30}}>
-                     <Image source={require('../assets/buscador/lupa.jpg')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                 </View>
-                 <TextInput
-                    style={{
-                    
-                       height:42,
-                       width:200,
-                     
-                       borderRadius:10,
-                    
-                    } }
-                    placeholder="Search......"
-                    editable={true} // con false , no podremos escribir nada
-                    borderBottomColor = '#e2e7ee'
-                    borderBottomWidth ={1}
-                    paddingHorizontal={5}
-                    onChangeText={
-                      (text3)=>{
-                        this.setState(()=> {
-
-                                          return {
-                                            tytexto:text3,
-                                          }
-                               })
-                      }
-                      
-
-                 }//fin de onchange
-              />
-
-        </View>
-
-        
-     <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-         <Text  style={{color:'#ff5a60',fontSize:16}}>
-           Cancel
-         </Text>
-
-      </View>
-          
-  
-</View>
  
- {/* ----------------MENU ----------------*/}
- 
-<View style={{flexDirection:'row' ,alignItems:'center',justifyContent:'center'
-              ,marginHorizontal:16,marginTop:5}}>
-
-      <View style={[{flex:1,alignItems:'center',justifyContent:'center'}, this.state.menu3]}>
-      <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("searchuser")}
-             >
-         <Text  style={{ color:'#312f3d', fontSize:17,paddingVertical:14  }}>
-         Users
-         </Text>
-     </TouchableOpacity>
-      </View>
-
-
-
-      <View style={[this.state.menu2,{flex:1,alignItems:'center',justifyContent:'center'}]}>
-      <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("searchEvent")}
-             >
-        
-        
-         <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14  }}>
-          Live Eventes
-         </Text>
-   </TouchableOpacity>
-      </View>
-      <View style={[this.state.menu1,{flex:1,alignItems:'center',justifyContent:'center'}]}>
-         <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14 }}>
-           Content
-         </Text>
-
-      </View>
-
-</View>
-
-</View>
-
-<View style={{flex:8}}>
-     <ScrollView style={{marginTop:-35}}>
+     <ScrollView>
 
 
 
       {/*   CAJAS DE TENDINGS */}
       <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingVertical:10, 
+                
                  borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
                 <View>
                        <View style={{flexDirection:'row'}}>
@@ -377,10 +283,7 @@ export default class SearchContent extends Component {
  </View>
 
  </ScrollView>
-</View>
-
-</View>
-     
+ 
     );
   }
  

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Platform,StyleSheet, Text,TextInput, View,Image } from 'react-native';
-import Button from 'react-native-button'; 
+import { Platform,StyleSheet, Text,TouchableOpacity,
+  TextInput, View,Image } from 'react-native';
+import { Button } from "react-native-elements";
 
 
 export default class  ConfirMailInfluencer extends React.Component {
-  static navigationOptions = {
-    headerTitle: "Confirm your email",
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:"Confirm your email",
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -19,12 +21,15 @@ export default class  ConfirMailInfluencer extends React.Component {
 
     },
     headerRight: (<View>
+       <TouchableOpacity onPress={() => navigation.navigate("discover")} >
       <Text style={{
           color:'#ff5a60',marginRight:15,fontSize:16
       }}>Cancel</Text>
+      </TouchableOpacity>
       </View>),  
       headerTintColor: '#ff5a60',
-};
+ }
+}
 
   render() {
     return (
@@ -51,22 +56,19 @@ export default class  ConfirMailInfluencer extends React.Component {
   
        {/* -----------------------BOTONES ------------------*/}
 
- <View style={{marginTop:'70%',marginBottom:20, marginHorizontal:16,  borderRadius: 50,
-               backgroundColor:'#ff5a60', alignItems:'center'}}>
-  <Button
-        style={{
-          fontSize: 15,
-          color: 'white',
-           padding: Platform.OS === 'ios' ? 18:15,
-          width:320,
-         }}
-         onPress={() => this.props.navigation.navigate("requesPendin")}
-         type="clear"
-         >
-        Continue
-      </Button>
+       <View style={styles.container2}>
+       <Button  style={styles.textboton}
+          title="Continue"
+          onPress={() => this.props.navigation.navigate("requesPendin")}
+          type="clear"
+          titleStyle={{ color: "#ffffff",
+          position: "absolute",
+          top: -5
+        }}
+        />    
+      </View> 
 
-        </View>
+
       </View>
     );
   }
@@ -84,22 +86,8 @@ const styles = StyleSheet.create({
     
   },
 
-  //el contenedor del boton
-container2:{
-  backgroundColor: '#ff5a60',
-   width:'90%',
-   padding:15,
-   color:'white',
-   borderRadius:27,
-   textAlign:"center",
-   marginTop:'45%',
-   marginLeft:20,
-   
-},
 
 text:{
- 
-
   textAlign:'center',
   color:"black",
   fontSize: 22,
@@ -124,14 +112,24 @@ subtitulo:{
   },
 
 
+container2:{
+  backgroundColor: '#ff5a60',
+   width:'90%',
+   padding:15,
+   color:'white',
+   borderRadius:27,
+   textAlign:"center",
+   marginTop:Platform.OS === 'ios' ? '16%':'75%',
+   marginLeft:20,
+   marginBottom:40
+   
+},
 textboton:{
- 
 
-  textAlign:'left',
-  color:"white",
-  
+
+  textAlign:'center',
+  color:"white", 
   marginTop:1,
-  marginLeft:105,
   fontSize:17,
 
 }

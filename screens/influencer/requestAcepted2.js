@@ -27,8 +27,8 @@ export default class RequestAcepted2 extends Component {
          <Image
                  source={require('../../assets/icons_genGMI/checkRequest.png')}
                   style={{
-                  width:40,
-                  height:40,
+                  width:30,
+                  height:30,
                   marginRight:16,
                  }}
                />

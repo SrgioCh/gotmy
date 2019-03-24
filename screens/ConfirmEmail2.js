@@ -1,13 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
+import { StyleSheet, Text, TextInput,TouchableOpacity,
+   View, Image } from 'react-native';
 import { Button } from "react-native-elements";
 
 const util = require("util");
 
 export default class ConfirmEmail2 extends React.Component {
 
-  static navigationOptions = {
-    headerTitle: "Confirm your email",
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title: "Confirm your email",
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -21,12 +23,15 @@ export default class ConfirmEmail2 extends React.Component {
 
     },
     headerRight: (<View>
-      <Text style={{
+          <TouchableOpacity onPress={() => navigation.navigate("singUpInicio")} >
+            <Text style={{
           color:'#ff5a60',marginRight:15,fontSize:16
       }}>Cancel</Text>
+      </TouchableOpacity>
       </View>),  
       headerTintColor: '#ff5a60',
-};
+     }
+  }
 
   render() {
     return (

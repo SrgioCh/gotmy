@@ -79,7 +79,7 @@ export default class Payaddcreditcards extends Component {
               style={{
                   width:173,
                   height:42,
-                  
+                  paddingLeft:'4%',
                  borderWidth:1,
                    borderColor:'#e2e7ee',
                   borderRadius:27,
@@ -99,6 +99,7 @@ export default class Payaddcreditcards extends Component {
               borderRadius:27,
               marginTop:8,
                marginBottom:8,
+               paddingLeft:'4%',
            }}
              />
 

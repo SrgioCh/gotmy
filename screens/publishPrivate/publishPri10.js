@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,
-  StyleSheet,ScrollView,
+  StyleSheet,ScrollView,Modal,TouchableHighlight,
   Image,TouchableOpacity} from 'react-native';
 
-  import  Modal  from "react-native-modal";
 import { Button } from "react-native-elements";
 //import Button from 'react-native-button'; 
 
@@ -76,18 +75,16 @@ export default class PublishPri10 extends Component {
 
           //PARA VENTANA MODAL
           modalVisible: false,
-          fondoPrincipal:''
       
       }
       
       }// fin de consttructor
 
 
-      setModalVisible(visible) {
-        this.setState({modalVisible: visible,
-                           fondoPrincipal:styles.transparentePrincipal});
-      };
-
+    //PARA VENTANA MODAL
+toggleModal(visible) {
+  this.setState({ modalVisible: visible });
+}
 
 
   render() {
@@ -95,6 +92,90 @@ export default class PublishPri10 extends Component {
     return (
 
       <View style={[{flex: 1},this.state.fondoPrincipal]}>
+       <Modal
+          transparent = {true}
+          animationType="fade"
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => this.toggleModal(!this.state.modalVisible)}
+              >
+          
+                  <View style = {styles.modal}>
+             
+               {/*    <Text style = {styles.text}>Modal is open!</Text>
+                 
+                 <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible)}}>
+                    
+                    <Text style = {styles.text}>Close Modal</Text>
+                 </TouchableOpacity>  */}
+                 </View> 
+
+
+
+                 <View style={{backgroundColor:'white',borderRadius:20,
+                          position:'absolute',left:'7%',
+                          top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
+                       paddingVertical:'10%'}}> 
+
+                      <View style={{alignItems:'center',marginTop:10}}>
+                           <Image  
+                                source={require("../../assets/influencers/spffiele.png")}
+                               style={{ width:60,height:60 ,borderRadius:30}}
+                              />
+
+                            <Text style={{
+                                     color:'#677183',fontSize:17,fontWeight:'bold'
+                                   }} >Private meeting sent!</Text>
+
+                                   <Text style={{ textAlign:'center',
+                                             color:"gray",  fontSize: 14, marginLeft:3,
+                                             marginRight:3, fontWeight: "normal",
+                                              marginVertical: '3%',}}>
+                                         Your follower has received a{'\n'}
+                                         private link to buy tickets for ot</Text>
+
+                                         <View style={{
+                                                 backgroundColor: '#ff5a60',
+                                                 width:'70%',
+                                                 padding:15,
+                                                 color:'white',
+                                                 borderRadius:27,
+                                                 textAlign:"center",
+                                                 marginTop:20,
+                                                 marginHorizontal:'15%'
+                                              }}>
+                                              <Button style={styles.textboton}
+                                               title="Continue"
+                                               onPress={() => {
+                                                  
+                                                 this.toggleModal(!this.state.modalVisible);
+                                                 this.props.navigation.navigate("requesPendin")
+                                               }}
+                                               type="clear"
+                                               titleStyle={{ color: "#ffffff",
+                                               position: "absolute",
+                                               top: -5,
+                                               left: Platform.OS === 'ios' ? -45:null,
+                                               }}
+                                               >
+                                             </Button>
+                                             </View>
+
+                                          </View>
+
+
+
+
+
+
+
+
+
+
+                 </View>
+
+        
+           </Modal>
       
     <View  style={{flex:9}}>
 
@@ -319,16 +400,19 @@ $ {this.state.earn}</Text>
 
     
   
-<View style={{flex:1,backgroundColor:'#ff5a60',
- alignItems:'center',justifyContent:'center'}}>
-    <TouchableOpacity 
-  onPress = {() => {
-   this.setModalVisible(!this.state.modalVisible)
-  }} >
+    <View style={{flex:1}}>
+         <TouchableHighlight
+         style={{
+          flex:1,backgroundColor:'#ff5a60',
+          alignItems:'center',justifyContent:'center'
+         }}
+        onPress = { () => this.toggleModal(true)}
+      
+      >
 <Text style={{flex:1 , color:'white',marginTop:'5%',
     fontSize:17,letterSpacing:0.41 }}>
      Send Private Meeting</Text>
-     </TouchableOpacity>   
+     </TouchableHighlight>   
 </View>
  
    
@@ -336,82 +420,7 @@ $ {this.state.earn}</Text>
 
 
 
-{/*   GENERACION DEL MODAL*/}
-       
-        
-       <Modal
-        style={{backgroundColor:"transparent",
-        opacity:0.99,
-                 justifyContent: 'center',
-                alignItems: 'center',
-                margin: 0,
-                borderRadius:20,
-      
-               }}
-          animationType="fade"
-        
-          transparent={true}
-          visible={this.state.modalVisible}
-          onBackdropPress={() => {
-            this.setModalVisible(!this.state.modalVisible);
-            this.setState({
-              fondoPrincipal:''
-            })
-          }}
-           
-           >
 
-          <View style={{backgroundColor:'white',borderRadius:20,
-          paddingHorizontal:40,paddingVertical:40,
-                       marginHorizontal:'5%'}}>
-            <View style={{alignItems:'center'}}>
-              <View style={{alignItems:'center',marginTop:'5%'}}>
-               <Image  
-              source={require("../../assets/influencers/influencer.png")}
-                />
-                </View>
-              <Text style={{
-                color:'#677183',fontSize:17,fontWeight:'bold'
-              }} >Private meeting sent!</Text>
-
-              <Text style={{ textAlign:'center',
-                        color:"gray",  fontSize: 14, marginLeft:3,
-                        marginRight:3, fontWeight: "normal",
-                         marginVertical: '3%',}}>
-			              Your follower has received a{'\n'}
-                    private link to buy tickets for ot</Text>
-                 <View style={{
-                  backgroundColor: '#ff5a60',
-                  width:'70%',
-                  padding:15,
-                  color:'white',
-                  borderRadius:27,
-                  textAlign:"center",
-                  marginTop:'3%',
-                  marginHorizontal:'15%'
-               }}>
-               <Button style={styles.textboton}
-                title="Continue"
-                onPress={() => {
-                  this.props.navigation.navigate("requesPendin");
-                  this.setModalVisible(!this.state.modalVisible);
-                  this.setState({
-                    fondoPrincipal:''
-                  })
-                }}
-                type="clear"
-                titleStyle={{ color: "#ffffff",
-                position: "absolute",
-                top: -5,
-                left: Platform.OS === 'ios' ? -45:null,
-                }}
-                >
-              </Button>
-              </View>
-              
-            </View>
-          </View>
-        </Modal>
 
    </View>
    
@@ -446,33 +455,28 @@ tagsTrending:{
   marginLeft: 3,
 },
 
-//SEGUIDORES
-socialBotone:{
-  backgroundColor: '#ff5a60',
-  alignItems:'center',
-  borderRadius:27,
-  width:'80%',
-  paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 18:17,
+// ventana modal
+modal: {
+  flex: 1,
+  alignItems: 'center',
+  backgroundColor: 'black',
+  opacity:0.5,
+  padding: 100
+},
+text: {
+  color: '#3f2949',
+  marginTop: 10
+},
 
-  
+containerbuttonModal:{
+backgroundColor: '#ff5a60',
+width:'80%',
+paddingVertical:13,
+borderRadius:27,
+textAlign:"center",
+marginTop:20,
+marginBottom: 10,
+
 },
-Textsinmarcar:{
-  color:'white',
-},
-socialBotonBlanco:{
-  backgroundColor: 'white',
-  alignItems:'center',
-  borderRadius:27,
-  width:'80%',
-  paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 3:4,
-  borderWidth:1,
-  borderColor: '#312f3d',
-},
-transparentePrincipal:{
-  backgroundColor:'black',
-  opacity:0.5
-  },
 
 });

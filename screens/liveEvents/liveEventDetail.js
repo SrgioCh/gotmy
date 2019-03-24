@@ -98,9 +98,13 @@ export default class LiveEventDetail extends Component {
                        
             </View>
             <View style={{flex:2,alignItems:'flex-end'}}>
+            <TouchableOpacity
+             onPress={() => this.props.navigation.pop()}
+             > 
                <Text style={{color:'white',fontSize:16}}>
                Skip video
                </Text>
+               </TouchableOpacity>
              </View>
            </View>
            <View style={{flex:2,marginHorizontal:16}}>

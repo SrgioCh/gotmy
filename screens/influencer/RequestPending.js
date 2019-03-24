@@ -6,12 +6,96 @@ import { AppRegistry, Alert,
 
 import Button from 'react-native-button'; 
 
+import  RequestAcepted from "./RequestAcepted"
+import  RequestRejected from "./RequestRejected"
+
 export default class RequestPending extends Component {
 
 
   static navigationOptions = {
     header: null ,
 };
+
+rPending=(<ScrollView>
+     
+  {/* ----------------------------------------------------------- */}
+  
+  <View style={{flex:1,marginHorizontal:16,flexDirection:'row',
+            marginTop:10,marginBottom:10,
+                }}>
+  
+    <View style={{flex:2}}>
+          <Image source={require(`../../assets/influencers/spffiele.png`)} 
+                          style={{ width:50,height:50,
+                                    borderRadius:30}}
+                          />
+    </View>
+  
+    <View style={{flex:8,flexDirection:'column',
+                   paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
+          <View  style={{flexDirection:'row'}}>
+  
+  
+           <View style={{
+                    width:15,
+                    height:15, 
+                    marginRight:5,
+                    marginTop:3,
+                     }}>
+               <Image
+                   source={require('../../assets/icons_genGMI/relojMesage.png')}
+                    style={{
+                    width:'100%',
+                    height:'100%',
+                   }}
+                 />
+           </View>
+              <Text style={{flex:6,fontSize:14,
+                        color:'#312f3d',fontWeight:'500'
+              
+                             }}>Birthday surprise</Text> 
+              <Text style={{flex:2 ,fontSize:12,marginRight:'7%',
+                  color:'#677183'}}>2 day ago</Text> 
+          </View>
+
+
+
+          <View style={{flexDirection:'row',paddingVertical:3}}>
+             <Text style={{flex:7,fontSize:14,
+                        color:'#312f3d'}}>Sophia Lindsey</Text>
+            
+            <TouchableOpacity
+              
+              onPress={() => this.props.navigation.navigate("RequestDetail")}
+               > 
+            <View style={{alignItems:'flex-end'}}>
+             <Image
+                source={require('../../assets/icons_genGMI/ArrowGrey.png')}
+                style={{
+                    width:25,
+                    height:25,
+                    flex:1
+                }}
+              />
+  
+            </View>
+            </TouchableOpacity>
+          </View>
+          <View style={{}}>
+              <Text style={{
+                  fontSize:12,
+                  color:'#677183'
+              }}>Can you help us surprise our friend?</Text>
+         </View>
+  
+   </View>
+  
+  
+  </View>
+  {/* ----------------------------------------------------------- */}
+  
+  </ScrollView>)
+
 
   constructor(props){
 
@@ -30,20 +114,80 @@ export default class RequestPending extends Component {
        //mensajes
        
 
-       mensaje1:'Birthday surprise',
-       tiempo1:'2 day ago',
-       Use1mensa:'Sophia Lindsey',
-       mensaFinal1:'Can you help us surprise our friend?',
-       reloj1:'flex',
+ 
 
     //menus
+ 
+
     menu1:styles.menuelegido,
+    textoUno:styles.textoElegido,
+
     menu2:styles.menunormal,
+    textoDos:styles.textoNormal,
+
     menu3:styles.menunormal,
+    textoTres:styles.textoNormal,
+
+
+    mostramos:this.rPending,
 
       }
   
   }// fin de consttructor
+
+  cambiarVista=(num)=>{
+
+    if(num==1){
+       
+        this.setState({
+            mostramos:this.rPending, 
+            menu1:styles.menuelegido,
+            textoUno:styles.textoElegido,
+  
+            menu2:styles.menunormal,
+            textoDos:styles.textoNormal,
+  
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+        })
+    }else if(num==2){
+       
+        this.setState({
+            mostramos:<RequestAcepted  enviaAPadre={this.recogeDeHijo.bind(this)} />,
+            menu1:styles.menunormal,
+            textoUno:styles.textoNormal,
+
+            menu2:styles.menuelegido,
+            textoDos:styles.textoElegido,
+
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+        })
+    }else if(num==3){
+      
+        this.setState({
+            mostramos:<RequestRejected/>,
+            menu1:styles.menunormal,
+            textoUno:styles.textoNormal,
+
+            menu2:styles.menunormal,
+            textoDos:styles.textoNormal,
+
+            menu3:styles.menuelegido,
+            textoTres:styles.textoElegido,
+        })
+    }
+
+}
+
+
+recogeDeHijo(dato){
+    
+  this.props.navigation.navigate(dato)
+ 
+  }
+ 
+
 
   render() {
 
@@ -104,19 +248,23 @@ export default class RequestPending extends Component {
               ,marginHorizontal:16,marginBottom:10}}>
 
                  <View style={[{flex:1,alignItems:'center',justifyContent:'center'}, this.state.menu1]}>
-                 <Text  style={{ color:'#312f3d', fontSize:17,paddingVertical:14  }}>
+                 <TouchableOpacity
+               onPress={() => this.cambiarVista(1)}
+              >
+                 
+                 <Text  style={this.state.textoUno}>
                  Pending
                  </Text>
-
+               </TouchableOpacity>
                </View>
 
 
 
            <View style={[this.state.menu2,{flex:1,alignItems:'center',justifyContent:'center'}]}>
            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("requestAcepted")}
+               onPress={() => this.cambiarVista(2)}
              >
-            <Text  style={{color:'#697181',fontSize:17,paddingVertical:14  }}>
+            <Text  style={this.state.textoDos}>
            Accepted
           </Text>
           </TouchableOpacity>
@@ -125,9 +273,9 @@ export default class RequestPending extends Component {
 
         <View style={[this.state.menu3,{flex:1,alignItems:'center',justifyContent:'center'}]}>
             <TouchableOpacity
-                 onPress={() => this.props.navigation.navigate("requestRejected")}
+                 onPress={() => this.cambiarVista(3)}
              >
-            <Text  style={{color:'#697181',marginLeft:10,fontSize:17,paddingVertical:14 }}>
+            <Text  style={[this.state.textoTres,{marginLeft:10}]}>
              Rejected
               </Text>
          </TouchableOpacity>
@@ -137,185 +285,11 @@ export default class RequestPending extends Component {
 
  {/* ------------------------*/} 
 
-
-   <ScrollView>
-     
-{/* ----------------------------------------------------------- */}
-
-<View style={{flex:1,marginHorizontal:16,flexDirection:'row',
-          marginTop:10,marginBottom:10,
-              }}>
-
-  <View style={{flex:2}}>
-        <Image source={require(`../../assets/influencers/dos.png`)} 
-                        style={{ width:50,height:50,
-                                  borderRadius:10}}
-                        />
-  </View>
-
-  <View style={{flex:8,flexDirection:'column',
-                 paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-        <View  style={{flexDirection:'row'}}>
-
-
-         <View style={{
-                  width:15,
-                  height:15, 
-                  marginRight:5,
-                  marginTop:3,
-                  display:this.state.reloj1}}>
-             <Image
-                 source={require('../../assets/icons_genGMI/relojMesage.png')}
-                  style={{
-                  width:'100%',
-                  height:'100%',
-                 }}
-               />
-         </View>
-            <Text style={{flex:6,fontSize:14,
-                      color:'#312f3d',fontWeight:'500'
-            
-                           }}>{this.state.mensaje1}</Text> 
-            <Text style={{flex:2 ,fontSize:12,marginRight:'7%',
-                color:'#677183'}}>{this.state.tiempo1}</Text> 
-        </View>
-        <View style={{flexDirection:'row',paddingVertical:3}}>
-           <Text style={{flex:7,fontSize:14,
-                      color:'#312f3d'}}>{this.state.Use1mensa}</Text>
-          
-          <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("RequestDetail")}
-             > 
-          <View style={{alignItems:'flex-end'}}>
-           <Image
-              source={require('../../assets/icons_genGMI/ArrowGrey.png')}
-              style={{
-                  width:25,
-                  height:25,
-                  flex:1
-              }}
-            />
-
-          </View>
-          </TouchableOpacity>
-        </View>
-        <View style={{}}>
-            <Text style={{
-                fontSize:12,
-                color:'#677183'
-            }}>{this.state.mensaFinal1}</Text>
-       </View>
-
- </View>
-
-
-</View>
-{/* ----------------------------------------------------------- */}
-
-
-
- 
-    </ScrollView>
-    
+    {this.state.mostramos}
+   
     </View>
   
-      {/*   penta icon o  tabs */}
-  <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#ff5a60'}}>
-            <View style={{flex:1,paddingTop:'3%'}}>
-              <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("discover")}
-             >
-                   <View style={{flexDirection:'column',alignItems:'center'}} >
-                       <View style={{ width:25,height:25,marginLeft:'15%'}}>
-                       <Image source={require('../../assets/pentaicon/influe/events.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                      </View>
-                     <Text style={[styles.pentaIcon,
-                            {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>My Events</Text>
-                     
-                </View>
-                </TouchableOpacity>
-          </View>
-  
-      
-          <View style={{flex:1,alignItems:'center',paddingTop:'3%'}}>
-           <TouchableOpacity
-              
-               onPress={() => this.props.navigation.navigate("search")}
-                >
-                 <View  style={{flexDirection:'column'}}>
-                       
-                   <View style={{ width:25,height:25,marginLeft:'25%'}}>
-                         <Image source={require('../../assets/pentaicon/influe/stats.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={[styles.pentaIcon,
-                             {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>My Stats</Text>
-                </View>
-            </TouchableOpacity>
-         </View>
-          
-
-          
-        
-          <View style={{flex:1,alignItems:'center',paddingTop:'3%'}}>
-       
-                <View  style={{flexDirection:'column'}}>
-                     
-                <View style={{ width:25,height:25,marginLeft:'25%'}}>
-                         <Image source={require('../../assets/pentaicon/influe/requestSelec.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciNo,marginTop:'3.5%'}]}>Requests</Text>
-                </View>
-              
-       </View>
-       
-       <View style={{flex:1,alignItems:'center',paddingTop:'3%'}}>
-        <TouchableOpacity
-               onPress={() => this.props.navigation.navigate("mensa2")}
-               >
-                <View  style={{flexDirection:'column'}}>
-                  
-                <View style={{ width:25,height:25,marginLeft:'30%'}}>
-                         <Image source={require('../../assets/pentaicon/influe/messages.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={[styles.pentaIcon,
-                         {opacity:this.state.opaciSi,marginTop:'3.5%'}]}>Messages</Text>
-                </View>
-                </TouchableOpacity>
-        </View>
-   
-                       
-       
-        <View style={{flex:1,alignItems:'center',paddingTop:'3.9%'}}>
-        <TouchableOpacity
-               onPress={() => this.props.navigation.navigate("ActiToo")}
-               >
-                 <View style={{flexDirection:'column'}}>
-                 <View style={{ width:22,height:22,marginLeft:'30%'}}>
-                         <Image source={require('../../assets/pentaicon/influe/activity.png')} 
-                        style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                        />
-                         </View>
-                     <Text style={[styles.pentaIcon,
-                           {opacity:this.state.opaciSi,marginTop:'4%'}]}>Activity</Text>
-                </View>
-                </TouchableOpacity>
-          </View >
-      
-       
-         </View>
-  
-       </View>
+   </View>
 
 
      
@@ -339,15 +313,20 @@ pentaIcon:{
 
 //   MENUS
 menuelegido:{
-    borderBottomWidth:1,
-    borderBottomColor:'#ff5a60',
-  },
-  
-  menunormal:{
-    borderBottomWidth:1,
-    borderBottomColor:'#e1e3e6',
-  },
-  
+  borderBottomWidth:1,
+  borderBottomColor:'#ff5a60',
+},
+
+menunormal:{
+  borderBottomWidth:1,
+  borderBottomColor:'#e1e3e6',
+},
+textoElegido:{
+ color:'#312f3d', fontSize:17,paddingVertical:14  
+},
+textoNormal:{
+ color:'#697181',fontSize:17,paddingVertical:14  
+},
 
 
 

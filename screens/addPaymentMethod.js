@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform,TouchableOpacity,
-  View,Text ,TextInput,Dimensions,
+  View,Text ,TextInput,Dimensions,KeyboardAvoidingView,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
@@ -12,38 +12,58 @@ import { Platform,TouchableOpacity,
 export default class AddPaymentMethod extends Component {
 
 
-    static navigationOptions = {
-      headerTitle: "Become An Influencer",
-      headerTitleStyle: {
-        alignSelf: 'center',
-        textAlign: 'center',
-        width: '80%',
-          fontWeight:'500',
-              letterSpacing:0.41,
-              height:120,
-              fontSize:16,
-              color:'#312f3d',
-              marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+  static navigationOptions = {
+    header: null ,
+};
 
-      },
-      headerRight: (<View>
-        <Text style={{
-            color:'#ff5a60',marginRight:15,fontSize:16
-        }}>Cancel</Text>
-        </View>),  
-        headerTintColor: '#ff5a60',
-  };
- 
 
   render() {
 
     return (
-     
-    <ScrollView  style={{flex:1,marginTop:20}} >
-     
-   {/*  TITULO Y SUBTITULO */}
-   <View style={{alignItems:'center',justifyContent:'center',
-                 marginHorizontal:35,paddingBottom: 20}}>
+      <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
+
+            <View>
+            <ScrollView showsVerticalScrollIndicator={false}> 
+                    {/*  creamos la cabezera  */}
+                    <View style={{flex: 1 ,flexDirection:'row', paddingTop: '5%', paddingBottom:'3%',
+             borderBottomWidth: 2,borderBottomColor:'#C3C1C0'}}>
+            <View style={{flex:1 , marginLeft:'4%',marginTop:'6%'}}>
+            <TouchableOpacity
+                       onPress={() => this.props.navigation.pop()}
+                     >
+                <Image
+                  source={require('../assets/icons_genGMI/Back.png')}
+                  style={{
+                                           
+                        width:20,
+                        height:20,
+                   
+                                 
+                         }}
+                       />
+                 </TouchableOpacity>
+               </View>
+               <View style={{flex:7,marginTop:'6%',alignItems:'center'}}>
+                 <Text style={{
+                  marginLeft:'12%', color:'#312f3d',fontSize:17,fontWeight:'500'
+                 }}>Become An Influencer</Text>
+               </View>
+                <View style={{flex:2,marginTop:'6%',
+                 marginRight:'4%',alignItems:'flex-end'}}>
+                  <TouchableOpacity
+                       onPress={() => this.props.navigation.navigate("discover")}
+                     >
+                 <Text style={{
+                   color:'#ff5a60',fontSize:15,fontWeight:'200'
+                 }}>cancel</Text>
+                 </TouchableOpacity>
+                  </View>
+               </View>
+               {/*  -- fin de la cabezera --*/}
+
+{/*  TITULO Y SUBTITULO */}
+   <View style={{alignItems:'center',justifyContent:'center'
+                 ,marginHorizontal:25,marginTop:'3%'}}>
 
           <Text style={{ color:'#312f3d',fontSize:22,fontWeight:'bold',letterSpacing:0.32, }}>
             Payment method
@@ -65,7 +85,7 @@ export default class AddPaymentMethod extends Component {
 
 
 
-     <View style={{marginHorizontal:16}}>
+     <View style={{marginHorizontal:16,marginTop:'3%'}}>
         
      <Text style={{
         color:'#312f3d',
@@ -85,7 +105,7 @@ export default class AddPaymentMethod extends Component {
      </View>
 
 
-     <View style={{marginTop:10,marginLeft:15,marginRight:6}}>
+     <View style={{marginTop:7,marginLeft:15,marginRight:6}}>
         
         <Text style={styles.text} >Credit card number</Text>
         <View>
@@ -113,7 +133,7 @@ export default class AddPaymentMethod extends Component {
 
  </View>
      
- <View style={{ marginHorizontal:16,marginTop:10}}>
+ <View style={{ marginHorizontal:16,marginTop:7}}>
                 
                <View style={{flexDirection:'row'}}>
                <Text style={styles.text} >Valid date</Text>
@@ -129,7 +149,7 @@ export default class AddPaymentMethod extends Component {
               style={{
                   width:173,
                   height:42,
-                  
+                  paddingLeft:15,
                  borderWidth:1,
                    borderColor:'#e2e7ee',
                   borderRadius:27,
@@ -149,6 +169,7 @@ export default class AddPaymentMethod extends Component {
               borderRadius:27,
               marginTop:8,
                marginBottom:8,
+               paddingLeft:15,
            }}
              />
 
@@ -158,7 +179,7 @@ export default class AddPaymentMethod extends Component {
 
 {/* ADD PAYPAL ACOUNT*/}
 
-<View style={{marginHorizontal:16,marginTop:20}}>
+<View style={{marginHorizontal:16,marginTop:15}}>
 <Text style={{
         color:'#312f3d',
         fontSize:17 ,
@@ -196,11 +217,13 @@ export default class AddPaymentMethod extends Component {
         />    
       </View> 
   
-
-    </ScrollView>
-
-
+ 
+               </ScrollView>
+          </View>
      
+    </KeyboardAvoidingView>
+
+
     );
   }
  
@@ -237,9 +260,9 @@ const styles = StyleSheet.create({
      color:'white',
      borderRadius:27,
      textAlign:"center",
-     marginTop:Platform.OS === 'ios' ? '16%':'7%',
-     marginLeft:20,
-     marginBottom:40
+     marginTop:Platform.OS === 'ios' ? '16%':20,
+     marginLeft:16,
+     marginBottom:80
      
   },
   textboton:{

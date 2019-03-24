@@ -14,7 +14,7 @@ export default class  TransferTomyAcount extends Component {
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
-          width: '80%',
+          width: '90%',
             fontWeight:'500',
                 letterSpacing:0.41,
                 height:120,
@@ -249,6 +249,9 @@ export default class  TransferTomyAcount extends Component {
              <CheckBox
                   checked={ this.state.checked }
                   onPress={ () => this.isChecked() }
+                  style={{
+                    backgroundColor:'red'
+                  }}
              />
           </View>
 
@@ -266,7 +269,7 @@ export default class  TransferTomyAcount extends Component {
         
         {/*----------------------------------------------------- */}
         
-        <View style={{marginTop: Platform.OS === 'ios' ? 80 :20, marginHorizontal:16,
+        <View style={{marginTop: Platform.OS === 'ios' ? 80 :50, marginHorizontal:16,
             alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
           <Button
                 style={{

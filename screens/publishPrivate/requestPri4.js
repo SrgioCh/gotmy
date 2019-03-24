@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Modal,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-  import  Modal  from "react-native-modal";
-  import { Button } from "react-native-elements";
+  import Button from 'react-native-button'; 
 
 export default class RequestPri4 extends Component {
 
@@ -51,16 +50,16 @@ export default class RequestPri4 extends Component {
              timess:'12:00 - 14:00 (2 hours)',
              budgess:'1,200',
 
+             //PARA VENTANA MODAL
              modalVisible: true,
-             fondoPrincipal:styles.transparentePrincipal
           }
       
       }// fin de consttructor
 
-      setModalVisible(visible) {
-        this.setState({modalVisible: visible,
-                           fondoPrincipal:''});
-      };
+     //PARA VENTANA MODAL
+toggleModal(visible) {
+  this.setState({ modalVisible: visible });
+}
 
       
   render() {
@@ -68,7 +67,89 @@ export default class RequestPri4 extends Component {
     return (
 
 
-          <View style={[{flexDirection:'column' },this.state.fondoPrincipal]}>
+          <View style={{flexDirection:'column' }}>
+           <Modal
+          transparent = {true}
+          animationType="fade"
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => { console.log("Modal has been closed.") } }
+              >
+          
+                  <View style = {styles.modal}>
+             
+                  </View> 
+
+                 <View style={{backgroundColor:'white',borderRadius:20,
+                          position:'absolute',left:'7%',
+                          top:'20%',marginHorizontal:'5%',paddingHorizontal:'10%',
+                       paddingVertical:'10%'}}> 
+
+                       <View style={{alignItems:'center',marginTop:5}}>
+
+
+                             <View style={{alignItems:'center'}}>
+                              <Image  
+                             source={require("../../assets/influencers/uno.png")}
+                                   />
+                            </View>
+
+
+                            <Text style={{
+                              color:'#312f3d',
+                              fontSize:20,
+                              fontWeight:'bold'}} >Request received!</Text>
+
+          <Text style={{ textAlign:'center',
+                    color:"gray",  fontSize: 14, marginLeft:3,
+                    marginRight:3, fontWeight: "normal",
+                     marginVertical: '3%',}}>
+                I will response you as soon as{'\n'}
+                     possible</Text>
+           <View style={{
+              backgroundColor: '#ff5a60',
+              width:'80%',
+              paddingVertical:13,
+              borderRadius:27,
+              textAlign:"center",
+              marginTop:10,
+            marginHorizontal:'4%'
+           }}>
+
+            
+                       <Button 
+                           onPress={() => {
+                            this.props.navigation.navigate("requesPendin");
+                            this.toggleModal(!this.state.modalVisible);
+                          
+                          }}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
+
+
+
+
+
+         
+          <View style={{ marginTop:20}}>
+          <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible);
+                   
+                    }}>
+            <Text style={{
+              color:'#ff5a60',fontSize:17,
+            }}>
+              Cancel request
+            </Text>
+            </TouchableOpacity>
+          </View>
+
+
+
+                 </View>
+
+              </View>
+           </Modal>
            
            <ScrollView>
 
@@ -190,94 +271,22 @@ export default class RequestPri4 extends Component {
                    for something {'\n'}different to happen.
                  </Text>
 
-                 <View style={{ backgroundColor:'#e2e7ee',paddingVertical:8,marginBottom:20,
-                borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button   
-          title="Cancel Request"
-          onPress={() => this.props.navigation.navigate("requestPri1")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          left: Platform.OS === 'ios' ? null:null,
-        }}
-        />     
+             
 
-      </View>
+      <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("requestPri1")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
+
+
+
+
       </ScrollView>
 
 
-        {/*   GENERACION DEL MODAL*/}
-       
-        
-        <Modal
-        style={{backgroundColor:"transparent",
-        opacity:0.99,
-                 justifyContent: 'center',
-                alignItems: 'center',
-                margin: 0,
-                borderRadius:20,
-      
-               }}
-          animationType="fade"
-        
-          transparent={true}
-          visible={this.state.modalVisible}
-          onBackdropPress={() => {
-            this.setModalVisible(!this.state.modalVisible);
-            this.setState({
-              fondoPrincipal:''
-            })
-          }}
-           
-           >
-
-          <View style={{backgroundColor:'white',borderRadius:20,
-                       marginHorizontal:'5%',paddingHorizontal:'10%',
-                       paddingVertical:'5%'}}>
-            <View style={{alignItems:'center'}}>
-              <View style={{alignItems:'center',marginTop:'5%'}}>
-               <Image  
-              source={require("../../assets/influencers/influencer.png")}
-                />
-                </View>
-              <Text style={styles.modalTitle} >Request received!</Text>
-
-              <Text style={{ textAlign:'center',
-                        color:"gray",  fontSize: 14, marginLeft:3,
-                        marginRight:3, fontWeight: "normal",
-                         marginVertical: '3%',}}>
-			              I will response you as soon as{'\n'}
-                         possible</Text>
-               <View style={{
-                  backgroundColor: '#ff5a60',
-                  width:'70%',
-                  padding:15,
-                  color:'white',
-                  borderRadius:27,
-                  textAlign:"center",
-                  marginTop:'3%',
-                  marginHorizontal:'15%'
-               }}>
-               <Button style={styles.textboton}
-                title="Continue"
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                  this.setState({
-                    fondoPrincipal:''
-                  })
-                }}
-                type="clear"
-                titleStyle={{ color: "#ffffff",
-                position: "absolute",
-                top: -5,
-                left: Platform.OS === 'ios' ? -45:null,
-                }}
-                >
-              </Button>
-              </View>
-              
-            </View>
-          </View>
-        </Modal>
+    
  </View>
  
               
@@ -302,8 +311,38 @@ const styles = StyleSheet.create({
         flexDirection:'row',
       
       },
-      transparentePrincipal:{
-        backgroundColor:'black',
-        opacity:0.5
-        },
+      // ventana modal
+modal: {
+  flex: 1,
+  alignItems: 'center',
+  backgroundColor: 'black',
+  opacity:0.5,
+  padding: 100
+},
+text: {
+  color: '#3f2949',
+  marginTop: 10
+},
+
+containerbuttonModal:{
+backgroundColor: '#ff5a60',
+width:'80%',
+paddingVertical:13,
+borderRadius:27,
+textAlign:"center",
+marginTop:20,
+marginBottom: 10,
+
+},
+containerbutton:{
+  backgroundColor: '#B3B8C1',
+  width:'90%',
+  paddingVertical:13,
+  borderRadius:27,
+  textAlign:"center",
+  marginTop:10,
+marginBottom:20,
+  marginHorizontal:'4%'
+
+},
 });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
@@ -155,11 +155,12 @@ export default class AddParticip1 extends Component {
      <View style={{flex:1}}>
       
       <View style={{ flex:2 }}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
            <View style={{ marginHorizontal:'4%'}}>
              <Text style={{fontSize:28,fontWeight:"700"}}>
               Create Chat Group</Text>
            </View>
-
+      </TouchableWithoutFeedback>
            <View style={{marginHorizontal:'4%',paddingVertical:20,flexDirection:'row' }}>
              <View style={{flexDirection:'row',flex:1,backgroundColor:'#f6f6f6',
                       alignItems:'center',marginRight:5,borderRadius:10}}>

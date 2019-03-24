@@ -2,49 +2,99 @@ import React, { Component } from 'react';
 import { Platform, Alert,
   View,Text ,
   StyleSheet,ScrollView,TouchableOpacity,
-  Image} from 'react-native';
+  Image,Modal} from 'react-native';
+  import {  FontAwesome } from '@expo/vector-icons';
 
-import Button from 'react-native-button'; 
 
-export default class Discover extends Component {
+
+export default class SingUpInicio extends Component {
 
   static navigationOptions = {
     header: null ,
 };
 
+constructor(props) {
+    super(props)
+  
+  
+    this.state = { 
+  
+      modal:'none',
+      flexModal:1,
+      modalOscuro:null,
+      modalOpacity:null,
+      modalIndex:-1,
+      cabezera :'flex',
+    }
+}
 
+ventana=()=>{
 
-
-
+    if(this.state.modal==='none'){
+        this.setState({
+            modal:'flex',
+            flexModal:8,
+            modalOscuro:'#312f3d',
+            modalOpacity:0.9,
+            modalIndex:11,
+            cabezera:'none'
+          })
+    }else{
+        this.setState({
+            modal:'none',
+            flexModal:1,
+            modalOscuro:null,
+            modalOpacity:null,
+            modalIndex:11,
+            cabezera:'flex'
+          })
+    }
+   
+    
+}
 
   render() {
+  
     return (
-<View style={{flex: 1}}>
-    <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-        borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
+<View style={{flex: 1 ,}}>
+
+    <View  style={{flex: 1,display:this.state.cabezera ,marginTop:22,justifyContent:'center',
+        borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
+         backgroundColor:this.state.modalOscuro,
+         opacity:this.state.modalOpacity,
+         zIndex:this.state.modalIndex}}>
           
         <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
-        <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("Become1")}
-                     >
+       
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-            <Image source={require('../assets/reviews/kuskal.png')} 
+           
+             <TouchableOpacity
+                     onPress={this.ventana.bind(this)}
+                     >
+            <Image source={require('../assets/icons_genGMI/LogOut.png')} 
                       style={{ width:40,height:40,
                                 borderRadius:10}}
                       />
+                      </TouchableOpacity>
             </View>
-            </TouchableOpacity>
+            
            <View style={{flex:4,flexDirection:'column',marginLeft:10,
                       marginRight:10}}>
-                <Text style={{
-                     color:'#312f3d',
-                     fontSize:17 ,letterSpacing:0.41
-                }}>Kurtis 'Kala' Lloyd</Text>
-                <Text style={{
-                       color:'#677183',
-                       fontSize:13 ,letterSpacing:0.08
-                }}>@kurtiskala</Text>
+                      <TouchableOpacity
+                     onPress={this.ventana.bind(this)}
+                     >
+              <View>
+              <Text style={{
+                     color:'#ff5a60',
+                     fontSize:17 ,letterSpacing:0.41,marginTop:10
+                }}>Sign Up</Text> 
+
+              </View>
+               </TouchableOpacity>
            </View>
+         
+
+
            <TouchableOpacity
                      onPress={() => this.props.navigation.navigate("discoverCalendar")}
                      >
@@ -80,7 +130,10 @@ export default class Discover extends Component {
         </View>
 
     </View>
-    <View style={{flex: 9}}>
+    <View style={{flex: 9 ,
+                   backgroundColor:this.state.modalOscuro,
+                   opacity:this.state.modalOpacity,
+                    zIndex:this.state.modalIndex}}>
        <ScrollView>
             {/*   TITULOO   */}
             <View style={styles.contieneTitulo}>
@@ -91,7 +144,11 @@ export default class Discover extends Component {
 
              {/*  bloquee  NO CARDVIEW*/}
 
-         <View style={{marginHorizontal:16}}>
+         <View style={{marginHorizontal:16 , backgroundColor:this.state.modalOscuro,
+         opacity:this.state.modalOpacity,
+         zIndex:this.state.modalIndex
+        
+                      }}>
                 <Image source={require('../assets/influencers/influencer.png')} 
                   style={{ width:40,height:40, zIndex:3,borderRadius:10,position:'absolute',left:15,top:15}}
                    />
@@ -126,8 +183,32 @@ export default class Discover extends Component {
                   Team Rocket vs Team Skull {'\n'}RAP BATTLE{'\n'} </Text>
                   <Text style={[styles.textoLogobajo,{marginTop:'50%',fontSize:13,
                    fontWeight:'normal',}]}>Entertaiment</Text> 
-               </View>
+            </View>
+
+               {/*  corazon gris */}
+               <View  style={{
+              width:50,
+              height:50,
+              borderRadius:30,
+              backgroundColor:'#312f3d',
+              opacity:0.8,
+              zIndex:9,
+              position:'absolute',
+              right:15,
+              bottom:135,
+              alignItems:'center',
+              justifyContent:'center',
+
+            }}>
+                <Image source={require('../assets/icons_genGMI/Like/corazongris.png')} 
+                  style={{  width:30,height:30,
+                            zIndex:10}}
+                   />  
+            </View>
         </View>   
+
+
+
            {/*  bloquee   TRENDING INFLUENCER */}
 
                 <View style={{flexDirection:'row',
@@ -138,19 +219,17 @@ export default class Discover extends Component {
                      ,fontWeight:'500'}}>Trending Influencers</Text>
                   </View>
                   <TouchableOpacity   
-                onPress={() => this.props.navigation.navigate("searchOptions",{pagina:1})}
+                onPress={() => this.props.navigation.navigate("searchuser")}
                 > 
                    <View style={{flexDirection:'row'}} >
+                 
                  <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
+               
                  </View>
                  </TouchableOpacity>
                 </View>
    
-
-           
-
-
 {/* ---------------- SECCION IMAGEN DESPLAZABLE-----------*/}
 
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{marginTop:5}} >
@@ -321,7 +400,7 @@ export default class Discover extends Component {
                </View>
               <View style={{flexDirection:'row'}} >
                  <TouchableOpacity
-                      onPress={() => this.props.navigation.navigate("searchOptions",{pagina:2})}
+                     onPress={() => this.props.navigation.navigate("upcoevent")}
                      >
                       <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                       </TouchableOpacity>
@@ -330,10 +409,7 @@ export default class Discover extends Component {
             </View>
 
              
-{/* -----------------BICARDVIEW--------------*/}   
-<TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("liveEventDetail")}
-                     >    
+{/* -----------------BICARDVIEW--------------*/}       
  <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
                  marginVertical:10, borderRadius:10}}>
      
@@ -427,19 +503,14 @@ export default class Discover extends Component {
                         fontWeight:'bold',color:'#312f3d'}}>
                        My FIRST Godr of War experience !</Text>
                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
-                      <View style={{flexDirection:'row'}}>
-                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                                style={{ width:11,height:11,marginLeft:2,marginTop:6}}
-                            />
-                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
+                        fontWeight:'bold',color:'#677183'}} >Fashion</Text>
+                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
                       fontWeight:'bold',color:'#677183',
-                              paddingVertical:4,marginLeft:5}}>Live from New York, at 18:30 pm</Text>
-                       </View>
+                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
                      </View>
    </View>  
 </View>  
-   </TouchableOpacity>   
+      
          {/*  seccion trending media */}
     
           <View style={{flexDirection:'row',
@@ -451,7 +522,7 @@ export default class Discover extends Component {
 
                <View style={{flexDirection:'row'}} >
                <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("searchOptions",{pagina:3})}
+                     onPress={() => this.props.navigation.navigate("mediacontenInflu")}
                      >
                   <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                </TouchableOpacity>
@@ -697,12 +768,109 @@ export default class Discover extends Component {
           
           </View>
  {/* ********************fin de los trendign********************************* */}
-
-
  </ScrollView>
-    
-  </View>
 
+</View>
+            <View  display={this.state.modal} 
+            style={{flex:this.state.flexModal}}>
+
+                  <View style={{backgroundColor:'white',marginHorizontal:40,
+                             alignItems:'center',justifyContent:'center'}}>
+                        <Text style={{
+                            fontSize:28 ,
+                            letterSpacing:0.36 ,
+                            color:'#312f3d',
+                            fontWeight:'500',
+                            marginVertical:10,
+                        }}>Sign up</Text>
+                        <Text
+                         style={{
+                            fontSize:13 ,
+                            letterSpacing:0.32 ,
+                            color:'#312f3d',
+                            marginVertical:5,
+                        }}>You must have an account to continue</Text>
+                         <TouchableOpacity
+                       onPress={() => this.props.navigation.navigate("createAcu")}
+                       >
+                        <View style={{backgroundColor:'#ff5a60',
+                                    borderRadius:20 ,paddingVertical:10,
+                                    paddingHorizontal:'23%',
+                                    marginVertical:5,}}>
+                        <Text style={{
+                           color:'white'
+                        } }>Sign Up with your email</Text>
+                      
+                        </View>
+                        </TouchableOpacity>
+
+                        
+                        <View style={{backgroundColor:'#13389B',
+                                    borderRadius:20 ,paddingVertical:10,
+                                    paddingHorizontal:'23%',flexDirection:'row',
+                                    marginVertical:5,}}>
+                        <FontAwesome name="facebook" size={20} color="white" 
+                           style={{position:'absolute',left:20,top:7
+                           }}/>
+                         <Text style={{
+                           color:'white'
+                        } }>Connect with Facebook</Text>
+                       </View>
+                         
+                       <View style={{backgroundColor:'#4371EC',
+                                    borderRadius:20 ,paddingVertical:10,
+                                    paddingHorizontal:'23%',flexDirection:'row',
+                                    marginVertical:5,}}>
+                        <FontAwesome name="linkedin" size={20} color="white" 
+                           style={{position:'absolute',left:20,top:7
+                           }}/>
+                         <Text style={{
+                           color:'white'
+                        } }>Connect with LinkedIn</Text>
+                       </View>
+
+                       <View style={{
+                           flexDirection:'row'
+                       }}>
+                       <Text style={{
+                             fontSize:12 ,
+                             letterSpacing:0.08 ,
+                             color:'#312f3d',
+                             marginTop:5,
+                       }}>Already have an account? </Text>
+                       
+                       <TouchableOpacity
+                       onPress={() => this.props.navigation.navigate("Log")}
+                       >
+                        <View >
+                            <Text
+                             style={{
+                                fontSize:12 ,
+                                letterSpacing:0.08 ,
+                                color:'#ff5a60',
+                                marginTop:5,
+                               }}>  Log In </Text>
+                        </View>
+                    </TouchableOpacity>
+                        </View>
+                           
+                          
+                  </View>
+                
+                  <View style={{
+                             position:'absolute',
+                             right:20,
+                             top:10
+                           }}>
+                  <TouchableOpacity
+                       onPress={this.ventana.bind(this)}
+                       >
+                         <FontAwesome name="close" size={20} color="#ff5a60"  /> 
+                            
+                  </TouchableOpacity> 
+             </View> 
+                  
+    </View>
 
 
      </View>
@@ -833,6 +1001,7 @@ const styles = StyleSheet.create({
   textTren:{
    color:'#312f3d',
    fontSize:17,
+  
   },
 
   pentaIcon:{

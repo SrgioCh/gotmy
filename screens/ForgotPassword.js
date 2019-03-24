@@ -1,35 +1,41 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, TextInput, View} from "react-native";
-import { Button } from "react-native-elements";
+import { Platform, StyleSheet,TouchableOpacity ,TouchableWithoutFeedback,Keyboard,
+  Text, TextInput, View} from "react-native";
+  import Button from 'react-native-button'; 
 
 
 export default class ForgotPassword extends React.Component {
 
-    static navigationOptions = {
-      
-      headerTitle: "Reset Password",
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:"Reset Password",
       headerTitleStyle: {
         alignSelf: 'center',
         textAlign: 'center',
-        width: '80%',
+        width: '90%',
           fontWeight:'500',
               letterSpacing:0.41,
               height:120,
               fontSize:16,
               color:'#312f3d',
-              marginTop:'43%',
+              marginTop:'40%',
 
       },
       headerRight: (<View>
+           <TouchableOpacity onPress={() => navigation.navigate("singUpInicio")} >
         <Text style={{
             color:'#ff5a60',marginRight:15,fontSize:16
         }}>Cancel</Text>
+        </TouchableOpacity>
         </View>),  
         headerTintColor: '#ff5a60',
     };
+  }
     render() {
         return (
-            <View style={styles.StyleSheet}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View style={{flex:1}}>
             <Text style={styles.text}>
                 <Text >Forgot password</Text>
             </Text>
@@ -45,25 +51,16 @@ export default class ForgotPassword extends React.Component {
                  underlineColorAndroid='transparent'
                  style={styles.input}
               />
-               
-               <View style={styles.container2}>
-                <Button  style={styles.textboton}
-                title="Continue"
-                onPress={() => this.props.navigation.navigate("ConfirmEmail")}
-                type="clear"
-                titleStyle={{ color: "#ffffff",
-                position: "absolute",
-                top: -5,
-                left: Platform.OS === 'ios' ? 15:null,
-              }}
-                /> 
-        
-                
               
-                
-                
-                </View> 
+                <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("ConfirmEmail")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
+ 
               </View>
+              </TouchableWithoutFeedback>
             );
           }
         }
@@ -72,26 +69,20 @@ export default class ForgotPassword extends React.Component {
         
         
         const styles = StyleSheet.create({
-          container: {
-            flex: 1,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'center',
-            
+        
+        
+          containerbutton:{
+            backgroundColor: '#ff5a60',
+            width:'90%',
+            paddingVertical:13,
+            borderRadius:27,
+            textAlign:"center",
+           position:'absolute',
+            marginHorizontal:'4%',
+            bottom:20,
           },
         
-          //el contenedor del boton
-        container2:{
-          backgroundColor: '#ff5a60',
-           width:'90%',
-           padding:15,
-           color:'white',
-           borderRadius:27,
-           textAlign:"center",
-           marginTop:'55%',
-           marginLeft:15,
-           
-        },
+         
         input:{
           width:'90%',
           borderWidth:1,
@@ -101,9 +92,8 @@ export default class ForgotPassword extends React.Component {
           marginTop:8,
           marginBottom:8,
           marginLeft:15,
-        
-          
-        
+          paddingLeft:15,
+  
         },
         text:{
          
@@ -112,7 +102,7 @@ export default class ForgotPassword extends React.Component {
           fontSize: 28,
           fontWeight: "bold",
           fontStyle: "normal",
-          marginTop:100,
+          marginTop:'25%',
           
         },
         subtitulo:{

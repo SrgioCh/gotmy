@@ -3,15 +3,16 @@ import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
-  import  {Button}  from "react-native-elements";
+  import Button from 'react-native-button'; 
 
   import SwitchToggle from 'react-native-switch-toggle';
 
 export default class PublishPri2 extends Component {
 
-
-    static navigationOptions = {
-        headerTitle:'Date and time',
+  
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:'Date and time',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -25,14 +26,16 @@ export default class PublishPri2 extends Component {
     
         },
         headerRight: (<View>
+          <TouchableOpacity onPress={() => navigation.navigate("requestAcepted")} >
           <Text style={{
               color:'red',marginRight: 16,
           }}>Cancel</Text>
+          </TouchableOpacity>
           </View>),  
           headerTintColor: '#ff5a60',
     };
 
-
+  }
     constructor(props){
 
         super(props);
@@ -233,20 +236,12 @@ export default class PublishPri2 extends Component {
 
    </View>
    
-          <View style={{flex:1,marginTop:40,marginBottom:20, backgroundColor:'#ff5a60',
-             borderRadius: 50,marginHorizontal:16,alignItems:'center'}}>
-                  <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("publishPri3")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          top: Platform.OS === 'ios' ? 8:5,
-        }}
-        />     
-
-         </View>
-   
- 
+         <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("publishPri3")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
     
     </View>
    
@@ -279,6 +274,17 @@ const styles = StyleSheet.create({
       marginTop:5,
       marginBottom:8,
       marginLeft:15,
+    },
+    containerbutton:{
+      backgroundColor: '#ff5a60',
+      width:'90%',
+      paddingVertical:13,
+      borderRadius:27,
+      textAlign:"center",
+      marginTop:10,
+   marginBottom:30,
+      marginHorizontal:'4%'
+  
     },
 
 });

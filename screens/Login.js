@@ -1,43 +1,48 @@
 import React from 'react';
-import { Platform,StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from "react-native";
-import { Button } from "react-native-elements";
+import { Platform,StyleSheet, Text, TextInput, View,TouchableWithoutFeedback,Keyboard,
+     TouchableOpacity, Image } from "react-native";
+     import Button from 'react-native-button'; 
 
 //const util = require("util");
 
 
 export default class Login extends React.Component {
+    
+    static navigationOptions = ({ navigation }) => {
+       return {
+          title:'Log Ini',
+          headerTitleStyle: {
+            alignSelf: 'center',
+            textAlign: 'center',
+            width: '80%',
 
+            fontWeight:'500',
+            letterSpacing:0.41,
+            height:120,
+            fontSize:16,
+            color: Platform.OS === 'ios' ? 'red':'#312f3d',
+            marginTop:  Platform.OS === 'ios' ? '45%':'45%',
+
+          },
+          headerRight: (<View>
+               <TouchableOpacity onPress={() => navigation.navigate("singUpInicio")} >
+              <Text style={{
+                  color:'#ff5a60',marginRight:15,fontSize:16
+              }}>Cancel</Text>
+              </TouchableOpacity>
+              </View>),
+         headerTintColor: '#ff5a60',
+       
+        }
+      }
   
-
-        static navigationOptions = ({ navigation }) => ({
-            headerTitle: 'Log Ini',
-            headerTitleStyle: {
-              alignSelf: 'center',
-              textAlign: 'center',
-              width: '80%',
-
-              fontWeight:'500',
-              letterSpacing:0.41,
-              height:120,
-              fontSize:16,
-              color: Platform.OS === 'ios' ? 'red':'#312f3d',
-              marginTop:  Platform.OS === 'ios' ? '45%':'43%',
-
-            },
-            headerRight: (<View>
-                <Text style={{
-                    color:'#ff5a60',marginRight:15,fontSize:16
-                }}>Cancel</Text>
-                </View>),
-           headerTintColor: '#ff5a60',
-           
-           
-          })
 
     render() {
         
         return (
-            <View >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View  style={{flex:1}}>
+               
                 <Text style={styles.text}>
                     <Text >Email addres</Text>
                 </Text>
@@ -59,25 +64,18 @@ export default class Login extends React.Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate("forgotPass")} >
                     <Text style={styles.text3}>Forgot your Password ?</Text>
                 </TouchableOpacity>
-                <View style={styles.container2}>
-                    <Button  style={styles.textboton}
-                    title="Continue"
-                    titleStyle={{ color: "#ffffff",
-                    position: "absolute",
-                    top: -5,
-                    
-                    left: Platform.OS === 'ios' ? 15:null,
-                   
-                    }}
-                    onPress={() => this.props.navigation.navigate("discover")}
-                    type="clear"
-                  
-                   /> 
-                </View> 
-               
+                
+                <View style={styles.containerbutton }>
+                         <Button 
+                          onPress={() => this.props.navigation.navigate("discover")}
+                         style={{color:'white',fontSize:17}}
+                       >Continue</Button>      
+                   </View> 
+ 
+              
             </View>
 
-
+            </TouchableWithoutFeedback>
     
 
 
@@ -147,16 +145,17 @@ const styles = StyleSheet.create({
 
     },
 
-    textboton:{
-        
-     textAlign:'left',
-        color: "white",
-        
-        marginTop:1,
-        marginLeft:105,
-        fontSize:17,
-
-    }
+    containerbutton:{
+        backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        textAlign:"center",
+       position:'absolute',
+        marginHorizontal:'4%',
+        bottom:20,
+    
+      },
 
   
 });

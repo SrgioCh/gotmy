@@ -1,13 +1,18 @@
 import React from 'react';
-import { Platform,StyleSheet, Text,TextInput, View, Image } from 'react-native';
+import { Platform,StyleSheet, Text,TextInput,TouchableOpacity, View, Image } from 'react-native';
 import { Button } from "react-native-elements";
 
 const util = require("util");
 
+
+import Infoslider from 'react-native-infoslider'
+
+
 export default class Become1 extends React.Component {
 
-  static navigationOptions = {
-    headerTitle: "Become An Influencer",
+  static navigationOptions = ({ navigation }) => {
+    return {
+       title:"Become An Influencer",
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -21,66 +26,115 @@ export default class Become1 extends React.Component {
 
     },
     headerRight: (<View>
+        <TouchableOpacity onPress={() => navigation.navigate("discover")} >
       <Text style={{
           color:'#ff5a60',marginRight:15,fontSize:16
       }}>Cancel</Text>
+      </TouchableOpacity>
       </View>),  
       headerTintColor: '#ff5a60',
-};
+}
+  }
+constructor(props) {
+  super(props);
+
+this.state = {
+  data:[
+      {
+      title:<Text style={{
+
+        color:'#312f3d',
+        fontWeight:'bold',
+        fontSize: 28,
+      }}>Become an Influencer</Text>, 
+      text:( <Text >
+             <Text style={styles.subtexto}>Create your profile and earn money by</Text>{'\n'}
+             <Text style={styles.subtexto} >hosting your own live events</Text>{'\n'}
+             </Text>
+             ),
+      image: require('../assets/foto-con-estrellas.png')
+    },
+      {
+        title:<Text style={{
+         
+          color:'#312f3d',
+          fontWeight:'bold',
+          fontSize: 28,
+        }}>Share your knowledge</Text>, 
+        text:( <Text style={{paddingBottom:10,}}> 
+               <Text style={styles.subtexto}>Hosting your live event is super simple with</Text>
+               <Text style={styles.subtexto}>our integrated scheduling system, payment</Text>
+               <Text style={styles.subtexto}>processing, and live video chat technology</Text>
+               </Text>
+               ),
+        image: require('../assets/movil-con-video.png')},
+      {
+        title:<Text style={{
+          paddingBottom:30,
+          color:'#312f3d',
+          fontWeight:'bold',
+          fontSize: 28,
+        }}>Take control</Text>, 
+        text:( <Text>
+               <Text style={styles.subtexto} >Manage and track your sales in real time, and</Text>
+               <Text style={styles.subtexto} >manage your community through private</Text>
+               <Text style={styles.subtexto} >messages and chat moderation</Text>
+               </Text>
+               ),
+
+        image: require('../assets/grafica.png')},
+      
+  ]
+}
+ 
+}
+
+
 
   render() {
     return (
-    <View style={styles.StyleSheet}>
+    <View style={{flex:1}}>
 
-<View style={{alignItems:'center'
-                 ,marginTop:'20%'}}>
-      <Image style={styles.imagen}
-          source={require('../assets/foto-con-estrellas.png')}
-        />
-     </View>
-       
+<View  style={{flex:0.5}}>
+
+</View>
+   <View style={{flex:7.5}}>
+
+   <Infoslider 
+                 data={this.state.data} 
+                 showDots={true} 
+                 activeDotColor="#ff5a60" 
+                 titleColor="#312f3d" 
+                 textColor="#697181" 
+                 loop={false} 
+                 autoplay={true} 
+                 autoplayTimeout={3}/>
+
+
+
+   </View>
    
 
-       
-    <Text style={styles.text}>
-        <Text >Become an Influencer</Text>
-    </Text>
-    <Text style={styles.subtitulo}>
-        <Text >
-        Create your profile and earn money 
-       by hosting your own live events
-        </Text>
-    </Text>
-        
-      <View style={{ flexDirection: 'row',
-                  alignItems:'center',justifyContent:'center',
-                  marginTop:Platform.OS === 'ios' ? '15%':'10%'}}>
-           <View style={[{
-             backgroundColor:'#ff5a60',
-            },styles.circulo]}></View>
-            <View style={[{
-             backgroundColor:'white',
-              marginHorizontal:10,
-           },styles.circulo]}></View>
-            <View style={[{
-             backgroundColor:'white',
-            },styles.circulo]}></View>
-      </View>
-       
-       <View style={styles.container2}>
+     
+
+<View style={{flex:2}}>
+
+<View style={styles.container2}>
        <Button  style={styles.textboton}
-          title="Next Information"
-          onPress={() => this.props.navigation.navigate("Become2")}
+          title="Create an Influencer Profile"
+          onPress={() => this.props.navigation.navigate("createInfluProf")}
           type="clear"
           titleStyle={{ color: "#ffffff",
           position: "absolute",
           top: -5
         }}
         />      
-      
-        
-        
         </View> 
+
+</View>
+
+     
+      
       </View>
     );
   }
@@ -90,45 +144,10 @@ export default class Become1 extends React.Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  },
-
-text:{
- 
-
-  textAlign:'center',
-  color:"black",
-  fontSize: 30,
-  fontWeight: "bold",
-  fontStyle: "normal",
-  marginTop:30,
   
-},
-subtitulo:{
-
-  backgroundColor:'white',
-    textAlign:'center',
-    color:"#677183",
-    marginTop:10,
-   fontSize: 16,
-  marginLeft:'10%',
-  marginRight:'10%',
-  fontWeight: "normal",
-  fontStyle: "normal",
-    
-  
+  subtexto:{
+    fontSize:13,
   },
-imagen:{
-  width:200,
-  height:200,
- 
-},
-
   //el contenedor del boton
   container2:{
     backgroundColor: '#ff5a60',
@@ -150,13 +169,6 @@ textboton:{
   fontSize:17,
 
 },
-circulo:{
-  padding:10,
-  width:Platform.OS === 'ios' ? '4%':'1%',
-  height:'4%',
-  borderRadius:15,
-  borderWidth: 1,
-  borderColor: '#677183',
-},
+ 
 
 });

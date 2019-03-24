@@ -228,7 +228,7 @@ export default class Search extends Component {
                   </View>
                   <View style={{flexDirection:'row'}} >
                   <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("searchuser")}
+                     onPress={() => this.props.navigation.navigate("searchOptions")}
                      >
                   <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
                  </TouchableOpacity>
@@ -397,95 +397,7 @@ export default class Search extends Component {
   </ScrollView>
 
   </View>
-
-{/* -----------------------------  penta icon o  tabs-------------------------------------------------- */}
-  
-  <View  style={{flex: 1,flexDirection:'row', backgroundColor:'#312f3d'}}>
-            <View style={{flex:1,padding:2}}>
-      <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("discover")}
-             >
-              <View style={{flexDirection:'column',alignItems:'center'}} >
-                    <View style={{ width:30,height:30,marginLeft:'15%'}}>
-                     <Image source={require('../assets/pentaicon/discoverNormal.png')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                    </View>
-                   <Text style={styles.pentaIcon}>Discover</Text>
-              </View>
-          </TouchableOpacity>
-      </View>
-
-    
-      <View style={{flex:1,alignItems:'center',padding:2}}>
-               <View  style={{flexDirection:'column'}}>
-                     
-                       <View style={{ width:30,height:30,marginLeft:'10%'}}>
-                       <Image source={require('../assets/pentaicon/searchRojo.png')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                       </View>
-                   <Text style={styles.pentaIcon}>Search</Text>
-              </View>
-       </View>
-        
-      
-      <View style={{flex:1,alignItems:'center',padding:2}}>
-      <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("boked1")}
-             >
-              <View  style={{flexDirection:'column'}}>
-                   
-                   <View style={{ width:30,height:30,marginLeft:'25%'}}>
-                       <Image source={require('../assets/pentaicon/events.jpg')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                       </View>
-                   <Text style={styles.pentaIcon}>Live Events</Text>
-              </View>
-              </TouchableOpacity>
-     </View>
-     
-     <View style={{flex:1,alignItems:'center',paddingTop:'2%',marginRight:'-4%'}}>
-      <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("mensa1")}
-              >
-              <View  style={{flexDirection:'column'}}>
-                
-                    <View style={{ width:25,height:25,marginLeft:'30%'}}>
-                       <Image source={require('../assets/pentaicon/message.jpg')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                       </View>
-                   <Text style={styles.pentaIcon}>Messages</Text>
-                   
-              </View>
-              </TouchableOpacity>
-              
-      </View>
  
-                     
-     
-         <View style={{flex:1,alignItems:'center',padding:2}}>
-         <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("ActiOne")}
-              >
-               <View style={{flexDirection:'column'}}>
-               <View style={{ width:30,height:30,marginLeft:'11%'}}>
-                       <Image source={require('../assets/pentaicon/activity.jpg')} 
-                      style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                      />
-                       </View>
-                   <Text style={styles.pentaIcon}>Activity</Text>
-              </View>
-            </TouchableOpacity>
-         </View >
-           
-     
-   </View>
-
-
  </View>
 
     );

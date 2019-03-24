@@ -31,9 +31,11 @@ export default class ChatGroup extends Component {
                   color:'#312f3d',
                   marginTop:  Platform.OS === 'ios' ? '45%':'43%',
           }, headerRight: (<View>
+              <TouchableOpacity onPress={() => navigation.navigate("mensa1")} >
             <Text style={{
-              color:'#ff5a60',marginLeft:'4%'
+              color:'#ff5a60',marginRight:16
             }}>Delete</Text>
+            </TouchableOpacity>
             </View>),  
         };
       };

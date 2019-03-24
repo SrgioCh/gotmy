@@ -152,7 +152,7 @@ export default class LiveEventDetail2 extends Component {
       <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
       <View style={{}}>
     <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("reviewDos")}
+             onPress={() => this.props.navigation.navigate("profile1")}
              >
                           <Image source={require('../../assets/influencers/uno.png')} 
                                style={{ width:50,height:50,borderRadius:10}}

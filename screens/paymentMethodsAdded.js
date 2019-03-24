@@ -189,7 +189,7 @@ export default class Paymentmethodsadded extends Component {
 
 {/*----------------------------------------------------- */}
 
-<View style={{marginTop: Platform.OS === 'ios' ? 80 :45, marginHorizontal:16,
+<View style={{marginTop: Platform.OS === 'ios' ? 80 :130, marginHorizontal:16,
     alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
   <Button
         style={{

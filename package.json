@@ -13,6 +13,7 @@
     "react-native-button": "^2.3.0",
     "react-native-check-box": "^2.1.7",
     "react-native-elements": "^1.1.0",
+    "react-native-infoslider": "^1.0.1",
     "react-native-modal": "^9.0.0",
     "react-native-modalbox": "^1.7.1",
     "react-native-modest-checkbox": "^3.3.0",
