@@ -3,6 +3,7 @@ import { Platform, StyleSheet, Text,TextInput, View,
   TouchableWithoutFeedback,Keyboard ,TouchableOpacity} from 'react-native';
 import {CheckBox} from "react-native-elements";
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class CreateAcount extends React.Component {
 
@@ -50,8 +51,11 @@ isChecked() {
 
   render() {
     return (
+      <View style={{flex:1}}>
+
+     
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    <View style={{flex:1}}>
+    <View style={{flex:8.5}}>
     <Text style={styles.text}>
         <Text >Email address</Text>
     </Text>
@@ -99,17 +103,29 @@ isChecked() {
     
     </View>
 
- 
-        <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("createViewerProfile")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+  </View>
+    </TouchableWithoutFeedback>
+      
+<View style={{flex:1.5}}>
+<View style={{ alignItems:'center',}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+       onPress={() => this.props.navigation.navigate("createViewerProfile")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
+</View>
+                   
+        
 
 
       </View>
-      </TouchableWithoutFeedback>
+     
+
+   
+
     );
   }
 }
@@ -127,16 +143,14 @@ const styles = StyleSheet.create({
   },
 
   containerbutton:{
+      
     backgroundColor: '#ff5a60',
     width:'90%',
     paddingVertical:13,
     borderRadius:27,
-    textAlign:"center",
-    position:'absolute',
-   bottom:20,
-    marginHorizontal:'4%'
-
-  },
+    alignItems:'center',
+    marginBottom:40,
+},
 input:{
   width:'92%',
   borderWidth:1,

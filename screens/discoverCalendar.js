@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform,StyleSheet,ScrollView,TouchableOpacity,Text,TextInput, View, Image } from 'react-native';
 import BicardView from './../components/bicardview'
+import BicardViewSimple from './../components/bicardviewsimple'
 
 const util = require("util");
 
@@ -101,7 +102,7 @@ constructor(props) {
        </TouchableOpacity>
 
        <View style={{marginTop:10}}>
-       <BicardView
+       <BicardViewSimple
           fotoGrande={this.state.fotoGrande2}
           fotoUser={this.state.fotoUser2}
           usuario={this.state.usuario2}

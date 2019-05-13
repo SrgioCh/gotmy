@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import {Platform, Alert,TouchableOpacity,
+import {Platform, Alert,TouchableOpacity,Dimensions,
   View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
 import Button from 'react-native-button'; 
+import VidView from "./../components/vidView"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class SearchContent extends Component {
   static navigationOptions = {
@@ -16,10 +19,45 @@ export default class SearchContent extends Component {
     super(props);
   
      this.state={
-          tytexto:'',
-          menu1:styles.menuelegido,
-          menu2:styles.menunormal,
-          menu3:styles.menunormal,
+         
+       //PARA VIDvIEW
+     usuarios:[
+      {
+       fotoIcon :require('../assets/influencers/influencer.png'),
+       nombreUser:'MandyJTV',
+        descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+       imagVideo:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+       duraVid:'12:40',
+       numEstrella:5,
+
+      },
+      {
+       fotoIcon :require('../assets/influencers/uno.png'),
+       nombreUser:'MandyJTV',
+       descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+       imagVideo:require('../assets/influencers/chicarosa.jpg'),
+       duraVid:'10:20',
+       numEstrella:3,
+      },
+      {
+       fotoIcon :require('../assets/influencers/tres.png'),
+       nombreUser:'Randy Stanley',
+       descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+       imagVideo:require('../assets/influencers/chicacorriendo.jpg'),
+       duraVid:'08:30',
+       numEstrella:5
+      },
+      {
+        fotoIcon :require('../assets/influencers/influencer.png'),
+        nombreUser:'MandyJTV',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+        duraVid:'12:40',
+        numEstrella:5,
+ 
+       },
+
+    ]
      
       }
   
@@ -29,6 +67,26 @@ export default class SearchContent extends Component {
  
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+  
+     
+    }else if(screenHeight<=678){ // mi movil
+    
+   }else if(screenHeight<=685){ //1080 *1920
+ 
+ 
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+   
+ 
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+   
+   }else{
+ 
+   }
+  
     return (
      
  
@@ -37,249 +95,28 @@ export default class SearchContent extends Component {
 
 
       {/*   CAJAS DE TENDINGS */}
-      <View style={{flexDirection:'row',marginHorizontal:16,
-                
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-                <View>
-                       <View style={{flexDirection:'row'}}>
+      <View style={{marginTop:hp('2%')}} >
 
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/influencer.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                        <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
+{
+                     this.state.usuarios.map((item,i)=> {
 
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
+                       
+                       return ( 
+                        <VidView key={i}
+                        fotoIcon={item.fotoIcon}
+                        nombreUser={item.nombreUser}
+                        descripcion={item.descripcion} 
+                        imagVideo={item.imagVideo}
+                        duraVid={item.duraVid}
+                        estrellas={item.numEstrella}
+                         />
 
-                       </View>
-                   </View>
+                       )
+                     }
+                     )
+
+                    }
                
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                  style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={styles.cajaTransparente}></Text>
-             <Text style={styles.textoTransparente}>03:10</Text>
-        </View>
-          
- </View>
-
-       
- {/* -------------------------------------------------------------------*/}
-  
-
- <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingVertical:10, 
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-           <View>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/influencer.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >Kala Tempo</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                <Image source={require('../assets/influencers/KalaTempo/kala2.jpg')} 
-                  style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={styles.cajaTransparente}></Text>
-             <Text style={styles.textoTransparente}>05:19</Text>
-        </View>
-          
- </View>
-
-       
- {/* -------------------------------------------------------------------*/}
-
-  {/* -------------------------------------------------------------------*/}
-
-  <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingVertical:10, 
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-           <View>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/influencer.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                <Image source={require('../assets/influencers/KalaTempo/kala3.png')} 
-                  style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={styles.cajaTransparente}></Text>
-             <Text style={styles.textoTransparente}>02:50</Text>
-        </View>
-          
- </View>
-
-       
- {/* -------------------------------------------------------------------*/}
-  {/* -------------------------------------------------------------------*/}
-
-  <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingVertical:10, 
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-           <View>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/influencer.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                  style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={styles.cajaTransparente}></Text>
-             <Text style={styles.textoTransparente}>07:10</Text>
-        </View>
-          
  </View>
 
  </ScrollView>

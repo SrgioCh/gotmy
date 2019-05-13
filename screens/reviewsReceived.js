@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { AppRegistry, Alert,
+import { AppRegistry, Alert,Dimensions,
   View,Text ,TextInput, TouchableOpacity,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import EventContents from "./../components/eventContents"
 
 export default class Reviewsreceived extends Component {
 
@@ -12,8 +12,51 @@ export default class Reviewsreceived extends Component {
     headerTitle:'',
     headerTintColor: '#ff5a60',
 };
+constructor(props){
+
+  super(props);
+
+   this.state={
+      //PARA VIDvIEW
+   usuarios:[
+    {
+     fecha:'Monday, 19/12/2018',
+     descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+     imagVideo:require('../assets/influencers/MandyJTV/2.png'),
+     duraVid:'12:40',
+     tipo:'Naturs,Outdoors & Chefs'
+
+    },
+    {
+      fecha:'Monday, 19/12/2018',
+     descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+     imagVideo:require('../assets/influencers/MandyJTV/mandy3.png'),
+     duraVid:'12:40',
+     tipo:'Naturs,Outdoors & Chefs'
+    },
+  ]
+}
+}
 
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+      
+   
+    }else if(screenHeight<=678){ // mi movil
+      
+  
+   }else if(screenHeight<=685){ //1080 *1920
+    
+ 
+   }else if(screenHeight<=775){
+   
+    
+   }else{
+    
+   
+   }
     return (
      
     <ScrollView style={{marginTop:10}} >
@@ -70,7 +113,7 @@ export default class Reviewsreceived extends Component {
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-    <View style={{flex:1}}>
+    <View style={{flex:1.5}}>
     <TouchableOpacity
              onPress={() => this.props.navigation.navigate("reviewTres")}
              >
@@ -81,7 +124,7 @@ export default class Reviewsreceived extends Component {
 
     </View>
   
-    <View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
+    <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 }}>
            <View>
               <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
                ,marginTop:3}}>Gustavo González</Text>
@@ -97,7 +140,7 @@ export default class Reviewsreceived extends Component {
       
      </View>
 
-    <View style={{flex:2,alignItems:'flex-end',
+    <View style={{flex:3,alignItems:'flex-end',
             justifyContent:'center'}}>
              <View  style={styles.estrellasTrending}>
                                    <Image source={require('../assets/Red.png')} 
@@ -127,56 +170,18 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 </Text>
 
            {/* caja imagen de video*/}
-  <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:10,paddingBottom:15, 
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Sports</Text>
-                  </View>
-         </View>        
-        <View >
+ 
 
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/KalaTempo/kalamalkaguitar.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
+<EventContents 
+fecha={this.state.usuarios[0].fecha}
+descripcion={this.state.usuarios[0].descripcion}
+imagVideo={this.state.usuarios[0].imagVideo}
+duraVid={this.state.usuarios[0].duraVid}
+tipo={this.state.usuarios[0].tipo}
+/>
 
-               
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'#312f3d',
-                        opacity:0.8,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>08:30</Text>
-        </View>
-          
- </View>
+
+
 
 {/*-------------------------------------------------------------------------------- */}
 
@@ -184,7 +189,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-    <View style={{flex:1}}>
+    <View style={{flex:1.5}}>
 
                           <Image source={require('../assets/reviews/romina.png')} 
                                style={{ width:50,height:50,borderRadius:10}}
@@ -193,7 +198,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
     </View>
   
-    <View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
+    <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 }}>
            <View>
               <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
                ,marginTop:3}}>Ana María Suárez</Text>
@@ -209,7 +214,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
       
      </View>
 
-    <View style={{flex:2,alignItems:'flex-end',
+    <View style={{flex:3,alignItems:'flex-end',
             justifyContent:'center'}}>
              <View  style={styles.estrellasTrending}>
                                    <Image source={require('../assets/Red.png')} 
@@ -239,56 +244,15 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 </Text>
 
            {/* caja imagen de video*/}
-  <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:10,paddingBottom:15, 
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Sports</Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/KalaTempo/kalafiesta.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                    position:'absolute',
-                    fontWeight:'bold',
-                     backgroundColor:'black',
-                     opacity:0.5,
-                   
-                    paddingHorizontal:25,
-                    paddingVertical:7,
-                    bottom:8,
-                    right:4,
-                    zIndex:4,
-                    borderRadius:10,
-                   }}></Text>
-          <Text
-           style={{
-            position:'absolute',
-            zIndex:6,
-            bottom:9,
-            right:10,
-            color:'white',
-
-           }}>04:30</Text>
-        </View>
-          
- </View>
-
-{/*-------------------------------------------------------------------------------- */}
+ 
+   
+ <EventContents
+fecha={this.state.usuarios[1].fecha}
+descripcion={this.state.usuarios[1].descripcion}
+imagVideo={this.state.usuarios[1].imagVideo}
+duraVid={this.state.usuarios[1].duraVid}
+tipo={this.state.usuarios[1].tipo}
+/>
 
 
 

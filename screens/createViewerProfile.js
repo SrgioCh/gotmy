@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Platform,StyleSheet, Text, TextInput, View,  ScrollView,
-   Image,TouchableOpacity,KeyboardAvoidingView
+   Image,TouchableOpacity,KeyboardAvoidingView,Dimensions,
    } from 'react-native';
 import { Button } from "react-native-elements";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class CreateViewerProfile  extends React.Component {
   
@@ -40,6 +41,55 @@ constructor(props) {
  
  
   render() {
+    let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+   
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      widFot=330
+      widImag=104
+      heImag=104 
+      leftBut=90
+      leftEN=110
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      widFot='92%'
+      widImag=104
+      heImag=104 
+     leftBut=90
+     leftEN=110
+  } else if(screenHeight<=678){ // mi movil
+    widFot='92%'
+    widImag=104
+    heImag=104 
+    leftBut=90
+    leftEN=110
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    widFot='93%'
+    widImag=122
+    heImag=120 
+    leftBut=130
+    leftEN=150
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    widFot='93%'
+    widImag=122
+    heImag=120 
+    leftBut=130
+    leftEN=150
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    widFot='93%'
+    widImag=122
+    heImag=120 
+    leftBut=85
+    leftEN=105
+   }else{ // 800 = 480 * 800 mdpi
+    widFot='93%'
+    widImag=122
+    heImag=120 
+    leftBut=85
+    leftEN=105
+   }
+
     return (
   
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
@@ -83,7 +133,7 @@ constructor(props) {
                </View>
              </View>
        
-             <Image style={styles.imagen}
+             <Image style={[styles.imagen,{width: Platform.OS === 'ios' ? '91%':widFot}]}
                       source={require('../assets/influencers/KalaTempo/tres.jpg')}
                    />
                    <Image style={{
@@ -156,7 +206,7 @@ constructor(props) {
                                     color:"#312f3d",
                                     fontSize:17,
                                     //paddingBottom: 20,
-                                    marginLeft:110,
+                                    marginLeft:leftEN,
                                   }}>English, Spanish </Text>
                                   <Image
                                     source={require('../assets/icons_genGMI/ArrowGrey.png')}
@@ -167,15 +217,20 @@ constructor(props) {
                                <Text style={styles.tituloConect} >Connect  your social networks</Text>
 
 
-                               <View style={styles.social}>
-                                 <Image style={styles.imagenSocial}
-                                source={require('../assets/social/Linkedin.png')}
-                                 />
-                                 <View style={styles.socialTextoBut}>
-                                     <Text style={styles.socialTexto}>Linkedin {" "}</Text>
+                               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
+                               <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
+                                      source={require('../assets/social/Linkedin.png')}
+                                       />
+                               </View>
+                                
+                                 <View style={{flex:4.4,justifyContent:'center'}}>
+                                     <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Linkedin</Text>
+                                </View>
          
-         
+                                <View style={{flex:4.3}}>
                                      <TouchableOpacity 
+                                     style={{ alignItems:'center'}}
                                     onPress = { () => {
                                      if (this.state.linkedin!==false)
                                     {
@@ -203,16 +258,23 @@ constructor(props) {
                                       </View>
                                     </TouchableOpacity>
                            
-                                </View>
+                              </View>
                              </View> 
                           {/* --------------------------------------------- */}
-                          <View style={styles.social}>
-                             <Image style={styles.imagenSocial}
+                          <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('2%')}}>
+                            
+                          <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
                             source={require('../assets/social/Twitch.png')}
                              />
-                             <View style={styles.socialTextoBut}>
-                                 <Text style={styles.socialTexto}>Twitch {" "} {" "}{" "}</Text>
+                             </View>
+
+                             <View style={{flex:4.4,justifyContent:'center'}}>
+                                 <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Twitch</Text>
+                             </View> 
+                             <View style={{flex:4.3}}>
                                  <TouchableOpacity 
+                                  style={{ alignItems:'center'}}
                                 onPress = { () => {
                                  if (this.state.twitch!==false)
                                 {
@@ -238,20 +300,28 @@ constructor(props) {
                                   </Text>
                                   </View>
                                   </TouchableOpacity>
-                             </View>
+                                  </View>
+                            
                          </View>
                       {/* ----------------------------------------------- */}
 
 
 
                       {/* --------------------------------------------- */}
-                      <View style={styles.social}>
-                             <Image style={styles.imagenSocial}
+                      <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('2%')}}>
+                       <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
                             source={require('../assets/social/Twitter.png')}
                              />
-                             <View style={styles.socialTextoBut}>
-                                 <Text style={styles.socialTexto}>Twitter {" "} {" "}{" "}</Text>
+                          </View>
+
+                             <View style={{flex:4.4,justifyContent:'center'}}>
+                                 <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Twitter</Text>
+                              </View> 
+                               
+                              <View style={{flex:4.3}}>
                                  <TouchableOpacity 
+                                 style={{ alignItems:'center'}}
                                 onPress = { () => {
                                  if (this.state.twiter!==false)
                                 {
@@ -267,7 +337,7 @@ constructor(props) {
                                           twiter:true,
                                           caja3: styles.socialBotonBlanco,
                                           marca3:' ',
-                                                                      texto3:'✔ Connected',
+                                          texto3:'✔ Connected',
                                        })
                                      }
                                    }}
@@ -286,13 +356,20 @@ constructor(props) {
 
 
                        {/* --------------------------------------------- */}
-                       <View style={styles.social}>
-                              <Image style={styles.imagenSocial}
+                       <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('2%')}}>
+                       <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
                              source={require('../assets/social/Youtube.png')}
                               />
-                              <View style={styles.socialTextoBut}>
-                                  <Text style={styles.socialTexto}>Youtube {" "}{" "}</Text>
-                                  <TouchableOpacity 
+                        </View>   
+
+                         <View style={{flex:4.4,justifyContent:'center'}}>
+                                 <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Youtube</Text>
+                              </View>
+
+                               <View style={{flex:4.3}}>
+                                 <TouchableOpacity 
+                                 style={{ alignItems:'center'}}
                                  onPress = { () => {
                                   if (this.state.yutub!==false)
                                  {
@@ -325,21 +402,22 @@ constructor(props) {
 
 
 
-                       <View style={styles.container2}>
-                            <Button  style={styles.textboton}
-                              title="Continue"
-                              onPress={() => this.props.navigation.navigate("ConfirmEmail2")}
-                              type="clear"
-      
-                              titleStyle={{ color: "#ffffff",
-                              position: "absolute",
-                              top: -5,
-                              left: Platform.OS === 'ios' ? 15:null,
-                            }}
-                            />         
-                        </View> 
+                   
 
+           <View style={{ alignItems:'center',marginTop:hp('5%')}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+        onPress={() => this.props.navigation.navigate("ConfirmEmail2")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+       Continue</Text>      
+      </TouchableOpacity> 
+    </View>
      
+
+
+
+            
 
               </ScrollView>
 
@@ -359,14 +437,10 @@ const styles = StyleSheet.create({
   //el contenedor del boton
 container2:{
   backgroundColor: '#ff5a60',
-   width:'90%',
-   padding:15,
-   color:'white',
-   borderRadius:27,
-   textAlign:"center",
-   marginTop:60,
-  marginBottom: 20,
-   marginLeft:15,
+  width:'90%',
+  padding:15,
+  color:'white',
+  borderRadius:27,
    
 },
 
@@ -396,7 +470,6 @@ subtitulo:{
   },
 imagen:{
   marginHorizontal:16,
-   width: Platform.OS === 'ios' ? '91%':330,
    height:210 ,
    padding:16,
    borderRadius:10,
@@ -487,30 +560,41 @@ fontSize:17,
     
   },
 
+  //al inicio
   socialBotone:{
-    borderRadius: Platform.OS === 'ios' ? 18:27,
-    marginLeft:90,
-   backgroundColor:'#ff5a60',
+    borderRadius: Platform.OS === 'ios' ? 18:hp('5%'),
+    backgroundColor:'#ff5a60',
     paddingVertical:8,
-    paddingHorizontal: Platform.OS === 'ios' ? 43:40,
-   
+   width:'80%',
     borderWidth:1,
     borderColor:'#ff5a60',
+  alignItems:'center'
   },
   Textsinmarcar:{
     color:'white',
+    fontSize:wp('3.5%'),
+    fontWeight:'500'
   },
+  //
   socialBotonBlanco:{
-    marginLeft:95,
- 
-    backgroundColor: 'white',
+  backgroundColor: 'white',
     paddingVertical:8,
-    paddingHorizontal:20,
+    width:'80%',
     color:'black',
-    borderRadius: Platform.OS === 'ios' ? 18:27,
+    borderRadius: Platform.OS === 'ios' ? 18:hp('5%'),
     borderWidth:1,
     borderColor:'black',
-  }
-
+    alignItems:'center'
+  },
+    //el contenedor del boton
+    containerbutton:{
+      backgroundColor: '#ff5a60',
+      width:'90%',
+      paddingVertical:13,
+      borderRadius:27,
+      alignItems:'center',
+      marginBottom:40,
+       
+    },
 
 });

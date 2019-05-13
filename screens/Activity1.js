@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { AppRegistry, Alert,
-  View,Text ,TextInput,
+import { AppRegistry, Alert,Platform,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Activity1 extends Component {
 
@@ -22,9 +23,9 @@ export default class Activity1 extends Component {
       user1:'Lisa smith',
       mensaje1:'started following you',
       tiempo1:'2 min ago',
-      evento1:<View style={{backgroundColor:'#ff5a60',paddingHorizontal:10 ,
-                  paddingVertical:4 ,borderRadius:20  }}>
-                 <Text style={{color:'white',fontSize:12}}>Follow</Text>
+      evento1:<View style={{backgroundColor:'#ff5a60',paddingHorizontal:5 ,
+                  paddingVertical:4 ,borderRadius:20 ,alignItems:'center' }}>
+                 <Text style={{color:'white',fontSize:wp('3%')}}>Follow</Text>
               </View>,
 
      userIcon2:require('../assets/activity/dos.png'),
@@ -48,6 +49,32 @@ export default class Activity1 extends Component {
   }// fin de consttructor
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+   // alert(screenHeight)
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+ 
+   
+    }else if(screenHeight<=605){ //mopvil de  david
+
+  
+  
+  } else if(screenHeight<=678){ // mi movil
+    
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+  
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+   
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+  
+   }else{
+  
+   }
+  
+
+
+
 
     return (
 
@@ -94,92 +121,96 @@ export default class Activity1 extends Component {
 
 {/* TITULO */}  
 
-<View style={{marginHorizontal:16}}>
-    <Text style={{fontSize:34,color:'#312f3d',marginVertical:15,
+<View style={{marginHorizontal:'4%'}}>
+    <Text style={{fontSize:34,color:'#312f3d',marginTop:hp('2%'),
            fontWeight: 'bold',}}>Activity</Text>
 
 </View>
 
-<ScrollView style={{marginTop:10}} >
+<ScrollView style={{marginTop:hp('2.5%'),marginHorizontal:'4%'}} >
 
-<View style={{flexDirection:'row',marginHorizontal:16,marginTop:14,marginBottom: 5,}}>
+<View style={{flexDirection:'row',marginTop:hp('3%'),marginBottom:hp('0.5%')}}>
 
-      <View style={{flex:1,paddingBottom:15}}>
+      <View style={{flex:2,alignItems:'center',justifyContent:'center'}}>
                           <Image source={this.state.userIcon1} 
-                               style={{ width:40,height:40,borderRadius:10}}
+                               style={{ width:wp('10%'),height:hp('5%'),borderRadius:Platform.OS === 'ios' ? hp('2%'):hp('5%')}}
                               />
                       
        </View>
   
-      <View style={{flex:4,flexDirection:'column',marginLeft:-10,
-              borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
-           <View>
-              <Text style={{fontSize:15,color:'#312f3d'}}>
-              <Text style={{fontWeight:'bold'}}>{this.state.user1}</Text> 
-              {' '}{this.state.mensaje1}</Text>
-           </View>
-          <View>
-            <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.tiempo1}</Text>
-          </View>
-      
-     </View>
-     <View style={{flex:1,justifyContent:'center', borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}} >
+      <View style={{flex:6,flexDirection:'column', borderBottomWidth:1,justifyContent:'center'  
+              , borderBottomColor:'#e1e3e6',paddingBottom:hp('1.5%')}}>
+         
+         <View style={{flexDirection:'row',marginTop:hp('3%')}}>
+               <Text style={{fontSize:wp('3.5%'),color:'#312f3d',fontWeight:'bold'}}>{this.state.user1}</Text> 
+              <Text>{' '}{this.state.mensaje1}</Text>
+         </View>
+         <Text style={{fontSize:wp('2.8%'),color:'#697181'}}>{this.state.tiempo1}</Text>
+      </View>
+
+     <View style={{flex:2,borderBottomWidth:1,justifyContent:'center',borderBottomColor:'#e1e3e6',}} >
        {this.state.evento1}
      </View>
 </View>
 
 
-<View style={{flexDirection:'row',marginHorizontal:16,marginVertical:5}}>
+<View style={{flexDirection:'row'}}>
 
-    <View style={{flex:1,paddingBottom:15}}>
+    <View style={{flex:2,alignItems:'center',justifyContent:'center'}}>
                     <Image source={this.state.userIcon2} 
-                         style={{ width:40,height:40,borderRadius:10}}
+                         style={{width:wp('10%'),height:hp('5%'),borderRadius:Platform.OS === 'ios' ? hp('2%'):hp('5%')}}
                         />
                 
     </View>
 
-    <View style={{flex:4,flexDirection:'column',marginLeft:-10,
-        borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+    <View style={{flex:6,flexDirection:'column',paddingBottom:hp('1.5%'),
+        borderBottomWidth:1,  borderBottomColor:'#e1e3e6'}}>
          <View>
-        <Text style={{fontSize:15,color:'#312f3d'}}>
+        <Text style={{fontSize:wp('3.5%'),color:'#312f3d',marginTop:hp('3%')}}>
         <Text style={{fontWeight:'bold'}}>{this.state.user2}</Text> 
         {' '}{this.state.mensaje2}</Text>
         </View>
      <View>
-      <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.tiempo2}</Text>
+      <Text style={{fontSize:wp('2.8%'),color:'#697181'}}>{this.state.tiempo2}</Text>
     </View>
 
     </View>
-          <View style={{flex:1,
+          <View style={{flex:2,
               justifyContent:'center', borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}} >
           {this.state.evento2}
         </View>
 
 </View>
-{/*-----------------------------------------*/}
+                    {/*-----------------------------------------*/}
 
-<View style={{flexDirection:'row',marginHorizontal:16,marginVertical:5}}>
 
-<View style={{flex:1,paddingBottom:15}}>
+
+
+
+
+<View style={{flexDirection:'row',}}>
+
+<View style={{flex:2,alignItems:'center',justifyContent:'center'}}>
                     <Image source={this.state.userIcon3} 
-                         style={{ width:40,height:40,borderRadius:10}}
+                         style={{ width:40,height:40,borderRadius:Platform.OS === 'ios' ? hp('2%'):hp('5%')}}
                         />
                 
  </View>
 
-<View style={{flex:4,flexDirection:'column',marginLeft:-10,
-        borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
-     <View>
-        <Text style={{fontSize:15,color:'#312f3d'}}>
+<View style={{flex:6,flexDirection:'column',paddingBottom:hp('1.5%'),
+        borderBottomWidth:1,  borderBottomColor:'#e1e3e6'}}>
+     <View style={{marginTop:hp('3%')}}>
+        <Text style={{fontSize:wp('3.5%'),color:'#312f3d'}}>
         <Text style={{fontWeight:'bold'}}>{this.state.user3}</Text> 
         {' '}{this.state.mensaje3}</Text>
      </View>
     <View>
-      <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>{this.state.tiempo3}</Text>
+      <Text style={{fontSize:wp('2.8%'),color:'#697181'}}>{this.state.tiempo3}</Text>
     </View>
 
 </View>
-<View style={{flex:1,justifyContent:'center', borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}} >
+<View style={{flex:2,justifyContent:'center',alignItems:'center', borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}} >
+ 
  {this.state.evento3}
 </View>
 

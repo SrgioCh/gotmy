@@ -1,11 +1,10 @@
+
 import React from 'react';
 import { Platform,StyleSheet, Text, Modal,
   TextInput, View, Image, TouchableOpacity  } from 'react-native';
 
-
   import Button from 'react-native-button'; 
-
-
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const util = require("util");
 
@@ -113,7 +112,7 @@ toggleModal(visible) {
               
 </Modal>
 
-
+<View style={{flex:8.5}}>
      <View style={{alignItems:'center'
                  ,marginTop:'20%'}}>
        <Image style={styles.imagen}
@@ -132,17 +131,25 @@ toggleModal(visible) {
         </Text>
     </Text>
         
-  
+    </View>
+     <View style={{flex:1.5}}>
+             
+
+                   <View style={{ alignItems:'center'}}>
        
-        <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() =>  
-                            this.toggleModal(!this.state.modalVisible)
-                           
-                          }
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+       <TouchableOpacity style={styles.containerbutton}
+      onPress={() =>  
+        this.toggleModal(!this.state.modalVisible)
+       
+      }
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue</Text>      
+      </TouchableOpacity> 
+    </View>      
+
+       </View>  
+      
 
       
       </View>
@@ -162,16 +169,14 @@ const styles = StyleSheet.create({
     
   },
   containerbutton:{
+      
     backgroundColor: '#ff5a60',
-        width:'90%',
-        paddingVertical:13,
-        borderRadius:27,
-        textAlign:"center",
-       position:'absolute',
-        marginHorizontal:'4%',
-        bottom:20,
-
-  },
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    alignItems:'center',
+    marginBottom:40,
+},
 
 text:{
  
@@ -234,3 +239,5 @@ marginBottom: 10,
 },
 
 });
+
+

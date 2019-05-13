@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { AppRegistry, Alert,TouchableOpacity,Platform,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import BicardView from './../components/bicardview'
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Upcomingevents extends Component {
   static navigationOptions = {
@@ -17,28 +18,62 @@ export default class Upcomingevents extends Component {
     super(props);
   
      this.state={
-          tytexto:'',
+      fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault-2.jpg'),
+      fotoUser: require('../assets/influencers/influencer.png') ,
+      usuario:'MandyJTV',
+      num_segui:34,
+      mensaje:'Only 2 tickets left',
+      dia:21,
+      mes:'DEC',
+      texto1:'My FIRST God of War experience!',
+      texto2:'Games',
+      direccion:'Live from New York, at 18:30 pm',
+  
+  
+      fotoGrande2:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+      fotoUser2: require('../assets/influencers/influencer.png') ,
+      usuario2:'Mabel Spencer',
+      num_segui2:44,
+      mensaje2:'Only 4 tickets left',
+      dia2:21,
+      mes2:'DEC',
+      texto1_2:'My FIRST God of War experience!',
+      texto2_2:'Fashion',
+      direccion2:'Live from Las Vegas, at 21:00 pm'
          
      
       }
   
   }// fin de consttructor
 
-
- 
- 
-
-
-
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      wiTrans=313
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      wiTrans='96.4%'
+  } else if(screenHeight<=678){ // mi movil
+    wiTrans='102.3%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+ wiTrans='96.4%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    wiTrans='102%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    wiTrans='102%'
+   }else{ // 800 = 480 * 800 mdpi
+    wiTrans='102%'
+   }
     return (
      
-    <ScrollView style={{marginTop:30 }} >
+  <View style={{flex:1}} >
 
 
   {/* ----------- TITULO ----------------*/} 
 
- <View style={{ marginHorizontal:19,paddingBottom:2  }}>
+ <View style={{ marginHorizontal:19,marginTop:hp('3%') }}>
      
      <Text style={{
          color:'#312f3d',
@@ -47,11 +82,11 @@ export default class Upcomingevents extends Component {
      }}>Upcoming Events</Text>         
 
 </View>
-{/* BUSCADOR*/}
- <View style={{ marginHorizontal:16,paddingVertical:15,flexDirection:'row' }}>
-      <View style={{flexDirection:'row',flex:1,backgroundColor:'#f6f6f6',
+
+<View style={{ marginHorizontal:'4%',paddingVertical:15,flexDirection:'row' }}>
+      <View style={{flexDirection:'row',backgroundColor:'#f6f6f6',width:'100%',
               alignItems:'center',borderRadius:10}}>
-                 <View style={{ width:30,height:30}}>
+              <View style={{ width:30,height:30}}>
                      <Image source={require('../assets/buscador/lupa.jpg')} 
                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
                       />
@@ -83,246 +118,45 @@ export default class Upcomingevents extends Component {
 
                  }//fin de onchange
               />
-
-        </View>
+              </View>
 </View>
-        
+  
+<ScrollView>
+ 
+{/* -----------------BICARDVIEW--------------*/}       
+
+<BicardView 
+          fotoGrande={this.state.fotoGrande}
+          fotoUser={this.state.fotoUser}
+          usuario={this.state.usuario}
+          num_segui={this.state.num_segui}
+          mensaje={this.state.mensaje}
+          dia={this.state.dia}
+          mes={this.state.mes}
+          texto1={this.state.texto1}
+           texto2={this.state.texto2}
+           direccion={this.state.direccion}
+       />
 
  
 {/* -----------------BICARDVIEW--------------*/}       
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,width:328,height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault-2.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
 
-
-
-  <View style={{zIndex:4,flexDirection:'row',
-            marginLeft:8,marginRight:14,bottom:100,
-             position:'absolute',}}>
-
-
-             <View style={{flex:2,zIndex:4,alignItems:'center'}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-                </View>
-
-                <View style={{flex:4,zIndex:4,flexDirection:'column'}}>
-                     <View>
-                     <Text style={{fontSize:17,color:'white',marginTop:7}}>
-                      Influencer</Text>
-                    </View>
-                    <View style={{flexDirection:'row'}}>
-                       <View style={{ width:10,height:10,marginTop:5}}>
-                        <Image source={require('../assets/buscador/lupa.jpg')} 
-                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                         />
-                       </View>
-                        <Text style={{fontSize:13,color:'white',marginLeft:4}}>Country</Text>
-                    </View>
-  
-              </View>
-
-              <View style={{flex:1}}>
-                           <View  style={styles.estrellasTrending}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                           </View>
-  
-               </View>
-            <View style={{flex:2,alignItems:'flex-end',zIndex:4,
-                justifyContent:'center'}}>
-              <View>
-                <Text style={{color:'white',bottom:-5}}>
-                   @ 34
-                </Text>
-            </View>
-          <View >
-                <Text style={{color:'white' ,marginLeft:-40,marginTop:3}}>
-                  Only 2 tickets left
-                </Text>
-           </View>
-   </View>
-       
-  <Text style={styles.transparente}></Text>
- </View>
-
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,marginHorizontal:10,flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'#ff5a60'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize:17,fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:16,fontWeight:'bold',color:'#ff5a60'}} >Games</Text>
-                       <View style={{flexDirection:'row'}}>
-                       <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                         style={{ width:15,height:15,marginTop:4,marginRight:5}}
-                          />  
-
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                   fontWeight:'bold',color:'#677183',
-                    paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
-                   </View>
-                     </View>
-   </View>  
-</View>  
- {/* -------------------------------------------------------------------*/}
-
-
- 
-{/* -----------------BICARDVIEW--------------*/}       
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,width:328,height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
-
-
-
-  <View style={{zIndex:4,flexDirection:'row',
-            marginLeft:8,marginRight:14,bottom:100,
-             position:'absolute',}}>
-
-
-             <View style={{flex:2,zIndex:4,alignItems:'center'}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-                </View>
-
-                <View style={{flex:4,zIndex:4,flexDirection:'column'}}>
-                     <View>
-                     <Text style={{fontSize:17,color:'white',marginTop:7}}>
-                      Influencer</Text>
-                    </View>
-                    <View style={{flexDirection:'row'}}>
-                       <View style={{ width:10,height:10,marginTop:5}}>
-                        <Image source={require('../assets/buscador/lupa.jpg')} 
-                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                         />
-                       </View>
-                        <Text style={{fontSize:13,color:'white',marginLeft:4}}>Country</Text>
-                    </View>
-  
-              </View>
-
-              <View style={{flex:1}}>
-                           <View  style={styles.estrellasTrending}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                           </View>
-  
-               </View>
-            <View style={{flex:2,alignItems:'flex-end',zIndex:4,
-                justifyContent:'center'}}>
-              <View>
-                <Text style={{color:'white',bottom:-5}}>
-                   @ 34
-                </Text>
-            </View>
-          <View >
-                <Text style={{color:'white' ,marginLeft:-40,marginTop:3}}>
-                  Only 2 tickets left
-                </Text>
-           </View>
-   </View>
-       
-  <Text style={styles.transparente}></Text>
- </View>
-
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,marginHorizontal:10,flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'#ff5a60'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize:17,fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:16,fontWeight:'bold',color:'#ff5a60'}} >Games</Text>
-
-                       <View style={{flexDirection:'row'}}>
-                       <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                         style={{ width:15,height:15,marginTop:4,marginRight:5}}
-                          />  
-
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                   fontWeight:'bold',color:'#677183',
-                    paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
-                   </View>
- 
-                     </View>
-   </View>  
-</View>  
- {/* -------------------------------------------------------------------*/}
-
-
-
-
-
-
-
+<BicardView
+          fotoGrande={this.state.fotoGrande2}
+          fotoUser={this.state.fotoUser2}
+          usuario={this.state.usuario2}
+          num_segui={this.state.num_segui2}
+          mensaje={this.state.mensaje2}
+          dia={this.state.dia2}
+          mes={this.state.mes2}
+          texto1={this.state.texto1_2}
+           texto2={this.state.texto2_2}
+           direccion={this.state.direccion2}
+       />
 
     </ScrollView>
 
-
+</View>
      
     );
   }
@@ -335,26 +169,5 @@ export default class Upcomingevents extends Component {
 
 const styles = StyleSheet.create({
  
-  /* PARA TRANSPARENCIA */
-estrellasTrending:{
-  marginTop:15,
-  marginLeft:-55,
-  flexDirection:'row',
-  zIndex:4,
-
-},
-transparente:{
-  width:313,
-  height:60,
-  position:'absolute',
-  zIndex:1,
-  backgroundColor:'black',
-  opacity:0.5,
- bottom:-4,
- 
-},
-
-
-
 
 });

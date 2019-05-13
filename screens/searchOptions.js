@@ -4,7 +4,7 @@ import {Platform,Alert,Dimensions,
   StyleSheet,ScrollView,TouchableOpacity,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 import SearchUsers from "./searchUsers"
@@ -13,7 +13,7 @@ import SearchContent from "./searchcontent";
  
 
 numero=1;
-retrocede=false;
+
 
 export default class SearchOptions extends Component {
   static navigationOptions = {
@@ -51,7 +51,7 @@ componentWillMount(){
     this.cambiarVista(pagi)
 }
 
-
+*/
 
 
 
@@ -61,7 +61,7 @@ recogeDeHijo(dato){
 
  }
 
-*/
+
 
 
 cambiarVista=(num)=>{
@@ -119,6 +119,51 @@ cambiarVista=(num)=>{
 
  
 
+transicion=(num)=>{
+
+  // alert(num)
+  if(num==1){
+    
+      this.setState({
+          menu1:styles.menuelegido,
+          textoUno:styles.textoElegido,
+           menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+          menu3:styles.menunormal,
+          textoTres:styles.textoNormal,
+           
+      })
+  }else if(num==2){
+     
+      this.setState({
+           menu1:styles.menunormal,
+           textoUno:styles.textoNormal,
+           menu2:styles.menuelegido,
+           textoDos:styles.textoElegido,
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+          
+      })
+  }else if(num==3){
+    
+      this.setState({
+         
+          menu1:styles.menunormal,
+          textoUno:styles.textoNormal,
+       
+
+          menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+         
+
+          menu3:styles.menuelegido,
+          textoTres:styles.textoElegido,
+          
+      })
+  }
+
+}
+
 
 
   render() {
@@ -132,11 +177,11 @@ cambiarVista=(num)=>{
     return (
        <View style={{flex:1}}>
        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-          <View style={{flex:2.5,marginTop:20}}>
+          <View style={{flex:2,marginTop:hp('3%')}}>
                 
     
           {/* BUSCADOR*/}
-              <View style={{ marginHorizontal:16,paddingVertical:15,flexDirection:'row' }}>
+              <View style={{ marginHorizontal:'4%',paddingVertical:15,flexDirection:'row' }}>
                 <View style={{flexDirection:'row',flex:5,backgroundColor:'#f6f6f6',
                       alignItems:'center',marginRight:5,borderRadius:10}}>
                       <View style={{ width:30,height:30}}>
@@ -233,29 +278,28 @@ cambiarVista=(num)=>{
      
      {/*  FIN DE MENU HACIA ARRIBA */}
           
-          
-          <View style={{flex:7.5}}>
+        
+          <View style={{flex:8}}>
   
           <ScrollView  ref='scrol'
                horizontal={true} 
                 pagingEnabled={true}
-                onMomentumScrollEnd={()=>{
-              
-                    if(this.screenwidth==0){
-                        alert('pagina1')
-                      }
+                onScroll={
+                  //411.42
+                  (event)=>{
+                  pos=event.nativeEvent.contentOffset.x;
+                 if(pos==0){
+                      this.transicion(1);
                      
-                      else if(this.screenwidth==this.screenwidth){
-                       
-                        alert('pagina2')
-                       
-                      
-                      }else if(this.screenwidth==this.screenwidth*2){
-                         
-                            alert(numero)
-                      }
-                } 
-               }
+                    }else if(pos>=this.screenwidth-1 && pos<(this.screenwidth*2)-10){
+                      this.transicion(2);
+                    
+                    }else if(pos>=(this.screenwidth*2)-10){
+                      this.transicion(3);
+                    
+                    }
+                  }
+                }
                
               
                 >
@@ -265,7 +309,7 @@ cambiarVista=(num)=>{
                    width:this.screenwidth,
 
                  }}>
-                  <SearchUsers/> 
+                  <SearchUsers enviaAPadre={this.recogeDeHijo.bind(this)} /> 
  
  
                </View>
@@ -276,7 +320,7 @@ cambiarVista=(num)=>{
                   
 
                  }}>
-                <SearchEvents/> 
+                <SearchEvents enviaAPadre={this.recogeDeHijo.bind(this)} /> 
                </View>
                <View  style={{
                   

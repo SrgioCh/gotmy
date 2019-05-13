@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
   View,Text ,ImageBackground,
-  StyleSheet,ScrollView,Dimensions,
+  StyleSheet,ScrollView,Modal,Dimensions,
   Image,TouchableOpacity} from 'react-native';
 
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class LiveEventStreaming extends Component {
     static navigationOptions = {
@@ -42,6 +44,7 @@ export default class LiveEventStreaming extends Component {
         
      ]
 
+
     constructor(props){
 
         super(props);
@@ -49,21 +52,202 @@ export default class LiveEventStreaming extends Component {
          this.state={
          
            conectados:554,
+
+             //PARA VENTANA MODAL
+             modalVisible: false,
+
+             //DATOS A MOSTRAR 
+             use1:'Barry Moody',
+             use1Fot:require("../../assets/influencers/influencer.png"),
+             tipo1:'Change Moderator',
+
+             use2:'Nelle Casey',
+             use2Fot:require("../../assets/influencers/spffiele.jpg"),
+             tipo2:'Change Moderator',
+
+             //DATOS DE CAJAS
+             timeSlow:'01:00',
+             coments:46,
+             banUs:3,
+             timeout:'05:00',
           }
       
       }// fin de consttructor
 
- 
+ //PARA VENTANA MODAL
+toggleModal(visible) {
+  this.setState({ modalVisible: visible });
+}
 
   render() {
     let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+     
+    }else if(screenHeight<=678){ // mi movil
+     
+   }else if(screenHeight<=685){ //1080 *1920
+    
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+   
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    
+  }else{
+    
+   }
 
     return (
 
 
 
       <View style={{flex: 1 }}>
+        <Modal
+          transparent = {false}
+          animationType="fade"
+              visible = {this.state.modalVisible}
+              onRequestClose = {() => { console.log("Modal has been closed.") } }
+              >
+          
+                  <View style = {styles.modal}>
+                  </View> 
+
+                 <View style={{flex:7.5,backgroundColor:'#312f3d',paddingHorizontal:wp('5%')}}> 
+               <View style={{flex:6.5}}>
+               <View style={{alignItems:'center',justifyContent:'flex-start' ,marginTop:hp('-4%')}}>
+                        <Text style={{
+                          color:'grey',fontSize:wp('10%'),fontWeight:'bold'
+                        }}>___</Text>
+                    </View>
+                    <View style={{marginTop:hp('1%')}}>
+                        <Text style={ styles.titulos}>Chat settings</Text>
+                    </View>
+                  
+                   <View style={{flexDirection:'row',marginTop:hp('1.5%')}}>
+                     <View  style={{flex:1.5}}>
+                         <Image  
+                           source={this.state.use1Fot}
+                          style={{ width:wp('9%'),height:hp('5%'),borderRadius:hp('4%')}}
+                           />
+                     </View>
+                     
+                     <View style={{flex:8.5 ,alignItems:'flex-start',justifyContent:'center'}}>
+                     <Text style={styles.modalname} >{this.state.use1}</Text>
+                     <Text style={ styles.modalTipo}>{this.state.tipo1}</Text>  
+                     </View>
+                    
+                 </View>
+                 <View style={{flexDirection:'row',marginTop:hp('2.5%')}}>
+                      
+                      <View style={styles.cajasImagen}>
+                         <Image  
+                           source={require("../../assets/streamingIcon/slow.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%') }}
+                           />
+                           <Text style={styles.titucaj}>Slow mode</Text>
+                           <Text style={styles.numCaj}>{this.state.timeSlow}</Text>
+                      </View>
+                      <View style={[styles.cajasImagen,{marginHorizontal:wp('1.5%')}]}>
+                      <Image  
+                           source={require("../../assets/streamingIcon/coments.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%') }}
+                           />
+                           <Text style={styles.titucaj}>Comments</Text>
+                           <Text style={styles.numCaj}>{this.state.coments}</Text>
+                      </View>
+                      <View style={[styles.cajasImagen,{marginRight:wp('1.5%')}]}>
+                      <Image  
+                           source={require("../../assets/streamingIcon/ban.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%') }}
+                           />
+                           <Text style={styles.titucaj}>Ban Users</Text>
+                           <Text style={styles.numCaj}>{this.state.banUs}</Text>  
+                      </View>
+                      <View style={styles.cajasImagen}>
+                      <Image  
+                           source={require("../../assets/streamingIcon/timeFot.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%'),borderRadius:hp('5%') }}
+                           />
+                           <Text style={styles.titucaj}>Time Out</Text>
+                           <Text style={styles.numCaj}>{this.state.timeout}</Text>   
+                      </View>
+                   </View>
+                    
+                  <View style={{marginTop:hp('2%')}}>
+                        <Text style={ styles.titulos}>
+                        Voice, Video and Screen share</Text>
+                    </View>
+                    <View style={{flexDirection:'row',marginTop:hp('1.5%')}}>
+                     <View  style={{flex:1.5 }}>
+                         <Image  
+                           source={this.state.use2Fot}
+                          style={{ width:wp('9%'),height:hp('5%'),borderRadius:hp('4%') }}
+                           />
+                     </View>
+                     
+                     <View style={{flex:8.5 ,alignItems:'flex-start',justifyContent:'center'}}>
+                     <Text style={styles.modalname} >{this.state.use2}</Text>
+                     <Text style={ styles.modalTipo}>{this.state.tipo2}</Text>  
+                     </View>
+                    
+                 </View>
+                 <View style={{flexDirection:'row',marginTop:hp('2.5%')}}>
+                      
+                      <View style={styles.cajasImagen}>
+                         <Image  
+                           source={require("../../assets/streamingIcon/slow.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%') }}
+                           />
+                           <Text style={styles.titucaj}>OpenMode</Text>
+                      </View>
+                      <View style={[styles.cajasImagen,{marginHorizontal:wp('1.5%')}]}>
+                      <Image  
+                           source={require("../../assets/streamingIcon/coments.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%') }}
+                           />
+                           <Text style={styles.titucaj}>Mic Mode</Text>
+                         
+                      </View>
+                      <View style={[styles.cajasImagen,{marginRight:wp('1.5%')}]}>
+                      <Image  
+                           source={require("../../assets/streamingIcon/ban.png")}
+                          style={{ width:wp('10.3%'),height:hp('6%') }}
+                           />
+                           <Text style={styles.titucaj}>Spotlight</Text>
+                          
+                      </View>
+                      <View style={{flex:2.3}}>
+                          <Text style={styles.titucaj}>{' '}</Text>   
+                      </View>
+                   </View>
+
+            </View>
+             <View style={{flex:1, alignItems:'center',}}>
+              
+        <TouchableOpacity onPress = {() => {
+                    this.toggleModal(!this.state.modalVisible);
+                    this.props.navigation.navigate("");
+                    }}
+              style={{
+                alignItems:'center',justifyContent:'center',width:wp('90%'),
+                padding:hp('2%'),backgroundColor:'#ff5a60',borderRadius:hp('6%')
+              }}
+                    >
+        <Text style={{
+         color:'#fff',
+         fontSize:hp('2.3%')
+        }}>Stop streaming</Text>
+        </TouchableOpacity>
+        </View>
+               
+     </View>
+
+            
+               
+
      
+           </Modal>
+
           <View style={{flex:4,backgroundColor:'yellow'}}>
          
             <Image
@@ -150,10 +334,12 @@ export default class LiveEventStreaming extends Component {
               </View>
               <View style={{flex:5,flexDirection:'row',
                     alignItems: 'center',justifyContent: 'center'}}>
-
+                <TouchableOpacity
+                   onPress = { () => this.toggleModal(true)} >
                 <Image source={require('../../assets/icons_genGMI/mensajex.png')} 
                           style={{ width:40,height:40  }}
                           />
+                </TouchableOpacity>
                 <Image source={require('../../assets/icons_genGMI/microfonOf.png')} 
                           style={{ width:40,height:40,marginHorizontal:'5%'  }}
                           />
@@ -188,6 +374,32 @@ export default class LiveEventStreaming extends Component {
 
 
 const styles = StyleSheet.create({
-    
 
+  //Estilos Ventana Modal
+  modal: {
+    flex:2.5,
+    backgroundColor: 'black',
+    opacity:0.5,
+   
+  },
+ titulos:{
+  color:'white',fontSize:wp('3.7%'),fontWeight:'500'
+ },
+  modalname:{
+    color:'white',fontSize:wp('3.2%'),fontWeight:'500'
+  },
+  modalTipo:{
+    color:'grey',fontSize:wp('3%'),fontWeight:'500'
+  },
+  cajasImagen:{
+    flex:2.3,borderColor:'#ff5a60',borderWidth:hp('0.2%'),
+    borderRadius:hp('1.5%'),padding:hp('1%') ,alignItems:'center',justifyContent:'center'     
+  },
+  titucaj:{marginTop:hp('1%'),
+    color:'white',fontSize:wp('3%'),fontWeight:'500'
+  },
+  numCaj:{
+    color:'white',fontSize:wp('5%'),fontWeight:'500'
+  }
+ //------------------------------------
 });

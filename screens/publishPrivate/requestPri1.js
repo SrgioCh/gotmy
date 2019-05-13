@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
   import Checkbox from 'react-native-modest-checkbox';
   import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class RequestPri1 extends Component {
 
@@ -87,6 +88,32 @@ presiona=()=>{
 
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      topBut=40
+      butBo=10
+    }else if(screenHeight<=605){ //mopvil de  david
+      topBut='5%'
+      butBo='5%'
+  } else if(screenHeight<=678){ // mi movil
+    topBut='5%'
+    butBo='5%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut='5%'
+    butBo='5%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut='2.5%'
+    butBo='5%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut='5%'
+    butBo='5%'
+   }else{
+    topBut='5%'
+    butBo='5%'
+   }
+  
 
     return (
       <View style={{flexDirection:'column'}}>
@@ -548,13 +575,15 @@ presiona=()=>{
 
 {/* FIN */}
 
-
-     <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("requestPri2")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+        <View style={{marginTop:hp(topBut) ,marginBottom:hp(butBo),alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+          onPress={() => this.props.navigation.navigate("requestPri2")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
 
 
 
@@ -586,10 +615,8 @@ const styles = StyleSheet.create({
     width:'90%',
     paddingVertical:13,
     borderRadius:27,
-    textAlign:"center",
-    marginTop:40,
- marginBottom:10,
-    marginHorizontal:'4%'
+    alignItems:'center',
+    marginBottom:40,
 
   },
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,
-  StyleSheet,ScrollView,
+  StyleSheet,ScrollView,Dimensions,
   Image,TouchableOpacity} from 'react-native';
   import Button from 'react-native-button'; 
 
 import SwitchToggle from 'react-native-switch-toggle';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class PublishEven2 extends Component {
@@ -67,8 +68,25 @@ export default class PublishEven2 extends Component {
 
   render() {
 
-
-   // alert(this.state.elegido)
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      marBut=24
+    }else if(screenHeight<=605){  //mopvil de  david
+      marBut=20
+ } else if(screenHeight<=678){ // mi movil
+  marBut=20
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    marBut=20
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    marBut=20
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    marBut=20
+   }else{ // 800 = 480 * 800 mdpi
+    marBut=20
+   }
+  
+   
     
     return (
 
@@ -188,7 +206,7 @@ export default class PublishEven2 extends Component {
     </View>
   </View>
   </View>
-      <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14,marginBottom: 5,}}>
+      <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14}}>
 
                     <View style={{flex:1,marginTop:10}}>
                     <Image source={require('../../assets/icons_genGMI/Time.png')}
@@ -240,14 +258,17 @@ export default class PublishEven2 extends Component {
           </View>
    
 
-         <View style={styles.containerbutton }>
-                <Button 
-                 onPress={() => this.props.navigation.navigate("publishEven2Pricing")}
-                style={{color:'white',fontSize:17}}
-               >Continue</Button>      
-           </View> 
+       
 
-   
+           <View style={{  marginTop:butTop,alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+         onPress={() => this.props.navigation.navigate("publishEven2Pricing")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
  
     
     </View>
@@ -284,10 +305,8 @@ const styles = StyleSheet.create({
       width:'90%',
       paddingVertical:13,
       borderRadius:27,
-      textAlign:"center",
-      marginTop:20,
-   marginBottom:40,
-      marginHorizontal:'4%'
+      alignItems:'center',
+      marginBottom:40,
   
     },
 

@@ -3,7 +3,8 @@ import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,TouchableWithoutFeedback,Keyboard,
   Image,TouchableOpacity} from 'react-native';
-  import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class PublishPri7 extends Component {
 
@@ -110,15 +111,17 @@ return (
    </TouchableWithoutFeedback>
  
 {/*  fin de contenedor */}
-      
-     <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("publishPri10")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+    
 
-
+                   <View style={{alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+      onPress={() => this.props.navigation.navigate("publishPri10")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
 
 </View>
 
@@ -148,10 +151,8 @@ const styles = StyleSheet.create({
     width:'90%',
     paddingVertical:13,
     borderRadius:27,
-    textAlign:"center",
-    marginTop:10,
- marginBottom:30,
-    marginHorizontal:'4%'
+    alignItems:'center',
+    marginBottom:40,
 
   },
 

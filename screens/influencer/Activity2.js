@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
@@ -59,6 +59,28 @@ export default class Activity2 extends Component {
   }// fin de consttructor
 
   render() {
+    
+
+    let screenHeight=Dimensions.get('window').height;
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      flexName=2
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      flexName=2
+  
+  } else if(screenHeight<=678){ // mi movil
+    flexName=2
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    flexName=2
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    flexName=2
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    flexName=2.5
+   }else{
+    flexName=4
+   }
+
+
 
     return (
 
@@ -80,7 +102,7 @@ export default class Activity2 extends Component {
                         />
               </View>
               </TouchableOpacity>
-             <View style={{flex:2,flexDirection:'column',marginLeft:10,
+             <View style={{flex:flexName,flexDirection:'column',marginLeft:10,
                         marginRight:15}}>
                   <Text style={{
                        color:'#312f3d',

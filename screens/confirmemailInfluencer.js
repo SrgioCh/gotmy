@@ -1,7 +1,8 @@
 import React from 'react';
-import { Platform,StyleSheet, Text,TouchableOpacity,
+import { Platform,StyleSheet, Text,TouchableOpacity,Dimensions,
   TextInput, View,Image } from 'react-native';
 import { Button } from "react-native-elements";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class  ConfirMailInfluencer extends React.Component {
@@ -32,12 +33,40 @@ export default class  ConfirMailInfluencer extends React.Component {
 }
 
   render() {
-    return (
-    <View style={styles.StyleSheet}>
 
-  
-<View style={{alignItems:'center',backgrounColor:'yellow'
-                 ,marginTop:'20%'}}>
+    let screenHeight=Dimensions.get('window').height;
+    
+   
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      topBut='75%'
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      topBut='75%'
+  } else if(screenHeight<=678){ // mi movil
+    topBut='76%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut='68%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut='85%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut='95%'
+   }else{ // 800 = 480 * 800 mdpi
+    topBut='95%'
+   }
+
+
+
+
+
+
+
+
+    return (
+    <View style={{flex:1}}>
+
+<View style={{flex:8.5}}>
+<View style={{alignItems:'center', 
+                 marginTop:'20%'}}>
        <Image style={styles.imagen}
           source={require('../assets/logoGotmy.png')}
         />
@@ -52,24 +81,25 @@ export default class  ConfirMailInfluencer extends React.Component {
         We sent a verification email to your email address
         </Text>
     </Text>
-        
+
+</View>
+
+   <View style={{flex:1.5}}>
+    
+   <View style={{ alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+        onPress={() => this.props.navigation.navigate("requesPendin")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
+    
+    </View>     
   
        {/* -----------------------BOTONES ------------------*/}
-
-       <View style={styles.container2}>
-       <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("requesPendin")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          position: "absolute",
-          top: -5
-        }}
-        />    
-      </View> 
-
-
-      </View>
+ </View>
     );
   }
 }
@@ -110,19 +140,14 @@ subtitulo:{
     
   
   },
-
-
-container2:{
-  backgroundColor: '#ff5a60',
-   width:'90%',
-   padding:15,
-   color:'white',
-   borderRadius:27,
-   textAlign:"center",
-   marginTop:Platform.OS === 'ios' ? '16%':'75%',
-   marginLeft:20,
-   marginBottom:40
-   
+  containerbutton:{
+      
+    backgroundColor: '#ff5a60',
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    alignItems:'center',
+    marginBottom:40,
 },
 textboton:{
 

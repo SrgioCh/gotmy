@@ -29,7 +29,7 @@ export default class ChatGroup extends Component {
                   height:120,
                   fontSize:16,
                   color:'#312f3d',
-                  marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+                  marginTop:  Platform.OS === 'ios' ? '45%':'33%',
           }, headerRight: (<View>
               <TouchableOpacity onPress={() => navigation.navigate("mensa1")} >
             <Text style={{

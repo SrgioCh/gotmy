@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput,TouchableOpacity,
+import { StyleSheet, Text, TextInput,TouchableOpacity,Dimensions,
    View, Image } from 'react-native';
 import { Button } from "react-native-elements";
 
 const util = require("util");
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class ConfirmEmail2 extends React.Component {
 
@@ -34,41 +35,64 @@ export default class ConfirmEmail2 extends React.Component {
   }
 
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    
+   
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      topBut='75%'
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      topBut='65%'
+  } else if(screenHeight<=678){ // mi movil
+    topBut='70%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut='65%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut='85%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut='95%'
+   }else{ // 800 = 480 * 800 mdpi
+    topBut='95%'
+   }
     return (
-    <View style={styles.StyleSheet}>
+    <View style={{flex:1}}>
 
   
-<View style={{alignItems:'center',backgrounColor:'yellow'
+<View style={{flex:8,alignItems:'center',backgrounColor:'yellow'
                  ,marginTop:'20%'}}>
        <Image style={styles.imagen}
           source={require('../assets/logoGotmy.png')}
         />
-     </View>
 
-       
-    <Text style={styles.text}>
+<Text style={styles.text}>
         <Text >Almost there!</Text>
     </Text>
     <Text style={styles.subtitulo}>
         <Text >
-        We sent a verification email to your email address
+        We sent a verification email to {'\n'} your email address
         </Text>
     </Text>
-        
-  
+
+     </View>
+
        
-       <View style={styles.container2}>
-       <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("paymetho1")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          position: "absolute",
-          top: -5
-        }}
-        />            
-        </View> 
-      </View>
+    
+    <View style={{  flex:2}}> 
+      <View style={{ alignItems:'center'}}>
+     
+     <TouchableOpacity style={styles.containerbutton}
+     onPress={() => this.props.navigation.navigate("paymetho1")}
+     > 
+     <Text style={{color:'white',fontSize:wp('4.5%')}}>
+       Continue</Text>      
+    </TouchableOpacity> 
+  </View>
+
+
+   </View>
+
+     
+ </View>
     );
   }
 }
@@ -86,24 +110,23 @@ const styles = StyleSheet.create({
   },
 
   //el contenedor del boton
-container2:{
-  backgroundColor: '#ff5a60',
-   width:'90%',
-   padding:15,
-   color:'white',
-   borderRadius:27,
-   textAlign:"center",
-   marginTop:'75%',
-   marginLeft:20,
-   
+  containerbutton:{
+      
+    backgroundColor: '#ff5a60',
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    alignItems:'center',
+    marginBottom:40,
 },
+
 
 text:{
  
 
   textAlign:'center',
   color:"black",
-  fontSize: 22,
+  fontSize: wp('5%'),
   fontWeight: "bold",
   fontStyle: "normal",
   marginTop:'5%',
@@ -115,7 +138,7 @@ subtitulo:{
     textAlign:'center',
     color:"gray",
   marginTop:10,
-   fontSize: 16,
+   fontSize: wp('4%'),
   marginLeft:'17%',
   marginRight:'17%',
   fontWeight: "normal",

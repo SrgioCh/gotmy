@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
@@ -21,7 +21,7 @@ export default class CreateGroup extends Component {
             height:120,
             fontSize:16,
             color:'#312f3d',
-            marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+            marginTop:  Platform.OS === 'ios' ? '45%':'33%',
 
     }, headerRight: (<View>
       <Text >{' '}</Text>
@@ -61,7 +61,33 @@ export default class CreateGroup extends Component {
          
 
   render() {
-     
+    let screenHeight=Dimensions.get('window').height;
+    
+    
+   if(screenHeight<=592){//1080 * 1920  xxhdpi
+    widImFot='100%';
+    heigImaFot='100%';
+   }else if(screenHeight<=605){ //mopvil de  david
+    widImFot='100%';
+      heigImaFot='100%';
+ } else if(screenHeight<=678){ // mi movil
+  widImFot='85%';
+  heigImaFot='75%';
+  }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    widImFot='85%';
+      heigImaFot='75%';
+  }else if(screenHeight<=775){//1440 *2880 :560dpi
+    widImFot='85%';
+      heigImaFot='75%';
+  }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    widImFot='85%';
+      heigImaFot='75%';
+  }else{
+    widImFot='85%';
+      heigImaFot='75%';
+  }
+
+
     //mostrare en imagen a los elegidos :
     const elegidos = this.props.navigation.getParam('datos');
    
@@ -103,8 +129,8 @@ export default class CreateGroup extends Component {
                                           marginLeft:Platform.OS === 'ios' ? '-35%':'-35%' 
                                     }}>
                               <Image source={require('../../assets/icons_genGMI/foto.png')} 
-                                    style={{ width:'100%',height:'100%',
-                                      borderRadius:Platform.OS === 'ios' ? 25:100 }}
+                                    style={{ width:widImFot,height:heigImaFot,
+                                      borderRadius:Platform.OS === 'ios' ? 25:150 }}
                                 /> 
                              </View> 
                </View>
@@ -185,9 +211,9 @@ export default class CreateGroup extends Component {
 
 
       </View>
-      <View style={{flex:1,backgroundColor:'#ff5a60',
- alignItems:'center',justifyContent:'center'}}>
-    <TouchableOpacity 
+    
+    <TouchableOpacity style={{flex:1,backgroundColor:'#ff5a60',
+ alignItems:'center',justifyContent:'center'}}
    onPress={() => this.props.navigation.navigate("chatGroup",{
     datos:elegidos,
     nombreChat:this.state.textoenInput})}>
@@ -195,7 +221,7 @@ export default class CreateGroup extends Component {
     fontSize:17,letterSpacing:0.41 }}>
      Create Chat Group</Text>
      </TouchableOpacity>   
-</View>
+
 
         
      </View>

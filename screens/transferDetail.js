@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import {CheckBox} from "react-native-elements";
-import Checkbox from 'react-native-modest-checkbox';
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class  TransferDetail extends Component {
     static navigationOptions = {
@@ -49,7 +48,31 @@ export default class  TransferDetail extends Component {
   render() {
  
     const dinero = this.props.navigation.getParam('dinerillo');
-
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      fontM=14;
+      fontN=12;
+  
+    }else if(screenHeight<=605){ //mopvil de  david
+      fontM=16;
+      fontN=14;
+  } else if(screenHeight<=678){ // mi movil
+    fontM=16;
+    fontN=14;
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    fontM=16;
+      fontN=14;
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    fontM=16;
+      fontN=14;
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    fontM=16;
+      fontN=14;
+   }else{ // 800 = 480 * 800 mdpi
+    fontM=16;
+      fontN=14;
+   }
   
     return (
 
@@ -112,8 +135,8 @@ export default class  TransferDetail extends Component {
                 </View>
                 <View style={{flex:8,flexDirection:'column',marginLeft:20,
                         borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Transaction ID</Text>
-                <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>{this.state.transac_ID}</Text>
+                <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>Transaction ID</Text>
+                <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>{this.state.transac_ID}</Text>
                 </View>
                 </View>
                 <View style={{marginTop:15,marginHorizontal:16,flexDirection:'row'}}>
@@ -125,8 +148,8 @@ export default class  TransferDetail extends Component {
                 </View>
                 <View style={{flex:8,flexDirection:'column',marginLeft:20,
                    borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Transaction status</Text>
-                <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>Transaction status</Text>
+                <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                 {this.state.transac_status}</Text>
                 </View>
                 </View>
@@ -140,8 +163,8 @@ export default class  TransferDetail extends Component {
                 </View>
                 <View style={{flex:8,flexDirection:'column',marginLeft:20,
                   borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Date</Text>
-                <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>Date</Text>
+                <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                 {this.state.data}</Text>
                 </View>
                 </View>
@@ -155,8 +178,8 @@ export default class  TransferDetail extends Component {
                 </View>
                 <View style={{flex:8,flexDirection:'column',marginLeft:20,
                    borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Full name</Text>
-                <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>Full name</Text>
+                <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                   {this.state.fullName}</Text>
                 </View>
                 </View>
@@ -168,25 +191,19 @@ export default class  TransferDetail extends Component {
 {/*  fin del flex 8.5 */}
 
    <View style={{flex:1.5}}>
-   <View style={{ marginHorizontal:16,marginTop:10,
-            alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
-          <Button
-                style={{
-                  fontSize: 15,
-                  color: 'white',
-                 
-                  padding:15,
-                 
-                  width:320,
-                 }}
-        
-                
-                styleDisabled={{color: 'red'}}
-                onPress={()=>{this.props.navigation.navigate("vieweredit")}}>
-                Share invoice
-              </Button>
-        
-                </View>
+
+
+     <View style={{alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+       onPress={()=>{this.props.navigation.navigate("vieweredit")}}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+       Share invoice</Text>      
+      </TouchableOpacity> 
+    </View>
+
+
 
      </View>
         
@@ -214,5 +231,14 @@ const styles = StyleSheet.create({
         fontSize:13,
         color:"#ff5a60",
         marginLeft:17 ,
-      }
+      },
+      containerbutton:{
+      
+        backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        alignItems:'center',
+        marginBottom:40,
+    },
 });

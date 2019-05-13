@@ -4,23 +4,95 @@ import { Platform, Alert,TouchableOpacity,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import BicardView from './../components/bicardview'
+  import EventContents from "./../components/eventContents"
+
 import {Ionicons}  from "@expo/vector-icons"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Profileinfluencer extends Component {
    static navigationOptions = {
       header: null ,
   };
   
+  constructor(props) {
+    super(props)
+  
+  
+    this.state = { 
+  
+      fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault-2.jpg'),
+      fotoUser: require('../assets/influencers/influencer.png') ,
+      usuario:'MandyJTV',
+      num_segui:34,
+      mensaje:'Only 2 tickets left',
+      dia:21,
+      mes:'DEC',
+      texto1:'My FIRST God of War experience!',
+      texto2:'Games',
+      direccion:'Live from New York, at 18:30 pm',
 
+      usuarios:[
+        {
+         fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/MandyJTV/mandy4.jpg'),
+         duraVid:'12:40',
+         tipo:'Naturs,Outdoors & Chefs'
+    
+        },
+        {
+          fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/MandyJTV/maxresdefault-3.jpg'),
+         duraVid:'12:40',
+         tipo:'Naturs,Outdoors & Chefs'
+        },
+        {
+          fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/MandyJTV/mandy5.jpg'),
+         duraVid:'12:40',
+         tipo:'Naturs,Outdoors & Chefs'
+        },
+      ]
+    }
+  }
 
 
 
   render() {
 
     let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+   
 
+   if(screenHeight<=592){ //1080 * 1920  xxhdpi
+ 
+    cajaVid=15;
+    widtTrans='95.6%'
+  }else if(screenHeight<=605){ //mopvil de  david
 
+    cajaVid=15;
+    widtTrans='100%'
+
+} else if(screenHeight<=678){ // mi movil
+  cajaVid=15;
+  widtTrans='95.6%'
+ }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+  cajaVid=60
+  widtTrans='96.4%'
+ }else if(screenHeight<=775){//1440 *2880 :560dpi
+  cajaVid=60;
+  widtTrans='96.4%'
+ }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+  cajaVid=15;
+  widtTrans='95.6%'
+ }else{ // 800 = 480 * 800 mdpi
+  cajaVid=15;
+  widtTrans='95.6%'
+ }
 
     return (
   
@@ -314,6 +386,7 @@ export default class Profileinfluencer extends Component {
                width:50,
                height:50,
                marginRight:15,
+               marginTop:-5,
                borderRadius: Platform.OS === 'ios' ? 10:30,
   
                }}
@@ -348,117 +421,22 @@ export default class Profileinfluencer extends Component {
  <TouchableOpacity
              onPress={() => this.props.navigation.navigate("liveEventDetail2")}
              >
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,
-               width:Platform.OS === 'ios' ? 339:328,
-              height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault-2.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
+<BicardView 
+          fotoGrande={this.state.fotoGrande}
+          fotoUser={this.state.fotoUser}
+          usuario={this.state.usuario}
+          num_segui={this.state.num_segui}
+          mensaje={this.state.mensaje}
+          dia={this.state.dia}
+          mes={this.state.mes}
+          texto1={this.state.texto1}
+           texto2={this.state.texto2}
+           direccion={this.state.direccion}
+       />
 
-
-<View>
-
-<View style={{flexDirection:'row',
-            marginHorizontal:16,marginVertical:14,
-             position:'absolute',bottom:0,zIndex:4}}>
-
-     <View style={{flex:2}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-      </View>
-
-      <View style={{flex:3,flexDirection:'column'}}>
-     
-          <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>
-          Mandy JTV</Text>
-         </View>
-      
-     
-             <View  style={styles.estrellasTrendingNuevo}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                        </View>
-     
-  
- </View>
-
-
-<View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              @ 34
-            </Text>
-      </View>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              Only 2 tickets left
-            </Text>
-      </View>
-  
-    </View>
-
-  </View>
-  <Text style={styles.transparenteNuevo}></Text>
- </View>
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,
-                 marginLeft:  Platform.OS === 'ios' ? 6:8,
-                 marginRight:  Platform.OS === 'ios' ? 11:8,
-                 flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'red'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                        fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#677183'}} >Fashion</Text>
-                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                      fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
-                     </View>
-   </View>  
-</View>  
+ 
 </TouchableOpacity>
  {/* -------------------------------------------------------------------*/}
-
-
-
-
-
-
-
 
 
 
@@ -480,177 +458,45 @@ export default class Profileinfluencer extends Component {
          </View>
   </View>
  
-{/* --------------------------- --------------------*/}
- <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Nature,Outdoors & Oets</Text>
-                  </View>
-         </View>        
-        <View style={{marginLeft:20}} >
+  <View style={{marginBottom:hp('2%')}}>
 
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/MandyJTV/mandy4.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
+  
+         {
+                     this.state.usuarios.map((item,i)=> {
 
-{/*-------------------------------------------------------------------------------- */}
-{/* -----------------------------LISTA VIDEO ----------------------------*/}
- <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Instagram Influencer</Text>
-                  </View>
-         </View>        
+                       
+                       return ( 
+                        <EventContents  key={i}
+                        fecha={item.fecha}
+                        descripcion={item.descripcion}
+                        imagVideo={item.imagVideo}
+                        duraVid={item.duraVid}
+                        tipo={item.tipo}
+                        />
 
-         
-        <View style={{marginLeft:20}}>
+                       )
+                     }
+                     )
 
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/MandyJTV/maxresdefault-3.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
+                    }
+    </View>
 
-{/*-------------------------------------------------------------------------------- */}
 
-<View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Fashion & Style</Text>
-                  </View>
-         </View>        
-        <View  style={{marginLeft:30}}>
-
-            <View style={{zIndex:2, width:110,height:84,marginTop:1}}>
-                <Image source={require('../assets/influencers/MandyJTV/mandy5.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
-
-{/*-------------------------------------------------------------------------------- */}
 
     </ScrollView>
 
 
               </View>
               <View  style={{flex:1}}>
-              <View style={{backgroundColor:'#ff5a60',padding:13,
-  
-                          alignItems:'center',justifyContent:'center'}}>
-                          <TouchableOpacity
-                          style={{marginTop:'4%'}}
+             <TouchableOpacity
+                          style={{flex:1,backgroundColor:'#ff5a60',padding:13,
+                          alignItems:'center',justifyContent:'center'}}
                                  onPress={() => this.props.navigation.navigate("requestPri1")}
                                  >
-                       <Text style={{flex:1 , color:'white', 
-                         fontSize:17,letterSpacing:0.41 }}>Request Private Meeting</Text>
+                       <Text style={{ color:'white', 
+                         fontSize:wp ('5%'),letterSpacing:0.41 }}>Request Private Meeting</Text>
                          </TouchableOpacity>
-                    </View>
-
-                                  </View>
+                </View>
 
 
               </View>
@@ -697,7 +543,7 @@ estrellasTrendingNuevo:{
  
  },
  transparenteNuevo:{
-   width:  Platform.OS === 'ios' ? 325:315,
+   
    height:60,
    position:'absolute',
    zIndex:3,

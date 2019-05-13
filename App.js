@@ -4,6 +4,10 @@ import { createStackNavigator, createAppContainer ,createBottomTabNavigator,
          createDrawerNavigator} from "react-navigation";
 //npm install react-navigation
 //npm  install react-native-button
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
+// import EventContents from "./components/eventContents"
 
 import Boorramos  from "./screens/boorramos"
 
@@ -119,11 +123,19 @@ import RequestPri3 from "./screens/publishPrivate/requestPri3"
 
 import Vieweredit from "./screens/ViewerEdit"
 import ViewerChat from "./screens/viewerChat"
+import ViewerMenu from "./screens/viewermenu"
 
 import MyWallet from "./screens/myWallet"
 import Transactions from "./screens/transactions"
 import TransferTomyAcount from "./screens/transferTomyAcount"
 import TransferDetail from "./screens/transferDetail"
+import { widthPercentageToDP } from "react-native-responsive-screen";
+
+
+
+
+
+
 
  
 //creacion de los tabs
@@ -236,8 +248,10 @@ const TabDiscover=createStackNavigator(
               },   
             },
             {
-             
+              swipeEnabled: true,
+  animationEnabled: true,
               tabBarOptions: {
+              
                 activeTintColor: '#ff5a60',
                 labelStyle: {
                   fontSize: 12,
@@ -378,6 +392,48 @@ const TabDiscover=createStackNavigator(
 
 
 
+       //CREACION DE LOS DRAWERS
+ 
+const stackedit=createStackNavigator({
+  vieweredit:Vieweredit,
+})
+
+const stackpaymen=createStackNavigator({
+  paymetho1:Paymentmethod,
+})
+
+
+const drawMenu= createDrawerNavigator(
+  {
+    discover:{
+           screen:DashboardTabRoutes, 
+     },
+    vieweredit:{
+       screen:stackedit,
+      },
+    paymetho1:{ 
+      screen: stackpaymen,
+     },
+      
+     },{
+    drawerWidth:wp('80%'),
+    initialRouteName: 'discover',
+   // drawerBackgroundColor:'#544DEB',
+    contentComponent:ViewerMenu,
+    contentOptions: {
+    inactiveTintColor:'white',
+     },
+    
+  },
+
+  
+  );
+
+
+
+
+
+
 const RootStack = createStackNavigator(
   { 
     singUpInicio:{
@@ -434,7 +490,7 @@ const RootStack = createStackNavigator(
     },
     discover:{
 
-      screen:DashboardTabRoutes,
+      screen:drawMenu,
       
       navigationOptions:{
         header: null,
@@ -510,7 +566,7 @@ requestPri4B:{
   screen:RequestPri4B,
 },
 requestPri1:{
-  screen:RequestPri1,
+  screen:RequestPri1, //requesmeting 1
 },
 requestPri2:{
   screen:RequestPri2,
@@ -573,7 +629,7 @@ requestPri3:{
     mensa2:{
       screen:Mensaje2,
     },
-    addParticip1:{
+    addParticip1:{   // chat
       screen:AddParticip1,
     },
     createGroup:{
@@ -655,18 +711,22 @@ requestPri3:{
        screen: TransferDetail
     }  ,
 
-
     boorramos :{
        screen: Boorramos
-    }  
+    },
+    
+   
   },
   {
-    initialRouteName: 'editinfluencerprofile',
+    initialRouteName: 'createViewerProfile',
   }
 );
 
 
+
 const AppContainer = createAppContainer(RootStack);
+
+
 
 export default class App extends React.Component {
   render() {

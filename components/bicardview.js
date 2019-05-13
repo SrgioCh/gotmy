@@ -1,7 +1,7 @@
 import React from 'react';
-import {Platform,StyleSheet,Text, View, Image } from 'react-native';
+import {Platform,StyleSheet,Dimensions,Text, View, Image } from 'react-native';
 
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export default class BicardView extends React.Component {
 
     constructor(props) {
@@ -10,37 +10,64 @@ export default class BicardView extends React.Component {
     }
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
     
-    return (
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+     
+      transBicard='95.7%'
+    }else if(screenHeight<=605){ //mopvil de  david
+ 
+      transBicard='95.6%'
+  
+  } else if(screenHeight<=678){ // mi movil
+    
+      transBicard='95.6%'
+   }else if(screenHeight<=685){ ////1080 *1920 420dpi  --- 1440 *2560 :560 dpi
    
-      <View style={{backgroundColor:'#f6f6f6',paddingBottom:7,
-                   marginVertical:1, borderRadius:10}}>
+    transBicard='96.4%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+   
+    transBicard='96.4%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    
+    transBicard='95.8%'
+   }else{// 1092
+    
+    transBicard='97%'
+   }
 
-                    <View style={{borderRadius:10,
-                                width:Platform.OS === 'ios' ? 339:328,
-                                height:200,padding:7}} >
+    return (
+     <View style={{marginHorizontal:'4%'}}>
+
+
+      <View style={{backgroundColor:'#f6f6f6',borderRadius:hp('2.5%'),height:Platform.OS === 'ios'? hp('39%'):hp('40.5%')}}>
+
+       <View style={{
+                                width:Platform.OS === 'ios' ? '100%':'100%',
+                                height:hp('30%'),padding:hp('1%')}} >
                              <Image source={this.props.fotoGrande} 
-                            style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
+                            style={{ zIndex:1 ,width:'100%',height:'100%',borderTopLeftRadius:hp('2.5%'),borderTopRightRadius:hp('2.5%'),}}
                             />
-                    </View>  
+      </View>  
 
 
-                    <View>
-                        <View style={{flexDirection:'row',
-                            marginHorizontal:16,marginVertical:14,
-                            position:'absolute',bottom:0,zIndex:4}}>
+      <View>
+            <View style={{flexDirection:'row',
+                            marginHorizontal:'4%',
+                            position:'absolute',bottom:hp('1.5%'),zIndex:4}}>
 
-                        <View style={{flex:2}}>
+                 <View style={{flex:2}}>
 
-                              <Image source={this.props.fotoUser} 
+                       <Image source={this.props.fotoUser} 
                                 style={{ width:50,height:50,borderRadius:10}}
                            />
-                  </View>
+                       </View>
 
-                <View style={{flex:3,flexDirection:'column'}}>
+                <View style={{flex:3.5,flexDirection:'column'}}>
 
-                <View>
-                    <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>
+                <View style={{paddingTop:hp('1%'),}}>
+                    <Text style={{fontSize:wp('4%'),color:'white'}}>
                   {this.props.usuario}</Text>
                 </View>
 
@@ -65,10 +92,10 @@ export default class BicardView extends React.Component {
         </View>
 
 
-        <View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
+        <View style={{flex:4.5,alignItems:'flex-end',  justifyContent:'center',paddingRight:wp('1%')}}>
             <View style={{flexDirection:'row'}}>
                  <Image source={require('../assets/icons_genGMI/User.png')} 
-                  style={{ width:15,height:15,marginRight:5}}
+                  style={{ width:15,height:15,marginRight:wp('1%')}}
                    />  
                <Text style={{color:'white'}}>{this.props.num_segui}</Text>
           </View>
@@ -81,8 +108,12 @@ export default class BicardView extends React.Component {
         </View>
 
         </View>
-            <Text style={styles.transparenteNuevo}></Text>
+        <View style={{paddingHorizontal:wp('1.9%'),alignItems:'center',zIndex:3}}>
+        <Text style={[styles.transparenteNuevo,{ width:  Platform.OS === 'ios' ? '100%':'100%'}]}></Text>
+        </View>
+         
             <View  style={{
+              display:'none',
               width:50,
               height:50,
               borderRadius:30,
@@ -90,8 +121,8 @@ export default class BicardView extends React.Component {
               opacity:0.8,
               zIndex:9,
               position:'absolute',
-              right:15,
-              bottom:135,
+              right:wp('4%'),
+              bottom:hp('20%'),
               alignItems:'center',
               justifyContent:'center',
 
@@ -106,40 +137,39 @@ export default class BicardView extends React.Component {
         </View>
 
         {/* cajita fecha*/}
-        <View style={{borderRadius:10,marginTop:-9,
-                        marginLeft:  Platform.OS === 'ios' ? 6:8,
-                    marginRight:  Platform.OS === 'ios' ? 11:8,
-                    flexDirection:'row',
-                    backgroundColor:'#f6f6f6'}}>
-             <View style={{ flex:1, 
-           backgroundColor:'white',flexDirection:'column',
-            paddingTop:20,alignItems:'center'
+        <View style={{marginTop:hp('-1.5%'),marginHorizontal:'2%',
+                  /*      marginLeft:  Platform.OS === 'ios' ? 6:8,
+                    marginRight:  Platform.OS === 'ios' ? 11:8,*/
+                    flexDirection:'row'}}>
+             <View style={{ flex:1.5,borderBottomLeftRadius: hp('2.5%'),flexDirection:'column',
+                  alignItems:'center',justifyContent:'center',backgroundColor:'white'
                 }}>
-                  <Text style={{ fontSize:28,fontWeight:'bold'}}>
+                  <Text style={{ fontSize:wp('8%'),fontWeight:'bold'}}>
                    {this.props.dia}</Text>
                   <Text style={{color:'red'}}>{this.props.mes}</Text>
-                  </View>
-             <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                  paddingTop:20}}>
-               <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                  fontWeight:'bold',color:'#312f3d'}}>
-                      {this.props.texto1}</Text>
-                   <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
+              </View>
+              <View style={{ flex:8.5, flexDirection:'column',backgroundColor:'white',paddingBottom:hp('2%'),borderBottomEndRadius:hp('2.5%')}}>
+                        <Text style={{ fontSize: Platform.OS === 'ios' ? 15:wp('4%'),
+                            fontWeight:'bold',color:'#312f3d',marginTop:hp('1%')}}>
+                         {this.props.texto1}</Text>
+
+                   <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:wp('3.3%'),
                    fontWeight:'bold',color:'#ff5a60'}} >{this.props.texto2}</Text>
                    
-                   <View style={{flexDirection:'row'}}>
+                   <View style={{flexDirection:'row',paddingTop:hp('0.5%')}}>
                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                     style={{ width:15,height:15,marginTop:4,marginRight:5}}
+                     style={{ width:15,height:15}}
                      />  
 
-                   <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                   fontWeight:'bold',color:'#677183',
-                    paddingVertical:4}}>{this.props.direccion}</Text>
+                   <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:wp('3%') ,
+                   fontWeight:'bold',color:'#677183',marginLeft:wp('1%'),
+                    }}>{this.props.direccion}</Text>
                    </View>
                 
           </View>
 </View>  
 </View>  
+</View>
     );
   }
 }
@@ -147,21 +177,18 @@ export default class BicardView extends React.Component {
 const styles = StyleSheet.create({
 
     estrellasTrendingNuevo:{
-        paddingTop:7,
-        marginLeft:-6,
+        
         flexDirection:'row',
-        marginTop:-5,
-      
-      },
+       },
       transparenteNuevo:{
-        width:  Platform.OS === 'ios' ? 325:315,
-        height:60,
+       
+        height:hp('8%'),
         position:'absolute',
         zIndex:3,
         backgroundColor:'black',
         opacity:0.5,
-        marginHorizontal:7,
-        bottom:6,
+    
+        bottom:hp('1%')
        
       },
      

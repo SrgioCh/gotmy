@@ -26,7 +26,7 @@ export default class Barra_DiscoverPreferences extends React.Component {
                            fontSize:14,letterSpacing:0.32}}>{this.props.texto2}</Text>
                   </View>
            
-                   <View style={{flex:1,  alignItems:'center' }}>
+                   <View style={{flex:1,  alignItems:'flex-end' }}>
                       <TouchableOpacity
                     
                     >

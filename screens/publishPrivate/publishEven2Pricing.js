@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,KeyboardAvoidingView,
-  StyleSheet,ScrollView,
+  StyleSheet,ScrollView,Dimensions,
   Image,TouchableOpacity} from 'react-native';
-  import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class PublishEven2Pricing extends Component {
 
@@ -45,6 +45,49 @@ export default class PublishEven2Pricing extends Component {
     valores.push(this.state.discuent);
 
   alert(valores) */
+
+  let screenHeight=Dimensions.get('window').height;
+  
+  
+
+
+  if(screenHeight<=592){ //1080 * 1920  xxhdpi
+    marBut=5
+    fontM=14
+    fontN=12
+    marChoce=5
+  }else if(screenHeight<=605){  //mopvil de  david
+    marBut=50
+    fontM=16
+        fontN=14
+        marChoce=20
+} else if(screenHeight<=678){ // mi movil
+marBut=50
+fontM=16
+    fontN=14
+    marChoce=20
+ }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+  marBut=50
+  fontM=16
+    fontN=14
+    marChoce=20
+ }else if(screenHeight<=775){//1440 *2880 :560dpi
+  marBut=145
+  fontM=16
+    fontN=14
+    marChoce=20
+ }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+  marBut=145
+  fontM=16
+    fontN=14
+    marChoce=20
+ }else{ // 800 = 480 * 800 mdpi
+  marBut=145
+  fontM=16
+    fontN=14
+    marChoce=20
+ }
+
     
     return (
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
@@ -173,8 +216,8 @@ export default class PublishEven2Pricing extends Component {
                              </View>
                              <View style={{flex:8,flexDirection:'column',marginLeft:20,
                              borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                             <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Benefit with soldout</Text>
-                             <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                             <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>Benefit with soldout</Text>
+                             <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                              $ {this.state.Benefit}</Text>
                              </View>
                      </View>                             
@@ -188,19 +231,19 @@ export default class PublishEven2Pricing extends Component {
                          </View>
                          <View style={{flex:8,flexDirection:'column',marginLeft:20,
                          borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                         <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>GotMy fees by ticket</Text>
-                         <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                         <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>GotMy fees by ticket</Text>
+                         <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                          $ {this.state.feesTicket} + {this.state.rebaja} % = $ {this.state.resultado}</Text>
                          </View>
                          </View>               
 
                      {/* fin  */}
                       
-                     <View style={{marginHorizontal:16,marginTop:20}}>
+                     <View style={{marginHorizontal:16,marginTop:marChoce}}>
                        <Text style={{color:'#312f3d', fontSize:17 ,fontWeight:'500',}}>
                        Promotional code
                        </Text>
-                       <Text style={{marginVertical:10,color:'#677183', fontSize:13 ,letterSpacing:-0.08}}>
+                       <Text style={{marginVertical:10,color:'#677183', fontSize:13,letterSpacing:-0.08}}>
                        Influencers can create a “Promo Code” and select a % discount to assign
                        to that code to share with viewers.
                        </Text>
@@ -223,14 +266,18 @@ export default class PublishEven2Pricing extends Component {
                                 }
                                     />
 
-                          
+         
+        <View style={{ alignItems:'center',marginTop:marBut}}> 
+       
+       <TouchableOpacity style={styles.containerbutton}
+          onPress={() => this.props.navigation.navigate("publisEven2Cover")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
+ 
 
-                           <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("publisEven2Cover")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
 
  
               </ScrollView>
@@ -284,10 +331,8 @@ const styles = StyleSheet.create({
       width:'90%',
       paddingVertical:13,
       borderRadius:27,
-      textAlign:"center",
-      marginTop:50,
-   marginBottom:20,
-      marginHorizontal:'4%'
+      alignItems:'center',
+      marginBottom:40,
   
     },
 

@@ -5,6 +5,7 @@ import { Platform, Alert,TouchableOpacity,
   Image} from 'react-native';
 
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Paymentmethodsadded extends Component {
 
@@ -19,6 +20,24 @@ export default class Paymentmethodsadded extends Component {
   render() {
 
     let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      topBut='13%'
+    }else if(screenHeight<=605){ //mopvil de  david
+      topBut=130
+     
+  } else if(screenHeight<=678){ // mi movil
+    topBut=130
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut=130
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut=130
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut=130
+   }else{ // 800 = 480 * 800 mdpi
+    topBut=130
+   }
 
 
 
@@ -189,7 +208,7 @@ export default class Paymentmethodsadded extends Component {
 
 {/*----------------------------------------------------- */}
 
-<View style={{marginTop: Platform.OS === 'ios' ? 80 :130, marginHorizontal:16,
+<View style={{marginTop: Platform.OS === 'ios' ? 80 :hp(topBut), marginHorizontal:16,
     alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
   <Button
         style={{

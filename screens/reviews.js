@@ -69,7 +69,7 @@ export default class Reviews extends Component {
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-    <View style={{flex:1}}>
+    <View style={{flex:1.5}}>
     <TouchableOpacity
              onPress={() => this.props.navigation.navigate("reviewDos")}
              >
@@ -80,7 +80,7 @@ export default class Reviews extends Component {
  </TouchableOpacity>
     </View>
   
-    <View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
+    <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 }}>
            <View>
               <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
                ,marginTop:3}}>Sophia Lindsey</Text>
@@ -130,7 +130,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-    <View style={{flex:1}}>
+    <View style={{flex:1.5}}>
 
                           <Image source={require('../assets/reviews/vanesa.png')} 
                                style={{ width:50,height:50,borderRadius:10}}
@@ -139,7 +139,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
     </View>
   
-    <View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
+    <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 }}>
            <View>
               <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
                ,marginTop:3}}>Vanessa Sánchez</Text>
@@ -186,7 +186,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 {/*---------------------------------------------- */}
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-<View style={{flex:1}}>
+<View style={{flex:1.5}}>
 
                       <Image source={require('../assets/reviews/romina.png')} 
                            style={{ width:50,height:50,borderRadius:10}}
@@ -195,7 +195,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
 </View>
 
-<View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
+<View style={{flex:5.5,flexDirection:'column',paddingLeft:10 }}>
        <View>
           <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
            ,marginTop:3}}>Romina Suárez</Text>
@@ -243,7 +243,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
 
-    <View style={{flex:1}}>
+    <View style={{flex:1.5}}>
 
                           <Image source={require('../assets/reviews/arturo1.png')} 
                                style={{ width:50,height:50,borderRadius:10}}
@@ -252,7 +252,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
     </View>
   
-    <View style={{flex:3,flexDirection:'column',paddingLeft:10 }}>
+    <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 }}>
            <View>
               <Text style={{fontSize:17,color:'#312f3d',fontWeight:'bold'
                ,marginTop:3}}>Arturo Martínez</Text>

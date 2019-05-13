@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,KeyboardAvoidingView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
-import AddParticip1 from "./publishPrivate/AddParticip1"
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class ViewerChat extends Component {
 
@@ -39,6 +38,25 @@ export default class ViewerChat extends Component {
 
   render() {
 
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      inputTx='42%'
+    }else if(screenHeight<=605){ //mopvil de  david
+      inputTx='48%'
+  } else if(screenHeight<=678){ // mi movil
+    inputTx='48%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    inputTx='48%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    inputTx='53%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    inputTx='54%'
+   }else{
+    inputTx='54%'
+   }
+  
+ 
     return (
    
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
@@ -69,7 +87,7 @@ export default class ViewerChat extends Component {
             <View style={{flex:2,marginTop:'6%',
             marginRight:'4%',alignItems:'flex-end'}}>
               <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("requestAcepted")}
+                     onPress={() => this.props.navigation.pop()}
                      >
             <Text style={{
                    color:'#ff5a60',fontSize:15,fontWeight:'500'
@@ -150,7 +168,7 @@ export default class ViewerChat extends Component {
 
 
 
-<View  style={{flexDirection:'row',marginTop:320}}>
+<View  style={{flexDirection:'row',marginTop:hp(inputTx)}}>
 
 
 <View style={{flex:1,alignItems:'center',marginLeft:16,marginTop:10}}>

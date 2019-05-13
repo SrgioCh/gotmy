@@ -1,8 +1,11 @@
 import React from 'react';
 import { Platform,StyleSheet,ScrollView, Text,
     TouchableOpacity, View, Image } from 'react-native';
+
 import Barra_DiscoverPreferences  from './../components/barra_discoverPreferences'
 import ViewAll from "./../components/viewAll"
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const util = require("util");
 
@@ -19,7 +22,7 @@ export default class DiscoverPreferences extends React.Component {
             height:120,
             fontSize:16,
             color:'#312f3d',
-            marginTop:  Platform.OS === 'ios' ? '45%':'42%',
+            marginTop:  Platform.OS === 'ios' ? '48%':'42%',
            
 
        },
@@ -48,7 +51,6 @@ constructor(props) {
          textoA5:'Language',
          textoB5:'English, Spanish',
     
-       unaPalabra:styles.textoprueba2,
 
    
        source1: require('../assets/OnBoard/art-culture.jpg'),
@@ -68,7 +70,7 @@ this.props.navigation.navigate("discoverCategori");
 
   render() {
     return (
-    <View style={{  marginHorizontal:16 }} >
+    <View style={{  marginHorizontal:'4%' ,flex:1}} >
     <ScrollView  showsVerticalScrollIndicator={false}>
          <Barra_DiscoverPreferences  texto1={this.state.textoA} texto2={this.state.textoB}
          />
@@ -86,11 +88,12 @@ this.props.navigation.navigate("discoverCategori");
                      all='View all'/>
          </View>
 
-         <View style={{ flexDirection:'row',flexWrap:'wrap',paddingVertical:10}}>
+        
+         <View style={{ flexDirection:'row'}}>
                      
-                  
-             <View style={{borderRadius:10,width:104, height:104,marginVertical:4}} >
-                <TouchableOpacity 
+                   <TouchableOpacity 
+                    style={{borderRadius:10,flex:1,height:hp('15%')}}
+
                   onPress = { () => {
                         if (this.state.source1 == require("../assets/OnBoard/art-culture.jpg") )
                           {
@@ -112,12 +115,12 @@ this.props.navigation.navigate("discoverCategori");
                    style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
                      />
                   </TouchableOpacity>  
-               </View>
-               <Text >{" "}{" "}</Text>
+   
            
              
-               <View style={{borderRadius:10,width:104, height:104,marginVertical:4}} >
-                <TouchableOpacity 
+              
+               <TouchableOpacity 
+                    style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
                   onPress = { () => {
                         if (this.state.source2 == require("../assets/OnBoard/business.jpg") )
                           {
@@ -133,17 +136,17 @@ this.props.navigation.navigate("discoverCategori");
                         }}
                       >
                   <Text style={styles.textoprueba}>
-                  Business &{'\n'} Professional
+                  Business &{'\n'}Professional
                  </Text>
                  <Image source={this.state.source2} 
                    style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
                      />
                   </TouchableOpacity>  
-               </View>
-               <Text >{" "}{" "}</Text>
+               
 
-               <View style={{borderRadius:10,width:104, height:104,marginVertical:4}} >
-                <TouchableOpacity 
+               <TouchableOpacity 
+          
+              style={{borderRadius:10,flex:1,height:hp('15%')}}
                   onPress = { () => {
                         if (this.state.source3 == require("../assets/OnBoard/celebrity.jpg") )
                           {
@@ -165,11 +168,13 @@ this.props.navigation.navigate("discoverCategori");
                    style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
                      />
                   </TouchableOpacity>  
-               </View>
+           
+     </View>
 
-
-               <View style={{borderRadius:10,width:104, height:104,marginVertical:4}} >
-                <TouchableOpacity 
+     <View style={{ flexDirection:'row',marginTop:hp('1.5%')}}>
+     
+     <TouchableOpacity 
+                    style={{borderRadius:10,flex:1,height:hp('15%')}}
                   onPress = { () => {
                         if (this.state.source4 == require("../assets/OnBoard/education.jpg") )
                           {
@@ -191,11 +196,10 @@ this.props.navigation.navigate("discoverCategori");
                    style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
                      />
                   </TouchableOpacity>  
-               </View>
+            
 
-                 
-               <View style={{borderRadius:10,width:104, height:104,marginVertical:4}} >
-                <TouchableOpacity 
+                  <TouchableOpacity 
+                    style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
                   onPress = { () => {
                         if (this.state.source5 == require("../assets/OnBoard/cooking.jpg") )
                           {
@@ -217,9 +221,10 @@ this.props.navigation.navigate("discoverCategori");
                    style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
                      />
                   </TouchableOpacity>  
-               </View>
+                 <View  style={{borderRadius:10,flex:1,height:hp('15%')}}>
+                 </View>
 
-          </View> 
+     </View>
       
         </ScrollView>
       </View>
@@ -239,23 +244,13 @@ const styles = StyleSheet.create({
       
       },
       //PARA LAS IMAGENES
-      textoprueba2:{
-        padding:5,
-        position:'absolute',
-        zIndex:3,
-        color:'white',
-        marginTop:60,
-        fontWeight:'500',
-        textAlign:'left', 
-    },
-
-    textoprueba:{
-      padding:5,
+   textoprueba:{
       position:'absolute',
       zIndex:3,
       color:'white',
-      marginTop:43,
       fontWeight:'500',
       textAlign:'left',
+      bottom:hp('2%'),
+      left:wp('2%')
      },
 });

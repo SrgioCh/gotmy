@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,Modal,TouchableHighlight,
   Image,TouchableOpacity} from 'react-native';
 
-import { Button } from "react-native-elements";
-//import Button from 'react-native-button'; 
+import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class PublishPri10 extends Component {
 
@@ -88,7 +89,21 @@ toggleModal(visible) {
 
 
   render() {
-
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+      leftMod='7%'
+    }else if(screenHeight<=678){ // mi movil
+      leftMod='7%'
+   }else if(screenHeight<=685){ //1080 *1920
+    leftMod='9%'
+   }else if(screenHeight<=775){
+    leftMod='9%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    leftMod='9%'
+   }else{
+    leftMod='7%'
+   }
     return (
 
       <View style={[{flex: 1},this.state.fondoPrincipal]}>
@@ -113,7 +128,7 @@ toggleModal(visible) {
 
 
                  <View style={{backgroundColor:'white',borderRadius:20,
-                          position:'absolute',left:'7%',
+                          position:'absolute',left:leftMod,
                           top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
                        paddingVertical:'10%'}}> 
 
@@ -134,32 +149,19 @@ toggleModal(visible) {
                                          Your follower has received a{'\n'}
                                          private link to buy tickets for ot</Text>
 
-                                         <View style={{
-                                                 backgroundColor: '#ff5a60',
-                                                 width:'70%',
-                                                 padding:15,
-                                                 color:'white',
-                                                 borderRadius:27,
-                                                 textAlign:"center",
-                                                 marginTop:20,
-                                                 marginHorizontal:'15%'
-                                              }}>
-                                              <Button style={styles.textboton}
-                                               title="Continue"
-                                               onPress={() => {
-                                                  
-                                                 this.toggleModal(!this.state.modalVisible);
-                                                 this.props.navigation.navigate("requesPendin")
-                                               }}
-                                               type="clear"
-                                               titleStyle={{ color: "#ffffff",
-                                               position: "absolute",
-                                               top: -5,
-                                               left: Platform.OS === 'ios' ? -45:null,
-                                               }}
-                                               >
-                                             </Button>
-                                             </View>
+
+                         <View style={ styles.containerbuttonModal }>
+                <Button 
+                 onPress = { () =>  {
+                  this.toggleModal(!this.state.modalVisible);
+                  this.props.navigation.navigate("requesPendin")
+                  this.setState({
+                    fondoPrincipal:''
+                  })
+                }}
+                style={{color:'white',fontSize:17}}
+               >Continue</Button>      
+              </View> 
 
                                           </View>
 
@@ -187,7 +189,7 @@ toggleModal(visible) {
             <View style={{backgroundColor:'#f6f6f6',paddingBottom:7}}>
 
                   <View style={{borderRadius:10,
-                           width:Platform.OS === 'ios' ? 339:'100%',
+                           width:Platform.OS === 'ios' ? '100%':'100%',
                            height:200}} >
                         <Image source={this.state.fotoGrande} 
                        style={{ zIndex:1,width:'100%',height:'100%'}}
@@ -409,8 +411,7 @@ $ {this.state.earn}</Text>
         onPress = { () => this.toggleModal(true)}
       
       >
-<Text style={{flex:1 , color:'white',marginTop:'5%',
-    fontSize:17,letterSpacing:0.41 }}>
+<Text style={{color:'white',fontSize:wp('4.5%'),letterSpacing:0.41 }}>
      Send Private Meeting</Text>
      </TouchableHighlight>   
 </View>
@@ -468,14 +469,14 @@ text: {
   marginTop: 10
 },
 
-containerbuttonModal:{
-backgroundColor: '#ff5a60',
-width:'80%',
-paddingVertical:13,
-borderRadius:27,
-textAlign:"center",
-marginTop:20,
-marginBottom: 10,
+ containerbuttonModal:{
+  backgroundColor: '#ff5a60',
+  width:'80%',
+  paddingVertical:13,
+  borderRadius:27,
+  textAlign:"center",
+  marginTop:20,
+  marginBottom: 10,
 
 },
 

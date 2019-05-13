@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import EventContents from "./../components/eventContents"
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class Mediacontentsmy extends Component {
   static navigationOptions = {
@@ -17,19 +19,69 @@ export default class Mediacontentsmy extends Component {
     super(props);
   
      this.state={
-      tytexto:'',
-      menuelegido:styles.menuelegido,
-      menusinmarcar:styles.menunormal,
+      usuarios:[
+        {
+         fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/KalaTempo/kala3.png'),
+         duraVid:'12:40',
+         tipo:'Sports'
+  
+        },
+        {
+          fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/KalaTempo/kalafiesta.jpg'),
+         duraVid:'12:40',
+         tipo:'Naturs,Outdoors & Chefs'
+        },
+        {
+          fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/KalaTempo/kala2.jpg'),
+         duraVid:'12:40',
+         tipo:'Naturs,Outdoors & Chefs'
+        }
+        ,
+        {
+          fecha:'Monday, 19/12/2018',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+         imagVideo:require('../assets/influencers/KalaTempo/kalamalkaguitar.jpg'),
+         duraVid:'12:40',
+         tipo:'Naturs,Outdoors & Chefs'
+        }
+  
+      ]
+     
      
       }
   
   }// fin de consttructor
 
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+ 
+    
+    }else if(screenHeight<=678){ // mi movil
+     
+   
+   }else if(screenHeight<=685){ //1080 *1920
+   
+
+   }else if(screenHeight<=775){
+   
+  
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+  
+   }else{
+   
+   }
     return (
      
-    <ScrollView style={{marginTop:30}} >
-        
+   
+<View>    
 {/*----------- TITULO----------------- */}
 <View style={{marginTop:16,marginBottom:5,marginHorizontal:16}}>
     <Text style={{fontSize:28,color:'#312f3d',
@@ -78,210 +130,24 @@ export default class Mediacontentsmy extends Component {
 </View>
  
 
- {/* ------------- LISTA VIDEO ----------------------------*/}
-  <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Sports</Text>
-                  </View>
-         </View>        
-        <View >
+<ScrollView style={{marginTop:hp('3%')}} >
+{
+  this.state.usuarios.map((item,i)=> {
 
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/KalaTempo/kala3.png')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
-
-{/*-------------------------------------------------------------------------------- */}
- {/* --------------------------- --------------------*/}
- <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Nature,Outdoors & Oets</Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/KalaTempo/kalafiesta.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
-
-{/*-------------------------------------------------------------------------------- */}
-{/* -----------------------------LISTA VIDEO ----------------------------*/}
- <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Instagram Influencer</Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/KalaTempo/kala2.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
-
-{/*-------------------------------------------------------------------------------- */}
-
-<View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Fashion & Style</Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/KalaTempo/kalamalkaguitar.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
-
-{/*-------------------------------------------------------------------------------- */}
-
+    
+    return ( 
+<EventContents key={i}
+fecha={item.fecha}
+descripcion={item.descripcion}
+imagVideo={item.imagVideo}
+duraVid={item.duraVid}
+tipo={item.tipo}
+/>
+    )})}
 
     </ScrollView>
 
+</View>
 
      
     );

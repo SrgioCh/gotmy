@@ -123,7 +123,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:6,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -192,7 +192,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:6,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Leroy Greene</Text>
@@ -258,7 +258,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:6,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -327,7 +327,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:6,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Ruth Jenkins</Text>
@@ -395,7 +395,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:6,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Caleb Pena</Text>
@@ -462,7 +462,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:6,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>

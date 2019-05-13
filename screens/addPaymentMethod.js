@@ -5,7 +5,7 @@ import { Platform,TouchableOpacity,
   Image} from 'react-native';
 
   import { Button } from "react-native-elements";
-
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 
@@ -18,14 +18,43 @@ export default class AddPaymentMethod extends Component {
 
 
   render() {
+  
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      butTop=10
+      padCabe='5%'
+    }else if(screenHeight<=605){ //mopvil de  david
+      butTop=10
+      padCabe='5%'
+  } else if(screenHeight<=678){ // mi movil
+    butTop=10
+    padCabe='5%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    butTop=10
+    padCabe='5%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    butTop=70
+    padCabe='5%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    butTop=95
+    padCabe='2%'
+   }else{ // 800 = 480 * 800 mdpi
+    butTop=95
+    padCabe='5%'
+   }
+  
+   
 
     return (
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
 
-            <View>
             <ScrollView showsVerticalScrollIndicator={false}> 
+
+
+
                     {/*  creamos la cabezera  */}
-                    <View style={{flex: 1 ,flexDirection:'row', paddingTop: '5%', paddingBottom:'3%',
+                    <View style={{flexDirection:'row', paddingTop:hp('3%'), paddingBottom:hp(padCabe),
              borderBottomWidth: 2,borderBottomColor:'#C3C1C0'}}>
             <View style={{flex:1 , marginLeft:'4%',marginTop:'6%'}}>
             <TouchableOpacity
@@ -65,13 +94,13 @@ export default class AddPaymentMethod extends Component {
    <View style={{alignItems:'center',justifyContent:'center'
                  ,marginHorizontal:25,marginTop:'3%'}}>
 
-          <Text style={{ color:'#312f3d',fontSize:22,fontWeight:'bold',letterSpacing:0.32, }}>
+          <Text style={{ color:'#312f3d',fontSize:hp('3%'),fontWeight:'bold',letterSpacing:wp('0.027%'), }}>
             Payment method
-            </Text>
+          </Text>
 
             <Text style={{
-                    color:'#677183', fontSize:14,letterSpacing:0.32,textAlign:'center',
-                    marginTop:15,
+                    color:'#677183', fontSize:hp('1.8%'),letterSpacing:hp('0.04%'),textAlign:'center',
+                    marginTop:hp('2%'),
                     
             }}>
             We need a payment method to tranfer your {'\n'} earnings and payments
@@ -184,7 +213,6 @@ export default class AddPaymentMethod extends Component {
         color:'#312f3d',
         fontSize:17 ,
         letterSpacing:0.41 ,
-        paddingBottom:10,
         fontWeight:'bold',
      }} >Add Paypal account</Text>
 
@@ -193,34 +221,26 @@ export default class AddPaymentMethod extends Component {
               underlineColorAndroid='transparent'
              style={styles.input}
             />
-
-
-
-
 </View>
 
 
+
 {/* -----------------------BOTONES ------------------*/}
-
+<View style={[styles.container2,{marginTop:Platform.OS === 'ios' ? '16%':butTop}]}>
+      <Button  style={styles.textboton}
+         title="Continue"
+         onPress={() => this.props.navigation.navigate("confirMailInflu")}
+         type="clear"
+         titleStyle={{ color: "#ffffff",
+         position: "absolute",
+         top: -5
+            }}
+           />    
+         </View>
  
 
-
-      <View style={styles.container2}>
-       <Button  style={styles.textboton}
-          title="Continue"
-          onPress={() => this.props.navigation.navigate("confirMailInflu")}
-          type="clear"
-          titleStyle={{ color: "#ffffff",
-          position: "absolute",
-          top: -5
-        }}
-        />    
-      </View> 
-  
- 
-               </ScrollView>
-          </View>
-     
+              </ScrollView>
+       
     </KeyboardAvoidingView>
 
 
@@ -260,9 +280,10 @@ const styles = StyleSheet.create({
      color:'white',
      borderRadius:27,
      textAlign:"center",
-     marginTop:Platform.OS === 'ios' ? '16%':20,
+     
+     marginBottom:100,
      marginLeft:16,
-     marginBottom:80
+    
      
   },
   textboton:{

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Platform,AppRegistry, Alert,
+import { Platform,AppRegistry, Alert,Dimensions,
   View,Text ,TextInput,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class LiveEventDetail2 extends Component {
 
@@ -73,6 +73,20 @@ export default class LiveEventDetail2 extends Component {
 
   render() {
 
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+     
+    }else if(screenHeight<=678){ // mi movil
+    
+   }else if(screenHeight<=685){ //1080 *1920
+   
+   }else if(screenHeight<=775){
+   
+   }else{
+     
+   }
+
     return (
 
       <View style={{flex: 1}}>
@@ -101,7 +115,7 @@ export default class LiveEventDetail2 extends Component {
                          zIndex:9,
                           position:'absolute',
                          right:15,
-                         top:35,
+                         top:25,
                          alignItems:'center',
                           justifyContent:'center',
 
@@ -320,6 +334,7 @@ export default class LiveEventDetail2 extends Component {
                width:50,
                height:50,
                marginRight:15,
+               marginTop:-5,
                borderRadius: Platform.OS === 'ios' ? 10:30,
   
                }}
@@ -365,7 +380,7 @@ export default class LiveEventDetail2 extends Component {
 <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,
     borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom: 10,}}>
     <View>
-        <Text style={{fontSize:17,color:'#312f3d'}}>Mable Little</Text>
+        <Text style={{fontSize:wp('4%'),color:'#312f3d'}}>Mable Little</Text>
     </View>
     <View style={{flexDirection:'row'}}>
         <View style={{ width:10,height:10,marginTop:5}}>
@@ -424,7 +439,7 @@ export default class LiveEventDetail2 extends Component {
 <View style={{flex:2}}>
 
                  <Image source={require('../../assets/influencers/spffiele.png')} 
-                      style={{ width:50,height:50,borderRadius:20}}
+                      style={{ width:50,height:50,borderRadius:50}}
                      />
                
 </View>
@@ -432,7 +447,7 @@ export default class LiveEventDetail2 extends Component {
 <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,
     borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom: 10,}}>
     <View>
-        <Text style={{fontSize:17,color:'#312f3d'}}>Linnie Elliott</Text>
+        <Text style={{fontSize:wp('4%'),color:'#312f3d'}}>Linnie Elliott</Text>
     </View>
     <View style={{flexDirection:'row'}}>
         <View style={{ width:10,height:10,marginTop:5}}>
@@ -490,16 +505,15 @@ export default class LiveEventDetail2 extends Component {
 
           </View> 
           <View style={{flex:1}}>
-          <TouchableOpacity  style={{flex:1}}
+          <TouchableOpacity  style={{flex:1,backgroundColor:'#ff5a60',
+             alignItems:'center',justifyContent:'center'}}
               onPress = {() => this.props.navigation.navigate("liveEventDetail3") } >
-            <View style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
-             alignItems:'center',justifyContent:'center'}}>
+           
        
-               <Text style={{flex:1 , color:'white', 
-              fontSize:17,letterSpacing:0.41 }}>
+               <Text style={{color:'white', 
+              fontSize:wp('5%'),letterSpacing:0.41 }}>
                   Buys ticket for $ {this.state.precioTicket}</Text>
-     
-             </View>
+      
             </TouchableOpacity>    
           </View> 
       

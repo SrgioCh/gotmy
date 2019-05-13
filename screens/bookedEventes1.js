@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {Platform,Alert,TouchableOpacity,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image} from 'react-native';
-
-import Button from 'react-native-button'; 
-
+  import BicardView from './../components/bicardview'
 import BookedEvDos from "./bookedEventes2"
 import BookedEvTres from "./bookedEventes3"
 
@@ -15,119 +13,10 @@ export default class BookedEvUno extends Component {
     header: null ,
 };
 
-BookedEvUno=(<ScrollView>
-          
-{/* -----------------BICARDVIEW--------------*/}  
-  <TouchableOpacity 
-            onPress = {() => this.props.navigation.navigate("boked4") } >     
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,
-               width:Platform.OS === 'ios' ? 339:328,
-              height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault-2.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
 
+screenwidth=Dimensions.get('window').width;
+screenheigth=Dimensions.get('window').height;
 
-<View>
-<View style={{flexDirection:'row',
-            marginHorizontal:16,marginVertical:14,
-             position:'absolute',bottom:0,zIndex:4}}>
-
-     <View style={{flex:2}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-      </View>
-
-      <View style={{flex:3,flexDirection:'column'}}>
-     
-          <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>Mabel Spencer</Text>
-         </View>
-      
-     
-             <View  style={styles.estrellasTrendingNuevo}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                        </View>
-     
-  
- </View>
-
-
-<View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
-      <View >
-            <Text style={{color:'white'}}>
-              @ 34
-            </Text>
-      </View>
-      <View >
-            <Text style={{color:'white'}}>
-              Only 2 tickets left
-            </Text>
-      </View>
-  
-    </View>
-
-  </View>
-  <Text style={styles.transparenteNuevo}></Text>
- </View>
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,
-                 marginLeft:  Platform.OS === 'ios' ? 6:8,
-                 marginRight:  Platform.OS === 'ios' ? 11:8,
-                 flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'red'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                        fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
-                      <View style={{flexDirection:'row'}}>
-                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                                style={{ width:11,height:11,marginLeft:2,marginTop:6}}
-                            />
-                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                      fontWeight:'bold',color:'#677183',
-                              paddingVertical:4,marginLeft:5}}>Live from New York, at 18:30 pm</Text>
-                       </View>
-                     </View>
-        </View>  
-</View>  
-</TouchableOpacity>
- {/* -------------------------------------------------------------------*/}
-</ScrollView>);
 
   constructor(props){
 
@@ -144,7 +33,23 @@ BookedEvUno=(<ScrollView>
           menu3:styles.menunormal,
           textoTres:styles.textoNormal,
 
-           mostramos:this.BookedEvUno,               
+
+ //Bidcardview
+ fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault-2.jpg'),
+ fotoUser: require('../assets/influencers/influencer.png') ,
+ usuario:'Mabel Spencer',
+ num_segui:34,
+ mensaje:'Only 2 tickets left',
+ dia:21,
+ mes:'DEC',
+ texto1:'My FIRST God of War experience!',
+ texto2:'Fashion',
+ direccion:'Live from New York, at 18:30 pm',
+
+
+
+
+           
           
               
       }
@@ -152,51 +57,6 @@ BookedEvUno=(<ScrollView>
   }// fin de consttructor
 
   
-  cambiarVista=(num)=>{
-
-    if(num==1){
-       
-        this.setState({
-            mostramos:this.BookedEvUno, 
-            menu1:styles.menuelegido,
-            textoUno:styles.textoElegido,
-  
-            menu2:styles.menunormal,
-            textoDos:styles.textoNormal,
-  
-            menu3:styles.menunormal,
-            textoTres:styles.textoNormal,
-        })
-    }else if(num==2){
-       
-        this.setState({
-            mostramos:<BookedEvDos/>,
-            menu1:styles.menunormal,
-            textoUno:styles.textoNormal,
-
-            menu2:styles.menuelegido,
-            textoDos:styles.textoElegido,
-
-            menu3:styles.menunormal,
-            textoTres:styles.textoNormal,
-        })
-    }else if(num==3){
-       
-        this.setState({
-            mostramos:<BookedEvTres enviaAPadre={this.recogeDeHijo.bind(this)}/>,
-            menu1:styles.menunormal,
-            textoUno:styles.textoNormal,
-
-            menu2:styles.menunormal,
-            textoDos:styles.textoNormal,
-
-            menu3:styles.menuelegido,
-            textoTres:styles.textoElegido,
-        })
-    }
-
-}
-
 recogeDeHijo(dato){
     
   this.props.navigation.navigate(dato)
@@ -204,9 +64,151 @@ recogeDeHijo(dato){
   }
  
 
+  cambiarVista=(num)=>{
+
+    if(num==1){
+      this.refs.scrol.scrollTo({x:0, y:0, animated: true})  
+        this.setState({
+            menu1:styles.menuelegido,
+            textoUno:styles.textoElegido,
+             
+
+            menu2:styles.menunormal,
+            textoDos:styles.textoNormal,
+            
+  
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+             
+        })
+    }else if(num==2){
+      this.refs.scrol.scrollTo({x:this.screenwidth, y:0, animated: true})
+        this.setState({
+           
+            menu1:styles.menunormal,
+            textoUno:styles.textoNormal,
+            
+
+            menu2:styles.menuelegido,
+            textoDos:styles.textoElegido,
+            
+
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+            
+        })
+    }else if(num==3){
+      this.refs.scrol.scrollTo({x:this.screenwidth*2, y:0, animated: true})
+        this.setState({
+           
+            menu1:styles.menunormal,
+            textoUno:styles.textoNormal,
+         
+
+            menu2:styles.menunormal,
+            textoDos:styles.textoNormal,
+           
+
+            menu3:styles.menuelegido,
+            textoTres:styles.textoElegido,
+            
+        })
+    }
+
+}
+
  
- 
+
+transicion=(num)=>{
+
+  if(num==1){
+    
+      this.setState({
+          menu1:styles.menuelegido,
+          textoUno:styles.textoElegido,
+           menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+          menu3:styles.menunormal,
+          textoTres:styles.textoNormal,
+           
+      })
+  }else if(num==2){
+     
+      this.setState({
+           menu1:styles.menunormal,
+           textoUno:styles.textoNormal,
+           menu2:styles.menuelegido,
+           textoDos:styles.textoElegido,
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+          
+      })
+  }else if(num==3){
+    
+      this.setState({
+         
+          menu1:styles.menunormal,
+          textoUno:styles.textoNormal,
+       
+
+          menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+         
+
+          menu3:styles.menuelegido,
+          textoTres:styles.textoElegido,
+          
+      })
+  }
+
+}
+
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      transNuev='95.6%'
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      transNuev='95.6%';
+  
+  } else if(screenHeight<=678){ // mi movil
+    transNuev='95.6%';
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    transNuev='96.4%';
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    transNuev='96.2%';
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    transNuev='95.7%';
+   }else{// 800 = 480 * 800 mdpi
+    transNuev='95.7%';
+   }
+
+   bookedEvUno=(<ScrollView>
+          
+    {/* -----------------BICARDVIEW--------------*/}  
+      <TouchableOpacity 
+                onPress = {() => this.props.navigation.navigate("boked4") } >     
+     
+    <BicardView 
+          fotoGrande={this.state.fotoGrande}
+          fotoUser={this.state.fotoUser}
+          usuario={this.state.usuario}
+          num_segui={this.state.num_segui}
+          mensaje={this.state.mensaje}
+          dia={this.state.dia}
+          mes={this.state.mes}
+          texto1={this.state.texto1}
+           texto2={this.state.texto2}
+           direccion={this.state.direccion}
+       />
+    </TouchableOpacity>
+     {/* -------------------------------------------------------------------*/}
+    </ScrollView>);
+    
+    
+
+
+
     return (
       <View style={{flex: 1}}>
       <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
@@ -285,7 +287,7 @@ recogeDeHijo(dato){
                onPress={() => this.cambiarVista(2)}
              >
             <Text  style={[this.state.textoDos,{marginLeft:10}]}>
-            Past Eventes
+            Past Events
           </Text>
           </TouchableOpacity>
          </View>
@@ -303,8 +305,70 @@ recogeDeHijo(dato){
 
      </View>
 
- {/* ------------------------*/} 
-     {this.state.mostramos}
+     <ScrollView  ref='scrol'
+               horizontal={true} 
+                pagingEnabled={true}
+                onScroll={
+                  (event)=>{
+                    pos=event.nativeEvent.contentOffset.x;
+                    if(pos==0){
+                      this.transicion(1);
+                     
+                    }else if(pos>=this.screenwidth-1 && pos<(this.screenwidth*2)-10){
+                      this.transicion(2);
+                    
+                    }else if(pos>=(this.screenwidth*2)-10){
+                      this.transicion(3);
+                    
+                    }
+                  }
+                }
+               
+              
+                >
+     
+               <View  style={{
+                   flex:1,
+                   width:this.screenwidth,
+
+                 }}>
+                 {bookedEvUno}
+ 
+ 
+               </View>
+               <View  style={{
+                
+                   flex:1,
+                   width:this.screenwidth,
+                  
+
+                 }}>
+               <BookedEvDos/>
+               </View>
+               <View  style={{
+                  
+                   flex:1,
+                   width:this.screenwidth,
+                  
+
+                 }}>
+              <BookedEvTres enviaAPadre={this.recogeDeHijo.bind(this)}/>
+               </View>
+
+            </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -379,7 +443,7 @@ estrellasTrendingNuevo:{
 
 },
 transparenteNuevo:{
-  width:  Platform.OS === 'ios' ? 325:315,
+  
   height:60,
   position:'absolute',
   zIndex:3,

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 import Checkbox from 'react-native-modest-checkbox';
 
 export default class LiveEventDetail3 extends Component {
@@ -73,6 +74,38 @@ export default class LiveEventDetail3 extends Component {
 
 
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      fontM=14;
+      fontN=12;
+      marTop=15;
+    }else if(screenHeight<=605){ //mopvil de  david
+      fontM=16;
+      fontN=14;
+      marTop=25
+  } else if(screenHeight<=678){ // mi movil
+    fontM=16;
+    fontN=14;
+    marTop=25
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    fontM=16;
+    fontN=14;
+    marTop=25
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    fontM=16;
+    fontN=14;
+    marTop=25
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    fontM=16;
+    fontN=14;
+    marTop=25
+   }else{ // 800 = 480 * 800 mdpi
+    fontM=16;
+      fontN=14;
+      marTop=25
+   }
+  
 
     return (
 
@@ -125,8 +158,8 @@ export default class LiveEventDetail3 extends Component {
                 </View>
                 <View style={{flex:8,flexDirection:'column',marginLeft:20,
                         borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Event price</Text>
-                <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>Event price</Text>
+                <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                 $ {this.state.evPrice}</Text>
                 </View>
         </View>
@@ -141,14 +174,14 @@ export default class LiveEventDetail3 extends Component {
                 </View>
                 <View style={{flex:8,flexDirection:'column',marginLeft:20,
                   borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-                <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>GotMy fees</Text>
-                <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+                <Text style={{color:'#312f3d',fontSize:fontM,marginTop:-7}}>GotMy fees</Text>
+                <Text style={{color:'#677183',fontSize:fontN,paddingBottom:8,paddingTop:4}}>
                $ {this.state.feesGot} + {this.state.rebaja} % = $ {this.state.resultado}</Text>
                 </View>
           </View>               
         {/*fin */}    
 
-        <Text style={{fontSize:16,color:'#312f3d',marginTop:30,marginBottom: 10,
+        <Text style={{fontSize:16,color:'#312f3d',marginVertical:marTop,marginBottom: 10,
                  fontWeight: '500',marginHorizontal:16}}>Choose a payment method</Text>
        
 
@@ -158,7 +191,7 @@ export default class LiveEventDetail3 extends Component {
 
 
  <View style={{flexDirection:'row',paddingVertical:1,
-              marginBottom:15,  marginTop:20, marginHorizontal:16}}>
+              marginBottom:15, marginHorizontal:16}}>
 
      <View style={{flex:1,paddingRight:10}}>
      <Image
@@ -176,12 +209,12 @@ export default class LiveEventDetail3 extends Component {
                    borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
            <View>
               <Text style={{
-                  color:'#312f3d',fontSize:16,letterSpacing:0.32, 
+                  color:'#312f3d',fontSize:fontM,letterSpacing:0.32, 
               }}>Master Card</Text>
            </View>
            <View   >
               <Text style={{
-                  color:'#677183',fontSize:14
+                  color:'#677183',fontSize:fontN
               }}>**** **** **** 0959</Text>
                
            </View>
@@ -251,12 +284,12 @@ export default class LiveEventDetail3 extends Component {
      paddingBottom:10,  borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
            <View>
               <Text style={{
-                  color:'#312f3d',fontSize:16,letterSpacing:0.32, 
+                  color:'#312f3d',fontSize:fontM,letterSpacing:0.32, 
               }}>Paypal account</Text>
            </View>
            <View   >
               <Text style={{
-                  color:'#677183',fontSize:14
+                  color:'#677183',fontSize:fontN
               }}>Connect with your Paypal Account</Text>
                
            </View>
@@ -336,15 +369,15 @@ export default class LiveEventDetail3 extends Component {
 
 
      {/* pie de pagina*/}
-      <View style={{ flex:1,backgroundColor:'#ff5a60',
-         alignItems:'center',justifyContent:'center'}}>
-          <TouchableOpacity 
+     
+          <TouchableOpacity style={{ flex:1,backgroundColor:'#ff5a60',
+         alignItems:'center',justifyContent:'center'}}
           onPress = {() => this.props.navigation.navigate("liveEventDetail4") } >
-           <Text style={{flex:1 , color:'white', marginTop:'5%',
-           fontSize:17,letterSpacing:0.41 }}>
+           <Text style={{color:'white', marginTop:'5%',
+           fontSize:wp('5%'),letterSpacing:0.41 }}>
            Pay $ {this.state.precioTicket}</Text>
         </TouchableOpacity>
-      </View>
+    
         
     
    </View>

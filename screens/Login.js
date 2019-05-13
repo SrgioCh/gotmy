@@ -4,6 +4,7 @@ import { Platform,StyleSheet, Text, TextInput, View,TouchableWithoutFeedback,Key
      import Button from 'react-native-button'; 
 
 //const util = require("util");
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class Login extends React.Component {
@@ -21,7 +22,7 @@ export default class Login extends React.Component {
             height:120,
             fontSize:16,
             color: Platform.OS === 'ios' ? 'red':'#312f3d',
-            marginTop:  Platform.OS === 'ios' ? '45%':'45%',
+            marginTop:  Platform.OS === 'ios' ? '45%':'40%',
 
           },
           headerRight: (<View>
@@ -40,8 +41,10 @@ export default class Login extends React.Component {
     render() {
         
         return (
+            <View style={{flex:1}}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-            <View  style={{flex:1}}>
+        
+            <View  style={{flex:8.5}}>
                
                 <Text style={styles.text}>
                     <Text >Email addres</Text>
@@ -64,19 +67,30 @@ export default class Login extends React.Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate("forgotPass")} >
                     <Text style={styles.text3}>Forgot your Password ?</Text>
                 </TouchableOpacity>
-                
-                <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("discover")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+
+                </View>
+                </TouchableWithoutFeedback>
+               <View style={{flex:1.5}}>
+
+               
+             
+    <View style={{ alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+       onPress={() => this.props.navigation.navigate("discover")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
+
+    </View>         
  
               
-            </View>
+           
 
-            </TouchableWithoutFeedback>
-    
+           
+        </View>
 
 
 
@@ -146,16 +160,14 @@ const styles = StyleSheet.create({
     },
 
     containerbutton:{
+      
         backgroundColor: '#ff5a60',
         width:'90%',
         paddingVertical:13,
         borderRadius:27,
-        textAlign:"center",
-       position:'absolute',
-        marginHorizontal:'4%',
-        bottom:20,
-    
-      },
+        alignItems:'center',
+        marginBottom:40,
+    },
 
   
 });

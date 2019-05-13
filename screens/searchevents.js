@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 
 import { Platform, AppRegistry, Alert,TouchableOpacity,
   View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
-  StyleSheet,ScrollView,
+  StyleSheet,ScrollView,Dimensions,
   Image} from 'react-native';
+
+import BicardView from "./../components/bicardview"
 
 import Button from 'react-native-button'; 
 
@@ -19,17 +21,62 @@ export default class SearchEvents extends Component {
     super(props);
   
      this.state={
-          tytexto:'',
-          menu1:styles.menuelegido,
-          menu2:styles.menunormal,
-          menu3:styles.menunormal,
-      }
+
+      usuarios:[
+        {
+
+      fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+      fotoUser: require('../assets/influencers/influencer.png') ,
+      usuario:'MandyJTV',
+      num_segui:34,
+      mensaje:'Only 2 tickets left',
+      dia:21,
+      mes:'DEC',
+      texto1:'My FIRST God of War experience!',
+      texto2:'Games',
+      direccion:'Live from New York, at 18:30 pm',
+
+      },
+      {
+
+        fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault-1.jpg'),
+        fotoUser: require('../assets/influencers/influencer.png') ,
+        usuario:'MandyJTV',
+        num_segui:34,
+        mensaje:'Only 2 tickets left',
+        dia:21,
+        mes:'DEC',
+        texto1:'My FIRST God of War experience!',
+        texto2:'Games',
+        direccion:'Live from New York, at 18:30 pm',
   
+        },
+    ]
+  }
   }// fin de consttructor
 
 
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+ 
+    }else if(screenHeight<=605){ //mopvil de  david
+   
+  
+  } else if(screenHeight<=678){ // mi movil
+  
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+ 
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+  
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+
+   }else{ // 800 = 480 * 800 mdpi
+ 
+   }
     return (
      
       
@@ -37,230 +84,29 @@ export default class SearchEvents extends Component {
 
          
 {/* -----------------BICARDVIEW--------------*/}    
- <TouchableOpacity
-             onPress={() => this.props.enviaAPadre("liveEventDetail")}
-            
-             >
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                borderRadius:10}}>
-     
-             <View style={{borderRadius:10,
-               width:Platform.OS === 'ios' ? 339:328,
-              height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
+ 
+ {
+                     this.state.usuarios.map((item,i)=> {
 
-
-<View>
-<View style={{flexDirection:'row',
-            marginHorizontal:16,marginVertical:14,
-             position:'absolute',bottom:0,zIndex:4}}>
-
-     <View style={{flex:2}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-      </View>
-
-      <View style={{flex:3,flexDirection:'column'}}>
-     
-          <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>Mabel Spencer</Text>
-         </View>
-      
-     
-             <View  style={styles.estrellasTrendingNuevo}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                        </View>
-     
-  
- </View>
-
-
-<View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              @ 34
-            </Text>
-      </View>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              Only 2 tickets left
-            </Text>
-      </View>
-  
-    </View>
-
-  </View>
-  <Text style={styles.transparenteNuevo}></Text>
- </View>
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,
-                 marginLeft:  Platform.OS === 'ios' ? 6:8,
-                 marginRight:  Platform.OS === 'ios' ? 11:8,
-                 flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'red'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                        fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
-                          <View style={{flexDirection:'row'}}>
-                           <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                          style={{ width:13,height:13,marginTop:4,marginRight:5}}
-                            />  
-
-                           <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                           fontWeight:'bold',color:'#677183',
-                           paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
-                           </View>
-                     </View>
-   </View>  
-</View>  
-</TouchableOpacity>
+                       
+                       return ( 
+<BicardView key={i}
+fotoGrande={item.fotoGrande}
+fotoUser={item.fotoUser}
+usuario={item.usuario}
+num_segui={item.num_segui}
+mensaje={item.mensaje}
+dia={item.dia}
+mes={item.mes}
+texto1={item.texto1}
+ texto2={item.texto2}
+ direccion={item.direccion}
+/>
+                       )}
+                     )
+     }
  {/* -------------------------------------------------------------------*/}
 
-      {/* -----------------BICARDVIEW--------------*/}       
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,
-               width:Platform.OS === 'ios' ? 339:328,
-              height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault-1.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
-
-
-<View>
-<View style={{flexDirection:'row',
-            marginHorizontal:16,marginVertical:14,
-             position:'absolute',bottom:0,zIndex:4}}>
-
-     <View style={{flex:2}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-      </View>
-
-      <View style={{flex:3,flexDirection:'column'}}>
-     
-          <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>Mabel Spencer</Text>
-         </View>
-      
-     
-             <View  style={styles.estrellasTrendingNuevo}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                        </View>
-     
-  
- </View>
-
-
-<View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              @ 34
-            </Text>
-      </View>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              Only 2 tickets left
-            </Text>
-      </View>
-  
-    </View>
-
-  </View>
-  <Text style={styles.transparenteNuevo}></Text>
- </View>
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,
-                 marginLeft:  Platform.OS === 'ios' ? 6:8,
-                 marginRight:  Platform.OS === 'ios' ? 11:8,
-                 flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'red'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                        fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
-                        <View style={{flexDirection:'row'}}>
-                           <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                          style={{ width:13,height:13,marginTop:4,marginRight:5}}
-                            />  
-
-                           <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                           fontWeight:'bold',color:'#677183',
-                           paddingVertical:4}}>Live from New York, at 18:30 pm</Text>
-                           </View>
-                     </View>
-             </View>  
-</View>  
- {/* -------------------------------------------------------------------*/}
-  
-
-        
  </ScrollView>
      
     );
@@ -289,7 +135,7 @@ const styles = StyleSheet.create({
  
  //PARA BICARDVIEW
  transparenteNuevo:{
-  width:  Platform.OS === 'ios' ? 325:315,
+ 
   height:60,
   position:'absolute',
   zIndex:3,

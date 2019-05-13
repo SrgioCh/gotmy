@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
@@ -96,6 +96,8 @@ rPending=(<ScrollView>
   
   </ScrollView>)
 
+screenwidth=Dimensions.get('window').width;
+screenheigth=Dimensions.get('window').height;
 
   constructor(props){
 
@@ -129,8 +131,6 @@ rPending=(<ScrollView>
     textoTres:styles.textoNormal,
 
 
-    mostramos:this.rPending,
-
       }
   
   }// fin de consttructor
@@ -138,9 +138,9 @@ rPending=(<ScrollView>
   cambiarVista=(num)=>{
 
     if(num==1){
-       
+      this.refs.scrol.scrollTo({x:0, y:0, animated: true})  
         this.setState({
-            mostramos:this.rPending, 
+           
             menu1:styles.menuelegido,
             textoUno:styles.textoElegido,
   
@@ -151,9 +151,9 @@ rPending=(<ScrollView>
             textoTres:styles.textoNormal,
         })
     }else if(num==2){
-       
+      this.refs.scrol.scrollTo({x:this.screenwidth, y:0, animated: true})
         this.setState({
-            mostramos:<RequestAcepted  enviaAPadre={this.recogeDeHijo.bind(this)} />,
+
             menu1:styles.menunormal,
             textoUno:styles.textoNormal,
 
@@ -164,9 +164,9 @@ rPending=(<ScrollView>
             textoTres:styles.textoNormal,
         })
     }else if(num==3){
-      
+      this.refs.scrol.scrollTo({x:this.screenwidth*2, y:0, animated: true})
         this.setState({
-            mostramos:<RequestRejected/>,
+          
             menu1:styles.menunormal,
             textoUno:styles.textoNormal,
 
@@ -188,6 +188,50 @@ recogeDeHijo(dato){
   }
  
 
+  
+transicion=(num)=>{
+
+  if(num==1){
+    
+      this.setState({
+          menu1:styles.menuelegido,
+          textoUno:styles.textoElegido,
+           menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+          menu3:styles.menunormal,
+          textoTres:styles.textoNormal,
+           
+      })
+  }else if(num==2){
+     
+      this.setState({
+           menu1:styles.menunormal,
+           textoUno:styles.textoNormal,
+           menu2:styles.menuelegido,
+           textoDos:styles.textoElegido,
+            menu3:styles.menunormal,
+            textoTres:styles.textoNormal,
+          
+      })
+  }else if(num==3){
+    
+      this.setState({
+         
+          menu1:styles.menunormal,
+          textoUno:styles.textoNormal,
+       
+
+          menu2:styles.menunormal,
+          textoDos:styles.textoNormal,
+         
+
+          menu3:styles.menuelegido,
+          textoTres:styles.textoElegido,
+          
+      })
+  }
+
+}
 
   render() {
 
@@ -225,7 +269,7 @@ recogeDeHijo(dato){
              onPress={() => this.props.navigation.navigate("publishEven1")}
               >
               <Image source={require('../../assets/icons_genGMI/requestDetail.png')} 
-                        style={{ width:40,height:40,
+                        style={{ width:35,height:35,
                                   borderRadius:10}}
                         />
                  </TouchableOpacity>
@@ -285,7 +329,57 @@ recogeDeHijo(dato){
 
  {/* ------------------------*/} 
 
-    {this.state.mostramos}
+ <ScrollView  ref='scrol'
+               horizontal={true} 
+                pagingEnabled={true}
+                onScroll={
+                  (event)=>{
+                    pos=event.nativeEvent.contentOffset.x;
+                    if(pos==0){
+                      this.transicion(1);
+                     
+                    }else if(pos==this.screenwidth && pos<this.screenwidth*2){
+                      this.transicion(2);
+                    
+                    }else if(pos>=this.screenwidth*2){
+                      this.transicion(3);
+                    
+                    }
+                  }
+                }
+               
+              
+                >
+     
+               <View  style={{
+                   flex:1,
+                   width:this.screenwidth,
+
+                 }}>
+                 {this.rPending}
+ 
+ 
+               </View>
+               <View  style={{
+                
+                   flex:1,
+                   width:this.screenwidth,
+                  
+
+                 }}>
+               <RequestAcepted  enviaAPadre={this.recogeDeHijo.bind(this)} />
+               </View>
+               <View  style={{
+                  
+                   flex:1,
+                   width:this.screenwidth,
+                  
+
+                 }}>
+              <RequestRejected/>
+               </View>
+
+            </ScrollView>
    
     </View>
   

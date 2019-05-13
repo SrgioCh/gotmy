@@ -4,7 +4,10 @@ import { AppRegistry, Alert,TouchableOpacity,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import BicardView from './../components/bicardview'
+  import EventContents from "./../components/eventContents" 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class Profileviewer extends Component {
    static navigationOptions = {
@@ -17,35 +20,79 @@ export default class Profileviewer extends Component {
     super(props);
   
      this.state={
-          tytexto:'',
-          menu1:styles.menuelegido,
-          menu2:styles.menunormal,
-          menu3:styles.menunormal,
+     //para cardview
+        fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault-3.jpg'),
+        fotoUser: require('../assets/influencers/influencer.png') ,
+        usuario:'Kala|Tempo',
+        num_segui:34,
+        mensaje:'Only 2 tickets left',
+        dia:21,
+        mes:'DEC',
+        texto1:'My FIRST God of War experience!',
+        texto2:'Games',
+        direccion:'Live from New York, at 18:30 pm',
+        
+        //para los evencotent
+        usuarios:[
+           {
+            fecha:'Monday, 19/12/2018',
+            descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+            imagVideo:require('../assets/influencers/chicacorriendo.jpg'),
+            duraVid:'12:40',
+            tipo:'Naturs,Outdoors & Chefs'
+       
+           },
+           {
+             fecha:'Monday, 19/12/2018',
+            descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+            imagVideo:require('../assets/influencers/chicarosa.jpg'),
+            duraVid:'12:40',
+            tipo:'Naturs,Outdoors & Chefs'
+           },
+        ]
      
       }
   
   }// fin de consttructor
 
   
- //  *** DECLARACION DE FUNCIONES **************
-
-seleccion1=() =>{
-   
-  if(this.state.menu1!==styles.menuelegido){
-      
-     }
-      
-   } //  fin dela funcion
-
- 
- 
-
-
-
   render() {
 
     let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+   
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      instaTop=-5
+      botCard='40%'
+      leftEvent=10
+    }else if(screenHeight<=605){ //mopvil de  david
 
+      instaTop=-5
+      botCard='40%'
+      leftEvent=10
+  
+  } else if(screenHeight<=678){ // mi movil
+   instaTop=-5
+   botCard='40%'
+   leftEvent=10
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+      instaTop=-5
+      botCard='40%'
+      leftEvent=50
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+      instaTop=-5
+      botCard='35%'
+      leftEvent=50
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+      instaTop=-5
+      botCard='40%' 
+      leftEvent=10
+   }else{ // 800 = 480 * 800 mdpi
+      instaTop=-5
+      botCard='40%'
+      leftEvent=10
+   }
 
 
     return (
@@ -206,6 +253,8 @@ seleccion1=() =>{
                height:50,
                marginRight:15,
                borderRadius:30,
+               marginTop:instaTop,
+
   
                }}
             />
@@ -232,106 +281,18 @@ seleccion1=() =>{
 
 
 {/* -----------------BICARDVIEW--------------*/}       
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,width:328,height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault-2.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
-
-
-
-  <View style={{zIndex:4,flexDirection:'row',
-            marginLeft:8,marginRight:14,bottom:100,
-             position:'absolute',}}>
-
-
-             <View style={{flex:2,zIndex:4,alignItems:'center'}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-                </View>
-
-                <View style={{flex:4,zIndex:4,flexDirection:'column'}}>
-                     <View>
-                     <Text style={{fontSize:17,color:'white',marginTop:7}}>
-                      Influencer</Text>
-                    </View>
-                    <View style={{flexDirection:'row'}}>
-                       <View style={{ width:10,height:10,marginTop:5}}>
-                        <Image source={require('../assets/buscador/lupa.jpg')} 
-                         style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                         />
-                       </View>
-                        <Text style={{fontSize:13,color:'white',marginLeft:4}}>Country</Text>
-                    </View>
-  
-              </View>
-
-              <View style={{flex:1}}>
-                           <View  style={styles.estrellasTrending}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                           </View>
-  
-               </View>
-            <View style={{flex:2,alignItems:'flex-end',zIndex:4,
-                justifyContent:'center'}}>
-              <View>
-                <Text style={{color:'white',bottom:-5}}>
-                   @ 34
-                </Text>
-            </View>
-          <View >
-                <Text style={{color:'white' ,marginLeft:-40,marginTop:3}}>
-                  Only 2 tickets left
-                </Text>
-           </View>
-   </View>
-       
-  <Text style={styles.transparente}></Text>
- </View>
-
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,marginHorizontal:10,flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'#ff5a60'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize:17,fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:16,fontWeight:'bold',color:'#ff5a60'}} >Games</Text>
-                      <Text style={{ fontSize:13,fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
-                     </View>
-   </View>  
-</View>  
+  <BicardView 
+          fotoGrande={this.state.fotoGrande}
+          fotoUser={this.state.fotoUser}
+          usuario={this.state.usuario}
+          num_segui={this.state.num_segui}
+          mensaje={this.state.mensaje}
+          dia={this.state.dia}
+          mes={this.state.mes}
+          texto1={this.state.texto1}
+           texto2={this.state.texto2}
+           direccion={this.state.direccion}
+       />
  {/* -------------------------------------------------------------------*/}
 
 {/* Past Live events*/}
@@ -357,54 +318,13 @@ seleccion1=() =>{
 {/* --------------------------- --------------------*/}
 
  {/* ------------- LISTA VIDEO ----------------------------*/}
- <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:20,paddingBottom:15 }}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Sports</Text>
-                  </View>
-         </View>        
-        <View >
-
-            <View style={{zIndex:2, width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/influencers/chicacorriendo.jpg')} 
-                  style={{zIndex:2,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                       fontWeight:'bold',
-                        backgroundColor:'black',
-                        opacity:0.5,
-                      
-                       paddingHorizontal:25,
-                       paddingVertical:7,
-                       bottom:8,
-                       right:4,
-                       zIndex:4,
-                       borderRadius:10,
-                      }}></Text>
-             <Text
-              style={{
-               position:'absolute',
-               zIndex:6,
-               bottom:9,
-               right:10,
-               color:'white',
-   
-              }}>04:30</Text>
-        </View>
-          
- </View>
-
+ <EventContents  
+                        fecha={this.state.usuarios[0].fecha}
+                        descripcion={this.state.usuarios[0].descripcion}
+                        imagVideo={this.state.usuarios[0].imagVideo}
+                        duraVid={this.state.usuarios[0].duraVid}
+                        tipo={this.state.usuarios[0].tipo}
+                        />
 
 {/*-------------------------------------------------------------------------------- */}
 
@@ -491,45 +411,17 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 </Text>
 
            {/* caja imagen de video*/}
-  <View style={{flexDirection:'row',marginHorizontal:16,
-               paddingTop:10,paddingBottom:15, 
-                 borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
-           <View>
-                   
-                        
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={{color:18 ,color:'#697181',
-                                     paddingBottom:5}}>Monday, 18/12/2018 </Text>
-                           <Text style={styles.textTren}>Teaching Machamp THE BEST </Text>
-                           <Text style={styles.textTren} >MOVE IN THE GAME </Text>
-                           <Text style={{color:'#ff5a60',fontSize:16
-                                 ,paddingTop:5}}>Sports</Text>
-                  </View>
-         </View>        
-        <View >
 
-            <View style={{ width:110,height:84,marginLeft:10,marginTop:1}}>
-                <Image source={require('../assets/OnBoard/fitness.jpg')} 
-                  style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-             </View>
-             <Text style={{
-                       position:'absolute',
-                        fontWeight:'bold',
-                         backgroundColor:'black',
-                        opacity:0.5,
-                        color:'white',
-                        paddingHorizontal:10,
-                        paddingVertical:2,
-                        bottom:8,
-                        right:4,
-                        borderRadius:10,
-                       }}>08:30</Text>
+           <View style={{marginBottom:hp('2%')}}>
+        <EventContents  
+                        fecha={this.state.usuarios[1].fecha}
+                        descripcion={this.state.usuarios[1].descripcion}
+                        imagVideo={this.state.usuarios[1].imagVideo}
+                        duraVid={this.state.usuarios[1].duraVid}
+                        tipo={this.state.usuarios[1].tipo}
+                        />
+
         </View>
-          
- </View>
-
 {/*-------------------------------------------------------------------------------- */}
 
 

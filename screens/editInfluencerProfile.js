@@ -1,8 +1,9 @@
 import React from 'react';
 import { Platform,StyleSheet,View,Alert,
-   Text,TouchableOpacity,TextInput,KeyboardAvoidingView ,
+   Text,TouchableOpacity,TextInput,KeyboardAvoidingView ,Dimensions,
    ScrollView,Image, Modal } from 'react-native';
    import Button from 'react-native-button'; 
+   import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Editinfluencerprofile extends React.Component {
 
@@ -35,6 +36,10 @@ constructor(props) {
     marca4:styles.Textsinmarcar,
     texto4:'Connect',
 
+     //trending 
+     source7: require('../assets/manga.jpg'),
+     source8: require('../assets/motor.jpg'),
+     source9: require('../assets/nature.jpg'),
     //PARA VENTANA MODAL
      modalVisible: false,
    
@@ -48,6 +53,58 @@ toggleModal(visible) {
 
 
   render() {
+
+    let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+   
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      widFot=330
+      widImag=104
+      heImag=104 
+      leftBut=90
+      leftEN=110
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      widFot='92%'
+      widImag=104
+      heImag=104 
+     leftBut=90
+     leftEN=110
+  } else if(screenHeight<=678){ // mi movil
+    widFot='92%'
+    widImag=104
+    heImag=104 
+    leftBut=90
+    leftEN=110
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    widFot='93%'
+    widImag=122
+    heImag=120 
+    leftBut=130
+    leftEN=150
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    widFot='93%'
+    widImag=122
+    heImag=120 
+    leftBut=130
+    leftEN=150
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    widFot='93%'
+    widImag=104
+    heImag=104 
+    leftBut=90
+    leftEN=110
+   }else{ // 800 = 480 * 800 mdpi
+    widFot='93%'
+    widImag=104
+    heImag=104 
+    leftBut=90
+    leftEN=110
+   }
+
+
+
     return (
 
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
@@ -63,7 +120,7 @@ toggleModal(visible) {
                   </View> 
 
                  <View style={{backgroundColor:'white',borderRadius:20,
-                          position:'absolute',left:'8%',
+                          position:'absolute',left:'14%',
                           top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
                        paddingVertical:'15%'}}> 
 
@@ -73,7 +130,7 @@ toggleModal(visible) {
        
                         <Text style={{
                           color:'#312f3d',fontSize:20,fontWeight:'500'
-                    }} >Cambios Realizados!</Text>
+                    }} >Changes done!</Text>
 
          
                 <View style={{
@@ -153,7 +210,7 @@ toggleModal(visible) {
              </View>
 
 
-             <Image style={styles.imagen}
+             <Image style={[styles.imagen,{width: Platform.OS === 'ios' ? '91%':widFot}]}
   
   source={require('../assets/blanco.jpg')}
 />
@@ -242,43 +299,82 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
  </View>
 </View>
 
+<View style={styles.filas}>
+<TouchableOpacity 
+  style={{borderRadius:10,flex:1,height:hp('15%')}}
+     onPress = { () => {
+       if (this.state.source7 == require("../assets/manga.jpg") )
+       {
+           this.setState({
+               source7: require("../assets/13.png")
+           })
+       }
+       else{
+           this.setState({
+               source7: require("../assets/manga.jpg")
+           })
+       }
+   }}
+     >
+     <Text style={styles.textoprueba}>
+             Manga
+          </Text>
+     <Image source={this.state.source7} 
+            style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
+              />
+     </TouchableOpacity>  
+          
 
-<View style={{ marginHorizontal:16 ,marginVertical:30 }}>
-
-
-<View style={styles.socialTrending}>  
-
-  <View style={{borderRadius:10,width:104, height:104 }}>
-     <Text style={styles.textoprueba2}>
-      Manga
-    </Text>
-    <Image source={require('../assets/OnBoard/manga.jpg')} 
-   style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
-    />
-  </View>
-
-  <Text >{" "}{" "}</Text>
- <View style={{borderRadius:10,width:104, height:104 }} >
-   <Text style={styles.textoprueba2}>
-    Motor
-     </Text>
-    <Image source={require('../assets/OnBoard/motor.jpg')} 
-      style={{borderRadius:10,width: '100%', height: '100%'}}
-     />
-   </View>
-
- <Text >{" "}{" "}</Text>
-
-   <View style={{borderRadius:10,width:104, height:104 }}  >
-       <Text style={styles.textoprueba}>
-       Nature,{'\n'}Outdoors
-       </Text>
-    <Image source={require('../assets/OnBoard/nature.jpg')} 
-     style={{borderRadius:10,width: '100%', height: '100%'}}
-     />
-  </View>
+        <TouchableOpacity 
+      style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}    
+     onPress = { () => {
+       if (this.state.source8 == require("../assets/motor.jpg") )
+       {
+           this.setState({
+               source8: require("../assets/12.png")
+           })
+       }
+       else{
+           this.setState({
+               source8: require("../assets/motor.jpg")
+           })
+       }
+   }}
+     >
+      <Text style={styles.textoprueba}>
+        Motor
+        </Text>
+     <Image source={this.state.source8} 
+       style={{borderRadius:10,width:'100%', height:'100%'}}
+        />
+     </TouchableOpacity>  
+       
+    <TouchableOpacity 
+      style={{borderRadius:10,flex:1,height:hp('15%')}}
+     onPress = { () => {
+       if (this.state.source9 == require("../assets/nature.jpg") )
+       {
+           this.setState({
+               source9: require("../assets/11.png")
+           })
+       }
+       else{
+           this.setState({
+               source9: require("../assets/nature.jpg")
+           })
+       }
+   }}
+     >
+     <Text style={styles.textoprueba}>
+        Nature,{'\n'}Outdoors and {'\n'}Oets
+        </Text>
+     <Image source={this.state.source9} 
+       style={{borderRadius:10,width:'100%', height:'100%'}}
+       />
+     </TouchableOpacity>  
+ 
 </View>
-</View>
+
 
 
 
@@ -287,22 +383,28 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
    <Text style={styles.languageTexto} > 
         Language
     </Text>
-    <Text style={styles.languageTexto2}>English, Spanish </Text>
+    <Text style={[styles.languageTexto2,{  marginLeft:leftEN,}]}>English, Spanish </Text>
     <Text style={styles.languageBoton} > 
             > 
     </Text>
  </View> 
 
 <Text style={styles.tituloConect} >Connect  your social networks</Text>
-<View style={styles.social}>
-                                 <Image style={styles.imagenSocial}
-                                source={require('../assets/social/Linkedin.png')}
-                                 />
-                                 <View style={styles.socialTextoBut}>
-                                     <Text style={styles.socialTexto}>Linkedin {" "}</Text>
+
+<View style={{flexDirection:'row',marginHorizontal:'4%'}}>
+                               <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
+                                      source={require('../assets/social/Linkedin.png')}
+                                       />
+                               </View>
+                                
+                                 <View style={{flex:4.4,justifyContent:'center'}}>
+                                     <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Linkedin</Text>
+                                </View>
          
-         
+                                <View style={{flex:4.3}}>
                                      <TouchableOpacity 
+                                     style={{ alignItems:'center'}}
                                     onPress = { () => {
                                      if (this.state.linkedin!==false)
                                     {
@@ -330,16 +432,23 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                                       </View>
                                     </TouchableOpacity>
                            
-                                </View>
+                              </View>
                              </View> 
                           {/* --------------------------------------------- */}
-                          <View style={styles.social}>
-                             <Image style={styles.imagenSocial}
+                          <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('2%')}}>
+                            
+                          <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
                             source={require('../assets/social/Twitch.png')}
                              />
-                             <View style={styles.socialTextoBut}>
-                                 <Text style={styles.socialTexto}>Twitch {" "} {" "}{" "}</Text>
+                             </View>
+
+                             <View style={{flex:4.4,justifyContent:'center'}}>
+                                 <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Twitch</Text>
+                             </View> 
+                             <View style={{flex:4.3}}>
                                  <TouchableOpacity 
+                                  style={{ alignItems:'center'}}
                                 onPress = { () => {
                                  if (this.state.twitch!==false)
                                 {
@@ -365,20 +474,28 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                                   </Text>
                                   </View>
                                   </TouchableOpacity>
-                             </View>
+                                  </View>
+                            
                          </View>
                       {/* ----------------------------------------------- */}
 
 
 
                       {/* --------------------------------------------- */}
-                      <View style={styles.social}>
-                             <Image style={styles.imagenSocial}
+                      <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('2%')}}>
+                       <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
                             source={require('../assets/social/Twitter.png')}
                              />
-                             <View style={styles.socialTextoBut}>
-                                 <Text style={styles.socialTexto}>Twitter {" "} {" "}{" "}</Text>
+                          </View>
+
+                             <View style={{flex:4.4,justifyContent:'center'}}>
+                                 <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Twitter</Text>
+                              </View> 
+                               
+                              <View style={{flex:4.3}}>
                                  <TouchableOpacity 
+                                 style={{ alignItems:'center'}}
                                 onPress = { () => {
                                  if (this.state.twiter!==false)
                                 {
@@ -394,7 +511,7 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                                           twiter:true,
                                           caja3: styles.socialBotonBlanco,
                                           marca3:' ',
-                                                                      texto3:'✔ Connected',
+                                          texto3:'✔ Connected',
                                        })
                                      }
                                    }}
@@ -413,13 +530,20 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
 
 
                        {/* --------------------------------------------- */}
-                       <View style={styles.social}>
-                              <Image style={styles.imagenSocial}
+                       <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('2%')}}>
+                       <View style={{flex:1.3}}>
+                                        <Image style={{height:35,width:35}}
                              source={require('../assets/social/Youtube.png')}
                               />
-                              <View style={styles.socialTextoBut}>
-                                  <Text style={styles.socialTexto}>Youtube {" "}{" "}</Text>
-                                  <TouchableOpacity 
+                        </View>   
+
+                         <View style={{flex:4.4,justifyContent:'center'}}>
+                                 <Text style={{color:'#312f3d',fontSize:wp('4%'),fontWeight:'500'}}>Youtube</Text>
+                              </View>
+
+                               <View style={{flex:4.3}}>
+                                 <TouchableOpacity 
+                                 style={{ alignItems:'center'}}
                                  onPress = { () => {
                                   if (this.state.yutub!==false)
                                  {
@@ -448,6 +572,9 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                                    </TouchableOpacity>
                                                      </View>
                                  </View>
+
+
+
                        {/* ----------------------------------------------- */}
                  <TouchableOpacity
                   onPress={() =>  this.toggleModal(!this.state.modalVisible)  }
@@ -464,14 +591,14 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                       paddingVertical:25,
                        alignItems:'center',
                       borderRadius:27,
-                      
+                      justifyContent:'center'
                   }}>
                
                        <Text  style={{
                          
                           color:"white",
                         fontSize:17,
-                        marginTop:'-4%'
+                      
 
                        }}> 
                        Save changes
@@ -529,7 +656,7 @@ subtitulo:{
 imagen:{
   marginTop:36,
   marginLeft:16,
-  width: 330,
+
    height:210 ,
    padding:16,
    borderRadius:20,
@@ -579,7 +706,7 @@ contentContainer: {
 language:{
   borderBottomWidth: 1,
   borderBottomColor:'#e2e7ee',
-
+  marginTop:hp('2%'),
   marginBottom:10,
   marginLeft:15,
   flexDirection: 'row',
@@ -595,7 +722,7 @@ languageTexto2:{
   color:"#312f3d",
   fontSize:17,
   //paddingBottom: 20,
-  marginLeft:100,
+ 
   marginRight:30,
   },
   
@@ -613,86 +740,57 @@ languageTexto2:{
     padding:20,
   },
 
-   social:{
-    
-    height:64,
-    marginLeft:15,
-    flexDirection: 'row',
-    alignItems:'center',
   
-   },
-   imagenSocial:{
-  
-  },
-  
- 
-  socialTextoBut:{
-    borderBottomWidth: 1,
-    borderBottomColor:'#e2e7ee',
-  
-   flexDirection:'row',
-   alignItems:'center',
-  // paddingBottom:10,
-   paddingVertical:10,
- 
 
-  },
-  socialTexto:{
-     marginLeft:15, 
-    
-  },
+ //  botones  de  redes  sociales
 
-  socialBotone:{
-    borderRadius: Platform.OS === 'ios' ? 18:27,
-    marginLeft:90,
-   backgroundColor:'#ff5a60',
-    paddingVertical:8,
-    paddingHorizontal: Platform.OS === 'ios' ? 43:40,
-   
-    borderWidth:1,
-    borderColor:'#ff5a60',
-  },
-  Textsinmarcar:{
-    color:'white',
-  },
-  socialBotonBlanco:{
-    marginLeft:95,
- 
-    backgroundColor: 'white',
-    paddingVertical:8,
-    paddingHorizontal:20,
-    color:'black',
-    borderRadius: Platform.OS === 'ios' ? 18:27,
-    borderWidth:1,
-    borderColor:'black',
-  },
+ //al inicio
+ socialBotone:{
+  borderRadius: Platform.OS === 'ios' ? 18:hp('5%'),
+  backgroundColor:'#ff5a60',
+  paddingVertical:8,
+ width:'80%',
+  borderWidth:1,
+  borderColor:'#ff5a60',
+alignItems:'center'
+},
+Textsinmarcar:{
+  color:'white',
+  fontSize:wp('3.5%'),
+  fontWeight:'500'
+},
+//
+socialBotonBlanco:{
+backgroundColor: 'white',
+  paddingVertical:8,
+  width:'80%',
+  color:'black',
+  borderRadius: Platform.OS === 'ios' ? 18:hp('5%'),
+  borderWidth:1,
+  borderColor:'black',
+  alignItems:'center'
+},
+
+
+
   //**** TRENDING CATEGORIES */
-socialTrending:{
-    
-
-  marginBottom:7,
-   flexDirection: 'row',
- 
- 
+  filas: {
+    flex: 1, 
+    flexDirection: 'row',
+    marginTop:hp('1.5%'),
+    marginHorizontal:'4%'
   },
+  
   textoprueba:{
-   padding:5,
-   position:'absolute',
-   zIndex:3,
-   color:'white',
-   marginTop:43,
-   fontWeight:'500',
-   textAlign:'left',
-  },
-  textoprueba2:{
-      padding:5,
-      position:'absolute',
-      zIndex:3,
-      color:'white',
-      marginTop:60,
-      fontWeight:'500',
-      textAlign:'left', 
-  },
+    position:'absolute',
+    zIndex:3,
+    color:'white',
+    fontWeight:'500',
+    textAlign:'left',
+    bottom:hp('2%'),
+    left:wp('2%')
+   },
+ 
   //VENTANA MODAL
 // ventana modal
 modal: {
@@ -717,6 +815,8 @@ marginTop:20,
 marginBottom: 10,
 
 },
+
+//
 
 
 });

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
   import Checkbox from 'react-native-modest-checkbox';
   import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class RequestPri3 extends Component {
 
@@ -69,6 +70,30 @@ presiona=()=>{
 
 
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      topBut='0.1%'
+    
+    }else if(screenHeight<=605){ //mopvil de  david
+      topBut='10%'
+ 
+  } else if(screenHeight<=678){ // mi movil
+    topBut='10%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut='10%'
+ 
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut='20%'
+    
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut='22.5%'
+    
+   }else{
+    topBut='22.5%'
+   
+   }
+
 
     return (
       <View style={{flexDirection:'column'}}>
@@ -120,7 +145,7 @@ presiona=()=>{
  
   </View>
   {/* precio */}
-  <View style={{flexDirection: 'row',marginHorizontal:16,marginVertical:20}}>
+  <View style={{flexDirection: 'row',marginHorizontal:16,marginVertical:8}}>
       <View style={{flex:1,flexDirection:'column'}}>
          <Text style={{
              color:'#697181',
@@ -158,7 +183,7 @@ presiona=()=>{
   </View>
   {/* fin */}
   <View style={{ marginHorizontal:16,
-      paddingVertical: 10,}}>
+      paddingVertical: 5,}}>
         <Text style={{color:'#697181',
                  fontSize:13}} >Live Event Date</Text>
        </View>
@@ -183,7 +208,7 @@ presiona=()=>{
  
 </View>
 {/*  fin */}
-<View style={{flexDirection: 'row',marginHorizontal:16,marginVertical:20}}>
+<View style={{flexDirection: 'row',marginHorizontal:16,marginVertical:10}}>
       <View style={{flex:5,flexDirection:'column'}}>
          <Text style={{
              color:'#697181',
@@ -267,12 +292,21 @@ $ 2,200</Text>
 </View>
 </View>
 
-      <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("requestPri4")}
-                         style={{color:'white',fontSize:17}}
-                       >Send private request</Button>      
-                   </View> 
+   
+
+     <View style={{marginTop:hp (topBut),alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+        onPress={() => this.props.navigation.navigate("requestPri4")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+       Send private request</Text>      
+      </TouchableOpacity> 
+    </View>
+
+
+
+
    </ScrollView>
  </View>
 
@@ -309,10 +343,8 @@ const styles = StyleSheet.create({
         width:'90%',
         paddingVertical:13,
         borderRadius:27,
-        textAlign:"center",
-        marginTop:25,
-     marginBottom:10,
-        marginHorizontal:'4%'
+        alignItems:'center',
+        marginBottom:40,
     
       },
 

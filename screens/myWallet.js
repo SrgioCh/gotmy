@@ -29,6 +29,40 @@ export default class MyWallet extends Component {
 
   render() {
 
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      fotHei='105%';
+      transHei='64.5%';
+    }else if(screenHeight<=605){ //mopvil de  david
+      fotHei='107%';
+      transHei='67%';
+  
+  } else if(screenHeight<=678){ // mi movil
+    fotHei='107%';
+    transHei='67%';
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    fotHei='107%';
+    transHei='67%';
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    fotHei='107%';
+    transHei='67%';
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    fotHei='107%';
+      transHei='67%';
+   }else{ // 800 = 480 * 800 mdpi
+    fotHei='107%';
+      transHei='67%';
+    
+   }
+
+
+
+
+
+
+
+
      dineroPrincipal='7,265.50';
      total=150.9423;
 
@@ -161,7 +195,7 @@ export default class MyWallet extends Component {
               source={require('../assets/influencers/KalaTempo/dos.jpg')}
                style={{
                width:screenWidth, //para imagen grande a la pantalla
-               height:'107%',
+               height:fotHei,
               zIndex:1,
            
                }}
@@ -170,7 +204,7 @@ export default class MyWallet extends Component {
 			 <View style={{
         zIndex:2,
         paddingLeft:screenWidth,
-        paddingTop:'67%',
+        paddingTop:transHei,
         backgroundColor:"black",
         opacity:0.7,
         position:'absolute'
@@ -271,17 +305,18 @@ export default class MyWallet extends Component {
 
  <View style={{ flex:1}}>
  
- <View style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
-  
-  alignItems:'center',justifyContent:'center'}}>
+ 
        <TouchableOpacity
+       style={{flex:1,backgroundColor:'#ff5a60',padding:'5%',
+  
+       alignItems:'center',justifyContent:'center'}}
         onPress={() => this.props.navigation.navigate("transferTomyAcount",{diner:dineroPrincipal})}
       > 
      <Text style={{flex:1 , color:'white', 
          fontSize:17,letterSpacing:0.41 }}>
          Transfer to my bank account</Text>
          </TouchableOpacity>
-     </View>
+      
   </View>
  </View>
      

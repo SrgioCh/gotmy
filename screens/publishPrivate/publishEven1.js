@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Platform,
-  View,Text ,TextInput,ScrollView ,
+  View,Text ,TextInput,ScrollView ,Dimensions,
   StyleSheet,KeyboardAvoidingView,
   Image,TouchableOpacity} from 'react-native';
 
   import Button from 'react-native-button'; 
-  
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class PublishEven1 extends Component {
 
@@ -38,6 +39,28 @@ export default class PublishEven1 extends Component {
 
   render() {
      //alert(this.state.textoLive)
+
+     let screenHeight=Dimensions.get('window').height;
+    
+     if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      butTop=20
+     }else if(screenHeight<=605){ //mopvil de  david
+ 
+      butTop=20
+  
+   } else if(screenHeight<=678){ // mi movil
+    butTop=20
+    }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+      butTop=20
+    }else if(screenHeight<=775){//1440 *2880 :560dpi
+      butTop=hp('14%')
+    }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+      butTop=hp('17%')
+    }else{ // 800 = 480 * 800 mdpi
+      butTop=hp('17%')
+    }
+
+
     return (
 
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
@@ -230,13 +253,16 @@ export default class PublishEven1 extends Component {
 
 
 
-
-         <View style={styles.containerbutton }>
-                <Button 
-                 onPress={() => this.props.navigation.navigate("publishEven2")}
-                style={{color:'white',fontSize:17}}
-               >Continue</Button>      
-           </View> 
+     <View style={{  marginTop:butTop,alignItems:'center'}}>
+       
+        <TouchableOpacity style={styles.containerbutton}
+        onPress={() => this.props.navigation.navigate("publishEven2")}
+        > 
+        <Text style={{color:'white',fontSize:wp('4.5%')}}>
+          Continue </Text>      
+       </TouchableOpacity> 
+     </View>
+         
 
 
  
@@ -279,15 +305,14 @@ const styles = StyleSheet.create({
         marginBottom:8,
       
       },
-      containerbutton:{
+       containerbutton:{
         backgroundColor: '#ff5a60',
         width:'90%',
         paddingVertical:13,
         borderRadius:27,
-        textAlign:"center",
-        marginTop:20,
-     marginBottom:40,
-        marginHorizontal:'4%'
+        alignItems:'center',
+        marginBottom:40,
+     
     
       },
 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
 import {CheckBox} from "react-native-elements";
 import Checkbox from 'react-native-modest-checkbox';
-import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class  TransferTomyAcount extends Component {
     static navigationOptions = {
@@ -51,17 +52,66 @@ export default class  TransferTomyAcount extends Component {
  
     const dinero = this.props.navigation.getParam('diner');
 
-   
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      fontM=14;
+      fontN=12;
+      marginVer=10
+      topcheck=5
+      topBut=5
+  
+    }else if(screenHeight<=605){ //mopvil de  david
+      fontM=16;
+      fontN=14;
+      marginVer=25
+      topcheck=15
+      topBut=50
+ 
+  } else if(screenHeight<=678){ // mi movil
+    fontM=16;
+    fontN=14;
+    marginVer=25
+    topcheck=15
+    topBut=50
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    fontM=16;
+    fontN=14;
+    marginVer=25
+    topcheck=15
+    topBut=50
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    fontM=16;
+      fontN=14;
+      marginVer=25
+      topcheck=15
+      topBut=140
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    fontM=16;
+      fontN=14;
+      marginVer=25
+      topcheck=15
+      topBut=120
+   }else{ // 800 = 480 * 800 mdpi
+    fontM=16;
+      fontN=14;
+      marginVer=25
+      topcheck=15
+      topBut=120
+   }
+
+
+
     return (
 
         <View  style={{flex:1}}>
 
-        <View  style={{flex:10}}>
-                  <ScrollView style={{}} >
+        <View  style={{flex:8.5}}>
+             
         
         {/*  CAJA DE IMAGEN*/}
             
-            <View style={{alignItems:'center',justifyContent:'center',
+            <View style={{alignItems:'center',justifyContent:'center',marginTop:15,
                          marginHorizontal:35}}>
         
                  
@@ -85,7 +135,7 @@ export default class  TransferTomyAcount extends Component {
                    </Text>
           </View>
         
-        <View style={{marginTop:25,marginHorizontal:'3%'}}>
+        <View style={{marginVertical:marginVer,marginHorizontal:'3%'}}>
              <Text style={{color:'#312f3d', fontSize:16, fontWeight:'500', letterSpacing:0.32,
                }}>  Choose a payment method
              </Text>
@@ -96,7 +146,7 @@ export default class  TransferTomyAcount extends Component {
         
         
          <View style={{flexDirection:'row',paddingVertical:1,
-                      marginBottom:15,  marginTop:20, marginHorizontal:16}}>
+                      marginBottom:15,marginHorizontal:16}}>
         
              <View style={{flex:1,paddingRight:10}}>
              <Image
@@ -115,12 +165,12 @@ export default class  TransferTomyAcount extends Component {
                   
                    <View>
                       <Text style={{
-                          color:'#312f3d',fontSize:16,letterSpacing:0.32, 
+                          color:'#312f3d',fontSize:fontM,letterSpacing:0.32, 
                       }}>Master Card</Text>
                    </View>
                    <View   >
                       <Text style={{
-                          color:'#677183',fontSize:14
+                          color:'#677183',fontSize:fontN
                       }}>**** **** **** 0959</Text>
                        
                    </View>
@@ -193,12 +243,12 @@ export default class  TransferTomyAcount extends Component {
              paddingBottom:10,  borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
                    <View>
                       <Text style={{
-                          color:'#312f3d',fontSize:16,letterSpacing:0.32, 
+                          color:'#312f3d',fontSize:fontM,letterSpacing:0.32, 
                       }}>Paypal account</Text>
                    </View>
                    <View   >
                       <Text style={{
-                          color:'#677183',fontSize:14
+                          color:'#677183',fontSize:fontN
                       }}>info@email.com</Text>
                        
                    </View>
@@ -255,7 +305,7 @@ export default class  TransferTomyAcount extends Component {
              />
           </View>
 
-             <View style={{flex:5,marginLeft:-40,top:15}}>
+             <View style={{flex:5,marginLeft:-40,top:topcheck}}>
                  <Text style={styles.textgris}>
                      <Text >By creating account you accept the </Text>
                 </Text>
@@ -266,35 +316,18 @@ export default class  TransferTomyAcount extends Component {
     
     </View>
  
-        
-        {/*----------------------------------------------------- */}
-        
-        <View style={{marginTop: Platform.OS === 'ios' ? 80 :50, marginHorizontal:16,
-            alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
-          <Button
-                style={{
-                  fontSize: 15,
-                  color: 'white',
-                 
-                  padding:15,
-                 
-                  width:320,
-                 }}
-        
-                
-                styleDisabled={{color: 'red'}}
-                onPress={()=>{this.props.navigation.navigate("vieweredit")}}>
-                Transfer balance
-              </Button>
-        
-                </View>
-        
-        
-            </ScrollView>
-        
-        
-        
-                  </View>
+      
+   </View>
+   <View style={{flex:1.5,alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+        onPress={()=>{this.props.navigation.navigate("vieweredit")}}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+       Transfer balance</Text>      
+      </TouchableOpacity> 
+    </View>
+
         
         
                </View>
@@ -318,5 +351,13 @@ const styles = StyleSheet.create({
         fontSize:13,
         color:"#ff5a60",
         marginLeft:17 ,
+      },
+      containerbutton:{
+        backgroundColor: '#ff5a60',
+          width:'90%',
+          paddingVertical:13,
+          borderRadius:27,
+          alignItems:'center',
+          marginBottom:40,
       }
 });

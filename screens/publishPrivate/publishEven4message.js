@@ -3,7 +3,8 @@ import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,Dimensions,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
-  import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class PublishEven4message extends Component {
 
@@ -110,14 +111,16 @@ export default class PublishEven4message extends Component {
    {/*  fin de contenedor */}
    <TouchableWithoutFeedback>
           
-         <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("previewLiveEvent")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+     <View style={{ alignItems:'center'}}> 
+       
+       <TouchableOpacity style={styles.containerbutton}
+          onPress={() => this.props.navigation.navigate("previewLiveEvent")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
 
-   
  
          </TouchableWithoutFeedback>
     </View>
@@ -148,10 +151,8 @@ const styles = StyleSheet.create({
         width:'90%',
         paddingVertical:13,
         borderRadius:27,
-        textAlign:"center",
-        marginTop:10,
-     marginBottom:30,
-        marginHorizontal:'4%'
+        alignItems:'center',
+        marginBottom:40,
     
       },
     

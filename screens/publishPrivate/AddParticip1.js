@@ -125,7 +125,7 @@ export default class AddParticip1 extends Component {
          
 
   render() {
-     
+
 //CREAREMOS LAS CAJITAS CONTENEDORAS DE IMAGENES
  if(this.state.elegidosNum>0){
 
@@ -332,15 +332,15 @@ export default class AddParticip1 extends Component {
         </ScrollView>
  
       </View>
-      <View style={{flex:1,backgroundColor:'#ff5a60',
- alignItems:'center',justifyContent:'center'}}>
-    <TouchableOpacity 
+ 
+    <TouchableOpacity style={{flex:1,backgroundColor:'#ff5a60',
+ alignItems:'center',justifyContent:'center'}}
   onPress={() => this.props.navigation.navigate("createGroup",{datos:lista2})}>
 <Text style={{flex:1 , color:'white',marginTop:'5%',
     fontSize:17,letterSpacing:0.41 }}>
      Continue</Text>
      </TouchableOpacity>   
-</View>
+ 
 
            
      </View>

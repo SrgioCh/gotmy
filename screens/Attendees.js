@@ -5,6 +5,7 @@ import { Platform,AppRegistry, Alert,
   Image} from 'react-native';
 
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Attendees extends Component {
 
@@ -51,7 +52,7 @@ export default class Attendees extends Component {
     return (
      
           <View style={{flex:1}}>
-            <View style={{flex:2.5}}>
+            <View style={{flex:2.2}}>
               {/* TITULO */}  
    
    <View style={{marginHorizontal:16}}>
@@ -61,9 +62,9 @@ export default class Attendees extends Component {
    </View>
        
    {/* BUSCADOR*/}
-    <View style={{ marginHorizontal:16,paddingVertical:20,flexDirection:'row' }}>
+    <View style={{ marginHorizontal:16,paddingTop:hp('1.5%'),flexDirection:'row', }}>
          <View style={{flexDirection:'row',flex:5,backgroundColor:'#f6f6f6',
-                 alignItems:'center',marginRight:5,borderRadius:10}}>
+                 alignItems:'center',borderRadius:10}}>
                     <View style={{ width:30,height:30}}>
                         <Image source={require('../assets/buscador/lupa.jpg')} 
                          style={{borderRadius:10 ,width:'100%',height:'100%'}}
@@ -102,15 +103,15 @@ export default class Attendees extends Component {
            </View>
 
             </View>
-            <View style={{flex:7.5}}>
+            <View style={{flex:7.8 }}>
 
-            <ScrollView style={{marginTop:10}} >
+   <ScrollView style={{marginTop:hp('0.2%')}} >
    {/*  LISTA INFLUENCERRRSSSSSSSSSS */}
    
    
-   <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+   <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/loganPa.png')} 
@@ -120,7 +121,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:5.5,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -180,7 +181,7 @@ export default class Attendees extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/leroyGre.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
@@ -189,7 +190,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Leroy Greene</Text>
@@ -245,7 +246,7 @@ export default class Attendees extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/LoganPa2.png')} 
@@ -255,7 +256,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:5.5,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -315,7 +316,7 @@ export default class Attendees extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/rutheKJE.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
@@ -324,7 +325,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Ruth Jenkins</Text>
@@ -383,7 +384,7 @@ export default class Attendees extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/Caleb.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
@@ -392,7 +393,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Caleb Pena</Text>
@@ -449,7 +450,7 @@ export default class Attendees extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/loganPa.png')} 
@@ -459,7 +460,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:5.5,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>

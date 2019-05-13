@@ -4,7 +4,8 @@ import {Platform,Alert,
   StyleSheet,ScrollView,TouchableOpacity,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class SearchUsers extends Component {
   static navigationOptions = {
@@ -62,7 +63,7 @@ constructor(props) {
   render() {
     return (
              <ScrollView>
-                       <View style={{flexDirection:'row',marginHorizontal:16}}>
+                       <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
 
                            <View style={{flex:2}}>
                                 <TouchableOpacity
@@ -150,35 +151,37 @@ constructor(props) {
 {/*---------------------------------------------- */} 
 
 <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
-     <TouchableOpacity
+     <TouchableOpacity style={{flex:2}}
              // onPress={() => this.props.navigation.navigate("profile4")} ESTO ESTA MAL PORQUE NO INVOCAMOS A ESTE
               //  COMPONENTE ATRAVES DE UN NAVIGATE
               onPress={() => this.props.enviaAPadre("profile4")}
              >
-     <View style={{flex:2}}>
+   
 
                       <Image source={require('../assets/influencers/dos.png')} 
                            style={{ width:50,height:50,borderRadius:10}}
                           />
                     
-   </View>
+   
    </TouchableOpacity>
 
-   <View style={{flex:5,flexDirection:'column',paddingLeft:10 ,
-         borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
-         <View>
-             <Text style={{fontSize:17,color:'#312f3d'}}>Sophia Lindsey</Text>
-         </View>
-         <View style={{flexDirection:'row'}}>
-             <View style={{ width:10,height:10,marginTop:5}}>
-                 <Image source={require('../assets/buscador/lupa.jpg')} 
-                  style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                  />
-             </View>
-          <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>Micronesia</Text>
-      </View>
-  
+
+
+ <View style={{flex:5,flexDirection:'column',paddingLeft:10,
+    borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
+    <View>
+        <Text style={{fontSize:17,color:'#312f3d'}}>Sophia Lindsey</Text>
+    </View>
+    <View style={{flexDirection:'row'}}>
+        <View style={{ width:10,height:10,marginTop:5}}>
+            <Image source={require('../assets/buscador/lupa.jpg')} 
+             style={{borderRadius:10 ,width:'100%',height:'100%'}}
+             />
+        </View>
+     <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>Micronesia</Text>
  </View>
+
+</View>
 
 <View style={{flex:3,alignItems:'flex-end',
         justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet,TouchableOpacity ,TouchableWithoutFeedback,Keyboard,
   Text, TextInput, View} from "react-native";
   import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class ForgotPassword extends React.Component {
@@ -34,8 +35,11 @@ export default class ForgotPassword extends React.Component {
   }
     render() {
         return (
+          <View style={{flex:1}}>
+
+        
           <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-            <View style={{flex:1}}>
+            <View style={{flex:8.5}}>
             <Text style={styles.text}>
                 <Text >Forgot password</Text>
             </Text>
@@ -51,16 +55,24 @@ export default class ForgotPassword extends React.Component {
                  underlineColorAndroid='transparent'
                  style={styles.input}
               />
-              
-                <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("ConfirmEmail")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
- 
+            
               </View>
               </TouchableWithoutFeedback>
+              <View style={{flex:1.5}}>
+                 
+                   <View style={{ alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+       onPress={() => this.props.navigation.navigate("ConfirmEmail")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
+ 
+              </View>
+             
+              </View>
             );
           }
         }
@@ -72,15 +84,14 @@ export default class ForgotPassword extends React.Component {
         
         
           containerbutton:{
+      
             backgroundColor: '#ff5a60',
             width:'90%',
             paddingVertical:13,
             borderRadius:27,
-            textAlign:"center",
-           position:'absolute',
-            marginHorizontal:'4%',
-            bottom:20,
-          },
+            alignItems:'center',
+            marginBottom:40,
+        },
         
          
         input:{

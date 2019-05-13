@@ -1,5 +1,6 @@
 import React from 'react';
-import { Platform,StyleSheet, Text,TextInput,TouchableOpacity, View, Image } from 'react-native';
+import { Platform,StyleSheet, Text,Dimensions,
+  TextInput,TouchableOpacity, View, Image } from 'react-native';
 import { Button } from "react-native-elements";
 
 const util = require("util");
@@ -39,7 +40,55 @@ constructor(props) {
   super(props);
 
 this.state = {
-  data:[
+  
+ 
+}
+
+}
+
+    render() {
+
+    screenHeight=Dimensions.get('window').height;
+
+        alert(screenHeight)
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+
+
+      topBut="-2%"
+      flex1=8.5
+     flex2=1
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      topBut='5%' 
+      flex1=8.5
+      flex2=1
+  } else if(screenHeight<=678){ // mi movil
+    topBut='-1%'
+    flex1=8.5
+    flex2=1
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut='-1%'
+    flex1=8.5
+    flex2=1
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut='16%'
+    flex1=7
+    flex2=2
+
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut='-1%'
+    flex1=8.5
+    flex2=1
+   }else{ // 800 = 480 * 800 mdpi
+     topBut='16%'
+    flex1=7
+    flex2=2
+   }
+
+
+
+
+    data=[
       {
       title:<Text style={{
 
@@ -52,7 +101,8 @@ this.state = {
              <Text style={styles.subtexto} >hosting your own live events</Text>{'\n'}
              </Text>
              ),
-      image: require('../assets/foto-con-estrellas.png')
+      image: require('../assets/foto-con-estrellas.png'),
+      imageStyle: styles.image
     },
       {
         title:<Text style={{
@@ -61,7 +111,7 @@ this.state = {
           fontWeight:'bold',
           fontSize: 28,
         }}>Share your knowledge</Text>, 
-        text:( <Text style={{paddingBottom:10,}}> 
+        text:( <Text style={{paddingBottom:30,}}> 
                <Text style={styles.subtexto}>Hosting your live event is super simple with</Text>
                <Text style={styles.subtexto}>our integrated scheduling system, payment</Text>
                <Text style={styles.subtexto}>processing, and live video chat technology</Text>
@@ -85,23 +135,18 @@ this.state = {
         image: require('../assets/grafica.png')},
       
   ]
-}
- 
-}
 
 
-
-  render() {
     return (
     <View style={{flex:1}}>
 
 <View  style={{flex:0.5}}>
 
 </View>
-   <View style={{flex:7.5}}>
+   <View style={{flex:flex1}}>
 
    <Infoslider 
-                 data={this.state.data} 
+                 data={data} 
                  showDots={true} 
                  activeDotColor="#ff5a60" 
                  titleColor="#312f3d" 
@@ -117,9 +162,9 @@ this.state = {
 
      
 
-<View style={{flex:2}}>
+<View style={{flex:flex2}}>
 
-<View style={styles.container2}>
+<View style={[styles.container2,{marginTop:Platform.OS === 'ios' ? '19%':topBut}]}>
        <Button  style={styles.textboton}
           title="Create an Influencer Profile"
           onPress={() => this.props.navigation.navigate("createInfluProf")}
@@ -156,7 +201,7 @@ const styles = StyleSheet.create({
      color:'white',
      borderRadius:27,
      textAlign:"center",
-     marginTop:Platform.OS === 'ios' ? '19%':'10%',
+     
      marginLeft:20,
      
   },
@@ -170,5 +215,5 @@ textboton:{
 
 },
  
-
+ 
 });

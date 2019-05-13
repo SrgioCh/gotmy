@@ -6,7 +6,7 @@ import { Platform,TouchableOpacity,
 
 import Button from 'react-native-button'; 
 
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class Payaddcreditcards extends Component {
@@ -38,99 +38,113 @@ export default class Payaddcreditcards extends Component {
 
   render() {
 
-
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      topBut='29%'
+    }else if(screenHeight<=605){ //mopvil de  david
+      topBut='35%'
+     
+  } else if(screenHeight<=678){ // mi movil
+    topBut='37%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    topBut='37%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    topBut='45%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    topBut='45%'
+   }else{ // 800 = 480 * 800 mdpi
+    topBut='45%'
+   }
 
     return (
-     
-    <ScrollView  style={{flex:1,marginTop:20}} >
-     
-     <View style={{marginHorizontal:16}}>
-        
-            <Text style={styles.text} >Full name</Text>
-            <TextInput
-              underlineColorAndroid='transparent'
-             style={styles.input}
-            />
+    <View style={{flex:1}}>
 
-     </View>
-     <View style={{marginHorizontal:16,marginTop:10}}>
+
+     <View style={{flex:9 , paddingTop:hp('3%')}}>
+     <View style={{ marginHorizontal:16}}>
         
-        <Text style={styles.text} >Credit card number</Text>
+        <Text style={styles.text} >Full name</Text>
         <TextInput
           underlineColorAndroid='transparent'
          style={styles.input}
         />
 
  </View>
-     
- <View style={{ marginHorizontal:16,marginTop:10}}>
-                
-               <View style={{flexDirection:'row'}}>
-               <Text style={styles.text} >Valid date</Text>
-                 <Text style={[styles.text,
-                 { marginLeft:128 } ]} >CVC</Text>
-                 </View> 
-               
-      
-       
-        <View style={{flexDirection:'row'}}>
-             <TextInput
-              underlineColorAndroid='transparent'
-              style={{
-                  width:173,
-                  height:42,
-                  paddingLeft:'4%',
-                 borderWidth:1,
-                   borderColor:'#e2e7ee',
-                  borderRadius:27,
-                  marginTop:8,
-                   marginBottom:8,
-              }}
-             />
+ <View style={{marginHorizontal:16,marginTop:10}}>
+    
+    <Text style={styles.text} >Credit card number</Text>
+    <TextInput
+      underlineColorAndroid='transparent'
+     style={styles.input}
+    />
 
-            <TextInput
-              underlineColorAndroid='transparent'
-             style={{
-              width:106,
+</View>
+ 
+<View style={{ marginHorizontal:16,marginTop:10}}>
+            
+           <View style={{flexDirection:'row'}}>
+           <Text style={styles.text} >Valid date</Text>
+             <Text style={[styles.text,
+             { marginLeft:128 } ]} >CVC</Text>
+             </View> 
+           
+  
+   
+    <View style={{flexDirection:'row'}}>
+         <TextInput
+          underlineColorAndroid='transparent'
+          style={{
+              width:173,
               height:42,
-              marginLeft:10,
+              paddingLeft:'4%',
              borderWidth:1,
                borderColor:'#e2e7ee',
               borderRadius:27,
               marginTop:8,
                marginBottom:8,
-               paddingLeft:'4%',
-           }}
-             />
+          }}
+         />
 
-        </View>
-       
- </View>
+        <TextInput
+          underlineColorAndroid='transparent'
+         style={{
+          width:106,
+          height:42,
+          marginLeft:10,
+         borderWidth:1,
+           borderColor:'#e2e7ee',
+          borderRadius:27,
+          marginTop:8,
+           marginBottom:8,
+           paddingLeft:'4%',
+       }}
+         />
+
+    </View>
+   
+       </View>
+     </View>
+     
 {/* -----------------------BOTONES ------------------*/}
 
- <View style={{marginTop: Platform.OS === 'ios' ? 180 :240, marginHorizontal:16,
-    alignItems:'center',  borderRadius: 50, backgroundColor:'#ff5a60'}}>
-  <Button
-        style={{
-          fontSize: 15,
-          color: 'white',
-         
-          padding:15,
-         
-          width:320,
-         }}
-
-        
-        styleDisabled={{color: 'red'}}
-        onPress={()=>{this.props.navigation.navigate("paymetho3")}}>
-        Save changes
-      </Button>
-
-        </View>
-
-    </ScrollView>
+<View style={{flex:1}}>
 
 
+      <View style={{alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+       onPress={()=>{this.props.navigation.navigate("paymetho3")}}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+       Save changes</Text>      
+      </TouchableOpacity> 
+    </View>
+</View>
+
+
+
+</View>
      
     );
   }
@@ -161,4 +175,13 @@ const styles = StyleSheet.create({
      fontSize:13,
     
   },
+  containerbutton:{
+      
+    backgroundColor: '#ff5a60',
+    width:'90%',
+    paddingVertical:13,
+    borderRadius:27,
+    alignItems:'center',
+    marginBottom:40,
+},
 });

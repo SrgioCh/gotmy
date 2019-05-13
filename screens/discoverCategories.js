@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { AppRegistry, View,Text ,StyleSheet,ScrollView,Image,ImageBackground,url, TouchableOpacity} from 'react-native';
+import { AppRegistry,Platform, View,Text ,Dimensions,
+    StyleSheet,ScrollView,Image,ImageBackground,url, TouchableOpacity} from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class DiscoverCategories  extends Component {
 
     static navigationOptions = ({ navigation }) => {
         return {
+
         title: "Choose favorite Categories",
         headerTitleStyle: {
             alignSelf: 'center',
@@ -15,7 +19,7 @@ export default class DiscoverCategories  extends Component {
                   height:120,
                   fontSize:16,
                   color:'#312f3d',
-                  marginTop:'41%',
+                  marginTop:Platform.OS === 'ios' ? '45%':'41%',
                   marginLeft:-2,
     
           },
@@ -58,28 +62,44 @@ export default class DiscoverCategories  extends Component {
 
 guardar(){
 
-    alert("Se guardaron los Cambios");
+    
 }
 
 
 
   render() {
 
+    let screenHeight=Dimensions.get('window').height;
+    
+   
+   
+
+   if(screenHeight<=592){//1080 * 1920  xxhdpi
+  
+  }else if(screenHeight<=605){ //mopvil de  david
+
+
+} else if(screenHeight<=678){ // mi movil
+  
+ }else if(screenHeight<=685){//1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+   
+ }else if(screenHeight<=775){
+   
+ }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+  
+ }else{
+  
+ }
+
     return (
         <View style={{flex: 1}}>
-              <View  style={{flex: 10}}>
-              <ScrollView contentContainerStyle={styles.contentContainer}>
+     <View  style={{flex: 9,marginHorizontal:'4%',}}>
+<ScrollView contentContainerStyle={styles.contentContainer}>
     
-
-    <View style={styles.social}>
-   
- 
-  
-   
-   <View style={{borderRadius:10,width:'100%', height:'100%'}} >
-   
-   <TouchableOpacity 
-   onPress = { () => {
+     <View style={styles.filas}>
+     <TouchableOpacity 
+     style={{borderRadius:10,flex:1,height:hp('15%')}}
+       onPress = { () => {
      if (this.state.source1 == require("../assets/art-culture.jpg") )
      {
          this.setState({
@@ -97,18 +117,13 @@ guardar(){
       Art and {'\n'}Culture
       </Text>
    <Image source={this.state.source1} 
-     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+     style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
       />
    </TouchableOpacity>  
    
-   </View>
-   
-
-     <Text >
-     {" "} {" "} </Text>
-     <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-     
+ 
       <TouchableOpacity 
+        style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
    onPress = { () => {
      if (this.state.source2 == require("../assets/business.jpg") )
      {
@@ -127,18 +142,12 @@ guardar(){
       Business and{'\n'}Profesional
       </Text>
     <Image source={this.state.source2} 
-     style={{borderRadius:10,width: '100%', height: '100%'}}
+      style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
       />
    </TouchableOpacity>  
     
-     </View>
-
-     <Text >
-     {" "} {" "}  
-           </Text>
-     <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-     
-      <TouchableOpacity 
+  <TouchableOpacity 
+  style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source3 == require("../assets/celebrity.jpg") )
      {
@@ -153,22 +162,19 @@ guardar(){
      }
  }}
    >
-   <Text style={styles.textoprueba2}>
+   <Text style={styles.textoprueba}>
       Celebrity
       </Text>
    <Image source={this.state.source3} 
-   style={{borderRadius:10,width: '100%', height: '100%'}}
+    style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
    />
    </TouchableOpacity>  
-     
-     </View>
-  </View> 
-  <View style={styles.social}>
-    
-  <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-   
-      
-      <TouchableOpacity 
+</View>
+{/*   fin de primera  fila */}
+<View style={styles.filas}>
+
+ <TouchableOpacity 
+ style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source4 == require("../assets/education.jpg") )
      {
@@ -187,18 +193,13 @@ guardar(){
       Classes and{'\n'}Education
       </Text>
    <Image source={this.state.source4} 
-     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+     style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
       />
    </TouchableOpacity>  
    
-   </View>
-   
 
-     <Text >
-     {" "} {" "} </Text>
-     <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-     
-      <TouchableOpacity 
+   <TouchableOpacity 
+    style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
    onPress = { () => {
      if (this.state.source5 == require("../assets/cooking.jpg") )
      {
@@ -217,18 +218,13 @@ guardar(){
       Cooking and{'\n'}Foot
       </Text>
    <Image source={this.state.source5} 
-     style={{borderRadius:10,width: '100%', height: '100%'}}
+     style={{borderRadius:10,width:'100%', height:'100%'}}
       />
    </TouchableOpacity>  
-     
-     </View>
 
-     <Text >
-     {" "} {" "}  
-           </Text>
-     <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-     
-      <TouchableOpacity 
+
+  <TouchableOpacity 
+  style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source6 == require("../assets/carft.jpg") )
      {
@@ -243,112 +239,97 @@ guardar(){
      }
  }}
    >
-   <Text style={styles.textoprueba2}>
+   <Text style={styles.textoprueba}>
       Craft and DYI
       </Text>
    <Image source={this.state.source6} 
-     style={{borderRadius:10,width: '100%', height: '100%'}}
+     style={{borderRadius:10,width:'100%', height:'100%'}}
      />
-   </TouchableOpacity>  
-     
-     </View>
-
+   </TouchableOpacity>      
 </View>
-     <View style={styles.social}>  
+{/*   fin fila */}
 
-        <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
+<View style={styles.filas}>
+<TouchableOpacity 
+  style={{borderRadius:10,flex:1,height:hp('15%')}}
+     onPress = { () => {
+       if (this.state.source7 == require("../assets/manga.jpg") )
+       {
+           this.setState({
+               source7: require("../assets/13.png")
+           })
+       }
+       else{
+           this.setState({
+               source7: require("../assets/manga.jpg")
+           })
+       }
+   }}
+     >
+     <Text style={styles.textoprueba}>
+             Manga
+          </Text>
+     <Image source={this.state.source7} 
+            style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
+              />
+     </TouchableOpacity>  
           
+
         <TouchableOpacity 
-   onPress = { () => {
-     if (this.state.source7 == require("../assets/manga.jpg") )
-     {
-         this.setState({
-             source7: require("../assets/13.png")
-         })
-     }
-     else{
-         this.setState({
-             source7: require("../assets/manga.jpg")
-         })
-     }
- }}
-   >
-   <Text style={styles.textoprueba2}>
-           Manga
+      style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}    
+     onPress = { () => {
+       if (this.state.source8 == require("../assets/motor.jpg") )
+       {
+           this.setState({
+               source8: require("../assets/12.png")
+           })
+       }
+       else{
+           this.setState({
+               source8: require("../assets/motor.jpg")
+           })
+       }
+   }}
+     >
+      <Text style={styles.textoprueba}>
+        Motor
         </Text>
-   <Image source={this.state.source7} 
-          style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
-            />
-   </TouchableOpacity>  
-        
-      </View>
-   
-
-     <Text >
-     {" "} {" "} </Text>
-     <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-    
-      <TouchableOpacity 
-   onPress = { () => {
-     if (this.state.source8 == require("../assets/motor.jpg") )
-     {
-         this.setState({
-             source8: require("../assets/12.png")
-         })
-     }
-     else{
-         this.setState({
-             source8: require("../assets/motor.jpg")
-         })
-     }
- }}
-   >
-    <Text style={styles.textoprueba2}>
-      Motor
-      </Text>
-   <Image source={this.state.source8} 
-     style={{borderRadius:10,width: '100%', height: '100%'}}
-      />
-   </TouchableOpacity>  
-     
-     </View>
-
-     <Text >
-     {" "} {" "}  
-           </Text>
-     <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-     
-      <TouchableOpacity 
-   onPress = { () => {
-     if (this.state.source9 == require("../assets/nature.jpg") )
-     {
-         this.setState({
-             source9: require("../assets/11.png")
-         })
-     }
-     else{
-         this.setState({
-             source9: require("../assets/nature.jpg")
-         })
-     }
- }}
-   >
-   <Text style={styles.textoprueba3}>
-      Nature,{'\n'}Outdoors and {'\n'}Oets
-      </Text>
-   <Image source={this.state.source9} 
-     style={{borderRadius:10,width: '100%', height: '100%'}}
-     />
-   </TouchableOpacity>  
-     
-     </View>
-  </View>
+     <Image source={this.state.source8} 
+       style={{borderRadius:10,width:'100%', height:'100%'}}
+        />
+     </TouchableOpacity>  
+       
+    <TouchableOpacity 
+      style={{borderRadius:10,flex:1,height:hp('15%')}}
+     onPress = { () => {
+       if (this.state.source9 == require("../assets/nature.jpg") )
+       {
+           this.setState({
+               source9: require("../assets/11.png")
+           })
+       }
+       else{
+           this.setState({
+               source9: require("../assets/nature.jpg")
+           })
+       }
+   }}
+     >
+     <Text style={styles.textoprueba}>
+        Nature,{'\n'}Outdoors and {'\n'}Oets
+        </Text>
+     <Image source={this.state.source9} 
+       style={{borderRadius:10,width:'100%', height:'100%'}}
+       />
+     </TouchableOpacity>  
  
-  <View style={styles.social}>
-    
-    <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-    
-        <TouchableOpacity 
+</View>
+{/*   fin fila */}
+
+
+<View style={styles.filas}>
+<TouchableOpacity 
+ style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source10 == require("../assets/podcast.jpg") )
      {
@@ -363,22 +344,16 @@ guardar(){
      }
  }}
    >
-    <Text style={styles.textoprueba2}>
+    <Text style={styles.textoprueba}>
         Podcaster
         </Text>
    <Image source={this.state.source10} 
-       style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+       style={{ zIndex:2,borderRadius:10,width:'100%' ,height:'100%'}}
         />
    </TouchableOpacity>  
-     
-     </View>
-     
-  
-       <Text >
-       {" "} {" "} </Text>
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-       
-        <TouchableOpacity 
+ 
+  <TouchableOpacity 
+   style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
    onPress = { () => {
      if (this.state.source11 == require("../assets/religion.jpg") )
      {
@@ -397,18 +372,12 @@ guardar(){
         Religion and{'\n'}Beliefs
         </Text>
    <Image source={this.state.source11} 
-       style={{borderRadius:10,width: '100%', height: '100%'}}
+       style={{borderRadius:10,width:'100%', height:'100%'}}
         />
    </TouchableOpacity>  
        
-       </View>
-
-       <Text >
-       {" "} {" "}  
-             </Text>
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-       
-        <TouchableOpacity 
+  <TouchableOpacity 
+   style={{borderRadius:10,flex:1,height:hp('15%') }}
    onPress = { () => {
      if (this.state.source12 == require("../assets/tecnologia.jpg") )
      {
@@ -427,18 +396,15 @@ guardar(){
         Science and{'\n'}Technology
         </Text>
    <Image source={this.state.source12} 
-       style={{borderRadius:10,width: '100%', height: '100%'}}
+       style={{borderRadius:10,width:'100%', height:'100%'}}
        />
-   </TouchableOpacity>  
-       
-       </View>
-
+   </TouchableOpacity>        
 </View>
-       <View style={styles.social}>  
+{/*   fin fila */}
 
-          <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-            
-          <TouchableOpacity 
+<View style={styles.filas}>
+ <TouchableOpacity 
+  style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source13 == require("../assets/sports.jpg") )
      {
@@ -453,22 +419,15 @@ guardar(){
      }
  }}
    >
-   <Text style={styles.textoprueba2}>
+   <Text style={styles.textoprueba}>
              Sports
           </Text>
    <Image source={this.state.source13} 
-            style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+            style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
               />
    </TouchableOpacity>  
-          
-        </View>
-     
-  
-       <Text >
-       {" "} {" "} </Text>
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-       
-        <TouchableOpacity 
+     <TouchableOpacity 
+      style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
    onPress = { () => {
      if (this.state.source14 == require("../assets/streamer.jpg") )
      {
@@ -483,22 +442,16 @@ guardar(){
      }
  }}
    >
-   <Text style={styles.textoprueba2}>
+   <Text style={styles.textoprueba}>
         Streamer
         </Text>
    <Image source={this.state.source14} 
-       style={{borderRadius:10,width: '100%', height: '100%'}}
+       style={{borderRadius:10,width:'100%', height:'100%'}}
         />
-   </TouchableOpacity>  
-       
-       </View>
+   </TouchableOpacity> 
 
-       <Text >
-       {" "} {" "}  
-             </Text>
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-       
-        <TouchableOpacity 
+  <TouchableOpacity 
+   style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source15 == require("../assets/tiktok.jpg") )
      {
@@ -517,18 +470,19 @@ guardar(){
         Tik Tok{'\n'}influencer
         </Text>
     <Image source={this.state.source15} 
-       style={{borderRadius:10,width: '100%', height: '100%'}}
+       style={{borderRadius:10,width:'100%', height:'100%'}}
        />
    </TouchableOpacity>  
       
-       </View>
-    </View>
 
-    <View style={styles.social}>  
+</View>
+{/*   fin fila */}
 
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-         
-         <TouchableOpacity 
+
+
+<View style={[styles.filas,{marginBottom:hp('2%')}]}>
+ <TouchableOpacity 
+  style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source16 == require("../assets/fashion.jpg") )
      {
@@ -547,18 +501,12 @@ guardar(){
             Fashion and{'\n'}Style
          </Text>
    <Image source={this.state.source16} 
-            style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+            style={{ zIndex:2,borderRadius:10,width:'100%', height:'100%'}}
       />
    </TouchableOpacity>  
       
-     </View>
-
-
-             <Text >
-                   {" "} {" "} </Text>
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-             
-             <TouchableOpacity 
+   <TouchableOpacity 
+    style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
    onPress = { () => {
      if (this.state.source17 == require("../assets/youtuber.jpg") )
      {
@@ -573,22 +521,16 @@ guardar(){
      }
  }}
    >
-   <Text style={styles.textoprueba2}>
+   <Text style={styles.textoprueba}>
                   Youtuber
              </Text>
    <Image source={this.state.source17} 
-             style={{borderRadius:10,width: '100%', height: '100%'}}
+             style={{borderRadius:10,width:'100%', height:'100%'}}
              />
-   </TouchableOpacity>  
-       
-       </View>
+   </TouchableOpacity> 
 
-       <Text >
-             {" "} {" "}  
-          </Text>
-       <View style={{borderRadius:10,width:'100%', height:'100%'}} onPress={this.onPressTitle}>
-       
-       <TouchableOpacity 
+      <TouchableOpacity 
+       style={{borderRadius:10,flex:1,height:hp('15%')}}
    onPress = { () => {
      if (this.state.source18 == require("../assets/vblogger.jpg") )
      {
@@ -603,33 +545,32 @@ guardar(){
      }
  }}
    >
-   <Text style={styles.textoprueba2}>
+   <Text style={styles.textoprueba}>
              Vlogger
        </Text>
     <Image source={this.state.source18} 
-                   style={{borderRadius:10,width: '100%', height: '100%'}}
+                   style={{borderRadius:10,width:'100%', height:'100%'}}
              />
    </TouchableOpacity>  
-            
-       </View>
 </View>
-
+{/*   fin fila */}
+ 
 </ScrollView>
 
             
              </View>
              <View  style={{flex: 1 ,}}>
-              
-                <View style={{flex:1,backgroundColor:'#ff5a60',padding:13,
-  
-                        alignItems:'center',justifyContent:'center'}}>
-                          <TouchableOpacity 
+             <TouchableOpacity 
+             style={{flex:1,backgroundColor:'#ff5a60',
+          alignItems:'center',justifyContent:'center'}}
                    onPress = { this.guardar.bind(this) } >
-                    <Text style={{flex:1 , color:'white', 
-                         fontSize:17,letterSpacing:0.41 }}>Save Changes</Text>
-                         </TouchableOpacity>
-                   </View>
-             
+              
+                        
+                    <Text style={{color:'white', 
+                         fontSize:wp('4%'),letterSpacing:0.41 }}>Save Changes</Text>
+                         
+                   
+                   </TouchableOpacity>
              </View>
   </View>
     )
@@ -638,129 +579,23 @@ guardar(){
 
 }
 const styles = StyleSheet.create({
-  fila: {
+  filas: {
     flex: 1, 
     flexDirection: 'row',
-    backgroundColor: 'powderblue',
+    marginTop:hp('1.5%'),
   },
-
+  
   textoprueba:{
-   padding:5,
-   position:'absolute',
-   zIndex:3,
-   color:'white',
-   marginTop:43,
-   fontWeight:'500',
-   textAlign:'left',
-  },
-  textoprueba2:{
-      padding:5,
-      position:'absolute',
-      zIndex:3,
-      color:'white',
-      marginTop:60,
-      fontWeight:'500',
-      textAlign:'left', 
-  },
-  textoprueba3:{
-      padding:5,
-      position:'absolute',
-      zIndex:3,
-      color:'white',
-      marginTop:27,
-      fontWeight:'500',
-      textAlign:'left', 
-  },
-
-  contieneTitulo:{
-   margin:20,
-   padding:20,
-  },
-  Titulo:{
-    fontSize:34,
-    marginLeft:-20,
-    fontWeight:"700",
-  },
-  subTitulo:{
-      marginTop:20,
-      fontSize:17,
-      marginLeft:-20,
-      fontWeight:"500",
-      marginBottom:-20,
-  },
-  //*****  scroll */
-  contentContainer: {
-    paddingVertical:20,
-  },
-  
-  social:{
-    
-    height:104,
-    width:104,
-    marginLeft:15,
-    marginRight: 15,
-    flexDirection: 'row',
-    alignItems:'center',
-    paddingTop:15,
-  
-   },
-   imagenSocial:{
-  
-  },
-  
-  socialTextoBut:{
-    borderBottomWidth: 1,
-    borderBottomColor:'#e2e7ee',
-  
-   flexDirection:'row',
-   alignItems:'center',
-  // paddingBottom:10,
-   paddingVertical:10,
-
-  },
-  socialTexto:{
-     marginLeft:15, 
-    
-  },
-  socialBoton:{
-    marginLeft:110,
-    backgroundColor: '#ff5a60',
-    paddingVertical:4,
-    paddingHorizontal:30,
+    position:'absolute',
+    zIndex:3,
     color:'white',
-    borderRadius:27,
-  },
-  socialBotonBlanco:{
-    marginLeft:110,
-    backgroundColor: 'white',
-    paddingVertical:4,
-    paddingHorizontal:20,
-    color:'black',
-    borderRadius:27,
-    borderWidth:1,
-    borderColor:'black',
-
-  },
-  containerBoton:{
-     backgroundColor:'red',
-     width:'90%',
-     padding:15,
-     color:'white',
-     borderRadius:27,
-     textAlign:"center",
-     marginTop:60,
-     marginLeft:15,
-     
-  },
-
-
-  textboton:{
+    fontWeight:'500',
     textAlign:'left',
-    color:"white",
-    marginTop:1,
-    marginLeft:105,
-    fontSize:17,
-  
-  }
+    bottom:hp('2%'),
+    left:wp('2%')
+   },
 
+     
+  
+   
 });

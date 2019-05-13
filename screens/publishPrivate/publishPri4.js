@@ -3,7 +3,7 @@ import { Platform,AppRegistry, Alert,
   View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
-  import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class PublishPri4 extends Component {
 
@@ -56,6 +56,29 @@ export default class PublishPri4 extends Component {
 
   render() {
     let screenWidth=Dimensions.get('window').width; //para poner la imagen normal
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){ //1080 * 1920  xxhdpi
+      leftFot='40%'
+    }else if(screenHeight<=605){ //mopvil de  david
+      leftFot='40%'
+  } else if(screenHeight<=678){ // mi movil
+    leftFot='40%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    leftFot='40%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    leftFot='45%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    leftFot='45%'
+   }else{ // 800 = 480 * 800 mdpi
+    leftFot='45%'
+   }
+
+
+
+
+
+
     return (
 
       <View style={{flex: 1}}>
@@ -86,7 +109,7 @@ export default class PublishPri4 extends Component {
       width:50,
       height:50,
       top:'50%',
-      left:'40%',
+      left:leftFot,
       position:'absolute',
       borderRadius:30 
     }}
@@ -114,13 +137,16 @@ Try to use a 16:9 aspect ratio.
    </View>
    {/*  fin de contenedor */}
          
-   
-         <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("publishPri7")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+    
+                   <View style={{alignItems:'center'}}>
+       
+       <TouchableOpacity style={styles.containerbutton}
+         onPress={() => this.props.navigation.navigate("publishPri7")}
+       > 
+       <Text style={{color:'white',fontSize:wp('4.5%')}}>
+         Continue </Text>      
+      </TouchableOpacity> 
+    </View>
     
     </View>
    
@@ -141,10 +167,8 @@ const styles = StyleSheet.create({
     width:'90%',
     paddingVertical:13,
     borderRadius:27,
-    textAlign:"center",
-    marginTop:10,
- marginBottom:30,
-    marginHorizontal:'4%'
+    alignItems:'center',
+    marginBottom:40,
 
   }
 

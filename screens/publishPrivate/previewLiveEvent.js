@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,Modal,
+  View,Text ,TextInput,Modal,Dimensions,
   StyleSheet,ScrollView,TouchableHighlight,
   Image,TouchableOpacity} from 'react-native';
   import  {Button}  from "react-native-elements";
@@ -96,6 +96,22 @@ toggleModal(visible) {
 
   render() {
 
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+      lefMod='5%'
+    }else if(screenHeight<=678){ // mi movil
+      lefMod='5%'
+   }else if(screenHeight<=685){ //1080 *1920
+    lefMod='7%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    lefMod='8%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    lefMod='5%'
+  }else{
+    lefMod='5%'
+   }
+
     return (
 
         <View style={{flex:1}}>
@@ -118,7 +134,7 @@ toggleModal(visible) {
                  </View> 
 
                  <View style={{backgroundColor:'white',borderRadius:20,
-                          position:'absolute',left:'5%',
+                          position:'absolute',left:lefMod,
                           top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
                        paddingVertical:'10%'}}> 
 

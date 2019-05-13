@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Platform,AppRegistry, Alert,
-  View,Text ,TextInput,
+  View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,Modal,
   Image,TouchableOpacity} from 'react-native';
 
 import Button from 'react-native-button'; 
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class RequestDetail extends Component {
 
 
     static navigationOptions = {
-        headerTitle:'Acepted Request',
+        headerTitle:'Pending Request',
         headerTitleStyle: {
           alignSelf: 'center',
           textAlign: 'center',
@@ -21,7 +21,7 @@ export default class RequestDetail extends Component {
                 height:120,
                 fontSize:16,
                 color:'#312f3d',
-                marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+                marginTop:  Platform.OS === 'ios' ? '45%':'40%',
     
         },
 
@@ -68,6 +68,89 @@ export default class RequestDetail extends Component {
 
   render() {
 
+   let screenHeight=Dimensions.get('window').height;
+    
+   if(screenHeight<=592){ //1080 * 1920  xxhdpi
+
+    leftMod='8%'
+    titu=24
+    iconWidth=20
+    iconheigh=20
+    letraG=14
+    letraM=12
+    marginReqs=5
+    padinBut=1
+    fontEnd=12
+    butTop=null
+   }else if(screenHeight<=605){ //mopvil de  david
+    titu=28
+    leftMod='8%'
+    iconWidth=30
+    iconheigh=30
+    letraG=16
+    letraM=14
+    marginReqs=15
+    padinBut=20
+    fontEnd=14
+    butTop=null
+ } else if(screenHeight<=678){ // mi movil
+  titu=28
+  leftMod='8%'
+  iconWidth=30
+    iconheigh=30
+    letraG=16
+    letraM=14
+    marginReqs=15
+    padinBut=20
+    fontEnd=14
+    butTop=null
+  }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    titu=28
+    leftMod='10%'
+    iconWidth=30
+    iconheigh=30
+    letraG=16
+    letraM=14
+    marginReqs=15
+    padinBut=20
+    fontEnd=14
+    butTop=null
+  }else if(screenHeight<=775){//1440 *2880 :560dpi
+    titu=28
+    leftMod='10%'
+    iconWidth=30
+    iconheigh=30
+    letraG=16
+    letraM=14
+    marginReqs=15
+    padinBut=20
+    fontEnd=14
+    butTop='10%'
+  }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    titu=28
+    leftMod='8%'
+    iconWidth=30
+    iconheigh=30
+    letraG=16
+    letraM=14
+    marginReqs=15
+    padinBut=20
+    fontEnd=14
+    butTop='10%'
+  }else{ // 800 = 480 * 800 mdpi
+    titu=28
+    leftMod='8%'
+    iconWidth=30
+    iconheigh=30
+    letraG=16
+    letraM=14
+    marginReqs=15
+    padinBut=20
+    fontEnd=14
+    butTop='10%'
+  }
+ 
+
     return (
 
 
@@ -92,7 +175,7 @@ export default class RequestDetail extends Component {
 
                 {/* ventana blanca del modal*/}
                 <View style={{backgroundColor:'white',borderRadius:20,
-                          position:'absolute',left:'8%',
+                          position:'absolute',left:leftMod,
                           top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
                        paddingVertical:'5%'}}> 
                        <View style={{alignItems:'center',marginTop:10}}>
@@ -133,7 +216,7 @@ export default class RequestDetail extends Component {
 
        {/*  ---------------------------------------- */}
 
-
+            <View style={{flex:8.5}}>
            <View style={{flexDirection:'row',marginHorizontal:16,marginTop:'4%'}}>
                <View style={{flex:2}}>
                  <Image source={require('../../assets/influencers/spffiele.png')} 
@@ -160,7 +243,7 @@ export default class RequestDetail extends Component {
           </View> 
           {/* TITULO */}  
           <View style={{marginHorizontal:16}}>
-               <Text style={{fontSize:28,color:'#312f3d',marginTop:'2%',
+               <Text style={{fontSize:titu,color:'#312f3d',marginTop:'2%',
                  fontWeight: 'bold',}}>Just For Fun</Text>
          </View>
 
@@ -172,26 +255,26 @@ export default class RequestDetail extends Component {
 
               <View style={{flex:1}}>
               <Image source={require('../../assets/icons_genGMI/User.png')} 
-                 style={{ width:30,height:30}}
+                 style={{ width:iconWidth,height:iconheigh}}
                  />   
               </View>
               <View style={{flex:8,flexDirection:'column',marginLeft:20,
                        borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-              <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Attendess</Text>
-              <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>{this.state.attendes}</Text>
+              <Text style={{color:'#312f3d',fontSize:letraG,marginTop:-7}}>Attendess</Text>
+              <Text style={{color:'#677183',fontSize:letraM,paddingBottom:8,paddingTop:4}}>{this.state.attendes}</Text>
               </View>
           </View>
           <View style={{marginTop:15,marginHorizontal:16,flexDirection:'row'}}>
 
               <View style={{flex:1}}>
                   <Image source={require('../../assets/icons_genGMI/CalendarGrey.png')} 
-                style={{ width:30,height:30}}
+                style={{ width:iconWidth,height:iconheigh}}
                  />   
             </View>
             <View style={{flex:8,flexDirection:'column',marginLeft:20,
                  borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-              <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Date</Text>
-             <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+              <Text style={{color:'#312f3d',fontSize:letraG,marginTop:-7}}>Date</Text>
+             <Text style={{color:'#677183',fontSize:letraM,paddingBottom:8,paddingTop:4}}>
              {this.state.dates}</Text>
              </View>
           </View>
@@ -200,13 +283,13 @@ export default class RequestDetail extends Component {
 
               <View style={{flex:1}}>
                   <Image source={require('../../assets/icons_genGMI/Time.png')} 
-                style={{ width:30,height:30}}
+                style={{ width:iconWidth,height:iconheigh}}
                  />   
             </View>
             <View style={{flex:8,flexDirection:'column',marginLeft:20,
                  borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-              <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Time</Text>
-             <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+              <Text style={{color:'#312f3d',fontSize:letraG,marginTop:-7}}>Time</Text>
+             <Text style={{color:'#677183',fontSize:letraM,paddingBottom:8,paddingTop:4}}>
              {this.state.timess}</Text>
              </View>
           </View>
@@ -215,30 +298,31 @@ export default class RequestDetail extends Component {
 
               <View style={{flex:1}}>
                   <Image source={require('../../assets/icons_genGMI/budget.png')} 
-                style={{ width:30,height:30}}
+                style={{ width:iconWidth,height:iconheigh}}
                  />   
             </View>
             <View style={{flex:8,flexDirection:'column',marginLeft:20,
                  borderBottomColor: '#e1e3e6',borderBottomWidth:1,}}>
-              <Text style={{color:'#312f3d',fontSize:16,marginTop:-7}}>Budget</Text>
-             <Text style={{color:'#677183',fontSize:14,paddingBottom:8,paddingTop:4}}>
+              <Text style={{color:'#312f3d',fontSize:letraG,marginTop:-7}}>Budget</Text>
+             <Text style={{color:'#677183',fontSize:letraM,paddingBottom:8,paddingTop:4}}>
              $ {this.state.budgess}</Text>
              </View>
           </View>
 
 
-         <Text style={{fontSize:16,color:'#312f3d',marginTop:15,marginBottom:Platform.OS === 'ios' ? null: 15,
+         <Text style={{fontSize:16,color:'#312f3d',marginVertical:marginReqs,
                  fontWeight: '500',marginHorizontal:16}}>Request description</Text>
 
-         <Text style={{fontSize:14,color:'#312f3d',marginHorizontal:16,paddingBottom: 20}}>
+         <Text style={{fontSize:fontEnd,color:'#312f3d',marginHorizontal:16,paddingBottom:padinBut}}>
                  Many people would say that it is absolute madness{'\n'} to keep on doing the
                   same thing, time after time,{'\n'} expecting to get a different result or
                    for something {'\n'}different to happen.
            </Text>
   
-        
+      </View>
 
-       <View style={{flexDirection:'row'}}>
+
+       <View style={{flexDirection:'row',flex:1.5}}>
              <View style={[styles.containerbutton,{backgroundColor: '#B3B8C1',
                         marginHorizontal:16}]}>
              <Button 
@@ -279,9 +363,8 @@ const styles = StyleSheet.create({
      paddingVertical:13,
      borderRadius:27,
      textAlign:"center",
-     marginTop:10,
-     marginBottom: 30,
- 
+     marginBottom:hp('8%'),
+  
    },
 
    // ventana modal

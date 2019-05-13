@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Platform,
-  View,Text ,TextInput,ScrollView ,
+  View,Text ,TextInput,ScrollView ,Dimensions,
   StyleSheet,KeyboardAvoidingView,
   Image,TouchableOpacity} from 'react-native';
 
   import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class PublishPri1 extends Component {
 
@@ -28,18 +29,78 @@ export default class PublishPri1 extends Component {
 
 
   render() {
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      imaWi=35
+      imaHei=35
+      topCabe='6%'
+      botTop=20
+      botMar=40
+      titu=22
+      dubtitu=16
+    }else if(screenHeight<=605){ //mopvil de  david
+      imaWi=30
+      imaHei=30
+      topCabe='6%'
+      botTop=20
+      botMar=60
+      titu=26
+      dubtitu=20
+  } else if(screenHeight<=678){ // mi movil
+    imaWi=50
+      imaHei=50
+    topCabe='10%'
+    botTop='10%'
+    botMar='25%'
+    titu=26
+    dubtitu=20
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    imaWi=50
+      imaHei=50
+    topCabe='10%'
+    botTop='8%'
+    botMar='25%'
+    titu=26
+    dubtitu=20
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    imaWi=50
+      imaHei=50
+    topCabe='6%'
+    botTop='20%'
+    botMar=60
+    titu=26
+    dubtitu=20
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    imaWi=50
+      imaHei=50
+    topCabe='6%'
+    botTop='22%'
+    botMar=60
+    titu=26
+    dubtitu=20
+   }else{
+    imaWi=50
+    imaHei=50
+    topCabe='6%'
+    botTop='22%'
+    botMar=60
+    titu=26
+    dubtitu=20
+   }
+  
     return (
 
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
 
-      <View style={{flex:1, 
-              marginTop:'5%'}}>
+      <View style={{flex:1 
+              }}>
               <ScrollView showsVerticalScrollIndicator={false}> 
 
 
         <View style={{flex: 1 ,flexDirection:'row', paddingBottom:'5%',
          borderBottomWidth: 2,borderBottomColor:'#C3C1C0'}}>
-            <View style={{flex:1 , marginLeft:'4%',marginTop:'6%'}}>
+            <View style={{flex:1 , marginLeft:'4%',marginTop:topCabe}}>
             <TouchableOpacity
                      onPress={() => this.props.navigation.pop()}
                      >
@@ -55,12 +116,12 @@ export default class PublishPri1 extends Component {
                        />
            </TouchableOpacity>
             </View>
-            <View style={{flex:7,marginTop:'6%',alignItems:'center'}}>
+            <View style={{flex:7,marginTop:topCabe,alignItems:'center'}}>
                  <Text style={{
                   marginLeft:'7%', color:'#312f3d',fontSize:17,fontWeight:'500'
                  }}>Create Private Meeting</Text>
             </View>
-            <View style={{flex:2,marginTop:'6%',
+            <View style={{flex:2,marginTop:topCabe,
             marginRight:'4%',alignItems:'flex-end'}}>
               <TouchableOpacity
                      onPress={() => this.props.navigation.navigate("requestAcepted")}
@@ -76,7 +137,8 @@ export default class PublishPri1 extends Component {
                    marginTop:14,marginBottom:10}}>
                  <View style={{flex:2}}>
                  <Image source={require('../../assets/influencers/spffiele.png')} 
-                 style={{ width:50,height:50,borderRadius:30}}
+                 style={{  width:imaWi,
+                  height:imaHei,borderRadius:30}}
                  />   
                  </View>
 
@@ -84,7 +146,7 @@ export default class PublishPri1 extends Component {
                      }}>
                     <View>
 
-                    <Text style={{fontSize:17,color:'#312f3d'
+                    <Text style={{fontSize:15,color:'#312f3d'
                         ,fontWeight:'500'}}>{this.state.nombreInflu}</Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
@@ -101,11 +163,11 @@ export default class PublishPri1 extends Component {
 
   {/* TITULO */}  
   <View style={{marginHorizontal:16}}>
-               <Text style={{fontSize:28,color:'#312f3d',marginVertical:4,
+               <Text style={{fontSize:titu,color:'#312f3d', 
                  fontWeight: 'bold',}}>Just For Fun</Text>
          </View>
 
-         <Text style={{fontSize:16,color:'#312f3d',marginTop:10,marginBottom: 19,
+         <Text style={{fontSize:dubtitu,color:'#312f3d',marginTop:5,marginBottom:5,
                  fontWeight: '500',marginHorizontal:16}}>Susprise for a friend</Text>
        
         {/*  cajas de inputs*/}
@@ -199,12 +261,17 @@ export default class PublishPri1 extends Component {
                
 
 
-         <View style={styles.containerbutton }>
-                         <Button 
-                          onPress={() => this.props.navigation.navigate("publishPri2")}
-                         style={{color:'white',fontSize:17}}
-                       >Continue</Button>      
-                   </View> 
+       
+
+        <View style={{ marginTop:hp(botTop),marginBottom:hp(botMar),alignItems:'center'}}>
+       
+        <TouchableOpacity style={styles.containerbutton}
+        onPress={() => this.props.navigation.navigate("publishPri2")}
+        > 
+        <Text style={{color:'white',fontSize:wp('4.5%')}}>
+          Continue </Text>      
+       </TouchableOpacity> 
+     </View>
  
      </ScrollView>
         {/*  abajo final de view -flex9*/}
@@ -260,15 +327,13 @@ const styles = StyleSheet.create({
 
     },
     containerbutton:{
-      backgroundColor: '#ff5a60',
-      width:'90%',
-      paddingVertical:13,
-      borderRadius:27,
-      textAlign:"center",
-      marginTop:40,
-      marginBottom:30,
-      marginHorizontal:'4%'
-  
+      
+        backgroundColor: '#ff5a60',
+        width:'90%',
+        paddingVertical:13,
+        borderRadius:27,
+        alignItems:'center',
+        marginBottom:40,
     },
 
 });

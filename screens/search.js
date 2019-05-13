@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Platform,Keyboard,
+import { Platform,Keyboard,Dimensions,
   View,Text ,TextInput,TouchableOpacity,TouchableWithoutFeedback,
   StyleSheet,ScrollView,
   Image} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Search extends Component {
 
@@ -12,9 +12,45 @@ export default class Search extends Component {
     header: null ,
 };
 
+constructor(props) {
+  super(props)
+
+
+  this.state = { 
+      
+    source1: require('../assets/art-culture.jpg'),
+    source2: require('../assets/business.jpg'),
+    source3: require('../assets/celebrity.jpg'),
+    source4: require('../assets/education.jpg'),
+    source5: require('../assets/cooking.jpg'),
+    source6: require('../assets/carft.jpg'),
+    source18: require('../assets/vblogger.jpg'),
+    }
+}
 
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+    if(screenHeight<=592){
+        wiFot='29%'
+    }else if(screenHeight<=678){ // mi movil
+        wiFot='29%'
+   }else if(screenHeight<=685){ //1080 *1920
+    wiFot='29.3%'
+   }else if(screenHeight<=775){
+    wiFot='29%'
+   }else{
+    wiFot='29%'
+   }
+
+
+
+
+
+
+
     return (
      
 <View style={{flex: 1}}>
@@ -106,9 +142,11 @@ export default class Search extends Component {
                   {/* TRENDING TAGS */}
                  <Text style={{
                          color:'#312f3d',
-                       fontSize:16,
-                      marginHorizontal:16,
-                    paddingVertical:20,
+                       fontSize:wp('4.2%'),
+                       fontWeight:'bold',
+                       marginHorizontal:'4%',
+                       paddingVertical:20,
+                       fontWeight:'bold'
                      }}
          
                       >Trending Tags</Text>
@@ -129,114 +167,205 @@ export default class Search extends Component {
                       {/* TRENDING CATEGORUIES */}
 
               <View style={{flexDirection:'row',
-                    justifyContent: 'space-between',padding:10,marginHorizontal:10
+                    justifyContent: 'space-between',marginHorizontal:'4%'
                      ,marginTop:10}}>
                      <View > 
-                         <Text style={{color:"#312f3d",fontSize:17}}>Trending categories</Text>
+                         <Text style={{color:"#312f3d",fontSize:wp('4.2%'),
+                       fontWeight:'bold',}}>Trending categories</Text>
                      </View>
                     <View style={{flexDirection:'row'}} >
                         <TouchableOpacity
                            onPress={() => this.props.navigation.navigate("SearchCateg")}
                           >
-                        <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
+                        <Text style={{color:"#ff5a60",fontSize:wp('4.2%')}}>Show all</Text>
                          </TouchableOpacity>
-                      <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
+                      <Text style={{color:"#ff5a60",fontSize:wp('4.2%'),fontWeight:'bold'}}> > </Text>
 
                       </View>
                 </View>
 
+              {/* TRENDING CATEGORIES*/}
+          
 
-                {/*  SING UP */}
-
-             <View style={{ marginLeft: Platform.OS === 'ios' ? 23:16,
-                           marginRight: Platform.OS === 'ios' ? 5:16
-                            ,marginVertical:30 }}>
-
-                <View style={styles.social}>  
-                     <View style={{borderRadius:10,width:104, height:104 }}>
-                            <Text style={styles.textoprueba2}>
-                                 Manga
-                           </Text>
-                             <Image source={require('../assets/OnBoard/manga.jpg')} 
-                              style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
-                                />
-                      </View>
+         
+              <View style={{ flexDirection:'row',marginHorizontal:'4%', marginTop:hp('2%')}}>
+                     
+                     <TouchableOpacity 
+                      style={{borderRadius:10,flex:1,height:hp('15%')}}
   
-                      <Text >{" "}{" "}</Text>
-                      <View style={{borderRadius:10,width:104, height:104 }} >
-                              <Text style={styles.textoprueba2}>
-                                Motor
-                             </Text>
-                              <Image source={require('../assets/OnBoard/motor.jpg')} 
-                              style={{borderRadius:10,width: '100%', height: '100%'}}
-                              />
-                       </View>
-
-                      <Text >{" "}{" "}</Text>
-
-                      <View style={{borderRadius:10,width:104, height:104 }}  >
-                        <Text style={styles.textoprueba}>
-                          Nature,{'\n'}Outdoors
-                                        </Text>
-                        <Image source={require('../assets/OnBoard/nature.jpg')} 
-                      style={{borderRadius:10,width: '100%', height: '100%'}}
-                        />
-                       </View>
-                 </View>
-
-     {/*  ------------------------------- */}
- 
-              <View style={styles.social}>  
-
-                <View style={{borderRadius:10,width:104, height:104 }}>
-                <Text style={styles.textoprueba2}>
-                Celebrity
-                  </Text>
-              <Image source={require('../assets/OnBoard/celebrity.jpg')} 
-                style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
-                />
-            </View>
-
-            <Text >{" "}{" "}</Text>
-              <View style={{borderRadius:10,width:104, height:104 }} >
-              <Text style={styles.textoprueba2}>
-              Podcast
-              </Text>
-              <Image source={require('../assets/OnBoard/podcast.jpg')} 
-              style={{borderRadius:10,width: '100%', height: '100%'}}
-              />
-              </View>
-
-            <Text >{" "}{" "}</Text>
-
-            <View style={{borderRadius:10,width:104, height:104 }}  >
-            <Text style={styles.textoprueba}>
-                Technology,{'\n'}Outdoors
-             </Text>
-              <Image source={require('../assets/OnBoard/tecnologia.jpg')} 
-             style={{borderRadius:10,width: '100%', height: '100%'}}
-               />
-            </View>
-            </View>
- 
-
-            <View style={{flexDirection:'row',
-                     justifyContent: 'space-between',
-                     marginTop:20}}>
-                  <View > 
-                  <Text style={{color:"#312f3d",fontSize:17}}>Most wanted influencers</Text>
-                  </View>
-                  <View style={{flexDirection:'row'}} >
-                  <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("searchOptions")}
-                     >
-                  <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
-                 </TouchableOpacity>
-                 <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
-                 </View>
-              </View>
-          </View>
+                    onPress = { () => {
+                          if (this.state.source1 == require("../assets/OnBoard/art-culture.jpg") )
+                            {
+                             this.setState({
+                                source1: require("../assets/20.png")
+                                    })
+                            }
+                        else{
+                          this.setState({
+                                source1: require("../assets/OnBoard/art-culture.jpg")
+                                      })
+                             }
+                          }}
+                        >
+                    <Text style={styles.textoprueba}>
+                    Art and {'\n'}Culture
+                   </Text>
+                   <Image source={this.state.source1} 
+                     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+                       />
+                    </TouchableOpacity>  
+     
+             
+               
+                
+                 <TouchableOpacity 
+                      style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
+                    onPress = { () => {
+                          if (this.state.source2 == require("../assets/OnBoard/business.jpg") )
+                            {
+                             this.setState({
+                              source2: require("../assets/1.png")
+                                    })
+                            }
+                        else{
+                          this.setState({
+                                source2: require("../assets/OnBoard/business.jpg")
+                                      })
+                             }
+                          }}
+                        >
+                    <Text style={styles.textoprueba}>
+                    Business &{'\n'}Professional
+                   </Text>
+                   <Image source={this.state.source2} 
+                     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+                       />
+                    </TouchableOpacity>  
+                 
+  
+                 <TouchableOpacity 
             
+                style={{borderRadius:10,flex:1,height:hp('15%')}}
+                    onPress = { () => {
+                          if (this.state.source3 == require("../assets/OnBoard/celebrity.jpg") )
+                            {
+                             this.setState({
+                              source3: require("../assets/18.png")
+                                    })
+                            }
+                        else{
+                          this.setState({
+                                source3: require("../assets/OnBoard/celebrity.jpg")
+                                      })
+                             }
+                          }}
+                        >
+                    <Text style={styles.textoprueba}>
+                    {' '}{'\n'}Fashion
+                   </Text>
+                   <Image source={this.state.source3} 
+                     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+                       />
+                    </TouchableOpacity>  
+             
+       </View>
+  
+       <View style={{ flexDirection:'row',marginTop:hp('1.5%'),marginHorizontal:'4%',}}>
+       
+       <TouchableOpacity 
+                      style={{borderRadius:10,flex:1,height:hp('15%')}}
+                    onPress = { () => {
+                          if (this.state.source4 == require("../assets/OnBoard/education.jpg") )
+                            {
+                             this.setState({
+                              source4: require("../assets/16.png")
+                                    })
+                            }
+                        else{
+                          this.setState({
+                                source4: require("../assets/OnBoard/education.jpg")
+                                      })
+                             }
+                          }}
+                        >
+                    <Text style={styles.textoprueba}>
+                    Classes &{'\n'}Education
+                   </Text>
+                   <Image source={this.state.source4} 
+                     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+                       />
+                    </TouchableOpacity>  
+              
+  
+                    <TouchableOpacity 
+                      style={{borderRadius:10,flex:1,height:hp('15%'),marginHorizontal:hp('1.5%')}}
+                    onPress = { () => {
+                          if (this.state.source5 == require("../assets/OnBoard/cooking.jpg") )
+                            {
+                             this.setState({
+                              source5: require("../assets/17.png")
+                                    })
+                            }
+                        else{
+                          this.setState({
+                                source5: require("../assets/OnBoard/cooking.jpg")
+                                      })
+                             }
+                          }}
+                        >
+                    <Text style={styles.textoprueba}>
+                    Classes &{'\n'}Education
+                   </Text>
+                   <Image source={this.state.source5} 
+                     style={{ zIndex:2,borderRadius:10,width: '100%', height: '100%'}}
+                       />
+                    </TouchableOpacity>  
+        <TouchableOpacity 
+       style={{borderRadius:10,flex:1,height:hp('15%')}}
+   onPress = { () => {
+     if (this.state.source18 == require("../assets/OnBoard/vblogger.jpg") )
+     {
+         this.setState({
+             source18: require("../assets/3.png")
+         })
+     }
+     else{
+         this.setState({
+             source18: require("../assets/OnBoard/vblogger.jpg")
+         })
+     }
+ }}
+   >
+   <Text style={styles.textoprueba}>
+             Vlogger
+       </Text>
+    <Image source={this.state.source18} 
+                   style={{borderRadius:10,width:'100%', height:'100%'}}
+             />
+   </TouchableOpacity>  
+  
+       </View>
+
+            {/*  wanted influencers */}
+
+           <View style={{flexDirection:'row',
+                justifyContent: 'space-between',padding:10,marginHorizontal:9
+                ,marginTop:10}}>
+                 <View > 
+                 <Text style={{color:"#312f3d",fontSize:wp('4.2%'),
+                       fontWeight:'bold', }}>Most wanted influencers</Text>
+                  </View>
+                  <TouchableOpacity   
+                onPress={() => this.props.navigation.navigate("searchOptions",{pagina:1})}
+                > 
+                   <View style={{flexDirection:'row'}} >
+                 <Text style={{color:"#ff5a60",fontSize:wp('4.2%')}}>Show all</Text>
+               <Text style={{color:"#ff5a60",fontSize:wp('4.2%'),fontWeight:'bold'}}> > </Text>
+                 </View>
+                 </TouchableOpacity>
+                </View>
+
+
 
 {/* ---------------- SECCION IMAGEN DESPLAZABLE-----------*/}
 
@@ -434,33 +563,15 @@ social:{
  },
 
  textoprueba:{
-  padding:5,
   position:'absolute',
   zIndex:3,
   color:'white',
-  marginTop:43,
   fontWeight:'500',
   textAlign:'left',
+  bottom:hp('2%'),
+  left:wp('2%')
  },
- textoprueba2:{
-     padding:5,
-     position:'absolute',
-     zIndex:3,
-     color:'white',
-     marginTop:60,
-     fontWeight:'500',
-     textAlign:'left', 
- },
- textoprueba3:{
-     padding:5,
-     position:'absolute',
-     zIndex:3,
-     color:'white',
-     marginTop:27,
-     fontWeight:'500',
-     textAlign:'left', 
- },
- //most wanted influencer
+//most wanted influencer
  imagentrending:{
   width:100,
   height:100,

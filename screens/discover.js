@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Platform, Alert,
-  View,Text ,
+  View,Text ,Dimensions,ImageBackground,
   StyleSheet,ScrollView,TouchableOpacity,
   Image} from 'react-native';
 
+  
+  import BicardView from './../components/bicardview'  
+  import VidView from "./../components/vidView"  //components
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class Discover extends Component {
 
@@ -12,12 +16,103 @@ export default class Discover extends Component {
     header: null ,
 };
 
+constructor(props) {
+  super(props)
 
+
+  this.state = { 
+
+     // PARA BICARDVIEW
+    fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+    fotoUser: require('../assets/influencers/influencer.png') ,
+    usuario:'MandyJTV',
+    num_segui:34,
+    mensaje:'Only 2 tickets left',
+    dia:21,
+    mes:'DEC',
+    texto1:'My FIRST God of War experience!',
+    texto2:'Games',
+    direccion:'Live from New York, at 18:30 pm',
+
+
+     //PARA VIDvIEW
+     usuarios:[
+       {
+        fotoIcon :require('../assets/influencers/influencer.png'),
+        nombreUser:'MandyJTV',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+        duraVid:'12:40',
+        numEstrella:5,
+
+       },
+       {
+        fotoIcon :require('../assets/influencers/uno.png'),
+        nombreUser:'MandyJTV',
+        descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/chicarosa.jpg'),
+        duraVid:'10:20',
+        numEstrella:3,
+       },
+       {
+        fotoIcon :require('../assets/influencers/tres.png'),
+        nombreUser:'Randy Stanley',
+        descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/chicacorriendo.jpg'),
+        duraVid:'08:30',
+        numEstrella:5
+       }
+
+     ]
+   
+  }
+}
 
 
 
 
   render() {
+
+    let screenHeight=Dimensions.get('window').height;
+    
+  // alert(screenHeight)
+
+    if(screenHeight<=592){//1080 * 1920  xxhdpi
+      matop='50%';
+      cajaVid=15;
+      transBicard='95.7%'
+    }else if(screenHeight<=605){ //mopvil de  david
+
+      matop='50%';
+      cajaVid=15;
+      transBicard='95.6%'
+  
+  } else if(screenHeight<=678){ // mi movil
+      matop='50%';
+      cajaVid=15;
+      transBicard='95.6%'
+   }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
+    matop='42%';
+    cajaVid=60
+    transBicard='96.4%'
+   }else if(screenHeight<=775){//1440 *2880 :560dpi
+    matop='50%';
+    cajaVid=60;
+    transBicard='96.4%'
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    matop='50%';
+    cajaVid=15;
+    transBicard='95.8%'
+   }else{ // 800 = 480 * 800 mdpi
+    matop='50%';
+    cajaVid=180;
+    transBicard='97%'
+   }
+
+
+
+
+  
     return (
 <View style={{flex: 1}}>
     <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
@@ -26,6 +121,7 @@ export default class Discover extends Component {
         <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
         <TouchableOpacity
                      onPress={() => this.props.navigation.navigate("Become1")}
+                   // onPress={() => this.props.navigation.toggleDrawer()} 
                      >
             <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
             <Image source={require('../assets/reviews/kuskal.png')} 
@@ -91,43 +187,64 @@ export default class Discover extends Component {
 
              {/*  bloquee  NO CARDVIEW*/}
 
-         <View style={{marginHorizontal:16}}>
-                <Image source={require('../assets/influencers/influencer.png')} 
-                  style={{ width:40,height:40, zIndex:3,borderRadius:10,position:'absolute',left:15,top:15}}
-                   />
-                 <Text style={styles.textoLogo}>
-                  MandyJTV
-                </Text>
+       <View style={{borderRadius:30,
+         marginHorizontal:'4%',backgroundColor:'pink'
+       }}>
+       <View style={{borderRadius:30,
+                    width:  Platform.OS === 'ios' ? '100%':'100%',
+                      height:hp('30%')}}>
+      <ImageBackground source={require('../assets/influencers/MandyJTV/download.jpg')} 
+       style={{borderRadius:30,width:'100%',height:'100%'}}
+      >
+    <View style={{flex:6.5,flexDirection:'row',paddingTop:hp('2%')}}>
+       <View style={{flex:1.5,alignItems:'center'}}>
+             <Image source={require('../assets/influencers/influencer.png')} 
+              style={{ width:40,height:40,borderRadius:10}}
+              />  
+       </View>
+       <View style={{ flex:6.5 }}>
+           <Text style={styles.textoLogo}> MandyJTV </Text>
+           <View  style={styles.estrellasimagen}>
+             <Image source={require('../assets/Red.png')} 
+             style={{ width:11,height:11,}}
+             />
+           <Image source={require('../assets/Red.png')} 
+             style={{ width:11,height:11,marginLeft:2}}
+            />
+            <Image source={require('../assets/Red.png')} 
+             style={{ width:11,height:11,marginLeft:2}}
+             />
+            <Image source={require('../assets/Red.png')} 
+              style={{ width:11,height:11,marginLeft:2}}
+              />
+            <Image source={require('../assets/Grey.png')} 
+              style={{ width:11,height:11,marginLeft:2}}
+               />
+            </View>
+       </View>
+       <View style={{flex:2}}>
+           <Image source={require('../assets/influencers/influencer.png')} 
+              style={{ width:60,height:60,borderRadius:30}}
+              />
+       </View>
 
-                <View  style={styles.estrellasimagen}>
-                      <Image source={require('../assets/Red.png')} 
-                      style={{ width:11,height:11,}}
-                      />
-                      <Image source={require('../assets/Red.png')} 
-                     style={{ width:11,height:11,marginLeft:2}}
-                  />
-                     <Image source={require('../assets/Red.png')} 
-                   style={{ width:11,height:11,marginLeft:2}}
-                   />
-                 <Image source={require('../assets/Red.png')} 
-                    style={{ width:11,height:11,marginLeft:2}}
-                   />
-                 <Image source={require('../assets/Grey.png')} 
-                  style={{ width:11,height:11,marginLeft:2}}
-                   />
-              </View>
-              <View style={{borderRadius:10,
-                         width:  Platform.OS === 'ios' ? 340:330,
-                         height:200}}>
-                 <Image source={require('../assets/influencers/MandyJTV/download.jpg')} 
-                  style={{ zIndex:2,borderRadius:10,width:'100%',height:'100%'}}
-                 />
-                 <Text style={styles.textoLogobajo}>
-                  Team Rocket vs Team Skull {'\n'}RAP BATTLE{'\n'} </Text>
-                  <Text style={[styles.textoLogobajo,{marginTop:'50%',fontSize:13,
-                   fontWeight:'normal',}]}>Entertaiment</Text> 
-               </View>
-        </View>   
+
+
+    </View>
+
+
+     <View style={{flex:3.5,paddingLeft:wp('3%')}}>
+        <Text style={styles.textoLogobajo}>
+          Team Rocket vs Team Skull {'\n'}RAP BATTLE</Text>
+         <Text style={[styles.textoLogobajo,{fontSize:wp('3%'),fontWeight:'normal',}]}>Entertaiment</Text> 
+     </View>
+    
+    </ImageBackground>
+
+       </View>
+
+    </View>
+
            {/*  bloquee   TRENDING INFLUENCER */}
 
                 <View style={{flexDirection:'row',
@@ -331,114 +448,25 @@ export default class Discover extends Component {
 
              
 {/* -----------------BICARDVIEW--------------*/}   
-<TouchableOpacity
+<TouchableOpacity 
                      onPress={() => this.props.navigation.navigate("liveEventDetail")}
-                     >    
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,
-               width:Platform.OS === 'ios' ? 339:328,
-              height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
+                     >  
+
+<BicardView 
+
+          fotoGrande={this.state.fotoGrande}
+          fotoUser={this.state.fotoUser}
+          usuario={this.state.usuario}
+          num_segui={this.state.num_segui}
+          mensaje={this.state.mensaje}
+          dia={this.state.dia}
+          mes={this.state.mes}
+          texto1={this.state.texto1}
+           texto2={this.state.texto2}
+           direccion={this.state.direccion}
+       />
 
 
-<View>
-<View style={{flexDirection:'row',
-            marginHorizontal:16,marginVertical:14,
-             position:'absolute',bottom:0,zIndex:4}}>
-
-     <View style={{flex:2}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-      </View>
-
-      <View style={{flex:3,flexDirection:'column'}}>
-     
-          <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>Mabel Spencer</Text>
-         </View>
-      
-     
-             <View  style={styles.estrellasTrendingNuevo}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                        </View>
-     
-  
- </View>
-
-
-<View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              @ 34
-            </Text>
-      </View>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              Only 2 tickets left
-            </Text>
-      </View>
-  
-    </View>
-
-  </View>
-  <Text style={styles.transparenteNuevo}></Text>
- </View>
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,
-                 marginLeft:  Platform.OS === 'ios' ? 6:8,
-                 marginRight:  Platform.OS === 'ios' ? 11:8,
-                 flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'red'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                        fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
-                      <View style={{flexDirection:'row'}}>
-                      <Image source={require('../assets/icons_genGMI/ubicacion.png')} 
-                                style={{ width:11,height:11,marginLeft:2,marginTop:6}}
-                            />
-                        <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                      fontWeight:'bold',color:'#677183',
-                              paddingVertical:4,marginLeft:5}}>Live from New York, at 18:30 pm</Text>
-                       </View>
-                     </View>
-   </View>  
-</View>  
    </TouchableOpacity>   
          {/*  seccion trending media */}
     
@@ -460,245 +488,30 @@ export default class Discover extends Component {
         </View>
 
          {/* CAJA DE LOS TRENDIGN*/}
-   
-          <View style={{flexDirection:'row',marginHorizontal:10, padding:10}}>
-                <View>
-                     <View style={{flexDirection:'row'}}>
+    <View style={{marginBottom:hp('2%')}}>
 
-                          <View  style={{ padding:6 }}>
-                               <Image source={require('../assets/influencers/influencer.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
+  
+         {
+                     this.state.usuarios.map((item,i)=> {
 
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
+                       
+                       return ( 
+                        <VidView key={i}
+                        fotoIcon={item.fotoIcon}
+                        nombreUser={item.nombreUser}
+                        descripcion={item.descripcion} 
+                        imagVideo={item.imagVideo}
+                        duraVid={item.duraVid}
+                        estrellas={item.numEstrella}
+                         />
 
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-              </View>        
-          <View >
+                       )
+                     }
+                     )
 
-              <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                    <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                   style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                  />
-             </View>
-             <Text style={{
-
-
-               position:'absolute',
-               fontWeight:'bold',
-              backgroundColor:'#312f3d',
-               opacity:0.8,
-              paddingHorizontal:25,
-            paddingVertical:Platform.OS === 'ios' ? 5:7,
-            bottom:Platform.OS === 'ios' ? 24:28,
-             right:4,
-            zIndex:4,
-            borderRadius:Platform.OS === 'ios' ? 50:10,
-            borderBottomWidth:1,
-            }}></Text>
-            <Text
-              style={{
-              position:'absolute',
-                zIndex:6,
-              bottom:Platform.OS === 'ios' ? 26:30,
-              
-            right:10,
-            color:'white',
-
-              }}>12:40</Text>
-            </View>
-          
-            </View>
-
-          {/* ******************************** */}
-          <View style={{flexDirection:'row',marginHorizontal:10, padding:10}}>
-           <View>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/uno.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                   <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                   />
-                                  <Image source={require('../assets/Red.png')} 
-                                 style={{ width:11,height:11,marginLeft:2}}
-                                 />
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,marginLeft:2}}
-                                  />
-                               <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                                 />
-                                <Image source={require('../assets/Grey.png')} 
-                                    style={{ width:11,height:11,marginLeft:2}}
-                                />
-                            </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16,lineHeight:21}}>Games </Text>
-                  </View>
-              </View>        
-                <View >
-                      <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                       <Image source={require('../assets/influencers/chicarosa.jpg')} 
-                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                          />
-                 </View>
-                 <Text style={{
-
-        position:'absolute',
-        fontWeight:'bold',
-        backgroundColor:'#312f3d',
-       opacity:0.8,
-      paddingHorizontal:25,
-      paddingVertical:Platform.OS === 'ios' ? 5:7,
-      bottom:Platform.OS === 'ios' ? 24:28,
-      right:4,
-      zIndex:4,
-    borderRadius:Platform.OS === 'ios' ? 50:10,
-      borderBottomWidth:1,
-      }}></Text>
-      <Text
-      style={{
-            position:'absolute',
-            zIndex:6,
-           bottom:Platform.OS === 'ios' ? 26:30,
-
-           right:10,
-         color:'white',
-
-          }}>12:40</Text>
-       </View>
-          
-          </View>
-
-            {/**  ************************************************** */}
-
-            <View style={{flexDirection:'row',marginHorizontal:10 , padding:10}}>
-                  <View>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/tres.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >Randy Stanley</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-              </View>        
-              <View >
-                  <View style={{ width:110,height:84,marginLeft:15,marginTop:10}}>
-                     <Image source={require('../assets/influencers/chicacorriendo.jpg')} 
-                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                     />
-               </View>
-               <Text style={{
-
-                  position:'absolute',
-                fontWeight:'bold',
-              backgroundColor:'#312f3d',
-              opacity:0.8,
-               paddingHorizontal:25,
-               paddingVertical:Platform.OS === 'ios' ? 5:7,
-                 bottom:Platform.OS === 'ios' ? 24:28,
-                    right:4,
-                   zIndex:4,
-                borderRadius:Platform.OS === 'ios' ? 50:10,
-          borderBottomWidth:1,
-          }}></Text>
-            <Text
-            style={{
-              position:'absolute',
-              zIndex:6,
-             bottom:Platform.OS === 'ios' ? 26:30,
-
-              right:10,
-            color:'white',
-
-             }}>08:30</Text>
-              </View>
-          
-          </View>
- {/* ********************fin de los trendign********************************* */}
-
-
+                    }
+    </View>
+                  
  </ScrollView>
     
   </View>
@@ -736,13 +549,8 @@ const styles = StyleSheet.create({
 
 
    estrellasimagen:{
-   
-      padding:3,
-      position:'absolute',
+   padding:3,
       flexDirection:'row',
-      zIndex:3,
-      top:'20%',
-      left:'21%',
    },
    estrellasimagen2:{
     padding:3,
@@ -753,15 +561,10 @@ const styles = StyleSheet.create({
    },
 
   textoLogo:{
-   padding:5,
-   position:'absolute',
-   zIndex:3,
-   color:'white',
-   marginTop:'4%',
-   fontSize:17,
+  color:'white',
+   fontSize:wp('4%'),
    fontWeight:'500',
-   textAlign:'left',
-   marginLeft:65,
+  
   },
 
   textoLogo2:{ //para texto  imagen con transparencia
@@ -785,15 +588,9 @@ const styles = StyleSheet.create({
    },// para  imagen con transparencia
 
   textoLogobajo:{
-    padding:2,
-    position:'absolute',
-    zIndex:3,
     color:'white',
-    marginTop:100,
-    fontSize:20,
+    fontSize:wp('5%'),
     fontWeight:'bold',
-    textAlign:'left',
-    marginLeft:20,
     letterSpacing:1,
 
   },
@@ -817,19 +614,14 @@ const styles = StyleSheet.create({
     height:100,
     
  
-    //borderRadius:100,
+    
   },
-  //*****  scroll */
-  contentContainer: {
-   
-  },
+
   //TRENDING   **************
   estrellasTrending:{
     padding:3,
-    
-    flexDirection:'row',
-
-  },
+     flexDirection:'row',
+   },
   textTren:{
    color:'#312f3d',
    fontSize:17,
@@ -873,7 +665,7 @@ const styles = StyleSheet.create({
     
     },
     transparenteNuevo:{
-      width:  Platform.OS === 'ios' ? 325:315,
+     
       height:60,
       position:'absolute',
       zIndex:3,
