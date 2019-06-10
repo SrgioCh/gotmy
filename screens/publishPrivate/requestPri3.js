@@ -22,7 +22,7 @@ export default class RequestPri3 extends Component {
                 height:120,
                 fontSize:16,
                 color:'#312f3d',
-                marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+                marginTop:  Platform.OS === 'ios' ? '40%':'43%',
     
         },
         headerRight: (<View style={{marginRight: 16}}>

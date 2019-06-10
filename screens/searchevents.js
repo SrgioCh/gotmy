@@ -9,6 +9,8 @@ import { Platform, AppRegistry, Alert,TouchableOpacity,
 import BicardView from "./../components/bicardview"
 
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class SearchEvents extends Component {
   static navigationOptions = {
@@ -80,7 +82,7 @@ export default class SearchEvents extends Component {
     return (
      
       
-  <ScrollView>
+  <ScrollView style={{marginTop:hp('5%')}}>
 
          
 {/* -----------------BICARDVIEW--------------*/}    

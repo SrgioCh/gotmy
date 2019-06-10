@@ -59,21 +59,22 @@ export default class PublishPri4 extends Component {
     let screenHeight=Dimensions.get('window').height;
     
     if(screenHeight<=592){ //1080 * 1920  xxhdpi
-      leftFot='40%'
+ 
+      letCam='40%'
     }else if(screenHeight<=605){ //mopvil de  david
-      leftFot='40%'
+      letCam='40%'
   } else if(screenHeight<=678){ // mi movil
-    leftFot='40%'
+    letCam='40%' 
    }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
-    leftFot='40%'
+    letCam='40%'
    }else if(screenHeight<=775){//1440 *2880 :560dpi
-    leftFot='45%'
-   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
-    leftFot='45%'
-   }else{ // 800 = 480 * 800 mdpi
-    leftFot='45%'
-   }
+    letCam='40%'
 
+   }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
+    letCam='45%'
+   }else{ // 800 = 480 * 800 mdpi
+    letCam='45%'
+   }
 
 
 
@@ -106,12 +107,11 @@ export default class PublishPri4 extends Component {
       source={require('../../assets/influencers/KalaTempo/kala6.jpg')}
     />
     <Image style={{
-      width:50,
-      height:50,
+     
       top:'50%',
-      left:leftFot,
+      left:letCam,
       position:'absolute',
-      borderRadius:30 
+    
     }}
   source={require('../../assets/icons_genGMI/foto.png')}
 />
@@ -141,7 +141,7 @@ Try to use a 16:9 aspect ratio.
                    <View style={{alignItems:'center'}}>
        
        <TouchableOpacity style={styles.containerbutton}
-         onPress={() => this.props.navigation.navigate("publishPri7")}
+         onPress={() => this.props.navigation.navigate("publishPri5")}
        > 
        <Text style={{color:'white',fontSize:wp('4.5%')}}>
          Continue </Text>      

@@ -3,8 +3,10 @@ import { AppRegistry, Alert,
   View,Text ,TextInput,TouchableWithoutFeedback,Keyboard,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-import Button from 'react-native-button'; 
+  import Cabezera from './component/cabezera';
+
 
 export default class Mensaje2 extends Component {
 
@@ -19,9 +21,16 @@ export default class Mensaje2 extends Component {
   
      this.state={
 
+      imagInflu:require('../../assets/influencers/influencer.png'),
       influencer:'Kala | Tempo',
-      fotoInflu:'influencer.png',
+     // fotoInflu:'influencer.png',
       correoInflu:'@kalatempo',
+      imagMasco:require('../../assets/influencers/KalaTempo/mascotaKala.png'),
+      icono:require('../../assets/icons_genGMI/mensajex.png'),
+      haciaPag:'viewerChat',
+
+
+
 
        opaciNo:null,
        opaciSi:0.5,
@@ -46,59 +55,46 @@ export default class Mensaje2 extends Component {
   
   }// fin de consttructor
 
+
+  recogeDeHijo(dato){
+    
+    this.props.navigation.navigate(dato)
+   
+    }
+   
+
+
+
+
+
+
   render() {
 
     return (
 
       <View style={{flex: 1}}>
        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-            
-          <View style={{flexDirection:'row',paddingHorizontal:16}}>
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-              <Image source={require('../../assets/influencers/influencer.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-             <View style={{flex:3,flexDirection:'column',marginLeft:10,
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>{this.state.influencer}</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>{this.state.correoInflu}</Text>
-             </View>
-             <View style={{flex:1,marginRight:85}}>
-                  <Image source={require('../../assets/influencers/KalaTempo/mascotaKala.png')} 
-                        style={{ width:20,height:20 ,marginLeft:-15,marginTop:2}}
-                        />
-              </View>
-              <View style={{flex:1,alignItems:'flex-end'}}>
-              <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("viewerChat")}
-              >
-              <Image source={require('../../assets/icons_genGMI/mensajex.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-                 </TouchableOpacity>
-              </View>
-          </View>
+       
+       <Cabezera
+       imagInflu={this.state.imagInflu}
+       influencer={this.state.influencer}
   
-      </View>
+       correoInflu={this.state.correoInflu}
+       imagMasco={this.state.imagMasco}
+       icono={this.state.icono}
+
+       haciaPag={this.state.haciaPag}
+       enviaAPadre={this.recogeDeHijo.bind(this)}
+       />
+        
       </TouchableWithoutFeedback>
-      <View style={{flex: 9}}>
+<View style={{flex: 8.7}}>
      
 {/* TITULO */}  
 
 <View style={{marginHorizontal:16}}>
 <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    <Text style={{fontSize:34,color:'#312f3d',marginVertical:15,
+    <Text style={{fontSize:34,color:'#312f3d',marginVertical:hp('2%'),
            fontWeight: 'bold',}}>Messages</Text>
 </TouchableWithoutFeedback>
 </View>

@@ -104,12 +104,11 @@ export default class PublisEven2Cover extends Component {
       source={require('../../assets/influencers/KalaTempo/kala2.jpg')}
     />
     <Image style={{
-      width:50,
-      height:50,
+    
       top:'50%',
       left:letCam,
       position:'absolute',
-      borderRadius: Platform.OS === 'ios' ? 25:30 
+     // borderRadius: Platform.OS === 'ios' ? 25:30 
     }}
   source={require('../../assets/icons_genGMI/foto.png')}
 />
@@ -140,7 +139,9 @@ Try to use a 16:9 aspect ratio.
                    <View style={{ alignItems:'center'}}> 
        
        <TouchableOpacity style={styles.containerbutton}
-           onPress={() => this.props.navigation.navigate("publishEven4message")}
+
+         //  onPress={() => this.props.navigation.navigate("publishEven4message")}
+         onPress={() => this.props.navigation.navigate("recordVideo1")}
        > 
        <Text style={{color:'white',fontSize:wp('4.5%')}}>
          Continue </Text>      

@@ -6,6 +6,10 @@ import {Alert,StyleSheet,ScrollView,ImageBackground,Image,
   Text,TouchableOpacity, View,Dimensions} from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
+import CabezeraMenu from "../components/cabezeraMenu"
+import CuerpoMenu from "../components/cuerpoMenu"
+
+
 class ViewerMenu extends Component {
 
   navigateToScreen = (route) => () => {
@@ -16,6 +20,7 @@ class ViewerMenu extends Component {
   }
 
  
+
 
  desSelec=<Text style={{  display:'none' }}> </Text>;
 
@@ -30,14 +35,69 @@ class ViewerMenu extends Component {
        tami:hp('2%'),
 
 
-      //titulo en imagen
-
+      //CABEZERA MENU
+      
+      imagViewer:require('../assets/influencers/KalaTempo/kalamenu.jpg'),
+      imagInflu:require('../assets/influencers/KalaTempo/kalaInfluMenu.jpg'),
+      textSup:'Go to Influencer Mode',
       nombre:"Kurtis 'Kala' Lloyd",
       email:'@kurtis',
- 
+      cambiar:'requesPendin',
+
+      //menu Viewer
+
+      menuViewer:[{
+      enlace:'profile3',
+      imagmenu:require('../assets/menu/viewerprofile.png'),
+      titu:'My Viewer profile',
+      borde:null,
+      },
+      {
+      enlace:'vieweredit',
+      imagmenu:require('../assets/menu/editvprofile.png'),
+      titu:'Edit profile',
+      borde:null,
+      },
+      {
+        enlace:'paymetho1',
+        imagmenu:require('../assets/menu/paymentprofi.png'),
+        titu:'Payment methods',
+        borde:null,
+        },
+        {
+          enlace:'paymetho1', // es otra pagina aun no creada
+          imagmenu:require('../assets/menu/billing.png'),
+          titu:'Billing',
+          borde:styles.bordeFinal,
+          },
+          {
+            enlace:'paymetho1', // es otra pagina aun no creada
+            imagmenu:require('../assets/menu/setings.png'),
+            titu:'Settings',
+            borde:null,
+            }
+            ,
+        {
+          enlace:'paymetho1', // es otra pagina aun no creada
+          imagmenu:require('../assets/menu/sendback.png'),
+          titu:'Send feedback',
+          borde:null,
+          }
+          ,
+        {
+          enlace:'paymetho1',// es otra pagina aun no creada
+          imagmenu:require('../assets/menu/help.png'),
+          titu:'Help',
+          borde:null,
+          }
+
+    ]
   }
 
-
+   recogeDeHijo(dato){
+    this.props.navigation.navigate(dato);
+    this.props.navigation.closeDrawer();
+   }
   
   render () {
 
@@ -61,104 +121,63 @@ class ViewerMenu extends Component {
     return (
       <View style={{flex:1}}>
 
-<ImageBackground source={require('../assets/influencers/KalaTempo/kalamenu.jpg')}
-     style={{flex:3.5 }}>
-
-<View style={{flex:5}}>
-
-<View style={{marginTop:hp('4.5%'),width:'75%',marginHorizontal:'6%',
- borderRadius: hp('5%'),backgroundColor:'#312f3d',opacity:0.5,
- height:'40%',position:'absolute'
-}} />
-
-<TouchableOpacity 
-style={{flexDirection:'row', marginTop:hp('5%'),marginHorizontal:'8%'}}
-onPress={this.navigateToScreen('requesPendin')}>
-
-   <View style={{flex:2 }}>
-   <Image  
-          source={require('../assets/influencers/influencer.png')}
-           style={{
-            width:wp('11.2%'),height:hp('6%'),borderRadius:wp('5%')
-           }}
-           />
-   </View>
-   <View style={{flex:8, justifyContent:'center'}}>
-        <Text style={{color:'white', fontSize:wp('4%'),fontWeight:'500'}}>Go to Influencer Mode</Text>
-   </View>
+  <CabezeraMenu 
+  
+  imagViewer={this.state.imagViewer}
+  imagInflu={this.state.imagInflu}
+  textSup={this.state.textSup}
+  nombre={this.state.nombre}
+  email={this.state.email}
+  cambiar={this.state.cambiar}
+  enviaAPadre={this.recogeDeHijo.bind(this)}
+  influencer={false}  //para controlar la parte de las estrellas d ela cabezera
    
-</TouchableOpacity>
-</View>
-<View style={{flex:5,marginHorizontal:'6%',justifyContent:'flex-end'}}>
-<View style={{marginBottom:'6.5%'}}>
-  <Text style={{
-  color:'white',fontSize:wp('5.5%') ,fontWeight: '500', 
- }}>{this.state.nombre}</Text>
- <Text style={{
-  color:'white',fontSize:wp('4%') ,fontWeight: '100', 
- }}>{this.state.email}</Text>
+  />
 
- </View>
-</View>
-
- 
-  </ImageBackground>    
-
-   <View style={{flex:6.5,
-     marginTop:hp('2.5%'),paddingHorizontal:wp('6%')
+   <View style={{flex:5.4,
+  
    }}>
-        <View style={{flexDirection:'row'}}>
 
-            <View style={{flex:1.5,justifyContent: 'center'}}>
-                 <Image  
-                         source={require('../assets/menu/viewerprofile.png')}
-                          style={styles.imagen}
-                           />
-            </View>
-           
-            <TouchableOpacity style={{
-             flex:8.5,justifyContent:"center"
-               }}
-             /*  onPress={()=>
-                this.setState({
-                 seleccionado1:seleccionado,
-                 seleccionado2:this.desSelec,
-                 seleccionado3:this.desSelec,
-                 seleccionado4:this.desSelec,
-                 seleccionado5:this.desSelec,
-                })
-              }*/
-            onPressOut={this.navigateToScreen('vieweredit')}>
-               <Text style={styles.menu}>
-                My Viewer profile
-               </Text>
-            </TouchableOpacity>
+     {
+         this.state.menuViewer.map((item,i)=>{
 
-        </View>
-               
+          return(
+            <CuerpoMenu key={i}
+            enlace ={item.enlace}
+            imagmenu ={item.imagmenu}
+            titu={item.titu}
+            borde={item.borde}
+
+            enviaAPadre={this.recogeDeHijo.bind(this)}
+           />
+          )
+         })
+     }
+      
+
+     
     </View>   
-
+    <View style={{ flex:1, paddingLeft:wp('5%'),justifyContent:'center'}}>
+      <Text style={{color:'#ff5a60',fontSize:wp('3%'),fontWeight:'500'}}>
+        Log out
+      </Text>
+    </View>  
    </View>
     );
   }
 }
 
-
 const styles = StyleSheet.create({
 
-  imagen:{
-    width:wp('9%'),height:hp('5%')
-  },
-  menu:{marginLeft: wp('5%'),
-     color:'#312f3d',fontSize:wp('3.5%') ,fontWeight: '500',
+
+  bordeFinal:{
+    paddingBottom: hp('1.5%'),
+      borderBottomColor:'#E8E5E4',
+      borderBottomWidth: wp('0.5%'),
+    
   }
 
 })
-
-ViewerMenu.propTypes = {
-  navigation: PropTypes.object
-};
-
 
 
 export default ViewerMenu;

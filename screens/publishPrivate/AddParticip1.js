@@ -253,7 +253,7 @@ export default class AddParticip1 extends Component {
         
                            <View style={{flex:1.5}}>
                                  <Image source={item.foto} 
-                                    style={{ width:'90%',height:'90%',borderRadius:10}}
+                                    style={{ width:Platform.OS === 'ios' ? '80%':'90%',height:Platform.OS === 'ios' ? '95%':'90%',borderRadius:10}}
                                   />
                           </View>
         
@@ -278,7 +278,7 @@ export default class AddParticip1 extends Component {
                      
                    </View>
 
-                      <View style={{flex:0.6,backgroundColor:'white',paddingTop:10,paddingBottom: 10,
+                      <View style={{flex:Platform.OS === 'ios' ? 0.45:0.6,backgroundColor:'white',paddingTop:10,paddingBottom: 10,
                               borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
                          <Checkbox
                     

@@ -85,7 +85,7 @@ export default class BookedEvDos extends Component {
    }
     return (
        
- <ScrollView  >
+ <ScrollView  style={{marginHorizontal:'4%'}}>
 
 {
                      this.state.usuarios.map((item,i)=> {

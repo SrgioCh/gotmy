@@ -3,6 +3,9 @@ import {Platform,Alert,TouchableOpacity,
   View,Text ,TextInput,Dimensions,
   StyleSheet,ScrollView,
   Image} from 'react-native';
+
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
   import BicardView from './../components/bicardview'
 import BookedEvDos from "./bookedEventes2"
 import BookedEvTres from "./bookedEventes3"
@@ -187,7 +190,9 @@ transicion=(num)=>{
           
     {/* -----------------BICARDVIEW--------------*/}  
       <TouchableOpacity 
-                onPress = {() => this.props.navigation.navigate("boked4") } >     
+                onPress = {() => this.props.navigation.navigate("boked4") } 
+               
+               >     
      
     <BicardView 
           fotoGrande={this.state.fotoGrande}
@@ -211,18 +216,18 @@ transicion=(num)=>{
 
     return (
       <View style={{flex: 1}}>
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
+      <View  style={{flex: 0.9,marginTop:25,justifyContent:'center',paddingBottom:3,
           borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
-           marginHorizontal:'4%'}}>
+           }}>
             
-          <View style={{flexDirection:'row'}}>
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
+              <View style={{flex:1 , justifyContent:'center'}}>
               <Image source={require('../assets/reviews/kuskal.png')} 
                         style={{ width:40,height:40,
                                   borderRadius:10}}
                         />
               </View>
-             <View style={{flex:4,flexDirection:'column',marginLeft:10,
+             <View style={{flex:4,flexDirection:'column',
                         marginRight:15}}>
                   <Text style={{
                        color:'#312f3d',
@@ -252,7 +257,7 @@ transicion=(num)=>{
                 
             {/* ----------- TITULO ----------------*/} 
 
-              <View style={{ marginHorizontal:16,paddingBottom:2  }}>
+              <View style={{marginTop:hp('2%'), marginHorizontal:16,paddingBottom:2  }}>
      
                   <Text style={{
                      color:'#312f3d',

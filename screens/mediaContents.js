@@ -126,7 +126,7 @@ export default class Mediacontent extends Component {
         </View>
 </View>
   {/* ------------- LISTA VIDEO ----------------------------*/}
-<ScrollView>
+<ScrollView style={{marginHorizontal:'4%'}}>
 
 {
   this.state.usuarios.map((item,i)=> {

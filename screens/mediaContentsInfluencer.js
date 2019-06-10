@@ -126,13 +126,14 @@ export default class Mediacontentsinfluencer extends Component {
         </View>
 </View>
   {/* ------------- LISTA VIDEO ----------------------------*/}
-<ScrollView>
+<ScrollView style={{marginHorizontal:'4%'}}>
 
 {
   this.state.usuarios.map((item,i)=> {
 
     
     return ( 
+
 <EventContents key={i}
 fecha={item.fecha}
 descripcion={item.descripcion}

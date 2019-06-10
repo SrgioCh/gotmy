@@ -4,10 +4,13 @@ import { AppRegistry, Alert,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 import  RequestAcepted from "./RequestAcepted"
 import  RequestRejected from "./RequestRejected"
+
+import Cabezera from "./component/cabezera"
 
 export default class RequestPending extends Component {
 
@@ -105,15 +108,17 @@ screenheigth=Dimensions.get('window').height;
   
      this.state={
 
+      imagInflu:require('../../assets/influencers/influencer.png'),
       influencer:'Kala | Tempo',
-      fotoInflu:'influencer.png',
+     // fotoInflu:'influencer.png',
       correoInflu:'@kalatempo',
+      imagMasco:require('../../assets/influencers/KalaTempo/mascotaKala.png'),
+      icono:require('../../assets/icons_genGMI/requestDetail.png'),
+      haciaPag:'publishEven1',
 
        opaciNo:null,
        opaciSi:0.5,
 
-
-       //mensajes
        
 
  
@@ -186,6 +191,10 @@ recogeDeHijo(dato){
   this.props.navigation.navigate(dato)
  
   }
+
+  abrirMenu(){
+    this.props.navigation.toggleDrawer() 
+  }
  
 
   
@@ -238,51 +247,31 @@ transicion=(num)=>{
     return (
 
       <View style={{flex: 1}}>
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-            
-          <View style={{flexDirection:'row',paddingHorizontal:16}}>
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-              <Image source={require('../../assets/influencers/influencer.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-             <View style={{flex:3,flexDirection:'column',marginLeft:10,
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>{this.state.influencer}</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>{this.state.correoInflu}</Text>
-             </View>
-             <View style={{flex:1,marginRight:85}}>
-                  <Image source={require('../../assets/influencers/KalaTempo/mascotaKala.png')} 
-                        style={{ width:20,height:20 ,marginLeft:-15,marginTop:2}}
-                        />
-              </View>
-              <View style={{flex:1,alignItems:'flex-end'}}>
-              <TouchableOpacity
-             onPress={() => this.props.navigation.navigate("publishEven1")}
-              >
-              <Image source={require('../../assets/icons_genGMI/requestDetail.png')} 
-                        style={{ width:35,height:35,
-                                  borderRadius:10}}
-                        />
-                 </TouchableOpacity>
-              </View>
-          </View>
+     
+
+        <Cabezera
+       imagInflu={this.state.imagInflu}
+       influencer={this.state.influencer}
   
-      </View>
-      <View style={{flex: 9}}>
+       correoInflu={this.state.correoInflu}
+       imagMasco={this.state.imagMasco}
+       icono={this.state.icono}
+
+       haciaPag={this.state.haciaPag}
+       enviaAPadre={this.recogeDeHijo.bind(this)}
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
+       abreMenu={true} // para poner la foto con touch o no
+       />
+
+
+
+
+      <View style={{flex: 8.7}}>
      
 {/* TITULO */}  
 
 <View style={{marginHorizontal:16}}>
-    <Text style={{fontSize:34,color:'#312f3d',marginVertical:8,
+    <Text style={{fontSize:34,color:'#312f3d',marginVertical:hp('2%'),
            fontWeight: 'bold',}}>Requests</Text>
 
 </View>

@@ -182,6 +182,6 @@ const styles = StyleSheet.create({
     paddingVertical:13,
     borderRadius:27,
     alignItems:'center',
-    marginBottom:40,
+    marginBottom:Platform.OS === 'ios' ? null:40,
 },
 });

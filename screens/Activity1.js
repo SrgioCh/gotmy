@@ -88,13 +88,13 @@ export default class Activity1 extends Component {
              >
           <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
         
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+              <View style={{flex:1 ,justifyContent:'center'}}>
               <Image source={require('../assets/reviews/kuskal.png')} 
                         style={{ width:40,height:40,
                                   borderRadius:10}}
                         />
               </View>
-             <View style={{flex:4,flexDirection:'column',marginLeft:10,
+             <View style={{flex:4,flexDirection:'column',
                         marginRight:15}}>
                   <Text style={{
                        color:'#312f3d',
@@ -127,18 +127,18 @@ export default class Activity1 extends Component {
 
 </View>
 
-<ScrollView style={{marginTop:hp('2.5%'),marginHorizontal:'4%'}} >
+<ScrollView style={{marginTop:hp('2.5%')}} >
 
-<View style={{flexDirection:'row',marginTop:hp('3%'),marginBottom:hp('0.5%')}}>
+<View style={{flexDirection:'row',marginTop:hp('3%'),marginBottom:hp('0.5%'),marginHorizontal:'4%'}}>
 
-      <View style={{flex:2,alignItems:'center',justifyContent:'center'}}>
+      <View style={{flex:1.5,justifyContent:'center'}}>
                           <Image source={this.state.userIcon1} 
                                style={{ width:wp('10%'),height:hp('5%'),borderRadius:Platform.OS === 'ios' ? hp('2%'):hp('5%')}}
                               />
                       
        </View>
   
-      <View style={{flex:6,flexDirection:'column', borderBottomWidth:1,justifyContent:'center'  
+      <View style={{flex:6.5,flexDirection:'column', borderBottomWidth:1,justifyContent:'center'  
               , borderBottomColor:'#e1e3e6',paddingBottom:hp('1.5%')}}>
          
          <View style={{flexDirection:'row',marginTop:hp('3%')}}>
@@ -156,14 +156,14 @@ export default class Activity1 extends Component {
 
 <View style={{flexDirection:'row'}}>
 
-    <View style={{flex:2,alignItems:'center',justifyContent:'center'}}>
+    <View style={{flex:1.5,alignItems:'center',justifyContent:'center'}}>
                     <Image source={this.state.userIcon2} 
                          style={{width:wp('10%'),height:hp('5%'),borderRadius:Platform.OS === 'ios' ? hp('2%'):hp('5%')}}
                         />
                 
     </View>
 
-    <View style={{flex:6,flexDirection:'column',paddingBottom:hp('1.5%'),
+    <View style={{flex:6.5,flexDirection:'column',paddingBottom:hp('1.5%'),
         borderBottomWidth:1,  borderBottomColor:'#e1e3e6'}}>
          <View>
         <Text style={{fontSize:wp('3.5%'),color:'#312f3d',marginTop:hp('3%')}}>
@@ -190,14 +190,14 @@ export default class Activity1 extends Component {
 
 <View style={{flexDirection:'row',}}>
 
-<View style={{flex:2,alignItems:'center',justifyContent:'center'}}>
+<View style={{flex:1.5,alignItems:'center',justifyContent:'center'}}>
                     <Image source={this.state.userIcon3} 
                          style={{ width:40,height:40,borderRadius:Platform.OS === 'ios' ? hp('2%'):hp('5%')}}
                         />
                 
  </View>
 
-<View style={{flex:6,flexDirection:'column',paddingBottom:hp('1.5%'),
+<View style={{flex:6.5,flexDirection:'column',paddingBottom:hp('1.5%'),
         borderBottomWidth:1,  borderBottomColor:'#e1e3e6'}}>
      <View style={{marginTop:hp('3%')}}>
         <Text style={{fontSize:wp('3.5%'),color:'#312f3d'}}>

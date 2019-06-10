@@ -29,6 +29,11 @@ import Activity2 from "./screens/influencer/Activity2"
 import Become1 from "./screens/Become1";
 import Become2 from "./screens/Become2";
 import Become3 from "./screens/Become3";
+
+import BookingStats from "./screens/influencer/bookingStats"
+
+
+
 import ConfirmEmail from "./screens/ConfirmEmail";
 import ConfirmEmail2 from "./screens/ConfirmEmail2";
 import CreateAcount from "./screens/CreateAcount";
@@ -42,6 +47,9 @@ import DiscoverCalendar from "./screens/discoverCalendar"
 import DiscoverPreferences from "./screens/discoverPreferences"
 
 import Editinfluencerprofile from "./screens/editInfluencerProfile"
+
+import InfluencerEstadisticas  from "./screens/influencer/influencerEstadisticas"
+import InfluencerMenu from "./screens/influencermenu"
 
 import Search from "./screens/search";
 import SearchEvents from "./screens/searchevents";
@@ -98,7 +106,9 @@ import PublishPri1  from "./screens/publishPrivate/publishPri1"
 import PublishPri2  from "./screens/publishPrivate/publishPri2"
 import PublishPri3  from "./screens/publishPrivate/publishPri3"
 import PublishPri4  from "./screens/publishPrivate/publishPri4"
+import PublishPri5  from "./screens/publishPrivate/publishPri5"
 import PublishPri7  from "./screens/publishPrivate/publishPri7"
+import PublishPri8  from "./screens/publishPrivate/publishPri8"
 import PublishPri10  from "./screens/publishPrivate/publishPri10"
 
 import PublishEven1 from "./screens/publishPrivate/publishEven1"
@@ -107,6 +117,10 @@ import PublishEven2Pricing  from "./screens/publishPrivate/publishEven2Pricing"
 import PublisEven2Cover from "./screens/publishPrivate/publishEven2Cover"
 import PublishEven4message from "./screens/publishPrivate/publishEven4message"
 import PreviewLiveEvent  from "./screens/publishPrivate/previewLiveEvent"
+
+
+import RecordVideo1 from  "./screens/publishPrivate/recordVideo1"
+import RecordVideo2 from  "./screens/publishPrivate/recordVideo2"
 
 import RequestPri4B from "./screens/publishPrivate/requestPri4B"
 import RequestPri4 from "./screens/publishPrivate/requestPri4"
@@ -129,8 +143,11 @@ import MyWallet from "./screens/myWallet"
 import Transactions from "./screens/transactions"
 import TransferTomyAcount from "./screens/transferTomyAcount"
 import TransferDetail from "./screens/transferDetail"
-import { widthPercentageToDP } from "react-native-responsive-screen";
 
+//Paginas Streaming
+
+import CoachViewer  from "./screens/streaming/coachViewer"
+import Dos from "./screens/streaming/dos"
 
 
 
@@ -268,6 +285,11 @@ const TabDiscover=createStackNavigator(
          ) 
          
           //para TABS  de influencer
+          const TabInfluencerStats=createStackNavigator(
+            {   influencerEstadisticas:{
+                 screen:InfluencerEstadisticas,
+             }
+           })
 
           const TabPending=createStackNavigator(
             {   requesPendin:{
@@ -297,7 +319,7 @@ const TabDiscover=createStackNavigator(
 
          const DashboardTabInfluencer = createBottomTabNavigator(
           {
-            "My Events":{    screen : TabDiscover,
+             "My Events":{    screen : TabActivity,
               navigationOptions: ({ navigation }) => ({
                 tabBarIcon: ({ focused}) => {
                
@@ -313,7 +335,7 @@ const TabDiscover=createStackNavigator(
             
             
             },
-            "My Stats":{    screen : TabActivity,
+            "My Stats":{    screen : TabInfluencerStats,
               navigationOptions: ({ navigation }) => ({
                 tabBarIcon: ({ focused}) => {
                
@@ -392,8 +414,12 @@ const TabDiscover=createStackNavigator(
 
 
 
-       //CREACION DE LOS DRAWERS
+       // DRAWER  VIEWER
  
+const stackMyViewerProfile=createStackNavigator({
+  profile3:Profilemiviewer,
+})
+
 const stackedit=createStackNavigator({
   vieweredit:Vieweredit,
 })
@@ -407,6 +433,12 @@ const drawMenu= createDrawerNavigator(
   {
     discover:{
            screen:DashboardTabRoutes, 
+     },
+     profile3:{
+       screen:stackMyViewerProfile,
+     },
+     vieweredit:{
+      screen:stackedit,
      },
     vieweredit:{
        screen:stackedit,
@@ -429,7 +461,38 @@ const drawMenu= createDrawerNavigator(
   
   );
 
+  //DRAWER INFLUENCER 
+  
+const stackMyInfluencerProfile=createStackNavigator({
+  profile2:Profilemiinfluencer,
+})
 
+ 
+
+
+const drawMenu2= createDrawerNavigator(
+  {
+      requesPendin:{
+      screen:DashboardTabInfluencer,
+       },
+     profile2:{
+       screen:stackMyInfluencerProfile,
+     },
+     
+      
+     },{
+    drawerWidth:wp('80%'),
+    initialRouteName: 'requesPendin',
+   // drawerBackgroundColor:'#544DEB',
+    contentComponent:InfluencerMenu,
+    contentOptions: {
+    inactiveTintColor:'white',
+     },
+    
+  },
+
+  
+  );
 
 
 
@@ -465,8 +528,11 @@ const RootStack = createStackNavigator(
     Become2: {
       screen: Become2,
     },
-    Become3: {
+    Become3: { 
       screen: Become3,
+    },
+    bookingStats: {
+      screen: BookingStats,
     },
     ConfirmEmail: {
       screen: ConfirmEmail,
@@ -507,6 +573,9 @@ const RootStack = createStackNavigator(
     },
     editinfluencerprofile:{
       screen :  Editinfluencerprofile,
+   },
+   influencerEstadisticas:{
+      screen : InfluencerEstadisticas,
    },
      liveEventDetail:{
        screen:LiveEventDetail,
@@ -553,13 +622,25 @@ publishPri3:{
 publishPri4:{
   screen:PublishPri4,
 },
+publishPri5:{
+  screen:PublishPri5,
+},
 publishPri7:{
   screen:PublishPri7,
+},
+publishPri8:{
+  screen:PublishPri8,
 },
 publishPri10:{
   screen:PublishPri10,
 },
-requestPri4:{
+recordVideo1:{
+  screen:RecordVideo1,
+},
+recordVideo2:{
+  screen:RecordVideo2,
+},
+requestPri4:{ 
   screen:RequestPri4,
 },
 requestPri4B:{
@@ -575,7 +656,8 @@ requestPri3:{
   screen:RequestPri3,
 },
    requesPendin:{
-        screen:DashboardTabInfluencer,
+        screen:drawMenu2,
+      
         navigationOptions: {
           header: null
         }
@@ -714,13 +796,21 @@ requestPri3:{
     boorramos :{
        screen: Boorramos
     },
-    
-   
+    //*************** streamings ************
+    coachViewer:{
+       screen:CoachViewer,
+     },
+     dos:{ //streamings
+       screen:Dos,
+     }
   },
   {
-    initialRouteName: 'createViewerProfile',
+    initialRouteName: 'requesPendin',
   }
 );
+
+
+
 
 
 

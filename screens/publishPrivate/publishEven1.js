@@ -66,11 +66,11 @@ export default class PublishEven1 extends Component {
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
 
       <View style={{flex:1,
-              marginTop:'5%'}}>
+              marginTop:Platform.OS === 'ios' ? hp('5%'):'5%'}}>
               <ScrollView showsVerticalScrollIndicator={false}> 
 
 
-        <View style={{flex: 1 ,flexDirection:'row', paddingBottom:'3%',
+        <View style={{flex: 1 ,flexDirection:'row', paddingBottom:Platform.OS === 'ios' ? hp('4%'):'3%',
          borderBottomWidth: 2,borderBottomColor:'#C3C1C0'}}>
             <View style={{flex:1 , marginLeft:'4%',marginTop:'6%'}}>
             <TouchableOpacity

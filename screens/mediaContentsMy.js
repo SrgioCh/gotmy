@@ -130,7 +130,7 @@ export default class Mediacontentsmy extends Component {
 </View>
  
 
-<ScrollView style={{marginTop:hp('3%')}} >
+<ScrollView style={{marginTop:hp('3%'),marginHorizontal:'4%'}} >
 {
   this.state.usuarios.map((item,i)=> {
 

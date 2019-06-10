@@ -178,7 +178,7 @@ toggleModal(visible) {
           titleStyle={{ color: "#ffffff",
           position: "absolute",
           top: -5,
-          right: Platform.OS === 'ios' ? '25%':null,
+          right: Platform.OS === 'ios' ? null:null,
           }}
           >
         </Button>

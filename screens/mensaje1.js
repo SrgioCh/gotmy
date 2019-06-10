@@ -4,7 +4,7 @@ import { AppRegistry, Alert,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 export default class Mensaje1 extends Component {
@@ -62,17 +62,17 @@ export default class Mensaje1 extends Component {
 
    <View style={{flex: 1}}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
+        <View  style={{flex:0.9 ,marginTop:22,justifyContent:'center',
           borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
             
-          <View style={{flexDirection:'row',paddingHorizontal:15}}>
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
+              <View style={{flex:1 ,justifyContent:'center'}}>
               <Image source={require('../assets/reviews/kuskal.png')} 
                         style={{ width:40,height:40,
                                   borderRadius:10}}
                         />
               </View>
-             <View style={{flex:4,flexDirection:'column',marginLeft:10,
+             <View style={{flex:4,flexDirection:'column',
                         marginRight:15}}>
                   <Text style={{
                        color:'#312f3d',
@@ -85,30 +85,28 @@ export default class Mensaje1 extends Component {
              </View>
              <View style={{flex:1,marginRight:5}}>
               </View>
-              <View style={{flex:1,alignItems:'flex-end'}}>
+             
 
               <TouchableOpacity
+              style={{flex:1,alignItems:'flex-end'}}
              onPress={() => this.props.navigation.navigate("addParticip1")}
               >
               <Image source={require('../assets/icons_genGMI/mensajex.png')} 
-                        style={{ width:40,height:40,
+                        style={{ width:35,height:35,
                                   borderRadius:10}}
                         />
                  </TouchableOpacity>
-              </View>
+              
           </View>
   
       </View>
       </TouchableWithoutFeedback>
-    <View style={{flex: 2}}>
+    <View style={{flex: 2 }}>
       
-   
-
-
 {/* TITULO */}  
 <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 <View style={{marginHorizontal:16}}>
-    <Text style={{fontSize:34,color:'#312f3d',marginVertical:15,
+    <Text style={{fontSize:34,color:'#312f3d',marginVertical:hp('2%'),
            fontWeight: 'bold',}}>Messages</Text>
 
 </View>
@@ -169,7 +167,7 @@ export default class Mensaje1 extends Component {
 <View style={{flex:1,marginHorizontal:16,flexDirection:'row',marginBottom:10,
               }}>
 
-  <View style={{flex:2,alignItems:'center'}}>
+  <View style={{flex:1.5}}>
     
         <Image source={require(`../assets/influencers/uno.png`)} 
                         style={{ width:50,height:50,
@@ -177,7 +175,7 @@ export default class Mensaje1 extends Component {
                         />
   </View>
 
-  <View style={{flex:7,flexDirection:'column',
+  <View style={{flex:7.5,flexDirection:'column',
                  paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
         <View  style={{flexDirection:'row'}}>
 
@@ -238,14 +236,14 @@ export default class Mensaje1 extends Component {
                }}>
 
 
-  <View style={{flex:2,alignItems:'center'}}>
+  <View style={{flex:1.5}}>
         <Image source={require(`../assets/influencers/influencer.png`)} 
                         style={{ width:50,height:50,
                                   borderRadius:10}}
                         />
   </View>
 
-  <View style={{flex:8,flexDirection:'column',
+  <View style={{flex:7.5,flexDirection:'column',
                  paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
         <View  style={{flexDirection:'row'}}>
 
@@ -309,14 +307,14 @@ export default class Mensaje1 extends Component {
 <View style={{flex:1,marginHorizontal:16,flexDirection:'row',marginBottom:10,
               }}>
 
-  <View style={{flex:2,alignItems:'center'}}>
+  <View style={{flex:1.5}}>
         <Image source={require(`../assets/influencers/dos.png`)} 
                         style={{ width:50,height:50,
                                   borderRadius:10}}
                         />
   </View>
 
-  <View style={{flex:8,flexDirection:'column',
+  <View style={{flex:7.5,flexDirection:'column',
                  paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
        
         <View style={{flexDirection:'row',paddingVertical:3}}>
@@ -364,14 +362,14 @@ export default class Mensaje1 extends Component {
 <View style={{flex:1,marginHorizontal:16,flexDirection:'row',marginBottom:10,
               }}>
 
-  <View style={{flex:2,alignItems:'center'}}>
+  <View style={{flex:1.5}}>
         <Image source={require(`../assets/influencers/uno.png`)} 
                         style={{ width:50,height:50,
                                   borderRadius:10}}
                         />
   </View>
 
-  <View style={{flex:8,flexDirection:'column',
+  <View style={{flex:7.5,flexDirection:'column',
                  paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
         <View  style={{flexDirection:'row'}}>
 
@@ -435,14 +433,14 @@ export default class Mensaje1 extends Component {
 <View style={{flex:1,marginHorizontal:16,flexDirection:'row',marginBottom:10,
               }}>
 
-  <View style={{flex:2,alignItems:'center'}}>
+  <View style={{flex:1.5}}>
         <Image source={require(`../assets/influencers/tres.png`)} 
                         style={{ width:50,height:50,
                                   borderRadius:10}}
                         />
   </View>
 
-  <View style={{flex:8,flexDirection:'column',
+  <View style={{flex:7.5,flexDirection:'column',
                  paddingBottom:10,borderBottomColor:'#e1e3e6',borderBottomWidth:1}}>
        
         <View style={{flexDirection:'row',paddingVertical:3}}>

@@ -24,12 +24,13 @@ export default class Paymentmethod extends Component {
         borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
         <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 16}}>
-            <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+        <TouchableOpacity style={{flex:1 ,alignItems:'center',justifyContent:'center'}}
+                       onPress={() => this.props.navigation.toggleDrawer()}  >
             <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,
                                 borderRadius:10}}
                       />
-            </View>
+           </TouchableOpacity>
            <View style={{flex:4,flexDirection:'column',marginLeft:10,
                       marginRight:10}}>
                 <Text style={{

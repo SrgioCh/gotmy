@@ -169,7 +169,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 </Text>
 
            {/* caja imagen de video*/}
-   
+           <View  style={{marginHorizontal:'4%'}}>
            <EventContents 
 fecha={this.state.usuarios[0].fecha}
 descripcion={this.state.usuarios[0].descripcion}
@@ -177,6 +177,7 @@ imagVideo={this.state.usuarios[0].imagVideo}
 duraVid={this.state.usuarios[0].duraVid}
 tipo={this.state.usuarios[0].tipo}
 />
+</View>
 {/*-------------------------------------------------------------------------------- */}
 
 {/* ------------------------------------------------------------------------------ */}
@@ -238,6 +239,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 </Text>
 
            {/* caja imagen de video*/}
+           <View  style={{marginHorizontal:'4%'}}>
            <EventContents 
 fecha={this.state.usuarios[1].fecha}
 descripcion={this.state.usuarios[1].descripcion}
@@ -246,7 +248,7 @@ duraVid={this.state.usuarios[1].duraVid}
 tipo={this.state.usuarios[1].tipo}
 />
 {/*-------------------------------------------------------------------------------- */}
-
+</View>
     </ScrollView>
 
 

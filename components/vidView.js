@@ -83,7 +83,7 @@ export default class VidView extends React.Component {
                      opacity:0.8,
                      paddingHorizontal:25,
                      paddingVertical:Platform.OS === 'ios' ? 10:10,
-                     bottom:Platform.OS === 'ios' ? 24:hp('0.5%'),
+                     bottom:Platform.OS === 'ios' ? hp('0.5%'):hp('0.5%'),
                       right:wp('1.5%'),
                       zIndex:4,
                      borderRadius:Platform.OS === 'ios' ? 50:hp('1%'),
@@ -93,7 +93,7 @@ export default class VidView extends React.Component {
               style={{
               position:'absolute',
                 zIndex:6,
-              bottom:Platform.OS === 'ios' ? 26:hp('0.8%'),
+              bottom:Platform.OS === 'ios' ? hp('0.8%'):hp('0.8%'),
               right:wp('3%'),
             color:'white',
 

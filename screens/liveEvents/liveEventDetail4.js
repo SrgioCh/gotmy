@@ -43,7 +43,9 @@ export default class LiveEventDetail4 extends Component {
      
           <View style={{flex:9,}}>
               <TouchableOpacity 
-              onPress = {() => this.props.navigation.navigate("boked1") } >
+             // onPress = {() => this.props.navigation.navigate("boked1") }
+             onPress = {() => this.props.navigation.navigate("coachViewer") }
+             >
                   <ImageBackground source={require('../../assets/influencers/MandyJTV/mandylive2.png')}
                    style={{width: '100%', height: '100%'}}>
               

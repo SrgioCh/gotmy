@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 
 import { Camera,  Permissions, Video } from 'expo';
@@ -69,7 +69,10 @@ export default class Boorramos extends React.Component {
     return(
       <View style={{flex: 1}}>
       
-        <Video source={{ uri: this.state.video.uri}} useNativeControls={true} style={{ width: W, height: W }} resizeMode="cover" />
+        <Video source={{ uri: this.state.video.uri}} 
+        useNativeControls={true} 
+        style={{ width: W, height: W }}
+         resizeMode="cover" />
         <TouchableOpacity onPress={() => this.reset()} 
             style={{width: 100, height: 40, position: "absolute", borderRadius: 8, borderColor: "red", borderWidth: 1, bottom: 50, left: P, justifyContent: "center", alignItems: "center" }}>
             <Text style={{color: "red"}}>RESET</Text>
@@ -96,14 +99,18 @@ export default class Boorramos extends React.Component {
 
     let bColor = this.state.stopping ? "blue" : "red" ;
 
+
     return(
       <View style={{flex: 1}}>
         <Camera
-            style={{ width: W, height: W, borderColor: "red" }}
+            style={{ width: W, height: W, borderColor: "red",justifyContent:'flex-end' }}
             type={Camera.Constants.Type.front}
             ref={this.setRef}
-          />
-
+          >
+       <View style={{backgroundColor:'yellow'}}>
+         <Text>tenemos la camara</Text>
+       </View>
+      </Camera>
         {!this.state.recording &&
           <TouchableOpacity onPress={() => this.startRecording()} 
             style={{width: 100, height: 40, position: "absolute", borderRadius: 8, borderColor: "red", borderWidth: 1, bottom: 50, left: P, justifyContent: "center", alignItems: "center" }}>
@@ -155,7 +162,9 @@ const styles = StyleSheet.create({
   
 });
 
-*/
+
+
+/*
 import React from 'react';
 import { StyleSheet, Text, View , TouchableOpacity} from 'react-native';
 import { Camera, Permissions} from 'expo';
@@ -209,3 +218,150 @@ export default class Boorramos extends React.Component {
     }
   }
 }
+*/
+
+
+/*
+import React, { Component } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { Camera, Permissions, MediaLibrary } from "expo";
+
+class MyCam extends Component {
+  state = {
+    video: null,
+    picture: null,
+    recording: false
+  };
+
+  _saveVideo = async () => {
+    const { video } = this.state;
+    const asset = await MediaLibrary.createAssetAsync(video.uri);
+    if (asset) {
+      this.setState({ video: null });
+    }
+  };
+
+  _StopRecord = async () => {
+    this.setState({ recording: false }, () => {
+      this.cam.stopRecording();
+    });
+  };
+
+  _StartRecord = async () => {
+    if (this.cam) {
+      this.setState({ recording: true }, async () => {
+        const video = await this.cam.recordAsync();
+        this.setState({ video });
+      });
+    }
+  };
+
+  toogleRecord = () => {
+    const { recording } = this.state;
+
+    if (recording) {
+      this._StopRecord();
+    } else {
+      this._StartRecord();
+    }
+  };
+
+  render() {
+    const { recording, video } = this.state;
+    return (
+      <Camera
+        ref={cam => (this.cam = cam)}
+        style={{
+          justifyContent: "flex-end",
+          alignItems: "center",
+          flex: 1,
+          width: "100%"
+        }}
+      >
+        {video && (
+          <TouchableOpacity
+            onPress={this._saveVideo}
+            style={{
+              padding: 20,
+              width: "100%",
+              backgroundColor: "#fff"
+            }}
+          >
+            <Text style={{ textAlign: "center" }}>save</Text>
+          </TouchableOpacity>
+        )}
+        <TouchableOpacity
+          onPress={this.toogleRecord}
+          style={{
+            padding: 20,
+            width: "100%",
+            backgroundColor: recording ? "#ef4f84" : "#4fef97"
+          }}
+        >
+          <Text style={{ textAlign: "center" }}>
+            {recording ? "Stop" : "Record"}
+          </Text>
+        </TouchableOpacity>
+      </Camera>
+    );
+  }
+}
+
+class RecVideo extends Component {
+  state = {
+    showCamera: false
+  };
+
+  _showCamera = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+    if (status === "granted") {
+      this.setState({ showCamera: true });
+    }
+  };
+
+  render() {
+    const { showCamera } = this.state;
+    return (
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          flex: 1,
+          width: "100%"
+        }}
+      >
+        {showCamera ? (
+          <MyCam />
+        ) : (
+          <TouchableOpacity onPress={this._showCamera}>
+            <Text> Show Camera </Text>
+          </TouchableOpacity>
+        )}
+      </View>
+    );
+  }
+}
+
+export default RecVideo;
+*/
+
+// ESTO ES UNA PARTE QUE GUARDE POR SI ACASO
+
+
+/*
+  &&
+         
+         <TouchableOpacity onPress={() => this.startRecording()} 
+        style={{width: 100, height: 40, position: "absolute",
+        backgroundColor:'yellow',
+       borderRadius: 8, borderColor: "red", borderWidth: 1, top:hp('5%'), left: wp('4%'), justifyContent: "center" }}>
+        <Image source={require('../../assets/icons_genGMI/Backwhitebk.png')} 
+               style={{ width:25,height:25}}
+               /> 
+         </TouchableOpacity>
+        }
+            {!this.state.recording             
+
+
+*/

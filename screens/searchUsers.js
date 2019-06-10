@@ -63,7 +63,7 @@ constructor(props) {
   render() {
     return (
              <ScrollView>
-                       <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
+                       <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:hp('5%')}}>
 
                            <View style={{flex:2}}>
                                 <TouchableOpacity

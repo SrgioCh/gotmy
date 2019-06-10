@@ -111,7 +111,7 @@ seleccion1=() =>{
 
     return (
      
-    <ScrollView style={{marginTop:20 }} >
+    <ScrollView style={{}} >
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
      <Image
@@ -136,7 +136,7 @@ seleccion1=() =>{
     <TouchableOpacity
          onPress={() => this.props.navigation.navigate("vieweredit")}
           style={{
-            position:'absolute',right:10,top:25,
+            position:'absolute',right:'4%',top:35,
           }}                     
           >
     <Image
@@ -148,6 +148,22 @@ seleccion1=() =>{
                }}
             />
     </TouchableOpacity>
+    <TouchableOpacity
+                    // onPress={() => this.props.navigation.pop()}
+                    onPress={() => this.props.navigation.toggleDrawer()} 
+                    style={{position:'absolute',left:'4%',top:35 }}
+                     >
+            <Image
+                  source={require('../assets/icons_genGMI/Backwhitebk.png')}
+                  style={{
+                                       
+                        width:25,
+                        height:25,
+                        
+                                 
+                         }}
+                       />
+           </TouchableOpacity>
      {/* ----------------------------------------*/} 
 
   {/* ----------biagraphy----------------*/} 
@@ -327,6 +343,8 @@ seleccion1=() =>{
 {/* --------------------------- --------------------*/}
 
  {/* ------------- LISTA VIDEO ----------------------------*/}
+ 
+ <View style={{marginHorizontal:'4%'}}>
  <EventContents  
                         fecha={this.state.usuarios[0].fecha}
                         descripcion={this.state.usuarios[0].descripcion}
@@ -334,6 +352,8 @@ seleccion1=() =>{
                         duraVid={this.state.usuarios[0].duraVid}
                         tipo={this.state.usuarios[0].tipo}
                         />
+ </View>
+ 
 
 {/*-------------------------------------------------------------------------------- */}
 
@@ -414,7 +434,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
            {/* caja imagen de video*/}
   
-           <View style={{marginBottom:hp('2%')}}>
+           <View style={{marginBottom:hp('2%'),marginHorizontal:'4%'}}>
         <EventContents  
                         fecha={this.state.usuarios[1].fecha}
                         descripcion={this.state.usuarios[1].descripcion}

@@ -5,6 +5,7 @@ import { AppRegistry, Alert,TouchableOpacity,
   Image} from 'react-native';
 
 import Button from 'react-native-button'; 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class MyWallet extends Component {
 
@@ -187,7 +188,7 @@ export default class MyWallet extends Component {
 
 <View style={{flex:1}}>
 
-<View style={{flex:4,marginTop:'5%',backgroundColor:'red'}}>
+<View style={{flex:4}}>
 
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
@@ -215,7 +216,7 @@ export default class MyWallet extends Component {
   
 
 {/* primera  icono con maskota*/}
- <View style={{zIndex:4,width:'100%', position:'absolute'}}>
+ <View style={{zIndex:4,width:'100%', position:'absolute',top:hp('5%')}}>
  <View style={{flexDirection:'row'}}>
               <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
               <Image source={require('../assets/influencers/influencer.png')} 
@@ -277,7 +278,7 @@ export default class MyWallet extends Component {
        <ScrollView>
        <View style={{flexDirection:'row',
                     justifyContent: 'space-between',paddingVertical:10,marginHorizontal:'3%'
-                     ,marginTop:10}}>
+                     ,marginTop:hp('5%')}}>
                      <View > 
                          <Text style={{color:"#312f3d",fontSize:17,fontWeight:'500'}}>Latest transactions</Text>
                      </View>

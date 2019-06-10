@@ -4,7 +4,8 @@ import { AppRegistry, Alert,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+  import Cabezera from "./component/cabezera"
 
 export default class Activity2 extends Component {
 
@@ -19,9 +20,14 @@ export default class Activity2 extends Component {
   
      this.state={
 
+      imagInflu:require('../../assets/influencers/influencer.png'),
       influencer:'Kala | Tempo',
-      fotoInflu:'influencer.png',
+     // fotoInflu:'influencer.png',
       correoInflu:'@kalatempo',
+      imagMasco:require('../../assets/influencers/KalaTempo/mascotaKala.png'),
+      icono:null,
+      haciaPag:null,
+
 
        opaciNo:null,
        opaciSi:0.5,
@@ -88,50 +94,28 @@ export default class Activity2 extends Component {
 
 
       <View style={{flex: 1}}>
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-            
-          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-              <TouchableOpacity
-               onPress={() => this.props.navigation.navigate("profile2")}
-               >
-              <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-              <Image source={require('../../assets/influencers/influencer.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-              </TouchableOpacity>
-             <View style={{flex:flexName,flexDirection:'column',marginLeft:10,
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>{this.state.influencer}</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>{this.state.correoInflu}</Text>
-             </View>
-             <View style={{flex:2,marginRight:5}}>
-                  <Image source={require('../../assets/influencers/KalaTempo/mascotaKala.png')} 
-                        style={{ width:20,height:20 ,marginLeft:-15,marginTop:2}}
-                        />
-              </View>
-              <View style={{flex:1}}>
-                 
-              </View>
-          </View>
-  
-      </View>
-      <View style={{flex: 9}}>
+     
+     <Cabezera
+       imagInflu={this.state.imagInflu}
+       influencer={this.state.influencer}
+       imagMasco={this.state.imagMasco}
+       correoInflu={this.state.correoInflu}
+       
+
+
+       icono={this.state.icono}
+      haciaPag={this.state.haciaPag}
+       enviaAPadre={null}
+       />
+
+      <View style={{flex: 8.7}}>
       
 
 
 {/* TITULO */}  
 
 <View style={{marginHorizontal:16}}>
-    <Text style={{fontSize:34,color:'#312f3d',marginBottom:15,marginTop:5,
+    <Text style={{fontSize:34,color:'#312f3d',marginBottom:15,marginTop:hp('2%'),
            fontWeight: 'bold',}}>Activity</Text>
 
 </View>

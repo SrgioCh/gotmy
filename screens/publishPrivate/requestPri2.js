@@ -20,10 +20,11 @@ export default class RequestPri2 extends Component {
           width: '80%',
             fontWeight:'500',
                 letterSpacing:0.41,
-                height:120,
+                height:Platform.OS === 'ios' ? 180:120,
                 fontSize:16,
                 color:'#312f3d',
-                marginTop:  Platform.OS === 'ios' ? '45%':'43%',
+                marginTop:  Platform.OS === 'ios' ? '63%':'43%',
+    
     
         },
         headerRight: (<View style={{marginRight: 16}}>

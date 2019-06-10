@@ -458,7 +458,7 @@ export default class Profileinfluencer extends Component {
          </View>
   </View>
  
-  <View style={{marginBottom:hp('2%')}}>
+  <View style={{marginBottom:hp('2%'),marginHorizontal:'4%'}}>
 
   
          {

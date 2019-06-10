@@ -34,7 +34,7 @@ export default class EventContents extends React.Component {
    }
 
     return (
-     <View style={{marginHorizontal:'4%',marginTop:hp('1.5%')}}>
+     <View style={{marginTop:hp('1.5%')}}>
       
          <View style={{flexDirection:'row'}}>
                <View style={{flex:6.5}}>
@@ -61,17 +61,17 @@ export default class EventContents extends React.Component {
                      opacity:0.8,
                      paddingHorizontal:25,
                      paddingVertical:Platform.OS === 'ios' ? 10:10,
-                     bottom:Platform.OS === 'ios' ? 24:hp('0.5%'),
+                     bottom:Platform.OS === 'ios' ? hp('0.5%'):hp('0.5%'),
                       right:wp('1.5%'),
                       zIndex:4,
-                     borderRadius:Platform.OS === 'ios' ? 50:hp('1%'),
+                     borderRadius:Platform.OS === 'ios' ? hp('1%'):hp('1%'),
                      borderBottomWidth:1,
                     }}></View>
             <Text
               style={{
               position:'absolute',
                 zIndex:6,
-              bottom:Platform.OS === 'ios' ? 26:hp('0.8%'),
+              bottom:Platform.OS === 'ios' ? hp('0.8%'):hp('0.8%'),
               right:wp('3%'),
             color:'white',
 

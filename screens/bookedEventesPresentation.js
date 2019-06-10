@@ -4,7 +4,8 @@ import { Platform,AppRegistry, Alert,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
 
-import Button from 'react-native-button'; 
+  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 export default class BookedEventsPresentation extends Component {
     static navigationOptions = {
@@ -44,8 +45,7 @@ export default class BookedEventsPresentation extends Component {
 
       <View style={{flex: 1 }}>
          
-          <View style={{flex:9,
-              marginTop:24}}>
+          <View style={{flex:9}}>
                <TouchableOpacity
              onPress={() => this.props.navigation.navigate("boked5")}
              > 
@@ -54,7 +54,7 @@ export default class BookedEventsPresentation extends Component {
               style={{width: '100%', height: '100%'}}>
            
                 
-                <View style={{flex:7,flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+                <View style={{flex:7,flexDirection:'row',marginHorizontal:16,marginTop:hp('5%')}}>
 
                            <View style={{flex:1}}>
                                 <TouchableOpacity

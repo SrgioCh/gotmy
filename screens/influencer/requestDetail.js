@@ -353,17 +353,17 @@ export default class RequestDetail extends Component {
 
 
 
-
-
 const styles = StyleSheet.create({
   
   containerbutton:{
   
      width:'43%',
-     paddingVertical:13,
+     paddingVertical:5,
      borderRadius:27,
      textAlign:"center",
-     marginBottom:hp('8%'),
+     marginTop:hp('1%'),
+     marginBottom:hp('6%'),
+     justifyContent: 'center',
   
    },
 

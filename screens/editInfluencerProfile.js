@@ -576,25 +576,21 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
 
 
                        {/* ----------------------------------------------- */}
-                 <TouchableOpacity
+                <View style={{alignItems:'center',marginVertical:'8%',}}>
+                <TouchableOpacity
                   onPress={() =>  this.toggleModal(!this.state.modalVisible)  }
                   style={{
-                    marginTop:'18%',
+                    
                    alignItems:'center',
-                    marginBottom:'10%'
-
+                   paddingVertical:hp('2.8%'),
+                   justifyContent:'center',
+                    backgroundColor: '#ff5a60',
+                    width:'90%',
+                    borderRadius:wp('10%')
                   }}
                 >
-                  <View style={{
-                      backgroundColor: '#ff5a60',
-                      width:'90%',
-                      paddingVertical:25,
-                       alignItems:'center',
-                      borderRadius:27,
-                      justifyContent:'center'
-                  }}>
-               
-                       <Text  style={{
+                
+                 <Text  style={{
                          
                           color:"white",
                         fontSize:17,
@@ -603,8 +599,11 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                        }}> 
                        Save changes
                       </Text>
-                   </View> 
+               
                </TouchableOpacity>
+
+                </View>
+                 
  
 
              </ScrollView>

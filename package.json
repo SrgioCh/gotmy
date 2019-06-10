@@ -17,6 +17,7 @@
     "react-native-modal": "^9.0.0",
     "react-native-modalbox": "^1.7.1",
     "react-native-modest-checkbox": "^3.3.0",
+    "react-native-pure-chart": "0.0.24",
     "react-native-responsive-screen": "^1.2.2",
     "react-native-switch-toggle": "^1.0.8",
     "react-navigation": "^3.3.2",

@@ -81,14 +81,15 @@ constructor(props) {
       <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
 
       <View style={{flex:1,
-              marginTop:'5%'}}>
+              marginTop:Platform.OS === 'ios' ? hp('5%'):'5%'}}>
               <ScrollView showsVerticalScrollIndicator={false}> 
 
-              <View style={{flex: 1 ,flexDirection:'row', paddingBottom:'3%',
+              <View style={{flex: 1 ,flexDirection:'row', paddingBottom:Platform.OS === 'ios' ? hp('4%'):'3%',
          borderBottomWidth: 2,borderBottomColor:'#C3C1C0'}}>
             <View style={{flex:1 , marginLeft:'4%',marginTop:'6%'}}>
             <TouchableOpacity
-                     onPress={() => this.props.navigation.pop()}
+                    // onPress={() => this.props.navigation.pop()}
+                    onPress={() => this.props.navigation.toggleDrawer()} 
                      >
             <Image
                   source={require('../assets/icons_genGMI/Back.png')}
@@ -126,7 +127,7 @@ constructor(props) {
                      width:50,
                      height:50,
                      borderRadius:25,
-                     top:'12%',
+                     top:'12.8%',
                      left:'45%',
                      position:'absolute',
                    }}

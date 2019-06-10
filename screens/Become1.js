@@ -50,7 +50,7 @@ this.state = {
 
     screenHeight=Dimensions.get('window').height;
 
-        alert(screenHeight)
+
     if(screenHeight<=592){ //1080 * 1920  xxhdpi
 
 

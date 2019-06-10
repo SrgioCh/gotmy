@@ -114,7 +114,7 @@ export default class PublishEven4message extends Component {
      <View style={{ alignItems:'center'}}> 
        
        <TouchableOpacity style={styles.containerbutton}
-          onPress={() => this.props.navigation.navigate("previewLiveEvent")}
+          onPress={() => this.props.navigation.navigate("recordVideo2")}
        > 
        <Text style={{color:'white',fontSize:wp('4.5%')}}>
          Continue </Text>      

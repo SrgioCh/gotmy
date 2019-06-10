@@ -114,7 +114,7 @@ export default class Reviews extends Component {
                                 <Image source={require('../assets/Grey.png')} 
                                     style={{ width:11,height:11,marginLeft:2}}
                                 />
-                            </View>
+                </View>
       
     </View>
 

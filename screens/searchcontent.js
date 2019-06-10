@@ -95,7 +95,7 @@ export default class SearchContent extends Component {
 
 
       {/*   CAJAS DE TENDINGS */}
-      <View style={{marginTop:hp('2%')}} >
+      <View style={{marginTop:hp('5%')}} >
 
 {
                      this.state.usuarios.map((item,i)=> {

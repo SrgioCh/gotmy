@@ -73,7 +73,7 @@ constructor(props) {
 
   render() {
     return (
-    <View style={{  marginHorizontal:16 }} >
+    <View style={{  }} >
     <ScrollView  showsVerticalScrollIndicator={false}>
          <View style={{    marginVertical:15,borderWidth:1,borderColor:'grey',
                                 width:Platform.OS === 'ios' ? 339:328,
@@ -101,7 +101,7 @@ constructor(props) {
        />
        </TouchableOpacity>
 
-       <View style={{marginTop:10}}>
+       <View style={{marginTop:10,marginHorizontal:'4%'}}>
        <BicardViewSimple
           fotoGrande={this.state.fotoGrande2}
           fotoUser={this.state.fotoUser2}

@@ -18,13 +18,13 @@ constructor(props) {
 
   this.state = { 
       
-    source1: require('../assets/art-culture.jpg'),
-    source2: require('../assets/business.jpg'),
-    source3: require('../assets/celebrity.jpg'),
-    source4: require('../assets/education.jpg'),
-    source5: require('../assets/cooking.jpg'),
-    source6: require('../assets/carft.jpg'),
-    source18: require('../assets/vblogger.jpg'),
+    source1: require('../assets/OnBoard/art-culture.jpg'),
+    source2: require('../assets/OnBoard/business.jpg'),
+    source3: require('../assets/OnBoard/celebrity.jpg'),
+    source4: require('../assets/OnBoard/education.jpg'),
+    source5: require('../assets/OnBoard/cooking.jpg'),
+    source6: require('../assets/OnBoard/carft.jpg'),
+    source18: require('../assets/OnBoard/vblogger.jpg'),
     }
 }
 
@@ -59,18 +59,18 @@ constructor(props) {
             borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
                <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-                    <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+                    <View style={{flex:1  ,justifyContent:'center'}}>
                   <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,
                                 borderRadius:10}}
                       />
                  </View>
-                <View style={{flex:4,flexDirection:'column',marginLeft:10,
+                <View style={{flex:4,flexDirection:'column',
                       marginRight:15}}>
                       <Text style={{
                      color:'#312f3d',
                      fontSize:17 ,letterSpacing:0.41
-                     }}>Kurtis 'Kala' Lloydi</Text>
+                     }}>Kurtis 'Kala' Lloyd</Text>
                      <Text style={{
                        color:'#677183',
                         fontSize:13 ,letterSpacing:0.08
@@ -99,7 +99,7 @@ constructor(props) {
                        
                      {/*  TITULOOO */}
                      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                       <View style={{ marginHorizontal:16,marginTop:10}}>
+                       <View style={{ marginHorizontal:16,marginTop:hp('2%'),}}>
                          <Text style={{fontSize:34,fontWeight:"700"}}>
                          Search</Text>
                       </View>
@@ -188,13 +188,14 @@ constructor(props) {
           
 
          
-              <View style={{ flexDirection:'row',marginHorizontal:'4%', marginTop:hp('2%')}}>
+              <View style={{ flex:1 ,flexDirection:'row',marginHorizontal:'4%', marginTop:hp('2%')}}>
                      
                      <TouchableOpacity 
                       style={{borderRadius:10,flex:1,height:hp('15%')}}
   
                     onPress = { () => {
-                          if (this.state.source1 == require("../assets/OnBoard/art-culture.jpg") )
+                     
+                          if (this.state.source1 === require("../assets/OnBoard/art-culture.jpg") )
                             {
                              this.setState({
                                 source1: require("../assets/20.png")

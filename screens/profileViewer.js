@@ -97,7 +97,7 @@ export default class Profileviewer extends Component {
 
     return (
      
-    <ScrollView style={{marginTop:20 }} >
+    <ScrollView style={{}} >
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
      <Image
@@ -121,7 +121,7 @@ export default class Profileviewer extends Component {
     </View>
     <TouchableOpacity
                      onPress={() => this.props.navigation.navigate("viewerChat")  }
-                     style={{position:'absolute',right:10,top:25}}
+                     style={{position:'absolute',right:'4%',top:35}}
                  >
     <Image
               source={require('../assets/icons_genGMI/mensajex.png')}
@@ -132,6 +132,8 @@ export default class Profileviewer extends Component {
                 }}
             />
     </TouchableOpacity>
+
+    
      {/* ----------------------------------------*/} 
 
   {/* ----------biagraphy----------------*/} 
@@ -318,6 +320,7 @@ export default class Profileviewer extends Component {
 {/* --------------------------- --------------------*/}
 
  {/* ------------- LISTA VIDEO ----------------------------*/}
+ <View style={{marginHorizontal:'4%'}}>
  <EventContents  
                         fecha={this.state.usuarios[0].fecha}
                         descripcion={this.state.usuarios[0].descripcion}
@@ -325,6 +328,9 @@ export default class Profileviewer extends Component {
                         duraVid={this.state.usuarios[0].duraVid}
                         tipo={this.state.usuarios[0].tipo}
                         />
+
+ </View>
+ 
 
 {/*-------------------------------------------------------------------------------- */}
 
@@ -412,7 +418,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 
            {/* caja imagen de video*/}
 
-           <View style={{marginBottom:hp('2%')}}>
+           <View style={{marginBottom:hp('2%'),marginHorizontal:'4%'}}>
         <EventContents  
                         fecha={this.state.usuarios[1].fecha}
                         descripcion={this.state.usuarios[1].descripcion}

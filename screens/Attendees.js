@@ -118,10 +118,8 @@ export default class Attendees extends Component {
                                   style={{ width:40,height:40,borderRadius:10}}
                                  />
                            
-   
-       </View>
-     
-       <View style={{flex:5.5,flexDirection:'column',paddingLeft:18 ,
+     </View>
+      <View style={{flex:4.7,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -137,7 +135,7 @@ export default class Attendees extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
            
              {/*     caja de cambio de boton */}
@@ -178,19 +176,15 @@ export default class Attendees extends Component {
    {/*---------------------------------------------- */}
    {/*------------------------------------------------- */}
    
+    <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14}}>
    
-   <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
-   
-       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+  <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/leroyGre.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
                                  />
-                           
-   
-       </View>
-     
-       <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+        </View>
+     <View style={{flex:4.7,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Leroy Greene</Text>
@@ -203,11 +197,10 @@ export default class Attendees extends Component {
                     </View>
                  <Text style={{fontSize:13,color:'#697181',marginLeft:4}}>Mauritania</Text>
              </View>
-         
-        </View>
-   
-       <View style={{flex:3,alignItems:'flex-end',
-               justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+         </View>
+    <View style={{flex:3.8,alignItems:'flex-end',
+               justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+               paddingBottom:15}}>
               {/*     caja de cambio de boton */}
               <TouchableOpacity 
                  onPress = { () => {
@@ -217,7 +210,7 @@ export default class Attendees extends Component {
                      caja2: styles.socialBotone,
                      marca2:styles.Textsinmarcar,
                      texto2:'Be friends',
-                     usu1:false,
+                     usu2:false,
                     })
                  }
                 else{
@@ -244,7 +237,7 @@ export default class Attendees extends Component {
    </View>
    {/*---------------------------------------------- */}
    
-   <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+   <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14}}>
    
        <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
@@ -256,7 +249,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5.5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -272,7 +265,7 @@ export default class Attendees extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',paddingBottom:15,
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
               {/*     caja de cambio de boton */}
               <TouchableOpacity 
@@ -314,7 +307,7 @@ export default class Attendees extends Component {
    {/*------------------------------------------------- */}
    
    
-   <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+   <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14}}>
    
        <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
@@ -325,7 +318,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Ruth Jenkins</Text>
@@ -341,7 +334,7 @@ export default class Attendees extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               {/*     caja de cambio de boton */}
               <TouchableOpacity 
@@ -382,7 +375,7 @@ export default class Attendees extends Component {
    {/*------------------------------------------------- */}
    
    
-   <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+   <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14}}>
    
        <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
@@ -393,7 +386,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5.5,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Caleb Pena</Text>
@@ -409,7 +402,7 @@ export default class Attendees extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
                 {/*     caja de cambio de boton */}
              <TouchableOpacity 
@@ -448,7 +441,7 @@ export default class Attendees extends Component {
    {/*---------------------------------------------- */}
    
    
-   <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
+   <View style={{flexDirection:'row',marginHorizontal:16,marginTop:14}}>
    
        <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
@@ -460,7 +453,7 @@ export default class Attendees extends Component {
    
        </View>
      
-       <View style={{flex:5.5,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -476,7 +469,7 @@ export default class Attendees extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
              {/*     caja de cambio de boton */}
              <TouchableOpacity 
@@ -543,7 +536,7 @@ socialBotone:{
   borderRadius:27,
   width:'90%',
   paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 18:11,
+  paddingHorizontal: Platform.OS === 'ios' ? 11:11,
 
   
 },
@@ -556,7 +549,7 @@ socialBotonBlanco:{
   borderRadius:27,
   width:'90%',
   paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 3:11,
+  paddingHorizontal: Platform.OS === 'ios' ? 11:11,
   borderWidth:1,
   borderColor: '#312f3d',
 }

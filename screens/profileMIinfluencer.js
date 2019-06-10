@@ -108,12 +108,12 @@ export default class Profilemiinfluencer extends Component {
    
     return (
      
-    <ScrollView style={{marginTop:20 }} >
+    <ScrollView style={{}} >
 
 {/*  CAJA DE IMAGEN CON SU TEXTO SUPERPUESTO*/}
 <TouchableOpacity 
-             onPress={() => this.props.navigation.navigate("myWallet")}
-             >
+            onPress={() => this.props.navigation.navigate("myWallet")}
+            >
      <Image
               source={require('../assets/influencers/KalaTempo/dos.jpg')}
                style={{
@@ -136,7 +136,7 @@ export default class Profilemiinfluencer extends Component {
     <TouchableOpacity 
              onPress={() => this.props.navigation.navigate("editinfluencerprofile")}
              style={{
-               position:'absolute',right:10,top:25,
+               position:'absolute',right:10,top:35,
              }}
          
            >
@@ -150,14 +150,22 @@ export default class Profilemiinfluencer extends Component {
                }}
             />
    </TouchableOpacity>
-    <View style={{position:'absolute',left:'4%',top:'1.5%', zIndex:6}}>
-         
-         <TouchableOpacity 
-             onPress={() => this.props.navigation.pop()}
-           >
-        <Ionicons name="md-arrow-round-back" size={38} color="white" />
-        </TouchableOpacity>
-       </View> 
+   <TouchableOpacity
+                    // onPress={() => this.props.navigation.pop()}
+                    onPress={() => this.props.navigation.toggleDrawer()} 
+                    style={{position:'absolute',left:'4%',top:35 }}
+                     >
+            <Image
+                  source={require('../assets/icons_genGMI/Backwhitebk.png')}
+                  style={{
+                                       
+                        width:25,
+                        height:25,
+                        
+                                 
+                         }}
+                       />
+           </TouchableOpacity>
 
     {/* numero grande de estadistica*/}
     <TouchableOpacity 
@@ -429,14 +437,16 @@ export default class Profilemiinfluencer extends Component {
 {/* --------------------------- --------------------*/}
 
  {/* ------------- LISTA VIDEO ----------------------------*/}
-
-                 <EventContents  
+<View style={{marginHorizontal:'4%'}}>
+<EventContents  
                         fecha={this.state.usuarios[0].fecha}
                         descripcion={this.state.usuarios[0].descripcion}
                         imagVideo={this.state.usuarios[0].imagVideo}
                         duraVid={this.state.usuarios[0].duraVid}
                         tipo={this.state.usuarios[0].tipo}
                         />
+</View>
+                
 
 {/*-------------------------------------------------------------------------------- */}
 
@@ -516,7 +526,7 @@ Your comedy sketches may just be the best of any PokeTuber right now.﻿
 </Text>
 
            {/* caja imagen de video*/}
-        <View style={{marginBottom:hp('2%')}}>
+        <View style={{marginBottom:hp('2%'),marginHorizontal:'4%'}}>
         <EventContents  
                         fecha={this.state.usuarios[1].fecha}
                         descripcion={this.state.usuarios[1].descripcion}

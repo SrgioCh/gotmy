@@ -118,20 +118,20 @@ constructor(props) {
     <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
         borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
           
-        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: 13}}>
+        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: '4%'}}>
         <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("Become1")}
-                   // onPress={() => this.props.navigation.toggleDrawer()} 
+                  style={{flex:1,justifyContent:'center'}}
+                 //  onPress={() => this.props.navigation.navigate("Become1")}
+                   onPress={() => this.props.navigation.toggleDrawer()} 
                      >
-            <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-            <Image source={require('../assets/reviews/kuskal.png')} 
+             <Image source={require('../assets/reviews/kuskal.png')} 
                       style={{ width:40,height:40,
                                 borderRadius:10}}
                       />
-            </View>
+         
             </TouchableOpacity>
-           <View style={{flex:4,flexDirection:'column',marginLeft:10,
-                      marginRight:10}}>
+           <View style={{flex:4.85,flexDirection:'column', 
+                    }}>
                 <Text style={{
                      color:'#312f3d',
                      fontSize:17 ,letterSpacing:0.41
@@ -142,18 +142,18 @@ constructor(props) {
                 }}>@kurtiskala</Text>
            </View>
            <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("discoverCalendar")}
-                     >
-           <View style={{flex:1,marginLeft:-5,marginRight:15}}>
+           style={{flex:1,alignItems:'center',justifyContent:'center'}}
+                     onPress={() => this.props.navigation.navigate("discoverCalendar")} >
+      
          
-               <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
+              
                   <Image source={require('../assets/icons_genGMI/calendarRojo.png')} 
                       style={{ width:30,height:30,
-                                borderRadius:10}}
-                      />
-                </View>
+                                borderRadius:10}} />
+                  
+             
                
-            </View>
+           
             </TouchableOpacity>
            
             <TouchableOpacity
@@ -177,7 +177,9 @@ constructor(props) {
 
     </View>
     <View style={{flex: 9}}>
-       <ScrollView>
+       <ScrollView style={{
+marginTop:hp('2%'),
+       }}>
             {/*   TITULOO   */}
             <View style={styles.contieneTitulo}>
                 <Text style={styles.Titulo}>Discover</Text>
@@ -223,8 +225,8 @@ constructor(props) {
             </View>
        </View>
        <View style={{flex:2}}>
-           <Image source={require('../assets/influencers/influencer.png')} 
-              style={{ width:60,height:60,borderRadius:30}}
+           <Image source={require('../assets/icons_genGMI/live.png')} 
+              style={{ width:60,height:60}}
               />
        </View>
 

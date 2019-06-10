@@ -5,6 +5,9 @@ import { Platform, Alert,
   Image,Modal} from 'react-native';
   import {  FontAwesome } from '@expo/vector-icons';
 
+  import BicardView from './../components/bicardview'  
+  import VidView from "./../components/vidView"  //components
+
   import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class SingUpInicio extends Component {
@@ -21,6 +24,49 @@ constructor(props) {
   
         //PARA VENTANA MODAL
         modalVisible: false,
+
+         // PARA BICARDVIEW
+    fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+    fotoUser: require('../assets/influencers/influencer.png') ,
+    usuario:'MandyJTV',
+    num_segui:34,
+    mensaje:'Only 2 tickets left',
+    dia:21,
+    mes:'DEC',
+    texto1:'My FIRST God of War experience!',
+    texto2:'Games',
+    direccion:'Live from New York, at 18:30 pm',
+
+
+     //PARA VIDvIEW
+     usuarios:[
+       {
+        fotoIcon :require('../assets/influencers/influencer.png'),
+        nombreUser:'MandyJTV',
+         descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
+        duraVid:'12:40',
+        numEstrella:5,
+
+       },
+       {
+        fotoIcon :require('../assets/influencers/uno.png'),
+        nombreUser:'MandyJTV',
+        descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/chicarosa.jpg'),
+        duraVid:'10:20',
+        numEstrella:3,
+       },
+       {
+        fotoIcon :require('../assets/influencers/tres.png'),
+        nombreUser:'Randy Stanley',
+        descripcion:'Teaching Machamp THE BEST MOVE IN THE GAME' ,
+        imagVideo:require('../assets/influencers/chicacorriendo.jpg'),
+        duraVid:'08:30',
+        numEstrella:5
+       }
+
+     ]
     }
 }
 
@@ -161,7 +207,7 @@ toggleModal(visible) {
                                     <View style={{flex:2.3,alignItems:'center',justifyContent:'center'}}>
                                     <FontAwesome name="facebook" size={25} color="white"   />
                                     </View>
-                                    <View style={{flex:7.7,alignItems:'flex-start'}}>
+                                    <View style={{flex:7.7,alignItems:'flex-start',justifyContent:'center'}}>
                                     <Text style={{ 
                                                color:'white',fontSize:wp('4%')
                                                    } }>Connect with Facebook</Text>
@@ -178,14 +224,14 @@ toggleModal(visible) {
                                    <View style={{flex:2.3,alignItems:'center',justifyContent:'center'  }}>
                                     <FontAwesome name="linkedin" size={25} color="white"   />
                                     </View>
-                                    <View style={{flex:7.7,alignItems:'flex-start'}}>
+                                    <View style={{flex:7.7,alignItems:'flex-start',justifyContent:'center'}}>
                                         <Text style={{   color:'white',fontSize:wp('4%')
                                          } }>Connect with LinkedIn</Text>
                                     </View>
                                   </View>
                        </View> 
                       <View style={{flex:1 ,marginHorizontal:40,
-                             alignItems:'center',justifyContent:'center'}}>
+                             alignItems:'center'}}>
                            
                        <View style={{
                            flexDirection:'row'
@@ -198,19 +244,21 @@ toggleModal(visible) {
                        }}>Already have an account? </Text>
                        
                        <TouchableOpacity
+                       style={{
+                         justifyContent:'flex-end'
+                       }}
                        onPress={() => {
                         this.toggleModal(!this.state.modalVisible),
                          this.props.navigation.navigate("Log")}}
                        >
-                        <View >
+              
                             <Text
                              style={{
                                 fontSize:wp('4%') ,
                                 letterSpacing:0.08 ,
                                 color:'#ff5a60',
-                                marginTop:10,
                                }}>  Log In </Text>
-                        </View>
+                      
                     </TouchableOpacity>
                        
                    </View>
@@ -354,7 +402,7 @@ toggleModal(visible) {
                    />
               </View>
               <View style={{borderRadius:10,
-                         width:  Platform.OS === 'ios' ? 340:'100%',
+                         width:  Platform.OS === 'ios' ? '100%':'100%',
                          height:200}}>
                  <Image source={require('../assets/influencers/MandyJTV/download.jpg')} 
                   style={{ zIndex:2,borderRadius:10,width:'100%',height:'100%'}}
@@ -590,106 +638,20 @@ toggleModal(visible) {
 
              
 {/* -----------------BICARDVIEW--------------*/}       
- <View style={{marginHorizontal:16,backgroundColor:'#f6f6f6',paddingBottom:7,
-                 marginVertical:10, borderRadius:10}}>
-     
-             <View style={{borderRadius:10,
-               width:Platform.OS === 'ios' ? 339:'100%',
-              height:200,padding:7}} >
-                  <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                  style={{ zIndex:1,borderRadius:10 ,width:'100%',height:'100%'}}
-                 />
-              </View>  
+<BicardView 
 
+fotoGrande={this.state.fotoGrande}
+fotoUser={this.state.fotoUser}
+usuario={this.state.usuario}
+num_segui={this.state.num_segui}
+mensaje={this.state.mensaje}
+dia={this.state.dia}
+mes={this.state.mes}
+texto1={this.state.texto1}
+ texto2={this.state.texto2}
+ direccion={this.state.direccion}
+/>
 
-<View>
-<View style={{flexDirection:'row',
-            marginHorizontal:16,marginVertical:14,
-             position:'absolute',bottom:0,zIndex:4}}>
-
-     <View style={{flex:2}}>
-
-                      <Image source={require('../assets/influencers/influencer.png')} 
-                           style={{ width:50,height:50,borderRadius:10}}
-                          />
-                    
-
-      </View>
-
-      <View style={{flex:3,flexDirection:'column'}}>
-     
-          <View>
-          <Text style={{fontSize:17,color:'white',marginLeft:-6,marginRight:-15,marginTop:4}}>Mabel Spencer</Text>
-         </View>
-      
-     
-             <View  style={styles.estrellasTrendingNuevo}>
-                               <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,}}
-                               />
-                              <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Red.png')} 
-                               style={{ width:11,height:11,marginLeft:2}}
-                              />
-                           <Image source={require('../assets/Red.png')} 
-                            style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                        </View>
-     
-  
- </View>
-
-
-<View style={{flex:4,alignItems:'flex-end',  justifyContent:'center'}}>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              @ 34
-            </Text>
-      </View>
-      <View style={styles.socialBotonRojo}>
-            <Text style={{color:'white'}}>
-              Only 2 tickets left
-            </Text>
-      </View>
-  
-    </View>
-
-  </View>
-  <Text style={[styles.transparenteNuevo,{width:  Platform.OS === 'ios' ? 325: widTransp}]}></Text>
- </View>
-
- {/* cajita fecha*/}
- <View style={{borderRadius:10,marginTop:-9,
-                 marginLeft:  Platform.OS === 'ios' ? 6:8,
-                 marginRight:  Platform.OS === 'ios' ? 11:8,
-                 flexDirection:'row',
-                 backgroundColor:'#f6f6f6'}}>
-                   <View style={{ flex:1, 
-                           backgroundColor:'white',flexDirection:'column',
-                            paddingTop:20,alignItems:'center'
-               }}>
-                       <Text style={{ fontSize:28,fontWeight:'bold'}}>
-                       21</Text>
-                       <Text style={{color:'red'}}>DEC</Text>
-                       </View>
-                    <View style={{ flex:6, flexDirection:'column',backgroundColor:'white',
-                           paddingTop:20}}>
-                      <Text style={{ fontSize: Platform.OS === 'ios' ? 15:17,
-                        fontWeight:'bold',color:'#312f3d'}}>
-                       My FIRST Godr of War experience !</Text>
-                       <Text style={{ fontSize:  Platform.OS === 'ios' ? 14:16,
-                        fontWeight:'bold',color:'#ff5a60'}} >Fashion</Text>
-                      <Text style={{ fontSize:  Platform.OS === 'ios' ? 11:13 ,
-                      fontWeight:'bold',color:'#677183',
-                              paddingVertical:4}}> *  Live from New York, at 18:30 pm</Text>
-                     </View>
-   </View>  
-</View>  
       
          {/*  seccion trending media */}
     
@@ -711,243 +673,30 @@ toggleModal(visible) {
         </View>
 
          {/* CAJA DE LOS TRENDIGN*/}
-   
-          <View style={{flexDirection:'row',marginHorizontal:10, padding:10}}>
-                <View style={{flex:7.5}}>
-                     <View style={{flexDirection:'row'}}>
+         <View style={{marginBottom:hp('2%')}}>
 
-                          <View  style={{ padding:6 }}>
-                               <Image source={require('../assets/influencers/influencer.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
+  
+{
+            this.state.usuarios.map((item,i)=> {
 
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-              </View>    
-
-              <View style={{flex:2.5 , alignItems:'flex-end'}} >
-              <View style={{ width:110,height:84,marginTop:10}}>
-                    <Image source={require('../assets/influencers/MandyJTV/maxresdefault.jpg')} 
-                   style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                  />
-             </View>
-
-
-             <View style={{
-
-               position:'absolute',
-               fontWeight:'bold',
-              backgroundColor:'#312f3d',
-               opacity:0.8,
-              paddingHorizontal:25,
-              paddingVertical:Platform.OS === 'ios' ? 10:10,
-            bottom:Platform.OS === 'ios' ? 24:28,
-             right:4,
-            zIndex:4,
-            borderRadius:Platform.OS === 'ios' ? 50:10,
-            borderBottomWidth:1,
-            }}></View>
-            <Text
-              style={{
-              position:'absolute',
-                zIndex:6,
-              bottom:Platform.OS === 'ios' ? 26:30,
               
-            right:10,
-            color:'white',
+              return ( 
+               <VidView key={i}
+               fotoIcon={item.fotoIcon}
+               nombreUser={item.nombreUser}
+               descripcion={item.descripcion} 
+               imagVideo={item.imagVideo}
+               duraVid={item.duraVid}
+               estrellas={item.numEstrella}
+                />
 
-              }}>12:40</Text>
-            </View>
-          
-            </View>
+              )
+            }
+            )
 
-          {/* ******************************** */}
-          <View style={{flexDirection:'row',marginHorizontal:10, padding:10}}>
-           <View style={{flex:7.5}}>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/uno.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >MandyJTV</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                   <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                   />
-                                  <Image source={require('../assets/Red.png')} 
-                                 style={{ width:11,height:11,marginLeft:2}}
-                                 />
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,marginLeft:2}}
-                                  />
-                               <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                                 />
-                                <Image source={require('../assets/Grey.png')} 
-                                    style={{ width:11,height:11,marginLeft:2}}
-                                />
-                            </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16,lineHeight:21}}>Games </Text>
-                  </View>
-              </View>        
-              <View style={{flex:2.5 , alignItems:'flex-end'}} >
-                      <View style={{ width:110,height:84,marginTop:10}}>
-                       <Image source={require('../assets/influencers/chicarosa.jpg')} 
-                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                          />
-                 </View>
-                 <View style={{
-
-        position:'absolute',
-        fontWeight:'bold',
-        backgroundColor:'#312f3d',
-       opacity:0.8,
-      paddingHorizontal:25,
-      paddingVertical:Platform.OS === 'ios' ? 10:10,
-      bottom:Platform.OS === 'ios' ? 24:28,
-      right:4,
-      zIndex:4,
-    borderRadius:Platform.OS === 'ios' ? 50:10,
-      borderBottomWidth:1,
-      }}></View>
-      <Text
-      style={{
-            position:'absolute',
-            zIndex:6,
-           bottom:Platform.OS === 'ios' ? 26:30,
-
-           right:10,
-         color:'white',
-
-          }}>12:40</Text>
-       </View>
-          
-          </View>
-
-            {/**  ************************************************** */}
-
-            <View style={{flexDirection:'row',marginHorizontal:10 , padding:10}}>
-                  <View style={{flex:7.5}}>
-                     <View style={{flexDirection:'row'}}>
-
-                          <View  style={{ padding:6 }}>
-                          <Image source={require('../assets/influencers/tres.png')} 
-                               style={{ width:40,height:40,borderRadius:10}}
-                              />
-                          </View>
-                        
-                          <View style={{width:120,marginLeft:10,
-                                        alignItems:'flex-start',
-                                         paddingTop:10,flexDirection:'column'}}>
-                             
-                                <Text style={{color:'#312f3d',fontSize:16}} >Randy Stanley</Text>
-
-                                <View  style={styles.estrellasTrending}>
-                                <Image source={require('../assets/Red.png')} 
-                                   style={{ width:11,height:11,}}
-                                />
-                               <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                              />
-                          <Image source={require('../assets/Red.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                               />
-                            <Image source={require('../assets/Red.png')} 
-                             style={{ width:11,height:11,marginLeft:2}}
-                             />
-                            <Image source={require('../assets/Grey.png')} 
-                                style={{ width:11,height:11,marginLeft:2}}
-                            />
-                         </View>
-
-                       </View>
-                   </View>
-               
-                  <View  style={{flexDirection:'column'}}>
-                           <Text style={styles.textTren}>Teaching Machamp THE  </Text>
-                           <Text style={styles.textTren} >BEST MOVE IN THE GAME </Text>
-                           <Text style={{color:'#677183',fontSize:16}}>Games </Text>
-                  </View>
-              </View>        
-              <View style={{flex:2.5 , alignItems:'flex-end'}} >
-                  <View style={{ width:110,height:84,marginTop:10}}>
-                     <Image source={require('../assets/influencers/chicacorriendo.jpg')} 
-                       style={{borderRadius:10 ,width:'100%',height:'100%'}}
-                     />
-               </View>
-               <View style={{
-
-                  position:'absolute',
-                fontWeight:'bold',
-              backgroundColor:'#312f3d',
-              opacity:0.8,
-               paddingHorizontal:25,
-               paddingVertical:Platform.OS === 'ios' ? 10:10,
-                 bottom:Platform.OS === 'ios' ? 24:28,
-                    right:4,
-                   zIndex:4,
-                borderRadius:Platform.OS === 'ios' ? 50:10,
-                   borderBottomWidth:1,
-          }}></View>
-            <Text
-            style={{
-              position:'absolute',
-              zIndex:6,
-             bottom:Platform.OS === 'ios' ? 26:30,
-
-              right:10,
-            color:'white',
-
-             }}>08:30</Text>
-              </View>
-          
-          </View>
+           }
+</View>
+       
  {/* ********************fin de los trendign********************************* */}
  </ScrollView>
  

@@ -373,7 +373,7 @@ export default class LiveEventDetail3 extends Component {
           <TouchableOpacity style={{ flex:1,backgroundColor:'#ff5a60',
          alignItems:'center',justifyContent:'center'}}
           onPress = {() => this.props.navigation.navigate("liveEventDetail4") } >
-           <Text style={{color:'white', marginTop:'5%',
+           <Text style={{color:'white',
            fontSize:wp('5%'),letterSpacing:0.41 }}>
            Pay $ {this.state.precioTicket}</Text>
         </TouchableOpacity>

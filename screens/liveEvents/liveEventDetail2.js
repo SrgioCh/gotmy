@@ -372,7 +372,7 @@ export default class LiveEventDetail2 extends Component {
 <View style={{flex:2}}>
 
                  <Image source={require('../../assets/influencers/dos.png')} 
-                      style={{ width:50,height:50,borderRadius:10}}
+                      style={{ width:50,height:50,borderRadius:Platform.OS === 'ios' ? hp('3%'):10}}
                      />
                
 </View>
@@ -439,7 +439,7 @@ export default class LiveEventDetail2 extends Component {
 <View style={{flex:2}}>
 
                  <Image source={require('../../assets/influencers/spffiele.png')} 
-                      style={{ width:50,height:50,borderRadius:50}}
+                      style={{ width:50,height:50,borderRadius:Platform.OS === 'ios' ? hp('3%'):50}}
                      />
                
 </View>

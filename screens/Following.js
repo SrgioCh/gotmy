@@ -113,7 +113,7 @@ export default class Following extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/loganPa.png')} 
@@ -123,7 +123,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:6,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -139,7 +139,7 @@ export default class Following extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
            
              {/*     caja de cambio de boton */}
@@ -183,7 +183,7 @@ export default class Following extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/leroyGre.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
@@ -192,7 +192,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:6,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Leroy Greene</Text>
@@ -208,7 +208,7 @@ export default class Following extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               {/*     caja de cambio de boton */}
               <TouchableOpacity 
@@ -248,7 +248,7 @@ export default class Following extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/LoganPa2.png')} 
@@ -258,7 +258,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:6,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -274,7 +274,7 @@ export default class Following extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
               {/*     caja de cambio de boton */}
               <TouchableOpacity 
@@ -318,7 +318,7 @@ export default class Following extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/rutheKJE.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
@@ -327,7 +327,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:6,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Ruth Jenkins</Text>
@@ -343,7 +343,7 @@ export default class Following extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               {/*     caja de cambio de boton */}
               <TouchableOpacity 
@@ -386,7 +386,7 @@ export default class Following extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/Caleb.png')} 
                                   style={{ width:40,height:40,borderRadius:10}}
@@ -395,7 +395,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:6,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:10 ,paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Caleb Pena</Text>
@@ -411,7 +411,7 @@ export default class Following extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
                 {/*     caja de cambio de boton */}
              <TouchableOpacity 
@@ -452,7 +452,7 @@ export default class Following extends Component {
    
    <View style={{flexDirection:'row',marginHorizontal:16,marginVertical:14}}>
    
-       <View style={{flex:1, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
+       <View style={{flex:1.5, borderBottomWidth:1,  borderBottomColor:'#e1e3e6',
               paddingBottom:15}}>
    
                              <Image source={require('../assets/friends/loganPa.png')} 
@@ -462,7 +462,7 @@ export default class Following extends Component {
    
        </View>
      
-       <View style={{flex:6,flexDirection:'column',paddingLeft:18 ,
+       <View style={{flex:4.7,flexDirection:'column',paddingLeft:18 ,
                  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',paddingBottom:15}}>
               <View>
                  <Text style={{fontSize:17,color:'#312f3d'}}>Logan Patrick</Text>
@@ -478,7 +478,7 @@ export default class Following extends Component {
          
         </View>
    
-       <View style={{flex:3,alignItems:'flex-end',
+       <View style={{flex:3.8,alignItems:'flex-end',
                justifyContent:'center',  borderBottomWidth:1,  borderBottomColor:'#e1e3e6',}}>
              {/*     caja de cambio de boton */}
              <TouchableOpacity 
@@ -545,7 +545,7 @@ socialBotone:{
   borderRadius:27,
   width:'90%',
   paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 18:11,
+  paddingHorizontal: Platform.OS === 'ios' ? 11:11,
 
   
 },
@@ -558,7 +558,7 @@ socialBotonBlanco:{
   borderRadius:27,
   width:'90%',
   paddingVertical:7,
-  paddingHorizontal: Platform.OS === 'ios' ? 3:11,
+  paddingHorizontal: Platform.OS === 'ios' ? 11:11,
   borderWidth:1,
   borderColor: '#312f3d',
 }
