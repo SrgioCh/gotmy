@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform,StyleSheet,ScrollView, Text,
+import { Platform,StyleSheet,ScrollView, Text,Alert,
     TouchableOpacity, View, Image } from 'react-native';
 
 import Barra_DiscoverPreferences  from './../components/barra_discoverPreferences'
@@ -19,10 +19,10 @@ export default class DiscoverPreferences extends React.Component {
       width: '70%',
         fontWeight:'500',
             letterSpacing:0.41,
-            height:120,
+          
             fontSize:16,
             color:'#312f3d',
-            marginTop:  Platform.OS === 'ios' ? '48%':'42%',
+            
            
 
        },
@@ -36,8 +36,8 @@ constructor(props) {
 
 
   this.state = { 
-         textoA:'Date and time Live Events',
-         textoB:'Anytime',
+         textoA:'Date and time range',
+         textoB:'From 12:30,Today..',
 
          textoA2:'Influencers',
          textoB2:'All influencers',
@@ -72,16 +72,24 @@ this.props.navigation.navigate("discoverCategori");
     return (
     <View style={{  marginHorizontal:'4%' ,flex:1}} >
     <ScrollView  showsVerticalScrollIndicator={false}>
+    <TouchableOpacity 
+                    style={{}}
+                  onPress = { () => { this.props.navigation.navigate("discoPrefeFecha")}}>
          <Barra_DiscoverPreferences  texto1={this.state.textoA} texto2={this.state.textoB}
          />
+      </TouchableOpacity>
          <Barra_DiscoverPreferences  texto1={this.state.textoA2} texto2={this.state.textoB2}
          />
          <Barra_DiscoverPreferences  texto1={this.state.textoA3} texto2={this.state.textoB3}
          />
          <Barra_DiscoverPreferences  texto1={this.state.textoA4} texto2={this.state.textoB4}
          />
+         <TouchableOpacity 
+                    style={{}}
+                  onPress = { () => { this.props.navigation.navigate("discoPrefeLanguage")}}>
          <Barra_DiscoverPreferences  texto1={this.state.textoA5} texto2={this.state.textoB5}
          />
+         </TouchableOpacity>
 
         <View  style={{ marginTop:15,marginBottom:10}} >
             <ViewAll titulo='Selected Categories' selecciona={this.mostrarCategorias.bind(this)}

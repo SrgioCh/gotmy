@@ -5,6 +5,8 @@ import { Platform,Keyboard,Dimensions,
   Image} from 'react-native';
 
   import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+  import CabezeraViewer from "./../components/cabezeraViewer"
+ 
 
 export default class Search extends Component {
 
@@ -18,6 +20,15 @@ constructor(props) {
 
   this.state = { 
       
+ // PARA LA CABEZERA
+ imagViewer:require('../assets/reviews/kuskal.png'),
+ nombreView:`Kurtis 'Kala' Lloyd`,
+correoView:'@kurtiskala',
+iconoUno:null,
+iconoDos:require('../assets/icons_genGMI/Filter.png'),
+
+
+
     source1: require('../assets/OnBoard/art-culture.jpg'),
     source2: require('../assets/OnBoard/business.jpg'),
     source3: require('../assets/OnBoard/celebrity.jpg'),
@@ -28,6 +39,20 @@ constructor(props) {
     }
 }
 
+recogeDeHijo(){
+ console.log('no existe')
+   }
+
+  recogeDeHijo2(){
+   alert(' abrira una pagina')
+   
+   
+    }
+
+  abrirMenu(){
+    this.props.navigation.toggleDrawer() 
+  }
+ 
 
   render() {
 
@@ -55,45 +80,25 @@ constructor(props) {
      
 <View style={{flex: 1}}>
 <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-            borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-          
-               <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-                    <View style={{flex:1  ,justifyContent:'center'}}>
-                  <Image source={require('../assets/reviews/kuskal.png')} 
-                      style={{ width:40,height:40,
-                                borderRadius:10}}
-                      />
-                 </View>
-                <View style={{flex:4,flexDirection:'column',
-                      marginRight:15}}>
-                      <Text style={{
-                     color:'#312f3d',
-                     fontSize:17 ,letterSpacing:0.41
-                     }}>Kurtis 'Kala' Lloyd</Text>
-                     <Text style={{
-                       color:'#677183',
-                        fontSize:13 ,letterSpacing:0.08
-                      }}>@kurtiskala</Text>
-                      </View>
-                   <View style={{flex:1,marginRight:5}}>
-                  <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-                       
-                     </View>
-                </View>
-                  <View style={{flex:1}}>
-                        <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-                          <Image source={require('../assets/icons_genGMI/Filter.png')} 
-                           style={{ width:25,height:25,
-                                borderRadius:10}}
-                         />
-                       </View>
-                    </View>
-                 </View>
+<CabezeraViewer
+       imagViewer={this.state.imagViewer}
+       
+       nombreView={this.state.nombreView}
+       correoView={this.state.correoView}
 
-          </View>
-          </TouchableWithoutFeedback>
-            <View style={{flex: 9}}>
+       iconoUno={this.state.iconoUno}
+       iconoDos={this.state.iconoDos}
+
+      
+       enviaAPadreIconoUno={this.recogeDeHijo.bind(this)}
+       enviaAPadreIconoDos={this.recogeDeHijo2.bind(this)}
+
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
+    
+       />
+   
+   </TouchableWithoutFeedback>
+            <View style={{flex: 8.7}}>
     
            
                        

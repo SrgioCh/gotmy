@@ -5,7 +5,7 @@ import { AppRegistry, Alert,
   Image,TouchableOpacity} from 'react-native';
 
   import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+  import CabezeraViewer from "./../components/cabezeraViewer"
 
 export default class Mensaje1 extends Component {
 
@@ -19,9 +19,14 @@ export default class Mensaje1 extends Component {
     super(props);
   
      this.state={
-        influencer:`Kurtis 'Kala' Lloyd`,
-        fotoInflu:'uno.png',
-       correoInflu:'@kalatempo',
+       // PARA LA CABEZERA
+       imagViewer:require('../assets/reviews/kuskal.png'),
+       nombreView:`Kurtis 'Kala' Lloyd`,
+       correoView:'@kurtiskala',
+       iconoUno:null,
+       iconoDos:require('../assets/icons_genGMI/mensajex.png'),
+
+
 
 
        mensaje1:'Request Private Meeting',
@@ -47,6 +52,24 @@ export default class Mensaje1 extends Component {
   
   }// fin de consttructor
 
+
+//para la cabezera
+recogeDeHijo1(){
+  console.log('no existe')
+    }
+ 
+   recogeDeHijo2(){
+    //alert(' abrira una pagina')
+    this.props.navigation.navigate("addParticip1")
+    
+     }
+ 
+   abrirMenu(){
+     this.props.navigation.toggleDrawer() 
+   }
+
+
+
   render() {
 
   
@@ -62,44 +85,22 @@ export default class Mensaje1 extends Component {
 
    <View style={{flex: 1}}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View  style={{flex:0.9 ,marginTop:22,justifyContent:'center',
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-            
-          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-              <View style={{flex:1 ,justifyContent:'center'}}>
-              <Image source={require('../assets/reviews/kuskal.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-             <View style={{flex:4,flexDirection:'column',
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>{this.state.influencer}</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>{this.state.correoInflu}</Text>
-             </View>
-             <View style={{flex:1,marginRight:5}}>
-              </View>
-             
+    <CabezeraViewer
+       imagViewer={this.state.imagViewer}
+       
+       nombreView={this.state.nombreView}
+       correoView={this.state.correoView}
 
-              <TouchableOpacity
-              style={{flex:1,alignItems:'flex-end'}}
-             onPress={() => this.props.navigation.navigate("addParticip1")}
-              >
-              <Image source={require('../assets/icons_genGMI/mensajex.png')} 
-                        style={{ width:35,height:35,
-                                  borderRadius:10}}
-                        />
-                 </TouchableOpacity>
-              
-          </View>
-  
-      </View>
+       iconoUno={this.state.iconoUno}
+       iconoDos={this.state.iconoDos}
+
+      
+       enviaAPadreIconoUno={this.recogeDeHijo1.bind(this)}
+       enviaAPadreIconoDos={this.recogeDeHijo2.bind(this)}
+
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
+    
+       />
       </TouchableWithoutFeedback>
     <View style={{flex: 2 }}>
       
@@ -157,7 +158,7 @@ export default class Mensaje1 extends Component {
 
 </View>
 
-<View style={{flex:6}}>
+<View style={{flex:6.7}}>
 
 <ScrollView  >
 {/* --------------- BLOQUE MENSAJE -3 PARTES-------------------- */}

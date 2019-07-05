@@ -7,6 +7,9 @@ import { Platform, Alert,
   
   import BicardView from './../components/bicardview'  
   import VidView from "./../components/vidView"  //components
+  import CabezeraViewer from "./../components/cabezeraViewer"
+
+
 import Button from 'react-native-button'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
@@ -21,6 +24,12 @@ constructor(props) {
 
 
   this.state = { 
+   // PARA LA CABEZERA
+         imagViewer:require('../assets/reviews/kuskal.png'),
+          nombreView:`Kurtis 'Kala' Lloyd`,
+         correoView:'@kurtiskala',
+        iconoUno:require('../assets/icons_genGMI/calendarRojo.png'),
+        iconoDos:require('../assets/icons_genGMI/Filter.png'),
 
      // PARA BICARDVIEW
     fotoGrande:require('../assets/influencers/MandyJTV/maxresdefault.jpg'),
@@ -68,7 +77,21 @@ constructor(props) {
   }
 }
 
+recogeDeHijo(){
+    
+  this.props.navigation.navigate('discoverCalendar')
+  //alert('uno')
+  }
+  recogeDeHijo2(){
+ // alert('dos')
+    this.props.navigation.navigate('discoverPreferences')
+   
+    }
 
+  abrirMenu(){
+    this.props.navigation.toggleDrawer() 
+  }
+ 
 
 
   render() {
@@ -115,68 +138,26 @@ constructor(props) {
   
     return (
 <View style={{flex: 1}}>
-    <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-        borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-          
-        <View style={{flexDirection:'row',paddinRight:5,paddingLeft: '4%'}}>
-        <TouchableOpacity
-                  style={{flex:1,justifyContent:'center'}}
-                 //  onPress={() => this.props.navigation.navigate("Become1")}
-                   onPress={() => this.props.navigation.toggleDrawer()} 
-                     >
-             <Image source={require('../assets/reviews/kuskal.png')} 
-                      style={{ width:40,height:40,
-                                borderRadius:10}}
-                      />
-         
-            </TouchableOpacity>
-           <View style={{flex:4.85,flexDirection:'column', 
-                    }}>
-                <Text style={{
-                     color:'#312f3d',
-                     fontSize:17 ,letterSpacing:0.41
-                }}>Kurtis 'Kala' Lloyd</Text>
-                <Text style={{
-                       color:'#677183',
-                       fontSize:13 ,letterSpacing:0.08
-                }}>@kurtiskala</Text>
-           </View>
-           <TouchableOpacity
-           style={{flex:1,alignItems:'center',justifyContent:'center'}}
-                     onPress={() => this.props.navigation.navigate("discoverCalendar")} >
-      
-         
-              
-                  <Image source={require('../assets/icons_genGMI/calendarRojo.png')} 
-                      style={{ width:30,height:30,
-                                borderRadius:10}} />
-                  
-             
-               
-           
-            </TouchableOpacity>
-           
-            <TouchableOpacity
-                     onPress={() => this.props.navigation.navigate("discoverPreferences")}
-                     >
-            <View style={{flex:1 ,marginRight:15}}>
-         
-         
-                <View style={{flex:1 ,marginTop:8}}>
-                 <Image source={require('../assets/icons_genGMI/Filter.png')} 
-                      style={{ width:25,height:25,
-                                borderRadius:10}}
-                      />
-                </View>
-               
-             
-            </View>
-            </TouchableOpacity>
-          
-        </View>
+    {/* aqui cabezera*/}
 
-    </View>
-    <View style={{flex: 9}}>
+    <CabezeraViewer
+       imagViewer={this.state.imagViewer}
+       
+       nombreView={this.state.nombreView}
+       correoView={this.state.correoView}
+
+       iconoUno={this.state.iconoUno}
+       iconoDos={this.state.iconoDos}
+
+      
+       enviaAPadreIconoUno={this.recogeDeHijo.bind(this)}
+       enviaAPadreIconoDos={this.recogeDeHijo2.bind(this)}
+
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
+    
+       />
+
+    <View style={{flex: 8.7}}>
        <ScrollView style={{
 marginTop:hp('2%'),
        }}>
@@ -230,8 +211,6 @@ marginTop:hp('2%'),
               />
        </View>
 
-
-
     </View>
 
 
@@ -244,8 +223,7 @@ marginTop:hp('2%'),
     </ImageBackground>
 
        </View>
-
-    </View>
+  </View>
 
            {/*  bloquee   TRENDING INFLUENCER */}
 

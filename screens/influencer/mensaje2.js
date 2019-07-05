@@ -62,7 +62,11 @@ export default class Mensaje2 extends Component {
    
     }
    
-
+    abrirMenu(){
+      this.props.navigation.toggleDrawer() 
+    }
+   
+  
 
 
 
@@ -84,6 +88,7 @@ export default class Mensaje2 extends Component {
        icono={this.state.icono}
 
        haciaPag={this.state.haciaPag}
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
        enviaAPadre={this.recogeDeHijo.bind(this)}
        />
         

@@ -18,14 +18,7 @@ export default class RequestAcepted extends Component {
     super(props);
   
      this.state={
-
-      influencer:'Kala | Tempo',
-      fotoInflu:'influencer.png',
-      correoInflu:'@kalatempo',
-
-       opaciNo:null,
-       opaciSi:0.5,
-
+ 
 
        //mensajes
        

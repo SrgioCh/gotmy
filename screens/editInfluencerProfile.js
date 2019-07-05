@@ -122,7 +122,7 @@ toggleModal(visible) {
                  <View style={{backgroundColor:'white',borderRadius:20,
                           position:'absolute',left:'14%',
                           top:'30%',marginHorizontal:'5%',paddingHorizontal:'10%',
-                       paddingVertical:'15%'}}> 
+                       paddingVertical:Platform.OS === 'ios' ? hp('15%'):'15%'}}> 
 
                        <View style={{alignItems:'center',marginTop:10}}>
                        
@@ -174,9 +174,9 @@ toggleModal(visible) {
  
               <ScrollView showsVerticalScrollIndicator={false}> 
 
-              <View style={{flex: 1 ,flexDirection:'row', paddingBottom:'3%',
+              <View style={{flex: 1 ,flexDirection:'row',
          borderBottomWidth: 2,borderBottomColor:'#C3C1C0'}}>
-            <View style={{flex:1 , marginLeft:'4%',marginTop:'6%'}}>
+            <View style={{flex:1 , marginLeft:'4%',marginTop:Platform.OS === 'ios' ? '12%':'14%'}}>
             <TouchableOpacity
                      onPress={() => this.props.navigation.pop()}
                      >
@@ -190,14 +190,23 @@ toggleModal(visible) {
                                  
                          }}
                        />
-           </TouchableOpacity>
+
+
+
+
+
+
+
+          </TouchableOpacity>
             </View>
-            <View style={{flex:7,marginTop:'6%',alignItems:'center'}}>
-                 <Text style={{
-                  marginLeft:'7%', color:'#312f3d',fontSize:17,fontWeight:'500'
+            <View style={{flex:7,
+              alignItems:'center'}}>
+                 <Text style={{marginTop:hp('6%'),
+                   color:'#312f3d',fontSize:17,fontWeight:'500'
                  }}>Edit Influencer Profile</Text>
+                <Text style={{marginTop:'4%'}}>{' '}</Text>
             </View>
-            <View style={{flex:2,marginTop:'6%',
+            <View style={{flex:2,marginTop:Platform.OS === 'ios' ? '12%':'14%',
             marginRight:'4%',alignItems:'flex-end'}}>
               <TouchableOpacity
                      onPress={() => this.props.navigation.navigate("profile2")}
@@ -219,8 +228,8 @@ toggleModal(visible) {
   width:50,
   height:50,
   borderRadius:25,
-  top:'12%',
-  left:'45%',
+  top:Platform.OS === 'ios' ? '17%':'16%',
+  left:wp('43%'),
   position:'absolute',
   
 }}
@@ -293,10 +302,13 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
  <View > 
  <Text style={{color:"#312f3d",fontSize:17}}>My categories</Text>
  </View>
- <View style={{flexDirection:'row'}} >
+ <TouchableOpacity  style={{flexDirection:'row'}}
+                     onPress={() => this.props.navigation.navigate('becomeInfluencer7')}
+                     >
+ 
  <Text style={{color:"#ff5a60",fontSize:16}}>Edit categories</Text>
  <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
- </View>
+  </TouchableOpacity>
 </View>
 
 <View style={styles.filas}>
@@ -379,7 +391,11 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
 
 
 {/* lenguaje*/}
-<View style={styles.language}>
+
+<TouchableOpacity  style={styles.language}
+                     onPress={() => this.props.navigation.navigate('becomeInfluencer5')}
+                     >
+
    <Text style={styles.languageTexto} > 
         Language
     </Text>
@@ -387,7 +403,7 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
     <Text style={styles.languageBoton} > 
             > 
     </Text>
- </View> 
+    </TouchableOpacity>
 
 <Text style={styles.tituloConect} >Connect  your social networks</Text>
 
@@ -594,7 +610,8 @@ source={require('../assets/icons_genGMI/ubicacionrojo.png')}
                          
                           color:"white",
                         fontSize:17,
-                      
+                        
+                        paddingBottom: Platform.OS === 'ios' ?hp('3%'):hp('0.8%') ,
 
                        }}> 
                        Save changes

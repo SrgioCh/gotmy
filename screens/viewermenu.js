@@ -65,7 +65,7 @@ class ViewerMenu extends Component {
         borde:null,
         },
         {
-          enlace:'paymetho1', // es otra pagina aun no creada
+          enlace:'privMetingProposal', // es otra pagina aun no creada
           imagmenu:require('../assets/menu/billing.png'),
           titu:'Billing',
           borde:styles.bordeFinal,

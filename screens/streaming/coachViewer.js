@@ -54,7 +54,7 @@ this.state ={
         alignItems:'center',justifyContent:'flex-end'}}>
        <View style={{flexDirection:'row'}}>
             <Image source={require('../../assets/influencers/preciosa.jpg')} 
-               style={{ width:75,height:75,borderRadius:50}}
+               style={{ width:75,height:75,borderRadius:Platform.OS === 'ios' ? 37:50}}
               />
                <View style={{justifyContent:'flex-end',marginLeft:wp('-5%')}}>
                <Image source={require('../../assets/streamingIcon/reloadselec.png')} 

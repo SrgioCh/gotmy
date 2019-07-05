@@ -332,6 +332,26 @@ export default class Profileinfluencer extends Component {
      
 </View>
 
+{/* categories*/}
+
+<View style={{flexDirection:'row',
+                justifyContent: 'space-between'
+                ,marginTop:-10}}>
+         <View > 
+         <Text style={{color:"#312f3d",fontSize:17,fontWeight:'bold'}}>Categories</Text>
+         </View>
+         <View style={{flexDirection:'row'}} >
+         <TouchableOpacity
+             onPress={() => this.props.navigation.navigate("subCategoryInfluencer")}
+             >
+         <Text style={{color:"#ff5a60",fontSize:16}}>Show all</Text>
+         </TouchableOpacity>
+         <Text style={{color:"#ff5a60",fontSize:16,fontWeight:'bold'}}> > </Text>
+         </View>
+  </View>
+ 
+{/* --------------------------- --------------------*/}
+
 {/* FOLLOW  REDES SOCIALES */}
 
 <View style={{marginHorizontal:15,marginVertical:15}}>

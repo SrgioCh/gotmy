@@ -106,7 +106,7 @@ export default class PublisEven2Cover extends Component {
     <Image style={{
     
       top:'50%',
-      left:letCam,
+      left:wp('37%'),
       position:'absolute',
      // borderRadius: Platform.OS === 'ios' ? 25:30 
     }}

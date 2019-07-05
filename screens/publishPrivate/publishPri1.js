@@ -91,11 +91,11 @@ export default class PublishPri1 extends Component {
   
     return (
 
-      <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
+      <KeyboardAvoidingView behavior="padding" style={{flex:1
+     }}>
 
-      <View style={{flex:1,
-              marginTop:Platform.OS === 'ios' ? hp('5%'):'5%'}}>
-              <ScrollView showsVerticalScrollIndicator={false}> 
+   
+              <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop:Platform.OS === 'ios' ? hp('5%'):'5%'}}> 
 
 
         <View style={{flex: 1 ,flexDirection:'row', paddingBottom:Platform.OS === 'ios' ? hp('4%'):'3%',
@@ -263,7 +263,7 @@ export default class PublishPri1 extends Component {
 
        
 
-        <View style={{ marginTop:hp(botTop),marginBottom:hp(botMar),alignItems:'center'}}>
+        <View style={{ marginTop:hp(botTop),marginBottom:10,alignItems:'center'}}>
        
         <TouchableOpacity style={styles.containerbutton}
         onPress={() => this.props.navigation.navigate("publishPri2")}
@@ -274,8 +274,7 @@ export default class PublishPri1 extends Component {
      </View>
  
      </ScrollView>
-        {/*  abajo final de view -flex9*/}
-         </View>
+ 
 
         
 

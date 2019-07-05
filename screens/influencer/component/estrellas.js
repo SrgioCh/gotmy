@@ -76,31 +76,55 @@ this.state = {
 
 
 
+if(this.props.tipoEstre!='peque'){
+  return (
 
-
-    return (
-
-        <View  style={styles.estrellasTrending}>
-        <Image source={estre1} 
-        style={{ width:15,height:15,}}
-        />
-       <Image source={estre2} 
-      style={{ width:15,height:15,marginLeft:2}}
-      />
-     <Image source={estre3} 
-        style={{width:15,height:15,marginLeft:2}}
-       />
-    <Image source={estre4} 
+    <View  style={styles.estrellasTrending}>
+    <Image source={estre1} 
+    style={{ width:15,height:15,}}
+    />
+   <Image source={estre2} 
+  style={{ width:15,height:15,marginLeft:2}}
+  />
+ <Image source={estre3} 
+    style={{width:15,height:15,marginLeft:2}}
+   />
+<Image source={estre4} 
+ style={{ width:15,height:15,marginLeft:2}}
+  />
+ <Image source={estre5} 
      style={{ width:15,height:15,marginLeft:2}}
-      />
-     <Image source={estre5} 
-         style={{ width:15,height:15,marginLeft:2}}
-     />
- </View>
+ />
+</View>
+)
+}else{
+  return (
 
-  
+    <View  style={{ flexDirection:'row'}}>
+    <Image source={estre1} 
+    style={{ width:10,height:10,}}
+    />
+   <Image source={estre2} 
+  style={{ width:10,height:10,marginLeft:2}}
+  />
+ <Image source={estre3} 
+    style={{width:10,height:10,marginLeft:2}}
+   />
+<Image source={estre4} 
+ style={{width:10,height:10,marginLeft:2}}
+  />
+ <Image source={estre5} 
+     style={{ width:10,height:10,marginLeft:2}}
+ />
+</View>
+
+
+
+);
+
+}
+
    
-   );
 }
 }
 

@@ -53,7 +53,7 @@ class InfluencerMenu extends Component {
       borde:null,
       },
       {
-      enlace:'profile2',
+      enlace:'editinfluencerprofile',
       imagmenu:require('../assets/menu/editvprofile.png'),
       titu:'Edit profile',
       borde:null,
@@ -65,7 +65,7 @@ class InfluencerMenu extends Component {
         borde:null,
         },
         {
-          enlace:'profile2', // es otra pagina aun no creada
+          enlace:'requesPrivMeting', // es otra pagina aun no creada
           imagmenu:require('../assets/menu/billing.png'),
           titu:'Billing',
           borde:styles.bordeFinal,
@@ -78,7 +78,7 @@ class InfluencerMenu extends Component {
             }
             ,
         {
-          enlace:'profile2', // es otra pagina aun no creada
+          enlace:'verification1', // es otra pagina aun no creada
           imagmenu:require('../assets/menu/sendback.png'),
           titu:'Send feedback',
           borde:null,

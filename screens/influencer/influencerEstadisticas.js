@@ -126,6 +126,10 @@ recogeDeHijo(dato){
     }
 
 }
+abrirMenu(){
+  this.props.navigation.toggleDrawer() 
+}
+
 
  
  
@@ -281,6 +285,7 @@ recogeDeHijo(dato){
  
         haciaPag={this.state.haciaPag}
         enviaAPadre={this.recogeDeHijo.bind(this)}
+        enviaAPadreMenu={this.abrirMenu.bind(this)}
         />
          
        </TouchableWithoutFeedback>
@@ -297,7 +302,9 @@ recogeDeHijo(dato){
  
  <ScrollView style={{marginHorizontal:'4%',}} showsVerticalScrollIndicator={false}>
       
-<View  style={{ borderColor:'#DCD6D5', borderWidth:wp('1%'), borderRadius:hp('2%'),marginTop:hp('0.5%')}}>
+<View  style={{ //borderColor:'#DCD6D5', borderWidth:wp('1%'), borderRadius:hp('2%'),marginTop:hp('0.5%')
+marginTop:hp('0.5%')
+}}>
    <View style={{flexDirection:'row'}}>
          <View style={{flex:5.5,paddingLeft:wp('3%')}}>
              <View>
@@ -450,7 +457,7 @@ return(
 <View key={i} style={{flexDirection:'row',marginBottom:hp('2%')}}>
      <View style={{flex:1.5 }}>
      <Image source={item.foto} 
-                        style={{ width:48,height:45,borderRadius:45}}
+                        style={{ width:48,height:45,borderRadius:Platform.OS === 'ios' ? 25:45}}
                         />
      </View>
      <View style={{flex:5.5}}>
@@ -482,11 +489,12 @@ return(
    }
 </View>
 
-<View style={{marginTop:'2.5%'}}>
+<View style={{marginTop:Platform.OS === 'ios' ? hp('3%'):'3%',
+             }}>
          <Text style={{
           color:'#312f3d' , fontSize:wp('6%') , fontWeight:'500' 
          }}>Profile views</Text>
- 
+         <Text>{" "}</Text>
 </View>
 <View style={{marginVertical:hp('1.5%')}}>
      <View style={{flexDirection:'row' ,marginHorizontal:'12%'}}>

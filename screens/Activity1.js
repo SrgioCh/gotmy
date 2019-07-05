@@ -6,6 +6,8 @@ import { AppRegistry, Alert,Platform,
 
 import Button from 'react-native-button'; 
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import CabezeraViewer from "./../components/cabezeraViewer"
+
 
 export default class Activity1 extends Component {
 
@@ -19,6 +21,16 @@ export default class Activity1 extends Component {
     super(props);
   
      this.state={
+
+// PARA LA CABEZERA
+imagViewer:require('../assets/reviews/kuskal.png'),
+nombreView:`Kurtis 'Kala' Lloyd`,
+correoView:'@kurtiskala',
+iconoUno:null,
+iconoDos:null,
+
+//
+
       userIcon1:require('../assets/activity/una.png'),
       user1:'Lisa smith',
       mensaje1:'started following you',
@@ -47,6 +59,19 @@ export default class Activity1 extends Component {
       }
   
   }// fin de consttructor
+
+  recogeDeHijo(){
+    console.log('no existe')
+      }
+   
+     recogeDeHijo2(){
+      console.log('no existe')
+        }
+   
+     abrirMenu(){
+       this.props.navigation.toggleDrawer() 
+     }
+
 
   render() {
 
@@ -80,42 +105,24 @@ export default class Activity1 extends Component {
 
       <View style={{flex: 1}}>
      
-      <View  style={{flex: 1 ,marginTop:22,justifyContent:'center',
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-              <TouchableOpacity
-            
-            onPress={() => this.props.navigation.navigate("profile3")}
-             >
-          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-        
-              <View style={{flex:1 ,justifyContent:'center'}}>
-              <Image source={require('../assets/reviews/kuskal.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-             <View style={{flex:4,flexDirection:'column',
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>Kurtis 'Kala' Lloyd</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>@kurtiskala</Text>
-             </View>
-             <View style={{flex:1,marginRight:5}}>
-              </View>
-              <View style={{flex:1}}>
-                 
-              </View>
-          </View>
-          </TouchableOpacity>
-  
-      </View>
+     <CabezeraViewer
+       imagViewer={this.state.imagViewer}
+       
+       nombreView={this.state.nombreView}
+       correoView={this.state.correoView}
+
+       iconoUno={this.state.iconoUno}
+       iconoDos={this.state.iconoDos}
+
       
-      <View style={{flex: 9}}>
+       enviaAPadreIconoUno={this.recogeDeHijo.bind(this)}
+       enviaAPadreIconoDos={this.recogeDeHijo2.bind(this)}
+
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
+    
+       />
+      
+      <View style={{flex: 8.7}}>
      
 
 

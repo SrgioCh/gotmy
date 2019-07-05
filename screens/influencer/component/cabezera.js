@@ -27,9 +27,14 @@ this.state = {
 
    //alert(this.props.abreMenu)
 
-   if(this.props.abreMenu){
 
-      imagen= <TouchableOpacity
+    return (
+
+<View  style={{flex: 1.3 ,justifyContent:'flex-end',
+          paddingBottom:hp('1.5%')}}>
+            
+          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
+          <TouchableOpacity
               style={{flex:1.5 ,alignItems:'center',justifyContent:'center'}}
               onPress={() => this.props.enviaAPadreMenu()} >
                  <Image source={this.props.imagInflu} 
@@ -37,22 +42,6 @@ this.state = {
                           borderRadius:10}}
                 />
            </TouchableOpacity>
-   }else{
-    imagen= <View style={{flex:1.5 ,alignItems:'center',justifyContent:'center'}}>
-    <Image source={this.props.imagInflu} 
-   style={{ width:40,height:40,
-             borderRadius:10}}
-   />
-</View>
-   }
-
-    return (
-
-<View  style={{flex: 1.3 ,justifyContent:'flex-end',
-          paddingBottom:hp('1.5%'), borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6'}}>
-            
-          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-             {imagen}
              <View style={{flex:7.5,flexDirection:'column' }}>
                  <View style={{flexDirection:'row'}}>
                        <Text style={{

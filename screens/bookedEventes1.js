@@ -9,6 +9,8 @@ import {Platform,Alert,TouchableOpacity,
   import BicardView from './../components/bicardview'
 import BookedEvDos from "./bookedEventes2"
 import BookedEvTres from "./bookedEventes3"
+import CabezeraViewer from "./../components/cabezeraViewer"
+
 
 export default class BookedEvUno extends Component {
 
@@ -26,6 +28,16 @@ screenheigth=Dimensions.get('window').height;
     super(props);
   
      this.state={
+
+      // PARA LA CABEZERA
+          imagViewer:require('../assets/reviews/kuskal.png'),
+          nombreView:`Kurtis 'Kala' Lloyd`,
+          correoView:'@kurtiskala',
+          iconoUno:null,
+          iconoDos:require('../assets/icons_genGMI/calendarRojo.png'),
+
+
+
           tytexto:'',
           menu1:styles.menuelegido,
           textoUno:styles.textoElegido,
@@ -60,12 +72,30 @@ screenheigth=Dimensions.get('window').height;
   }// fin de consttructor
 
   
-recogeDeHijo(dato){
+
+
+  //para la cabezera
+  recogeDeHijo1(){
+    console.log('no existe')
+      }
+   
+     recogeDeHijo2(){
+      alert(' abrira una pagina')
+      
+      
+       }
+   
+     abrirMenu(){
+       this.props.navigation.toggleDrawer() 
+     }
+
+     //para el cuerpo del boked 3
+     recogeDeHijo(dato){
     
-  this.props.navigation.navigate(dato)
- 
-  }
- 
+      this.props.navigation.navigate(dato)
+     
+      }
+    
 
   cambiarVista=(num)=>{
 
@@ -216,43 +246,25 @@ transicion=(num)=>{
 
     return (
       <View style={{flex: 1}}>
-      <View  style={{flex: 0.9,marginTop:25,justifyContent:'center',paddingBottom:3,
-          borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
-           }}>
-            
-          <View style={{flexDirection:'row',paddingHorizontal:'4%'}}>
-              <View style={{flex:1 , justifyContent:'center'}}>
-              <Image source={require('../assets/reviews/kuskal.png')} 
-                        style={{ width:40,height:40,
-                                  borderRadius:10}}
-                        />
-              </View>
-             <View style={{flex:4,flexDirection:'column',
-                        marginRight:15}}>
-                  <Text style={{
-                       color:'#312f3d',
-                       fontSize:17 ,letterSpacing:0.41
-                  }}>Kurtis 'Kala' Lloyd</Text>
-                  <Text style={{
-                         color:'#677183',
-                         fontSize:13 ,letterSpacing:0.08
-                  }}>@kurtiskala</Text>
-             </View>
-             <View style={{flex:1,marginRight:5}}>
-               
-              </View>
-              <View style={{flex:1}}>
-                 <View style={{flex:1 ,alignItems:'center',justifyContent:'center'}}>
-                    <Image source={require('../assets/icons_genGMI/calendarRojo.png')} 
-                        style={{ width:30,height:30,
-                                  borderRadius:10}}
-                        />
-                  </View>
-              </View>
-          </View>
-  
-      </View>
-      <View style={{flex: 9}}>
+      <CabezeraViewer
+       imagViewer={this.state.imagViewer}
+       
+       nombreView={this.state.nombreView}
+       correoView={this.state.correoView}
+
+       iconoUno={this.state.iconoUno}
+       iconoDos={this.state.iconoDos}
+
+      
+       enviaAPadreIconoUno={this.recogeDeHijo1.bind(this)}
+       enviaAPadreIconoDos={this.recogeDeHijo2.bind(this)}
+
+       enviaAPadreMenu={this.abrirMenu.bind(this)}
+    
+       />
+
+     
+      <View style={{flex: 8.7}}>
         
                 
             {/* ----------- TITULO ----------------*/} 

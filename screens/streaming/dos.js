@@ -6,7 +6,7 @@ import { Platform,StyleSheet, Text,Dimensions,ScrollView,
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import OpcionesUno from "./componentes/opcionesUno"
-
+import {Ionicons}  from "@expo/vector-icons"
 
 export default class Dos  extends React.Component {
    
@@ -90,7 +90,7 @@ _keyboardDidShow=()=>{
   if(screenHeight>=776){
     //alert('llega aqui 2')
     this.setState({
-      margintextTop:hp('6%')
+      margintextTop:Platform.OS === 'ios' ? hp('0.1%'):hp('6%'),
       
      })
   } 
@@ -149,7 +149,7 @@ microfonoNo=()=>{
                <View style={{flex:1.5,justifyContent:'center'}}>
                      <View style={{flexDirection:'row'}}>
                         <Image source={require('../../assets/influencers/preciosa.jpg')} 
-                         style={{ width:47,height:45,borderRadius:30,borderColor:'red',borderWidth:wp('0.5%')}}
+                         style={{ width:47,height:45,borderRadius:Platform.OS === 'ios' ? 23:30,borderColor:'red',borderWidth:wp('0.5%')}}
                         /> 
                        <View style={{justifyContent:'flex-end'}}>
                         <Image source={require('../../assets/streamingIcon/reloadselec.png')} 
@@ -339,12 +339,13 @@ microfonoNo=()=>{
                    </View>
               </View>
 
+           
 
               <View style={{ height:hp(this.state.heiteclado),marginTop:this.state.margintextTop}}>
                      <View style={{ flex:1,flexDirection:'row'}}>
                            <View style={{flex:8.5,alignItems:'center',justifyContent:'center'}}>
                                      
-                                <View style={{paddingVertical:hp('1.5%'),backgroundColor:'black',opacity:0.7,paddingTop:hp('0.5%'),
+                                <View style={{paddingVertical:Platform.OS === 'ios' ? hp('2.5%'):hp('1.5%'),backgroundColor:'black',opacity:0.7,paddingTop:Platform.OS === 'ios' ? hp('2.3%'):hp('2.3%'),
                                  zIndex:1, paddingLeft:wp('3%'), width:wp('75%'),borderRadius:hp('10%')}}>
                                          
                                       <TextInput
@@ -365,13 +366,17 @@ microfonoNo=()=>{
                                      />
                                 </View>
                            </View>
-                           <View style={{flex:1.5 ,alignItems:'flex-end',justifyContent:'center'}}>
+                           <View style={{flex:1.5 ,alignItems:'center',justifyContent:'center'}}>
                                  
-                                     <Image source={this.state.icoChat} 
+                                   {/*  <Image source={this.state.icoChat} 
                                      style={{width:40,height:38,borderRadius:20}}
-                                    /> 
-                             
+                                     /> */}
+                                 <Ionicons name="md-paper-plane" size={35} color="#e2e7ee" />
                            </View>
+ 
+         
+          
+
                      </View>
                      
                 </View>

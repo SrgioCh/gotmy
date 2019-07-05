@@ -52,27 +52,27 @@ constructor(props) {
 
       widFot='92%'
      leftBut=90
-     leftEN=110
+    
   } else if(screenHeight<=678){ // mi movil
     widFot='92%'
     leftBut=90
-    leftEN=110
+    
    }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
     widFot='93%'
     leftBut=130
-    leftEN=150
+    
    }else if(screenHeight<=775){//1440 *2880 :560dpi
     widFot='93%'
     leftBut=130
-    leftEN=150
+   
    }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
     widFot='93%'
     leftBut=95
-    leftEN=110
+    
    }else{ // 800 = 480 * 800 mdpi
     widFot='93%'
     leftBut=95
-    leftEN=110
+   
    }
 
 
@@ -185,21 +185,34 @@ constructor(props) {
                           />
                         </View>
 
-                        <View style={styles.language}>
+
+
+
+                        <View style={{flexDirection:'row',marginLeft:'4%'}}>
+                                <View style={{flex:5}}>
                                  <Text style={styles.languageTexto} > 
                                       Language
-                                                            </Text>
-                                  <Text style={{
-                                    color:"#312f3d",
-                                    fontSize:17,
-                                    //paddingBottom: 20,
-                                    marginLeft:leftEN,
-                                  }}>English, Spanish </Text>
-                                  <Image
-                                    source={require('../assets/icons_genGMI/ArrowGrey.png')}
-                                    style={styles.ImagInfluence}
-                                  />
-                               </View> 
+                                     </Text>
+                                </View>
+                                <View style={{flex:5,alignItems:'flex-end'}}>
+                                   
+                                    <View style={{flexDirection:'row'}}>
+                                      <Text style={{
+                                        color:"#312f3d",
+                                         fontSize:17,
+                                         }}>English, Spanish </Text>
+                                        <View style={{}}>
+                                        <Image
+                                     source={require('../assets/icons_genGMI/ArrowGrey.png')}
+                                     style={{}}
+                                      />
+                                        </View>
+                                      
+                                    </View>
+                                    
+                                </View>
+                                 
+                        </View> 
 
                                <Text style={styles.tituloConect} >Connect  your social networks</Text>
 
@@ -497,6 +510,8 @@ textboton:{
 contentContainer: {
 
 },
+
+/*borrar estas dos */
 language:{
   borderBottomWidth: 1,
   borderBottomColor:'#e2e7ee',
@@ -511,6 +526,7 @@ fontSize:17,
 
 },
 
+/* ******************  */
   tituloConect:{
     color:'#312f3d',
     fontSize:17,

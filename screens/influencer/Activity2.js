@@ -64,6 +64,14 @@ export default class Activity2 extends Component {
   
   }// fin de consttructor
 
+  abrirMenu(){
+    this.props.navigation.toggleDrawer() 
+  }
+ 
+
+
+
+
   render() {
     
 
@@ -105,7 +113,7 @@ export default class Activity2 extends Component {
 
        icono={this.state.icono}
       haciaPag={this.state.haciaPag}
-       enviaAPadre={null}
+      enviaAPadreMenu={this.abrirMenu.bind(this)}
        />
 
       <View style={{flex: 8.7}}>

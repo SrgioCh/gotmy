@@ -208,7 +208,11 @@ toggleModal(visible) {
          <View style={{flex:8,flexDirection:'column',
                  paddingBottom:20}}>
            
-                 <View style={{backgroundColor:'#f6f6f6',paddingBottom:7}}>
+           <TouchableOpacity  
+           style={{backgroundColor:'#f6f6f6',paddingBottom:7}}
+           onPress={() => this.props.navigation.navigate("coachInfluencer")}
+           >
+                  
 
                        <View style={{borderRadius:10,
                                 width:Platform.OS === 'ios' ? 339:'100%',
@@ -223,8 +227,8 @@ toggleModal(visible) {
                                 right:'0.2%',bottom:'15%',
                                  }}
                             />
-
-      </View>  
+                
+              </TouchableOpacity> 
       {/*   final de bicardview */}
        
        

@@ -30,6 +30,10 @@ import Become1 from "./screens/Become1";
 import Become2 from "./screens/Become2";
 import Become3 from "./screens/Become3";
 
+import BecomeInfluencer7 from "./screens/BecomeInfluencer7"
+import BecomeInfluencer5 from "./screens/becomeinfluencer5"
+
+
 import BookingStats from "./screens/influencer/bookingStats"
 
 
@@ -45,6 +49,9 @@ import Discover from "./screens/discover";
 import DiscoverCategories from "./screens/discoverCategories"
 import DiscoverCalendar from "./screens/discoverCalendar"
 import DiscoverPreferences from "./screens/discoverPreferences"
+import DiscoPrefeFecha from "./screens/discoPrefeFecha"
+import DiscoPrefeLanguage from "./screens/discoPrefeLanguaje"
+
 
 import Editinfluencerprofile from "./screens/editInfluencerProfile"
 
@@ -95,6 +102,9 @@ import Mediacontentsinfluencer from "./screens/mediaContentsInfluencer"
 import Mediacontentsmy  from "./screens/mediaContentsMy"
 import Mediacontent from "./screens/mediaContents"
 
+import MyLiveEvents from "./screens/influencer/myliveEvents"
+import MyLiveEventsArticle  from "./screens/influencer/myliveEventsArticle"
+
 import Upcomingevents from "./screens/UpComingEvents"
 
 
@@ -128,6 +138,16 @@ import RequestPri1 from "./screens/publishPrivate/requestPri1"
 import RequestPri2 from "./screens/publishPrivate/requestPri2"
 import RequestPri3 from "./screens/publishPrivate/requestPri3"
 
+///**mirar esta nueva gotmy 1julio */
+import RequesPrivMeting from "./screens/requesPrivMeting"
+import PrivMetingProposal from "./screens/privMetingProposal"
+import SelectCategory from "./screens/selectCategory"
+
+import  SubCategoryInfluencer  from "./screens/subcategoryInfluencer"
+
+
+
+
 
  import RequestPending from "./screens/influencer/RequestPending"
  import RequestAcepted from "./screens/influencer/RequestAcepted"
@@ -139,6 +159,10 @@ import Vieweredit from "./screens/ViewerEdit"
 import ViewerChat from "./screens/viewerChat"
 import ViewerMenu from "./screens/viewermenu"
 
+import Verification1 from "./screens/influencer/verification1"
+import Verification2 from "./screens/influencer/verification2"
+
+
 import MyWallet from "./screens/myWallet"
 import Transactions from "./screens/transactions"
 import TransferTomyAcount from "./screens/transferTomyAcount"
@@ -149,12 +173,10 @@ import TransferDetail from "./screens/transferDetail"
 import CoachViewer  from "./screens/streaming/coachViewer"
 import Dos from "./screens/streaming/dos"
 
+import CoachInfluencer from "./screens/streaming/coachInfluencer"
+import ChooceModerator from "./screens/streaming/chooceModerator"
+import ModoInfluencer from "./screens/streaming/modoInfluencer"
 
-
-
-
-
- 
 //creacion de los tabs
 
 const TabDiscover=createStackNavigator(
@@ -266,7 +288,7 @@ const TabDiscover=createStackNavigator(
             },
             {
               swipeEnabled: true,
-  animationEnabled: true,
+              animationEnabled: true,
               tabBarOptions: {
               
                 activeTintColor: '#ff5a60',
@@ -285,6 +307,12 @@ const TabDiscover=createStackNavigator(
          ) 
          
           //para TABS  de influencer
+          const TabMyliveEvents=createStackNavigator(
+            {   myLiveEvents:{
+                 screen:MyLiveEvents,
+             }
+           })
+
           const TabInfluencerStats=createStackNavigator(
             {   influencerEstadisticas:{
                  screen:InfluencerEstadisticas,
@@ -319,7 +347,7 @@ const TabDiscover=createStackNavigator(
 
          const DashboardTabInfluencer = createBottomTabNavigator(
           {
-             "My Events":{    screen : TabActivity,
+             "My Events":{    screen : TabMyliveEvents,
               navigationOptions: ({ navigation }) => ({
                 tabBarIcon: ({ focused}) => {
                
@@ -527,9 +555,16 @@ const RootStack = createStackNavigator(
     },
     Become2: {
       screen: Become2,
-    },
+    }, 
     Become3: { 
       screen: Become3,
+    },
+    becomeInfluencer5: { 
+      screen:   BecomeInfluencer5,
+    },
+   
+     becomeInfluencer7: { 
+      screen:  BecomeInfluencer7,
     },
     bookingStats: {
       screen: BookingStats,
@@ -570,8 +605,14 @@ const RootStack = createStackNavigator(
     },
     discoverPreferences:{
        screen : DiscoverPreferences,
-    },
-    editinfluencerprofile:{
+    }, 
+    discoPrefeFecha:{
+      screen : DiscoPrefeFecha,
+   }, 
+   discoPrefeLanguage:{
+    screen : DiscoPrefeLanguage,
+ }, 
+ editinfluencerprofile:{
       screen :  Editinfluencerprofile,
    },
    influencerEstadisticas:{
@@ -689,6 +730,9 @@ requestPri3:{
     searchOptions:{
       screen:SearchOptions,
     },
+    subCategoryInfluencer:{
+      screen:SubCategoryInfluencer,
+    }, 
   //Live events
     boked1:{ 
       screen:BookedEvUno,
@@ -763,7 +807,13 @@ requestPri3:{
     },
     mediacontentsmy:{
       screen: Mediacontentsmy,
+    }, 
+    myLiveEvents:{
+      screen: MyLiveEvents,
     },
+    myLiveEventsArticle:{
+      screen: MyLiveEventsArticle,
+    }, 
     upcoevent:{
       screen:Upcomingevents,
     },
@@ -779,6 +829,12 @@ requestPri3:{
     vieweredit:{
        screen:Vieweredit,
     },
+    verification1:{
+      screen:Verification1,
+   },
+    verification2:{
+      screen:Verification2,
+   },
      myWallet:{
        screen:MyWallet,
     }
@@ -800,12 +856,33 @@ requestPri3:{
     coachViewer:{
        screen:CoachViewer,
      },
-     dos:{ //streamings
+     dos:{ 
        screen:Dos,
-     }
+     }, 
+     coachInfluencer:{ 
+      screen:CoachInfluencer,
+    },
+    chooceModerator:{ 
+      screen:ChooceModerator,
+    },
+    modoInfluencer:{ 
+      screen:ModoInfluencer,
+    },
+     /// cambiar gotmy 1julio
+     requesPrivMeting:{ 
+      screen:RequesPrivMeting,
+    },
+    privMetingProposal:{ 
+      screen:PrivMetingProposal,
+    },
+    selectCategory:{ 
+      screen:SelectCategory,
+    },
+   
   },
   {
-    initialRouteName: 'requesPendin',
+    initialRouteName: 'singUpInicio',
+    
   }
 );
 

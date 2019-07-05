@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, Alert,
-  View,Text ,Dimensions,
+  View,Text ,Dimensions,ImageBackground,
   StyleSheet,ScrollView,TouchableOpacity,
   Image,Modal} from 'react-native';
   import {  FontAwesome } from '@expo/vector-icons';
@@ -287,8 +287,7 @@ toggleModal(visible) {
            </Modal>
 
     <View  style={{flex: 1,marginTop:22,justifyContent:'center',
-        borderBottomWidth: 0.8,borderBottomColor:'#f6f6f6',
-         backgroundColor:this.state.modalOscuro,
+             backgroundColor:this.state.modalOscuro,
          opacity:this.state.modalOpacity,
          zIndex:this.state.modalIndex}}>
           
@@ -372,68 +371,60 @@ toggleModal(visible) {
 
              {/*  bloquee  NO CARDVIEW*/}
 
-         <View style={{marginHorizontal:16 , backgroundColor:this.state.modalOscuro,
-         opacity:this.state.modalOpacity,
-         zIndex:this.state.modalIndex
-        
-                      }}>
-                <Image source={require('../assets/influencers/influencer.png')} 
-                  style={{ width:40,height:40, zIndex:3,borderRadius:10,position:'absolute',left:15,top:15}}
-                   />
-                 <Text style={styles.textoLogo}>
-                  MandyJTV
-                </Text>
-
-                <View  style={styles.estrellasimagen}>
-                      <Image source={require('../assets/Red.png')} 
-                      style={{ width:11,height:11,}}
-                      />
-                      <Image source={require('../assets/Red.png')} 
-                     style={{ width:11,height:11,marginLeft:2}}
-                  />
-                     <Image source={require('../assets/Red.png')} 
-                   style={{ width:11,height:11,marginLeft:2}}
-                   />
-                 <Image source={require('../assets/Red.png')} 
-                    style={{ width:11,height:11,marginLeft:2}}
-                   />
-                 <Image source={require('../assets/Grey.png')} 
-                  style={{ width:11,height:11,marginLeft:2}}
-                   />
-              </View>
-              <View style={{borderRadius:10,
-                         width:  Platform.OS === 'ios' ? '100%':'100%',
-                         height:200}}>
-                 <Image source={require('../assets/influencers/MandyJTV/download.jpg')} 
-                  style={{ zIndex:2,borderRadius:10,width:'100%',height:'100%'}}
-                 />
-                 <Text style={styles.textoLogobajo}>
-                  Team Rocket vs Team Skull {'\n'}RAP BATTLE{'\n'} </Text>
-                  <Text style={[styles.textoLogobajo,{marginTop:matop,fontSize:13,
-                   fontWeight:'normal',}]}>Entertaiment</Text> 
+             <View style={{borderRadius:30,
+         marginHorizontal:'4%',backgroundColor:'pink'
+       }}>
+       <View style={{borderRadius:30,
+                    width:  Platform.OS === 'ios' ? '100%':'100%',
+                      height:hp('30%')}}>
+      <ImageBackground source={require('../assets/influencers/MandyJTV/download.jpg')} 
+       style={{borderRadius:30,width:'100%',height:'100%'}}
+      >
+    <View style={{flex:6.5,flexDirection:'row',paddingTop:hp('2%')}}>
+       <View style={{flex:1.5,alignItems:'center'}}>
+             <Image source={require('../assets/influencers/influencer.png')} 
+              style={{ width:40,height:40,borderRadius:10}}
+              />  
+       </View>
+       <View style={{ flex:6.5 }}>
+           <Text style={styles.textoLogo}> MandyJTV </Text>
+           <View  style={styles.estrellasimagen}>
+             <Image source={require('../assets/Red.png')} 
+             style={{ width:11,height:11,}}
+             />
+           <Image source={require('../assets/Red.png')} 
+             style={{ width:11,height:11,marginLeft:2}}
+            />
+            <Image source={require('../assets/Red.png')} 
+             style={{ width:11,height:11,marginLeft:2}}
+             />
+            <Image source={require('../assets/Red.png')} 
+              style={{ width:11,height:11,marginLeft:2}}
+              />
+            <Image source={require('../assets/Grey.png')} 
+              style={{ width:11,height:11,marginLeft:2}}
+               />
             </View>
+       </View>
+       <View style={{flex:2}}>
+           <Image source={require('../assets/icons_genGMI/Like/corazongris.png')} 
+              style={{ width:60,height:60}}
+              />
+       </View>
 
-               {/*  corazon gris */}
-               <View  style={{
-              width:50,
-              height:50,
-              borderRadius:30,
-              backgroundColor:'#312f3d',
-              opacity:0.8,
-              zIndex:9,
-              position:'absolute',
-              right:15,
-              bottom:135,
-              alignItems:'center',
-              justifyContent:'center',
+    </View>
 
-            }}>
-                <Image source={require('../assets/icons_genGMI/Like/corazongris.png')} 
-                  style={{  width:30,height:30,
-                            zIndex:10}}
-                   />  
-            </View>
-        </View>   
+
+     <View style={{flex:3.5,paddingLeft:wp('3%')}}>
+        <Text style={styles.textoLogobajo}>
+          Team Rocket vs Team Skull {'\n'}RAP BATTLE</Text>
+         <Text style={[styles.textoLogobajo,{fontSize:wp('3%'),fontWeight:'normal',}]}>Entertaiment</Text> 
+     </View>
+    
+    </ImageBackground>
+
+       </View>
+  </View>
 
 
 
@@ -881,6 +872,9 @@ const styles = StyleSheet.create({
       bottom:6,
      
     },
+
+
+    
     // ventana modal
 modal: {
   flex: 1,
@@ -889,7 +883,22 @@ modal: {
   opacity:0.5,
   padding: 100
 },
-   
+estrellasimagen:{
+  padding:3,
+     flexDirection:'row',
+  }, 
+textoLogobajo:{
+  color:'white',
+  fontSize:wp('5%'),
+  fontWeight:'bold',
+  letterSpacing:1,
 
+},
+textoLogo:{
+  color:'white',
+   fontSize:wp('4%'),
+   fontWeight:'500',
+  
+  },
 
 });

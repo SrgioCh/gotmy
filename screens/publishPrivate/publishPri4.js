@@ -60,20 +60,20 @@ export default class PublishPri4 extends Component {
     
     if(screenHeight<=592){ //1080 * 1920  xxhdpi
  
-      letCam='40%'
+    
     }else if(screenHeight<=605){ //mopvil de  david
-      letCam='40%'
+    
   } else if(screenHeight<=678){ // mi movil
-    letCam='40%' 
+  
    }else if(screenHeight<=685){ //1080 *1920 420dpi  --- 1440 *2560 :560 dpi
-    letCam='40%'
+    
    }else if(screenHeight<=775){//1440 *2880 :560dpi
-    letCam='40%'
+   
 
    }else if(screenHeight<=778){//1440 *3300 :xxxhdpi Snote9
-    letCam='45%'
+  
    }else{ // 800 = 480 * 800 mdpi
-    letCam='45%'
+
    }
 
 
@@ -109,7 +109,7 @@ export default class PublishPri4 extends Component {
     <Image style={{
      
       top:'50%',
-      left:letCam,
+      left:wp('37%'),
       position:'absolute',
     
     }}
