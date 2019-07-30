@@ -138,7 +138,7 @@ this.state = {
                >  
                    
                      <Image source={this.state.modeImag} 
-                              style={{width:27,height:27,borderRadius:20}}          
+                              style={{width:27,height:27,borderRadius:Platform.OS === 'ios' ? 15:20}}          
                                 /> 
                 </TouchableOpacity>
                 </View>
@@ -197,7 +197,7 @@ this.state = {
              >  
                  
                    <Image source={this.state.modeImagB} 
-                            style={{width:30,height:30,borderRadius:20}}          
+                            style={{width:30,height:30,borderRadius:Platform.OS === 'ios' ? 15:20}}          
                               /> 
               </TouchableOpacity>
               </View>
@@ -257,7 +257,7 @@ this.state = {
              >  
                  
                    <Image source={this.state.modeImagC} 
-                            style={{width:30,height:30,borderRadius:20}}          
+                            style={{width:30,height:30,borderRadius:Platform.OS === 'ios' ? 15:20}}          
                               /> 
               </TouchableOpacity>
               </View>
@@ -316,7 +316,7 @@ this.state = {
              >  
                  
                    <Image source={this.state.modeImagD} 
-                            style={{width:30,height:30,borderRadius:20}}          
+                            style={{width:30,height:30,borderRadius:Platform.OS === 'ios' ? 15:20}}          
                               /> 
               </TouchableOpacity>
               </View>

@@ -66,6 +66,7 @@ toggleModal(visible) {
     return (
       <View style={{flex:1}}>
 
+
 <Modal
           transparent = {true}
           animationType="fade"
@@ -85,11 +86,11 @@ toggleModal(visible) {
                  </View> 
 
                  <View style={{backgroundColor:'white',borderRadius:20,
-                          position:'absolute',
-                          top:'10%',marginHorizontal:wp('4.7%'),paddingHorizontal:'10%',
-                       paddingVertical:'10%'}}> 
+                          position:'absolute',width:'90%',height:'80%',left:'5%',
+                          top:'10%',paddingHorizontal:'5%',
+                           }}> 
 
-                       <View style={{marginTop:hp('3%')}}>
+                       <View style={{marginTop:hp('5%')}}>
                      
                         
                        <Text  style={{ textAlign:'center',
@@ -97,32 +98,78 @@ toggleModal(visible) {
                                 marginVertical: '3%',}}>
                         How it works {'\n'}Private Meetins        
                         </Text>
-                        <Text  style={{ 
-                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
-                                marginVertical: '3%',}}>
-                        1.  Send your proposal to the {'\n'}       influencer  
 
-                         </Text>
-                        <Text  style={{ 
+                        <View style={{flexDirection:'row',marginTop:hp('3%')}}>
+                            <View style={{flex:1,}}>
+                                 <Text>1. </Text>
+                            </View>
+                            <View style={{flex:9}}>
+                            <Text  style={{ 
                                color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
-                                marginVertical: '3%',}}>
-                        2.  Wait for influencer's response {'\n'}       aceppting, rejecting or proposing {'\n'}       new terms.
+                              }}>Send your proposal to the influencer  
+                             </Text>
+                            </View>
+                        </View>
+                         
+                          <View style={{flexDirection:'row',marginTop:hp('3%')}}>
+                            <View style={{flex:1}}>
+                                 <Text>2. </Text>
+                            </View>
+                            <View style={{flex:9}}>
+                            <Text  style={{ 
+                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
+                                 }}>
+                                Wait for influencer's response aceppting, rejecting or proposing new terms.
+                                  </Text>
+                            </View>
+                        </View>
+
+                        <View style={{flexDirection:'row',marginTop:hp('3%')}}>
+                            <View style={{flex:1}}>
+                                 <Text>3. </Text>
+                            </View>
+                            <View style={{flex:9}}>
+                            <Text  style={{ 
+                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
+                                }}>
+                               Accept or reject these new terms
+                             </Text>
+                            </View>
+                        </View>
+
+ 
+
+                        <View style={{flexDirection:'row',marginTop:hp('3%')}}>
+                            <View style={{flex:1}}>
+                                 <Text>4. </Text>
+                            </View>
+                            <View style={{flex:9}}>
+                            <Text  style={{ 
+                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
+                                }}>
+                                 Once you both agree in the meeting terms, you'll receive a link to buy your ticket and share this private meeting with your friends.
+                              </Text>
+                            </View>
+                        </View>
+
+
+                        <View style={{flexDirection:'row',marginTop:hp('2%')}}>
+                            <View style={{flex:1}}>
+                                 <Text>5. </Text>
+                            </View>
+                            <View style={{flex:9}}>
+                            <Text  style={{ 
+                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
+                                }}>
+                              All tickets must have been purchased 24 hours in advance, or influencer shall have the right to  cancel the private meeting.
                         </Text>
-                        <Text  style={{ 
-                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
-                                marginVertical: '3%',}}>
-                        3.  Accept or reject these new terms
-                       </Text>
-                       <Text  style={{ 
-                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
-                                marginVertical: '3%',}}>
-                        4.  Once you both agree in the meeting {'\n'}       terms, you'll receive a link to buy {'\n'}       your ticket and share this private {'\n'}       meeting with your friends.
-                        </Text>
-                        <Text  style={{ 
-                               color:"#677183",  fontSize: wp('4%'),fontWeight: "normal",
-                                marginVertical: '3%',}}>
-                        5.  All tickets must have been {'\n'}       purchased 24 hours in advance, {'\n'}       or influencer shall have the right to {'\n'}       cancel the private meeting.
-                        </Text>
+                            </View>
+                        </View>
+
+
+
+ 
+                       
 
                    
 
@@ -138,7 +185,7 @@ toggleModal(visible) {
             borderColor:'#ff5a60',
             alignItems:'center',
             borderWidth:1,
-            marginTop:hp('3%'),
+            marginTop:hp('7%'),
             marginHorizontal:'15%'
          }}
          onPress={() => {
@@ -168,7 +215,7 @@ toggleModal(visible) {
         <View style={{flex:3,alignItems:'center',
                 justifyContent:'center'}}>
          <Image source={this.state.imagInflu} 
-                style={{ width:120,height:120,borderRadius:80}}          
+                style={{ width:120,height:120,borderRadius:Platform.OS === 'ios' ? 60:80}}          
            />
       </View>
        <View style={{flex:1, alignItems:'center'}}>
@@ -228,13 +275,13 @@ toggleModal(visible) {
 const styles = StyleSheet.create({
  
     containerbutton:{
-        backgroundColor: '#ff5a60',
-        width:'90%',
-        paddingVertical:13,
-        borderRadius:27,
-        alignItems:'center',
-        marginBottom:40,
-     
+      backgroundColor: '#ff5a60',
+      width:'90%',
+      height:'60%',
+      borderRadius:27,
+      alignItems:'center',
+      justifyContent:'center',
+      marginBottom:40,
     
       },
       modal: {

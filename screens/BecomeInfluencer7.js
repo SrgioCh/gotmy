@@ -114,17 +114,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedA}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
 
-
+                   label='  '
 
                     value={this.state.valueA}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}
@@ -158,15 +154,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedB}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
+
+                   label='  '
 
                     value={this.state.valueB}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}
@@ -201,16 +195,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedC}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
 
+                   label='  '
                     value={this.state.valueC}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}
                     uncheckedImage={require('../assets/icons_genGMI/boxwhite.png')}
@@ -244,16 +235,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedD}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
 
+                   label='  '
                     value={this.state.valueD}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}
                     uncheckedImage={require('../assets/icons_genGMI/boxwhite.png')}
@@ -287,15 +275,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedE}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
+
+                   label='  '
 
                     value={this.state.valueE}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}
@@ -332,15 +318,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedF}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
+
+                   label='  '
 
                     value={this.state.valueF}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}
@@ -376,15 +360,13 @@ this.state = {
                     }}
                     checked={this.state.isCheckedG}
                     containerStyle={{
-                      backgroundColor:'white',
-                      marginTop:10,
-                     
+                      marginTop:Platform.OS === 'ios' ?  5:10,
                     }}
                     checkboxStyle={{
-                     
-                      backgroundColor:'white',
-    
+                       backgroundColor:'white',
                     }}
+
+                   label='  '
 
                     value={this.state.valueG}
                     checkedImage={require('../assets/icons_genGMI/boxred.png')}

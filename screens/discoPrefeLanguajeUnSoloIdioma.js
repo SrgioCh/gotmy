@@ -6,11 +6,13 @@ import {
   Image, TouchableOpacity
 } from 'react-native';
 
+
+import Checkbox from 'react-native-modest-checkbox';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 leng = [];
 imag = [];
-export default class BecomeInfluencer5 extends Component {
+export default class DiscoPrefeLanguage extends Component {
   static navigationOptions = {
     headerTitle: 'Choose your languages',
     headerTitleStyle: {
@@ -75,27 +77,12 @@ export default class BecomeInfluencer5 extends Component {
     color2: 'red',
     check: require('../assets/icons_genGMI/checkLengNo.png'),
     check2: require('../assets/icons_genGMI/checkLeng.png'),
-    elegiste: false,
-
-    // aqui alamacenaremos los valores originales
-
-    original: [],
-    encontrado: false,
+    cambiaste: false
   };
 
-
-
-  componentDidMount() {
-    this.setState({
-      original: this.state.language,
-    })
-  }
-
-  elige(x) {
-    // console.log('presionaste ' + x);
-    //  console.log('color ' + leng[x]);
+  cambia(x) {
+    console.log('presionaste ' + x);
     if (leng[x] == this.state.color) {
-      console.log(" estan en color grey")
       leng[x] = this.state.color2;
       imag[x] = this.state.check2;
     } else {
@@ -103,31 +90,22 @@ export default class BecomeInfluencer5 extends Component {
       imag[x] = this.state.check;
     }
 
-
-
-    this.setState({
-      elegiste: true
-    })
-  }
-
-
-
-  guardar = () => {
-
-    console.log('Elegiste :')
     this.state.language.map((item, i) => {
+      if (i != x) {
 
-      if (leng[i] != this.state.color) {
-        console.log('- ' + item.len)
+        leng[i] = this.state.color;
+        imag[i] = this.state.check;
       }
-
+      else {
+        console.log('item elegido :   ' + item.len)
+      }
     })
-
-
+    this.setState({
+      cambiaste: true
+    })
   }
 
   render() {
-
 
 
     let screenHeight = Dimensions.get('window').height;
@@ -181,55 +159,37 @@ export default class BecomeInfluencer5 extends Component {
                 underlineColorAndroid="transparent"
 
                 paddingHorizontal={5}
-
                 onChangeText={
 
                   (text3) => {
 
-                    console.log("mete :  " + text3.length)
-                    console.log("laneguajes  :  " + this.state.language.length)
+                    console.log(text3)
 
-                    encontrado = text3.charAt(text3.length - 1)
-
-                    if (encontrado != ' ') {
-                      busqueda = []; //metere los coches que coincidan con la letra
-                    } else {
-                      console.log('la ultima letras es nula')
-                    }
-
-
+                    busqueda = []; //metere los coches que coincidan con la letra
                     text3 = text3.toLowerCase();
 
-                    this.state.language.map((item, i) => {
-                      console.log(text3)
-                      if (item.len.toLowerCase().search(text3) != -1) {
+                    this.state.modelos.map((item, i) => {
 
-                        console.log("-entro" + item.len)
-
-
+                      if (item.marca.toLowerCase().search(text3) != -1) {
                         busqueda.push(item);
 
-                      } // fin if  mayor
+                      }
 
                     }
 
+
                     )
-
-                    console.log("busqueda len " + busqueda.length)
-
 
                     if (text3 != '') {
 
                       this.setState({
-                        language: busqueda, //los que va encontrando
-
+                        modelos: busqueda //los que va encontrando
                       })
                     } else {
                       console.log('entra aquiii')
 
                       this.setState({
-                        language: this.state.original, //los valores originales
-
+                        modelos: this.state.original //los valores originales
                       })
                     }
                   }
@@ -251,12 +211,10 @@ export default class BecomeInfluencer5 extends Component {
             {
               this.state.language.map((item, i) => {
 
-                if (!this.state.elegiste) {
+                if (!this.state.cambiaste) {
                   leng[i] = this.state.color;
-                  imag[i] = this.state.check;
+                  imag[i] = this.state.check
                 }
-
-
 
 
                 return (
@@ -270,7 +228,7 @@ export default class BecomeInfluencer5 extends Component {
                     </View>
                     <View style={{ flex: 7, justifyContent: 'center' }}>
                       <Text onPress={() => {
-                        this.elige(i)
+                        this.cambia(i)
                       }} style={{ fontSize: wp('3.5%'), color: leng[i], fontWeight: '500' }}>
                         {item.len}
                       </Text>
@@ -300,7 +258,7 @@ export default class BecomeInfluencer5 extends Component {
             flex: 1, backgroundColor: '#ff5a60',
             alignItems: 'center', justifyContent: 'center'
           }}
-          onPress={this.guardar}
+          onPress={() => this.props.navigation.navigate('requesPrivMeting')}
 
         >
 

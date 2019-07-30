@@ -372,12 +372,13 @@ export default class Verification2 extends Component {
              </View>
              <View style={{flex:1 ,alignItems:'center'}}>
                    <TouchableOpacity style={{
-                        backgroundColor: '#ff5a60',
-                        width:'90%',
-                        paddingVertical:13,
-                        borderRadius:27,
-                        alignItems:'center',
-                        marginBottom:40,
+                       backgroundColor: '#ff5a60',
+                       width:'90%',
+                       height:'60%',
+                       borderRadius:27,
+                       alignItems:'center',
+                       justifyContent:'center',
+                       marginBottom:40,
                    }}
                      onPress={() => this.props.navigation.navigate("")}
                     > 

@@ -75,13 +75,13 @@ export default class MyLiveEventsPast extends Component {
                        <View style={{paddingTop:hp('1%')}}>
                            <Text style={{
                                         color:'#312f3d',
-                                        fontSize:wp('3.6%'),
+                                        fontSize:Platform.OS === 'ios' ? wp('3.3%'):wp('3.6%'),
                                         fontWeight:'bold'
                                     }}>{this.state.mensa1}</Text>
                            <Text style={{
                                marginTop:hp('0.5%'),
                                         color:'#312f3d',
-                                        fontSize:wp('3.3%'),
+                                        fontSize:wp('3.1%'),
                                         fontWeight:'100'
                                     }}>{this.state.mensa2}</Text>
                        </View>

@@ -68,12 +68,12 @@ export default class  Verification1 extends Component {
        <View style={{padding:hp('0.5%'),borderWidth:wp('0.5%'),borderRadius:80,
               borderColor:'grey'}}>
           <Image source={this.state.imagInflu} 
-                style={{ width:120,height:120,borderRadius:80}}          
+                style={{ width:120,height:120,borderRadius:Platform.OS === 'ios' ? 60:80}}          
            />
          </View>
          <View style={{justifyContent:'flex-end',marginLeft:wp('-12%')}}>
-         <Image source={require('../../assets/icons_genGMI/iconrel.png')} 
-                style={{ width:35,height:35,borderRadius:25}}          
+         <Image source={require('../../assets/icons_genGMI/raiceOf.png')} 
+                style={{ width:35,height:35,borderRadius:Platform.OS === 'ios' ? 17:25}}          
            />
          </View>
         
@@ -146,23 +146,26 @@ export default class  Verification1 extends Component {
 const styles = StyleSheet.create({
  
     containerbutton:{
-        backgroundColor: '#ff5a60',
-        width:'70%',
-        paddingVertical:13,
-        borderRadius:27,
-        alignItems:'center',
-        marginBottom:40,
+      backgroundColor: '#ff5a60',
+      width:'90%',
+      height:'60%',
+      borderRadius:27,
+      alignItems:'center',
+      justifyContent:'center',
+      marginBottom:40,
      
     
       },
       containerbutton2:{
         backgroundColor: 'white',
         width:'70%',
-        paddingVertical:13,
+        height:'60%',
+        
         borderRadius:27,
         borderColor:"#ff5a60",
         borderWidth:1,
         alignItems:'center',
+      justifyContent:'center',
         marginBottom:40,
      
     

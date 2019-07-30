@@ -215,7 +215,7 @@ toggleModal(visible) {
                   
 
                        <View style={{borderRadius:10,
-                                width:Platform.OS === 'ios' ? 339:'100%',
+                                width:Platform.OS === 'ios' ? '100%':'100%',
                                 height:200}} >
                              <Image source={this.state.fotoGrande} 
                             style={{ zIndex:1,width:'100%',height:'100%'}}

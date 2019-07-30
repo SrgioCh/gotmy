@@ -245,8 +245,6 @@ marginTop:hp('2%'),
                 </View>
    
 
-           
-
 
 {/* ---------------- SECCION IMAGEN DESPLAZABLE-----------*/}
 

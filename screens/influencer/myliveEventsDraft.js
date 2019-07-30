@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Alert,
+import { AppRegistry, Alert,Platform,
   View,Text ,TextInput,
   StyleSheet,ScrollView,
   Image,TouchableOpacity} from 'react-native';
@@ -156,7 +156,7 @@ style={{flexDirection:'row',marginHorizontal:'4%',paddingVertical:hp('3%')}}>
                                                 style={{
                                                    width:40,
                                                   height:40,
-                                                   borderRadius:30,
+                                                   borderRadius:Platform.OS === 'ios' ? 20:30,
                                                
                                                    }}
                                              />
