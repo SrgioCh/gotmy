@@ -296,7 +296,7 @@ export default class Profileinfluencer extends Component {
               <Text style={{
                 color: '#312f3d', fontSize: 16, letterSpacing: 0.32
               }}>Many people would say that it is absolute madness to keep on doing the same
-                                     thing, time after time, expecting to get a different result or for something
+                                       thing, time after time, expecting to get a different result or for something
          different to happen.</Text>
             </View>
 
@@ -537,7 +537,7 @@ export default class Profileinfluencer extends Component {
               flex: 1, backgroundColor: '#ff5a60', padding: 13,
               alignItems: 'center', justifyContent: 'center'
             }}
-            onPress={() => this.props.navigation.navigate("requestPri1")}
+            onPress={() => this.props.navigation.navigate("requesPrivMeting")}
           >
             <Text style={{
               color: 'white',

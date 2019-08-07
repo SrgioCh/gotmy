@@ -182,6 +182,17 @@ import CoachInfluencer from "./screens/streaming/coachInfluencer"
 import ChooceModerator from "./screens/streaming/chooceModerator"
 import ModoInfluencer from "./screens/streaming/modoInfluencer"
 
+//ultimas vistas :
+
+import PastStreaming from "./src/screens/PastStreaming"
+import TypePrivateMeting from "./src/screens/TypePrivateMeting"
+import Description from "./src/screens/Description"
+import Estimation from "./src/screens/Estimation"
+import MeetingProposal2 from "./src/screens/MeetingProposal2"
+import MeetingProposal3 from "./src/screens/MeetingProposal3"
+import MeetingProposal5 from "./src/screens/MeetingProposal5"
+import MeetingProposalAcepted from "./src/screens/MeetingProposalAcepted"
+
 //creacion de los tabs
 
 const TabDiscover = createStackNavigator(
@@ -913,10 +924,33 @@ const RootStack = createStackNavigator(
     transactionPaypal: {
       screen: TransactionPaypal,
     },
-
+    pastStreaming: {
+      screen: PastStreaming,
+    },
+    typePrivateMeting: {
+      screen: TypePrivateMeting,
+    },
+    description: {
+      screen: Description,
+    },
+    estimation: {
+      screen: Estimation,
+    },
+    meetingProposal2: {
+      screen: MeetingProposal2,
+    },
+    meetingProposal3: {
+      screen: MeetingProposal3,
+    },
+    meetingProposal5: {
+      screen: MeetingProposal5,
+    },
+    meetingProposalAcepted: {
+      screen: MeetingProposalAcepted,
+    },
   },
   {
-    initialRouteName: 'transferToMyAcount',
+    initialRouteName: 'meetingProposal3',
 
   }
 );
