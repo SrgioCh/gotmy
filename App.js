@@ -1016,7 +1016,7 @@ const RootStack = createStackNavigator(
 
 
   {
-    initialRouteName: 'singUpInicio',
+    initialRouteName: 'editInfluencerCategories',
 
   }
 );

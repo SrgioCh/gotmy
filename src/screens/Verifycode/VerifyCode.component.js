@@ -234,19 +234,21 @@ export default class VerifyCode extends Component {
                         </View>
                     </View>
                     <View style={{ flex: 4, flexDirection: 'row', marginHorizontal: '1%' }}>
-                        <View style={{ flex: 3.3 }}>
-                            <View style={{ alignItems: 'center' }}>
-                                <Text style={styles.num}>+ * #</Text>
-                            </View>
+                        <View style={{ flex: 3.3, alignItems: 'center' }}>
+
+                            <Text style={styles.num}>+ * #</Text>
+
                         </View>
-                        <View style={{ flex: 3.3, alignItems: 'center', }}>
-                            <View style={{
-                                backgroundColor: 'white',
-                                borderRadius: hp('1%'),
-                                width: '90%',
-                                height: '45%',
-                                alignItems: 'center'
-                            }}>
+                        <View style={{ flex: 3.3, alignItems: 'center', marginTop: hp('0.5%') }}>
+                            <View
+                                onTouchEnd={() => this.numberPhone(0)}
+                                style={{
+                                    backgroundColor: 'white',
+                                    borderRadius: hp('1%'),
+                                    width: '90%',
+                                    height: '45%',
+                                    alignItems: 'center'
+                                }}>
                                 <Text style={styles.num}>0</Text>
                                 <Text style={styles.letras}>{' '}</Text>
                             </View>

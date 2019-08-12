@@ -7,8 +7,8 @@ import {
 const styles = StyleSheet.create({
     Textprinci: {
         color: '#312f3d',
-        fontSize: wp('4%'),
-        fontWeight: '500',
+        fontSize: wp('4.5%'),
+        fontWeight: 'bold',
     },
     containerbutton: {
         backgroundColor: '#ff5a60',

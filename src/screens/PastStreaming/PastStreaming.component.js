@@ -92,7 +92,7 @@ export default class PastStreaming extends Component {
 
         <ImageBackground source={this.state.imag1} style={{ flex: 4.5 }}>
           <View style={{ flex: 2, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
-            <Text style={styles.cajaTrans}> </Text>
+            <View style={styles.cajaTrans}></View>
             <View style={{
               flexDirection: 'row', paddingVertical: hp('0.5%'),
               width: wp('20%')

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     right: wp('4%'),
     position: "absolute",
     borderRadius: hp('4%'),
-    paddingVertical: hp('1%'),
+    paddingVertical: hp('2%'),
     backgroundColor: 'black',
     width: wp('20%'),
     opacity: 0.7,

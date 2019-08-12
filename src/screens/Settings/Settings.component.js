@@ -147,7 +147,7 @@ export default class Settings extends Component {
                             Configure your experience
                            </Text>
                     </View>
-                    <View style={{ flex: 8, backgroundColor: 'pink' }}>
+                    <View style={{ flex: 8, }}>
                         <View style={{ flexDirection: 'row', marginTop: hp('1.5%') }}>
 
                             <View style={{ flex: 1.5, alignItems: 'flex-start', justifyContent: 'center' }}>
@@ -394,7 +394,7 @@ export default class Settings extends Component {
                 </View>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
-                    <Text style={{ color: '#ff5a60', fontSize: wp('3%') }}>
+                    <Text style={{ color: '#697181', fontSize: wp('3.5%') }}>
                         gotmy is owned and operated by Got My Idol, Inc</Text>
 
                 </View>

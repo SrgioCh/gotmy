@@ -85,9 +85,10 @@ export default class EditInfluencerCategories extends Component {
             }}>
                 <View style={{ flex: 1.5, marginHorizontal: '4%', justifyContent: 'center', }}>
                     <Text style={{
-                        color: 'black',
+                        color: '#312f3d',
                         fontSize: wp('5%'),
                         fontWeight: '500',
+                        marginBottom: hp('1%')
                     }}>Category content
                     </Text>
                     <Text style={styles.texto}>

@@ -6,8 +6,8 @@ import {
 
 const styles = StyleSheet.create({
     texto: {
-        color: 'black',
-        fontSize: wp('5%'),
+        color: 'grey',
+        fontSize: wp('4%'),
     },
     filas: {
         flex: 1,

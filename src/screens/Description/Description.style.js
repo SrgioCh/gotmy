@@ -6,12 +6,12 @@ import {
 
 const styles = StyleSheet.create({
     titulo: {
-        color: 'black',
+        color: '#312f3d',
         fontSize: wp('5%'),
         fontWeight: '500'
     },
     subtext: {
-        color: 'black',
+        color: '#312f3d',
         fontSize: wp('3.5%'),
     },
     contInput: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     textCheck: {
-        color: 'black',
+        color: '#312f3d',
         fontSize: wp('4%'),
     },
     icon: {

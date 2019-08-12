@@ -260,10 +260,12 @@ export default class PastStreaming extends Component {
                             </View>
 
                         </View>
+                        <View style={{ marginVertical: hp('1%') }}>
+                            <Text style={styles.subtext}>Live Event Date</Text>
+                        </View>
 
 
-
-                        <View style={{ marginVertical: hp('2%') }}>
+                        <View style={{ marginVertical: hp('1%') }}>
                             <View style={{ flex: 1, flexDirection: 'row', width: '100%', height: hp('5%'), borderRadius: hp('3%'), borderWidth: 1, borderColor: '#e2e7ee' }}>
 
 
@@ -286,8 +288,8 @@ export default class PastStreaming extends Component {
 
                         <View style={{ flex: 1, marginVertical: hp('2%'), flexDirection: 'row' }}>
                             <View style={{ flex: 4 }}>
-                                <View style={{ flex: 4, justifyContent: 'center' }}>
-                                    <Text style={{ fontSize: wp('3.5%'), color: 'grey', fontWeight: '500', marginLeft: '4%' }}>
+                                <View style={{ flex: 4, justifyContent: 'center', marginBottom: hp('2%') }}>
+                                    <Text style={{ fontSize: wp('3.5%'), color: '#312f3d', marginLeft: '4%' }}>
                                         Start time</Text>
                                 </View>
                                 <View style={{ flex: 6, justifyContent: 'center' }}>
@@ -350,8 +352,8 @@ export default class PastStreaming extends Component {
                             </View>
 
                             <View style={{ flex: 6, paddingLeft: '4%' }}>
-                                <View style={{ flex: 4, justifyContent: 'center' }}>
-                                    <Text style={{ fontSize: wp('3.5%'), color: 'grey', fontWeight: '500' }}>
+                                <View style={{ flex: 4, justifyContent: 'center', marginBottom: hp('2%') }}>
+                                    <Text style={{ fontSize: wp('3.5%'), color: '#312f3d' }}>
                                         End time</Text>
                                 </View>
                                 <View style={{ flex: 6, justifyContent: 'center' }}>

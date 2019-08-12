@@ -285,14 +285,14 @@ export default class MeetingProposal2 extends Component {
 
                         </View>
 
-                        <View style={styles.margin}>
+                        <View style={{ marginVertical: hp('1%') }}>
                             <Text style={styles.textGrey}>
                                 Live Event Data
                              </Text>
                         </View>
 
 
-                        <View style={{ marginVertical: hp('2%') }}>
+                        <View style={{ marginVertical: hp('1%') }}>
                             <View style={{ flex: 1, flexDirection: 'row', width: '100%', height: hp('5%'), borderRadius: hp('3%'), borderWidth: 1, borderColor: '#e2e7ee' }}>
 
 
@@ -315,7 +315,7 @@ export default class MeetingProposal2 extends Component {
 
                         <View style={{ flex: 1, marginVertical: hp('2%'), flexDirection: 'row' }}>
                             <View style={{ flex: 4 }}>
-                                <View style={{ flex: 4, justifyContent: 'center' }}>
+                                <View style={{ flex: 4, justifyContent: 'center', marginBottom: hp('2%') }}>
                                     <Text style={[styles.textGrey, { marginLeft: '4%' }]}>
                                         Start time</Text>
                                 </View>
@@ -379,7 +379,7 @@ export default class MeetingProposal2 extends Component {
                             </View>
 
                             <View style={{ flex: 6, paddingLeft: '4%' }}>
-                                <View style={{ flex: 4, justifyContent: 'center' }}>
+                                <View style={{ flex: 4, justifyContent: 'center', marginBottom: hp('2%') }}>
                                     <Text style={styles.textGrey}>
                                         End time</Text>
                                 </View>

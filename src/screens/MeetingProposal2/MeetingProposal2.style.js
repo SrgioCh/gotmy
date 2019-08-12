@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     textGrey: {
         fontSize: wp('3.5%'),
-        color: 'grey',
+        color: '#312f3d',
 
     },
     name: {

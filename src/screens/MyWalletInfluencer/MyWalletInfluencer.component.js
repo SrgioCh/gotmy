@@ -152,14 +152,14 @@ export default class MyWallet extends Component {
                     />
                 </View>
                 <View style={{ flex: 8, paddingHorizontal: '4%' }}>
-                    <View style={{ flex: 1, }}>
+                    <View style={{ flex: 1.8, backgroundColor: 'yellow' }}>
 
                         <Text style={{
                             fontSize: wp('10%'), color: '#312f3d', marginVertical: hp('1.5%'),
                             fontWeight: 'bold',
                         }}>My Balance</Text>
                     </View>
-                    <View style={{ flex: 3.5, justifyContent: 'center' }}>
+                    <View style={{ flex: 3, justifyContent: 'center' }}>
 
 
                         <TotalBalance
@@ -192,7 +192,7 @@ export default class MyWallet extends Component {
                             </View>
                         </View>
                     </View>
-                    <View style={{ flex: 4.5 }}>
+                    <View style={{ flex: 4.2 }}>
                         <View style={{ marginTop: hp('1.5%') }}>
                             <Block
                                 imag={this.state.imagOne}

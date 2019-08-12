@@ -7,6 +7,10 @@ import {
 } from 'react-native';
 
 import styles from "./TransactionsInflu.style"
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export default class TransactionsInflu extends Component {
     static navigationOptions = {
@@ -199,7 +203,7 @@ export default class TransactionsInflu extends Component {
                     <ScrollView >
 
                         <View style={{
-                            marginHorizontal: '3%', marginTop: '10%'
+                            marginHorizontal: '4%', marginVertical: hp('1.5%')
                         }}><Text style={styles.textoDatos2}>
                                 January,2019
                          </Text></View>
@@ -213,10 +217,10 @@ export default class TransactionsInflu extends Component {
                                     <View
                                         onTouchEnd={() => { this.props.navigation.navigate("transactionDetaInflu", { dinerillo: item.dinero }) }}
 
-                                        key={i} style={{ marginTop: 10 }}>
+                                        key={i} style={{ marginTop: hp('1%') }}>
                                         <View style={{
                                             display: i == 3 ? 'flex' : 'none',
-                                            marginHorizontal: '3%', marginTop: '10%'
+                                            marginHorizontal: '3%', marginVertical: hp('1.5%')
                                         }}><Text style={styles.textoDatos2}>
                                                 December,2018
                                               </Text></View>

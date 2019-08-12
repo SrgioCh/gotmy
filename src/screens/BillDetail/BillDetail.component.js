@@ -109,7 +109,7 @@ export default class BillDetail extends Component {
                                     My FIRST Godr of War experience !</Text>
                                 <Text style={{
                                     fontSize: wp('4%'),
-                                    fontWeight: 'bold', color: '#677183'
+                                    fontWeight: 'bold', color: '#ff5a60'
                                 }} >Games</Text>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Image source={require('../../../assets/icons_genGMI/ubicacion.png')}
