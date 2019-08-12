@@ -7,9 +7,9 @@ import {
 } from 'react-native';
 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import styles from "./TransferToMyAcountInflu.style"
 
-
-export default class TransferToMyAccount extends Component {
+export default class TransferToMyAccountInflu extends Component {
     static navigationOptions = {
         headerTitle: 'Inmediate Transfer',
         headerTitleStyle: {
@@ -38,16 +38,16 @@ export default class TransferToMyAccount extends Component {
 
         money: '',
         isCheckedA: false,
-        check: require('../../assets/icons_genGMI/checkNo.png'),
+        check: require('../../../assets/icons_genGMI/checkNo.png'),
         textBank: 'none',
 
         isCheckedB: false,
-        checkPay: require('../../assets/icons_genGMI/checkNo.png'),
+        checkPay: require('../../../assets/icons_genGMI/checkNo.png'),
         textPay: 'none',
 
 
         isCheckedC: false,
-        checkTermino: require('../../assets/icons_genGMI/boxwhite.png'),
+        checkTermino: require('../../../assets/icons_genGMI/boxwhite.png'),
 
     };
 
@@ -61,9 +61,9 @@ export default class TransferToMyAccount extends Component {
         if (this.state.money != '') {
             if (this.state.isCheckedA && this.state.isCheckedC) {
                 console.log('entro aqui en tarjeta')
-                this.props.navigation.navigate("transactionStripe", { money: this.state.money })
+                this.props.navigation.navigate("transacStripe", { money: this.state.money })
             } else if (this.state.isCheckedB && this.state.isCheckedC) {
-                this.props.navigation.navigate("transactionPaypal", { money: this.state.money })
+                this.props.navigation.navigate("transacPaypal", { money: this.state.money })
             } else {
                 alert('You must select a payment method and accept the conditions by checking the box')
             }
@@ -138,7 +138,7 @@ export default class TransferToMyAccount extends Component {
                             <View style={{ flexDirection: 'row' }}>
                                 <View style={{ flex: 1.5, }}>
                                     <Image
-                                        source={require('../../assets/icons_genGMI/mastercard.png')}
+                                        source={require('../../../assets/icons_genGMI/mastercard.png')}
                                         style={styles.icono}
                                     />
                                 </View>
@@ -163,7 +163,7 @@ export default class TransferToMyAccount extends Component {
                                         if (this.state.isCheckedA == true) {
                                             this.setState({
                                                 isCheckedA: false,
-                                                check: require('../../assets/icons_genGMI/checkNo.png'),
+                                                check: require('../../../assets/icons_genGMI/checkNo.png'),
                                                 textBank: 'none'
                                             })
 
@@ -172,8 +172,8 @@ export default class TransferToMyAccount extends Component {
                                             this.setState({
                                                 isCheckedA: true,
                                                 isCheckedB: false,
-                                                check: require('../../assets/icons_genGMI/check.png'),
-                                                checkPay: require('../../assets/icons_genGMI/checkNo.png'),
+                                                check: require('../../../assets/icons_genGMI/check.png'),
+                                                checkPay: require('../../../assets/icons_genGMI/checkNo.png'),
                                                 textBank: 'flex',
                                                 textPay: 'none'
                                             })
@@ -196,7 +196,7 @@ export default class TransferToMyAccount extends Component {
                             }}>
                                 <View style={{ flex: 1.5, }}>
                                     <Image
-                                        source={require('../../assets/icons_genGMI/paypal.png')}
+                                        source={require('../../../assets/icons_genGMI/paypal.png')}
                                         style={styles.icono}
                                     />
                                 </View>
@@ -221,7 +221,7 @@ export default class TransferToMyAccount extends Component {
                                         if (this.state.isCheckedB == true) {
                                             this.setState({
                                                 isCheckedB: false,
-                                                checkPay: require('../../assets/icons_genGMI/checkNo.png'),
+                                                checkPay: require('../../../assets/icons_genGMI/checkNo.png'),
                                                 textPay: 'none'
                                             })
 
@@ -230,8 +230,8 @@ export default class TransferToMyAccount extends Component {
                                             this.setState({
                                                 isCheckedB: true,
                                                 isCheckedA: false,
-                                                checkPay: require('../../assets/icons_genGMI/check.png'),
-                                                check: require('../../assets/icons_genGMI/checkNo.png'),
+                                                checkPay: require('../../../assets/icons_genGMI/check.png'),
+                                                check: require('../../../assets/icons_genGMI/checkNo.png'),
                                                 textPay: 'flex',
                                                 textBank: 'none'
                                             })
@@ -262,13 +262,13 @@ export default class TransferToMyAccount extends Component {
                                 if (this.state.isCheckedC == true) {
                                     this.setState({
                                         isCheckedC: false,
-                                        checkTermino: require('../../assets/icons_genGMI/boxwhite.png'),
+                                        checkTermino: require('../../../assets/icons_genGMI/boxwhite.png'),
 
                                     })
                                 } else {
                                     this.setState({
                                         isCheckedC: true,
-                                        checkTermino: require('../../assets/icons_genGMI/boxred.png'),
+                                        checkTermino: require('../../../assets/icons_genGMI/boxred.png'),
 
 
 
@@ -323,60 +323,3 @@ export default class TransferToMyAccount extends Component {
     }
 
 }
-
-
-const styles = StyleSheet.create({
-    textMoney: {
-        fontSize: wp('11%'),
-        color: '#312f3d',
-        fontWeight: 'bold'
-    },
-    textInform: {
-        color: '#312f3d',
-        fontSize: wp('3%')
-    },
-    contInput: {
-        height: '50%',
-        width: '55%',
-        borderRadius: hp('4%'),
-        borderColor: 'grey',
-        borderWidth: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    sub: {
-        color: '#312f3d',
-        fontSize: wp('4%'),
-        letterSpacing: 0.32,
-        fontWeight: 'bold'
-    },
-    subtext: {
-        color: '#312f3d',
-        fontSize: wp('3.5%'),
-        letterSpacing: 0.32,
-    },
-    button: {
-        backgroundColor: '#ff5a60',
-        width: '90%',
-        height: '50%',
-        borderRadius: hp('10%'),
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    borderBase1: {
-        flex: 1,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 0.5
-    },
-    borderBase7: {
-        flex: 7.5,
-        paddingBottom: 10,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 0.5
-    },
-    icono: {
-        width: 30,
-        height: 30,
-    }
-
-});

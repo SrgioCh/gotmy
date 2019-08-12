@@ -25,6 +25,8 @@ import AddParticip1 from "./screens/publishPrivate/AddParticip1" //Addparticypi1
 import CreateGroup from "./screens/publishPrivate/createGroup"
 import ChatGroup from "./screens/publishPrivate/chatGroup"
 
+
+
 import Activity1 from "./screens/Activity1"
 import Activity2 from "./screens/influencer/Activity2"
 
@@ -167,12 +169,9 @@ import Verification2 from "./screens/influencer/verification2"
 
 import MyWallet from "./screens/myWallet"
 import Transactions from "./screens/transactions"
-import TransferTomyAcount from "./screens/transferTomyAcount" //se ha eliminado esta vista
 import TransferDetail from "./screens/transferDetail"
 
-import TransferToMyAcount from "./screens/transferBalance/TransferToMyAccount"
-import TransactionStripe from "./screens/transferBalance/TransactionStripe"
-import TransactionPaypal from "./screens/transferBalance/TransactionPaypal"
+
 //Paginas Streaming
 
 import CoachViewer from "./screens/streaming/coachViewer"
@@ -192,7 +191,22 @@ import MeetingProposal2 from "./src/screens/MeetingProposal2"
 import MeetingProposal3 from "./src/screens/MeetingProposal3"
 import MeetingProposal5 from "./src/screens/MeetingProposal5"
 import MeetingProposalAcepted from "./src/screens/MeetingProposalAcepted"
-
+import ChatInfluencer from "./src/screens/ChatInfluencer"
+import MyWalletInfluencer from "./src/screens/MyWalletInfluencer"
+import TransactionsInflu from "./src/screens/TransactionsInflu"
+import TransactionDetaInflu from "./src/screens/TransactionDetaInflu"
+import BecomeInfluencerStep6 from "./src/screens/BecomeInfluencerStep6"
+import VerifyPhone from "./src/screens/VerifyPhone"
+import VerifyCode from "./src/screens/Verifycode"
+import VerificationStep3 from "./src/screens/VerificationStep3"
+import VerificationStep4 from "./src/screens/VerificationStep4"
+import Billing from "./src/screens/Billing"
+import BillDetail from "./src/screens/BillDetail"
+import Settings from "./src/screens/Settings"
+import EditInfluencerCategories from "./src/screens/EditInfluencerCategories"
+import TransferToMyAcountInflu from "./src/screens/TransferToMyAcountInflu"
+import TransacStripe from "./src/screens/TransacStripe"
+import TransacPaypal from "./src/screens/TransacPaypal"
 //creacion de los tabs
 
 const TabDiscover = createStackNavigator(
@@ -531,7 +545,20 @@ const stackMyInfluencerProfile = createStackNavigator({
   profile2: Profilemiinfluencer,
 })
 
+const stackMyWalletInfluencer = createStackNavigator({
+  myWalletInfluencer: MyWalletInfluencer,
 
+})
+
+const stackBilling = createStackNavigator({
+  billing: Billing,
+
+})
+
+const stackSettings = createStackNavigator({
+  settings: Settings,
+
+})
 
 
 const drawMenu2 = createDrawerNavigator(
@@ -542,6 +569,15 @@ const drawMenu2 = createDrawerNavigator(
     profile2: {
       screen: stackMyInfluencerProfile,
     },
+    myWalletInfluencer: {
+      screen: stackMyWalletInfluencer,
+    },
+    billing: {
+      screen: stackBilling,
+    },
+    settings: {
+      screen: stackSettings,
+    }
 
 
   }, {
@@ -615,7 +651,7 @@ const RootStack = createStackNavigator(
       screen: CreateAcount,
     },
     createInfluProf: {
-      screen: CreateInfluencerProfile,
+      screen: CreateInfluencerProfile, // seri el become4 en las nuevas vistas
     },
     addPayMet: {
       screen: AddPaymentMethod,
@@ -878,9 +914,7 @@ const RootStack = createStackNavigator(
     transactions: {
       screen: Transactions,
     },
-    transferTomyAcount: {
-      screen: TransferTomyAcount
-    },
+
     transferDetail: {
       screen: TransferDetail
     },
@@ -914,16 +948,7 @@ const RootStack = createStackNavigator(
     selectCategory: {
       screen: SelectCategory,
     },
-    ///Transfer Balance
-    transferToMyAcount: {
-      screen: TransferToMyAcount,
-    },
-    transactionStripe: {
-      screen: TransactionStripe,
-    },
-    transactionPaypal: {
-      screen: TransactionPaypal,
-    },
+
     pastStreaming: {
       screen: PastStreaming,
     },
@@ -948,9 +973,50 @@ const RootStack = createStackNavigator(
     meetingProposalAcepted: {
       screen: MeetingProposalAcepted,
     },
+    chatInfluencer: {
+      screen: ChatInfluencer,
+    },
+    transactionsInflu: {
+      screen: TransactionsInflu,
+    },
+    transactionDetaInflu: {
+      screen: TransactionDetaInflu,
+    },
+    becomeInfluencerStep6: {
+      screen: BecomeInfluencerStep6,
+    },
+    verifyPhone: {
+      screen: VerifyPhone,
+    },
+    verifyCode: {
+      screen: VerifyCode,
+    },
+    verificationStep3: {
+      screen: VerificationStep3,
+    },
+    verificationStep4: {
+      screen: VerificationStep4,
+    },
+    billDetail: {
+      screen: BillDetail,
+    },
+    editInfluencerCategories: {
+      screen: EditInfluencerCategories,
+    },
+    transferToMyAcountInflu: {
+      screen: TransferToMyAcountInflu,
+    },
+    transacStripe: {
+      screen: TransacStripe,
+    },
+    transacPaypal: {
+      screen: TransacPaypal,
+    },
   },
+
+
   {
-    initialRouteName: 'meetingProposal3',
+    initialRouteName: 'singUpInicio',
 
   }
 );

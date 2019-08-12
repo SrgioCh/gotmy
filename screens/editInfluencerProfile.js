@@ -318,7 +318,9 @@ export default class Editinfluencerprofile extends React.Component {
                 <Text style={{ color: "#312f3d", fontSize: 17 }}>My categories</Text>
               </View>
               <TouchableOpacity style={{ flexDirection: 'row' }}
-                onPress={() => this.props.navigation.navigate('becomeInfluencer7')}
+                onPress={
+                  () => this.props.navigation.navigate('editInfluencerCategories')
+                }
               >
 
                 <Text style={{ color: "#ff5a60", fontSize: 16 }}>Edit categories</Text>
@@ -414,7 +416,9 @@ export default class Editinfluencerprofile extends React.Component {
                 <Text style={{ color: "#312f3d", fontSize: 17 }}>Language</Text>
               </View>
               <TouchableOpacity style={{ flexDirection: 'row' }}
-                onPress={() => this.props.navigation.navigate('becomeInfluencer5')}
+                onPress={() => this.props.navigation.navigate('becomeInfluencer5')
+
+                }
               >
 
                 <Text style={{ color: "#ff5a60", fontSize: 16 }}>English, Spanish</Text>

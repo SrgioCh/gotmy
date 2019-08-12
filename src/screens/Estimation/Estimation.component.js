@@ -88,7 +88,7 @@ export default class PastStreaming extends Component {
 
     render() {
         return (
-            <View behavior="padding" style={{
+            <View style={{
                 flex: 1, marginHorizontal: '4%'
             }}>
 

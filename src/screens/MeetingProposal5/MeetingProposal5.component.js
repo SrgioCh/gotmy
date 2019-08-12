@@ -83,7 +83,7 @@ export default class MeetingProposal5 extends Component {
 
 
     componentDidMount() {
-
+        console.log('pasa por aqui')
     }
     toggleModal(visible) {
         this.setState({ modalVisible: visible });

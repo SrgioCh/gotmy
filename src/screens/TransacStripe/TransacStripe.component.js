@@ -11,9 +11,10 @@ import {
 }
     from 'react-native-responsive-screen';
 
-import Block from "./cmp/Block"
+import Block from "./components/Block"
+import styles from "./TransacStripe.style"
 
-export default class TransactionPaypal extends Component {
+export default class TransacStripe extends Component {
 
     static navigationOptions = {
         headerTitle: 'Transaction Detail',
@@ -64,21 +65,22 @@ export default class TransactionPaypal extends Component {
 
 
         return (
+
             <View style={{ flex: 1 }}>
                 <View style={{ flex: 3 }}>
                     <View style={{
-                        flex: 5,
+                        flex: 4,
                         justifyContent: 'flex-end',
                         alignItems: 'center'
                     }}>
                         <Image
-                            source={require('../../assets/mixto/paypal.png')}
+                            source={require('../../../assets/mixto/stripe.png')}
                             style={{
                             }}
                         />
                     </View>
                     <View style={{
-                        flex: 1,
+                        flex: 2,
                         alignItems: 'center',
                         justifyContent: 'center',
 
@@ -95,14 +97,14 @@ export default class TransactionPaypal extends Component {
 
                     <View style={styles.block}>
                         <Block
-                            imag={require('../../assets/icons_genGMI/transaccionB.png')}
+                            imag={require('../../../assets/icons_genGMI/transaccionB.png')}
                             textOne="Transaction ID"
                             textToo={768483732}
                         />
                     </View>
                     <View style={styles.block}>
                         <Block
-                            imag={require('../../assets/icons_genGMI/Time.png')}
+                            imag={require('../../../assets/icons_genGMI/Time.png')}
                             textOne="Transaction status"
                             textToo='Succes'
                         />
@@ -110,19 +112,19 @@ export default class TransactionPaypal extends Component {
 
                     <View style={styles.block}>
                         <Block
-                            imag={require('../../assets/icons_genGMI/CalendarGrey.png')}
+                            imag={require('../../../assets/icons_genGMI/CalendarGrey.png')}
                             textOne="Date"
                             textToo='12/01/2019 - 12:45 PM'
                         />
                     </View>
                     <View style={styles.block}>
                         <Block
-                            imag={require('../../assets/icons_genGMI/load.png')}
+                            imag={require('../../../assets/icons_genGMI/load.png')}
                             textOne="Full name"
                             textToo='gotmy'
                         />
                     </View>
-                    <Text>{' '}</Text>
+
                 </View>
 
                 <View style={{
@@ -131,7 +133,7 @@ export default class TransactionPaypal extends Component {
                     justifyContent: 'center'
                 }}>
                     <TouchableOpacity style={styles.button}
-                        onPress={() => this.submit()}
+
                     >
                         <Text style={styles.textButton}>
                             Download invoice</Text>
@@ -146,40 +148,3 @@ export default class TransactionPaypal extends Component {
     }
 
 }
-
-const styles = StyleSheet.create({
-
-    textInform: {
-        color: '#312f3d',
-        fontSize: wp('3%')
-    },
-    button: {
-        borderColor: '#ff5a60',
-        borderWidth: 1,
-        width: '90%',
-        height: '40%',
-        borderRadius: hp('10%'),
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    textMin: {
-        fontSize: wp('4%'),
-        color: '#312f3d',
-        fontWeight: 'bold'
-    },
-    textMax: {
-        fontSize: wp('10%'),
-        color: '#312f3d',
-        fontWeight: 'bold'
-    },
-    textButton: {
-        color: '#ff5a60',
-        fontSize: wp('4.5%'),
-        fontWeight: '500'
-    },
-    block: {
-        flex: 2.5,
-        justifyContent: 'flex-start',
-    }
-
-});
