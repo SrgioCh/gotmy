@@ -120,7 +120,9 @@ export default class PublishEven2 extends Component {
 
           <View style={{ marginHorizontal: 15, borderRadius: 27, borderWidth: 1, borderColor: '#e2e7ee' }}>
 
-            <View style={{ flexDirection: 'row', paddingVertical: 10, paddingLeft: 10 }}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("choose")}
+              style={{ flexDirection: 'row', paddingVertical: 10, paddingLeft: 10 }}>
               <Image
                 source={require('../../assets/icons_genGMI/calendarRojo.png')}
                 style={{
@@ -134,7 +136,7 @@ export default class PublishEven2 extends Component {
               <Text style={{
                 color: '#677183', fontSize: 16, letterSpacing: 0.32
               }}>Thuersday, 21 jan 2018</Text>
-            </View>
+            </TouchableOpacity>
 
           </View>
           {/*localizacion*/}

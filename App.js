@@ -183,10 +183,15 @@ import ModoInfluencer from "./screens/streaming/modoInfluencer"
 
 //ultimas vistas :
 
+
+
+
+
 import PastStreaming from "./src/screens/PastStreaming"
 import TypePrivateMeting from "./src/screens/TypePrivateMeting"
 import Description from "./src/screens/Description"
 import Estimation from "./src/screens/Estimation"
+import Choose from "./src/screens/ChooseDate"
 import MeetingProposal2 from "./src/screens/MeetingProposal2"
 import MeetingProposal3 from "./src/screens/MeetingProposal3"
 import MeetingProposal5 from "./src/screens/MeetingProposal5"
@@ -1012,11 +1017,14 @@ const RootStack = createStackNavigator(
     transacPaypal: {
       screen: TransacPaypal,
     },
+    choose: {
+      screen: Choose,
+    },
   },
 
 
   {
-    initialRouteName: 'editInfluencerCategories',
+    initialRouteName: 'singUpInicio',
 
   }
 );

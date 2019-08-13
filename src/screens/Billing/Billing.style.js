@@ -6,7 +6,8 @@ import {
 
 const styles = StyleSheet.create({
     textoDatos1: {
-        color: '#677183',
+        //#677183
+        color: 'grey',
         fontSize: wp('4%'),
 
     },

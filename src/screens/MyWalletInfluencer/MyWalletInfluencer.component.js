@@ -66,6 +66,10 @@ export default class MyWallet extends Component {
         console.log('pasa por aqui')
     }
 
+    abrirMenu() {
+        this.props.navigation.toggleDrawer()
+    }
+
 
     recogeDeHijo(dato) {
 
@@ -90,8 +94,8 @@ export default class MyWallet extends Component {
                     {/* ventana blanca del modal*/}
                     <View style={{
                         backgroundColor: 'white', borderRadius: 20,
-                        position: 'absolute', paddingHorizontal: '5%', width: '70%', height: '42%', left: '15%',
-                        top: '32%',
+                        position: 'absolute', paddingHorizontal: '5%', width: '70%', height: '48%', left: '15%',
+                        top: '26%',
                     }}>
                         <View style={{ alignItems: 'center', marginTop: 10 }}>
                             <View style={{ marginBottom: hp('2%') }}>
@@ -129,7 +133,7 @@ export default class MyWallet extends Component {
                                 >Download</Button>
 
                             </View>
-                            <View style={{ alignItems: 'center', marginTop: hp('1%') }}>
+                            <View style={{ alignItems: 'center', marginTop: hp('1%'), marginBottom: hp('2%') }}>
                                 <Text style={{
                                     color: '#ff5a60',
                                     fontSize: wp('3.5%')
@@ -143,7 +147,7 @@ export default class MyWallet extends Component {
                     <Cabezera
                         imagInflu={this.state.imagInflu}
                         influencer={this.state.influencer}
-
+                        enviaAPadreMenu={this.abrirMenu.bind(this)}
                         correoInflu={this.state.correoInflu}
                         imagMasco={this.state.imagMasco}
                         icono={this.state.icono}
@@ -152,7 +156,7 @@ export default class MyWallet extends Component {
                     />
                 </View>
                 <View style={{ flex: 8, paddingHorizontal: '4%' }}>
-                    <View style={{ flex: 1.8, backgroundColor: 'yellow' }}>
+                    <View style={{ flex: 1.8, }}>
 
                         <Text style={{
                             fontSize: wp('10%'), color: '#312f3d', marginVertical: hp('1.5%'),

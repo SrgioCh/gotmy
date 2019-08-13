@@ -89,7 +89,7 @@ export default class TransacStripe extends Component {
                     </View>
                     <View style={{ flex: 4, alignItems: 'center' }}>
                         <Text style={styles.textMax} >
-                            {this.state.money}
+                            $ {this.state.money}
                         </Text>
                     </View>
                 </View>

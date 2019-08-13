@@ -169,15 +169,23 @@ export default class VerifyCode extends Component {
                             <View
                                 onTouchEnd={() => this.numberPhone(2)}
                                 style={styles.but}>
-                                <Text style={styles.num}>2</Text>
-                                <Text style={styles.letras}>ABC</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>2</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>ABC</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={{ flex: 3.3, alignItems: 'center', justifyContent: 'center' }}>
                             <View onTouchEnd={() => this.numberPhone(3)}
                                 style={styles.but}>
-                                <Text style={styles.num}>3</Text>
-                                <Text style={styles.letras}>DEF</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>3</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>DEF</Text>
+                                </View>
                             </View>
                         </View>
                     </View>
@@ -186,24 +194,36 @@ export default class VerifyCode extends Component {
                             <View
                                 onTouchEnd={() => this.numberPhone(4)}
                                 style={styles.but}>
-                                <Text style={styles.num}>4</Text>
-                                <Text style={styles.letras}>GHI</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>4</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>GHI</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={{ flex: 3.3, alignItems: 'center', justifyContent: 'center' }}>
                             <View
                                 onTouchEnd={() => this.numberPhone(5)}
                                 style={styles.but}>
-                                <Text style={styles.num}>5</Text>
-                                <Text style={styles.letras}>JKL</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>5</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>JKL</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={{ flex: 3.3, alignItems: 'center', justifyContent: 'center' }}>
                             <View
                                 onTouchEnd={() => this.numberPhone(6)}
                                 style={styles.but}>
-                                <Text style={styles.num}>6</Text>
-                                <Text style={styles.letras}>MNO</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>6</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>MNO</Text>
+                                </View>
                             </View>
                         </View>
                     </View>
@@ -212,24 +232,36 @@ export default class VerifyCode extends Component {
                             <View
                                 onTouchEnd={() => this.numberPhone(7)}
                                 style={styles.but}>
-                                <Text style={styles.num}>7</Text>
-                                <Text style={styles.letras}>PQRS</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>7</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>PQRS</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={{ flex: 3.3, alignItems: 'center', justifyContent: 'center' }}>
                             <View
                                 onTouchEnd={() => this.numberPhone(8)}
                                 style={styles.but}>
-                                <Text style={styles.num}>8</Text>
-                                <Text style={styles.letras}>TUV</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>2</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>TUV</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={{ flex: 3.3, alignItems: 'center', justifyContent: 'center' }}>
                             <View
                                 onTouchEnd={() => this.numberPhone(9)}
                                 style={styles.but}>
-                                <Text style={styles.num}>9</Text>
-                                <Text style={styles.letras}>WXYZ</Text>
+                                <View style={{ flex: 6 }}>
+                                    <Text style={styles.num}>9</Text>
+                                </View>
+                                <View style={{ flex: 4 }}>
+                                    <Text style={styles.letras}>WXYZ</Text>
+                                </View>
                             </View>
                         </View>
                     </View>

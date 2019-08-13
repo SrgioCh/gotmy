@@ -16,31 +16,36 @@ import styles from './TypePivateMeting.style';
 
 export default class TypePrivateMeting extends Component {
 
-    static navigationOptions = {
-        headerTitle: 'Request Private Meeting',
-        headerTitleStyle: {
-            alignSelf: 'center',
-            textAlign: 'center',
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: 'Request Private Meeting',
+            headerTitleStyle: {
+                alignSelf: 'center',
+                textAlign: 'center',
 
-            width: '90%',
-            fontWeight: '500',
-            letterSpacing: 0.41,
+                width: '90%',
+                fontWeight: '500',
+                letterSpacing: 0.41,
 
-            fontSize: wp('4%'),
-            color: '#312f3d',
+                fontSize: wp('4%'),
+                color: '#312f3d',
 
-        },
-        headerRight: (
-            <View style={{
-                alignItems: 'center',
-                marginRight: wp('4%'),
+            },
+            headerRight: (
+                <TouchableOpacity onPress={() => navigation.navigate("profile1")}
 
-            }}>
-                <Text style={{ color: '#ff5a60' }}>cancel</Text>
+                    style={{
+                        alignItems: 'center',
+                        marginRight: wp('4%'),
 
-            </View>
-        ),
-        headerTintColor: '#ff5a60',
+                    }}>
+                    <Text style={{ color: '#ff5a60' }}>cancel</Text>
+
+                </TouchableOpacity>
+
+            ),
+            headerTintColor: '#ff5a60',
+        }
     };
 
     constructor(props) {

@@ -20,7 +20,7 @@ Cabezera = props => {
         <View style={{ flexDirection: 'row', paddingHorizontal: '4%' }}>
             <TouchableOpacity
                 style={{ flex: 1.5, alignItems: 'center', justifyContent: 'center' }}
-            // onPress={() => this.props.enviaAPadreMenu()} 
+                onPress={() => props.enviaAPadreMenu()}
             >
                 <Image source={props.imagInflu}
                     style={{
