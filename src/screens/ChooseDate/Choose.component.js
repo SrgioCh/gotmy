@@ -17,6 +17,7 @@ import {
 import styles from "./Choose.style"
 
 
+
 export default class Choose extends Component {
 
     static navigationOptions = ({ navigation }) => {
@@ -58,6 +59,7 @@ export default class Choose extends Component {
             selectedStartDate: null,
         };
         this.onDateChange = this.onDateChange.bind(this);
+        this.cad = '';
 
     }
 
@@ -76,7 +78,30 @@ export default class Choose extends Component {
     render() {
         //dentro de stardate  estara la seleccion de la fecha
         const { selectedStartDate } = this.state;
-        //   const startDate = selectedStartDate ? selectedStartDate.toString() : '';
+        const startDate = selectedStartDate ? selectedStartDate.toString() : '';
+
+        //por las  primeras 3 letras devueltas estableceremos la cadena de devolucion
+        switch (startDate.substring(0, 3)) {
+            case 'Sun': this.cad = 'Sunday,' + startDate.substring(3, startDate.length - 17)
+                break;
+            case 'Mon': this.cad = 'Monday,' + startDate.substring(3, startDate.length - 17)
+                break;
+            case 'Tue': this.cad = 'Tuesday,' + startDate.substring(3, startDate.length - 17)
+                break;
+            case 'Wed': this.cad = 'Wednesday,' + startDate.substring(3, startDate.length - 17)
+                break;
+            case 'Thu': this.cad = 'Thursday,' + startDate.substring(3, startDate.length - 17)
+                break;
+            case 'Fri': this.cad = 'Friday,' + startDate.substring(3, startDate.length - 17)
+                break;
+            case 'Sat': this.cad = 'Saturday,' + startDate.substring(3, startDate.length - 17)
+                break;
+
+            default:
+                break;
+        }
+
+        console.log(this.cad)
         return (
             <View behavior="padding" style={{
                 flex: 1, marginHorizontal: '4%'
@@ -92,7 +117,7 @@ export default class Choose extends Component {
 
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity style={styles.containerbutton}
-                        onPress={() => this.props.navigation.navigate("estimation")}
+                        onPress={() => this.props.navigation.push("publishEven2", { date: this.cad })}
 
                     >
                         <Text style={{ color: 'white', fontSize: wp('4.5%') }}>

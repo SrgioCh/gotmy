@@ -194,7 +194,7 @@ export default class PastStreaming extends Component {
                                             <View style={{ flex: 7, paddingBottom: 10, paddingTop: 5 }}>
                                                 <Text style={styles.textoDatos1}>{item.fecha}</Text>
                                                 <Text style={styles.textoDatos2}>{item.tipo}</Text>
-                                                <Text style={styles.textoDatos1}>{item.trans}</Text>
+                                                <Text style={styles.textoDatos3}>{item.trans}</Text>
                                             </View>
                                             <View style={{ flex: 3, alignItems: 'flex-end', justifyContent: 'center' }}>
                                                 <Text style={{

@@ -50,6 +50,7 @@ export default class PublishEven2 extends Component {
       switchOn2: false,
     }
 
+    this.fech = "Thuersday, 21 jan 2018"
   }// fin de consttructor
 
   onPress2 = () => {
@@ -92,9 +93,16 @@ export default class PublishEven2 extends Component {
       marBut = 20
     }
 
+    if (this.props.navigation.getParam("date") != undefined) {
+      const elDato = this.props.navigation.getParam("date");
+      console.log("- " + elDato);
+      this.fech = elDato;
+    }
 
 
     return (
+
+
 
       <View style={{ flex: 1 }}>
 
@@ -135,7 +143,7 @@ export default class PublishEven2 extends Component {
               />
               <Text style={{
                 color: '#677183', fontSize: 16, letterSpacing: 0.32
-              }}>Thuersday, 21 jan 2018</Text>
+              }}>{this.fech}</Text>
             </TouchableOpacity>
 
           </View>

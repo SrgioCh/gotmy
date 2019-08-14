@@ -286,7 +286,7 @@ export default class Profilemiinfluencer extends Component {
                <Text style={{
                   color: '#312f3d', fontSize: 16, letterSpacing: 0.32
                }}>Many people would say that it is absolute madness to keep on doing the same
-                   thing, time after time, expecting to get a different result or for something
+                            thing, time after time, expecting to get a different result or for something
          different to happen.</Text>
             </View>
 
@@ -325,7 +325,7 @@ export default class Profilemiinfluencer extends Component {
                         width: 17,
                         height: 17,
                         marginRight: 5,
-                        borderRadius: 10,
+                        borderRadius: 8.5,
 
                      }}
                   />
@@ -345,43 +345,19 @@ export default class Profilemiinfluencer extends Component {
                <View style={{ flexDirection: 'row', paddingVertical: 15 }}>
                   <Image
                      source={require('../assets/icons_genGMI/Social/Linkedin.png')}
-                     style={{
-                        width: 40,
-                        height: 40,
-                        marginRight: 15,
-                        borderRadius: 30,
-
-                     }}
+                     style={styles.redes}
                   />
                   <Image
                      source={require('../assets/icons_genGMI/Social/Twitch.png')}
-                     style={{
-                        width: 40,
-                        height: 40,
-                        marginRight: 15,
-                        borderRadius: 30,
-
-                     }}
+                     style={styles.redes}
                   />
                   <Image
                      source={require('../assets/icons_genGMI/Social/Twitter.png')}
-                     style={{
-                        width: 40,
-                        height: 40,
-                        marginRight: 15,
-                        borderRadius: 30,
-
-                     }}
+                     style={styles.redes}
                   />
                   <Image
                      source={require('../assets/icons_genGMI/Social/Youtube.png')}
-                     style={{
-                        width: 40,
-                        height: 40,
-                        marginRight: 15,
-                        borderRadius: 30,
-
-                     }}
+                     style={styles.redes}
                   />
 
                   <Image
@@ -390,7 +366,7 @@ export default class Profilemiinfluencer extends Component {
                         width: 50,
                         height: 50,
                         marginRight: 15,
-                        borderRadius: 30,
+                        borderRadius: 25,
                         marginTop: instaTop,
 
                      }}
@@ -494,7 +470,7 @@ export default class Profilemiinfluencer extends Component {
                <View style={{ flex: 1 }}>
 
                   <Image source={require('../assets/reviews/SoLindsey.png')}
-                     style={{ width: 50, height: 50, borderRadius: 10 }}
+                     style={{ width: 50, height: 50, borderRadius: 25 }}
                   />
 
 
@@ -601,7 +577,7 @@ const styles = StyleSheet.create({
    ImagInfluence: {
       width: 30,
       height: 30,
-      borderRadius: 30,
+      borderRadius: 15,
    },
 
    /*  ultima estrella */
@@ -626,5 +602,12 @@ const styles = StyleSheet.create({
       bottom: 6,
 
    },
+   redes: {
+      width: 40,
+      height: 40,
+      marginRight: 15,
+      borderRadius: 20,
+
+   }
 
 });

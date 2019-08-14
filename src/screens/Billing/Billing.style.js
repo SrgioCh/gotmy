@@ -15,7 +15,13 @@ const styles = StyleSheet.create({
         color: '#312f3d',
         fontSize: wp('4.5%'),
         fontWeight: '500',
+    },
+    textoDatos3: {
+        color: '#312f3d',
+        fontSize: wp('4%'),
+
     }
+
 
 });
 
